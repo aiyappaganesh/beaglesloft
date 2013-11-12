@@ -13,10 +13,8 @@
 /*$(document).ready(function() {
     $("#landing section").each(function() {
         var section_name = this.id;
-        console.log(section_name);
         var len = section_name.length;
         var page = section_name.substring(len-1,len);
-        console.log(page);
         $(this).css({ 'top': (page-1)*1000});
     });
 });*/
@@ -44,29 +42,51 @@ $(window).mousewheel(function(event, delta){
     newSection = null;
     if (currentSectionNumber < 10 && delta < 0){
         newSection = '#section'+(currentSectionNumber+1);
-        if(currentSectionNumber == 3 || currentSectionNumber == 4 || currentSectionNumber == 5) {
-            $(oldSection+'a').animate({top: "-700px"}, 2000).hide();
-            $(oldSection+'b').animate({top: "700px"}, 2000).hide();
+        if(currentSectionNumber == 3 || currentSectionNumber == 5) {
+            $(oldSection+'a').animate({top: "-700px"}, 2000);
+            $(oldSection+'b').animate({top: "700px"}, 2000);
+        } else if(currentSectionNumber == 4) {
+            $(oldSection+'a').animate({top: "700px"}, 2000);
+            $(oldSection+'b').animate({top: "-700px"}, 2000);
         }
-        $(oldSection).slideToggle();
+        if(currentSectionNumber+1 != 4 && currentSectionNumber+1 != 5) {
+            if(currentSectionNumber+1 == 6) {
+                $('#section'+3).slideToggle();
+            } else {
+                $(oldSection).slideToggle();
+            }
+        }
         if(currentSectionNumber+1 == 3 || currentSectionNumber+1 == 4 || currentSectionNumber+1 == 5) {
             $(newSection+'a').show().animate({top: "0px"}, 2000);
             $(newSection+'b').show().animate({top: "0px"}, 2000);
         }
-        $(newSection).slideToggle();
+        if(currentSectionNumber+1 != 4 && currentSectionNumber+1 != 5) {
+            $(newSection).slideToggle();
+        }
         currentSectionNumber = currentSectionNumber + 1;
     } else if (currentSectionNumber > 1 && delta > 0) {
         newSection = '#section'+(currentSectionNumber-1);
-        if(currentSectionNumber == 3 || currentSectionNumber == 4 || currentSectionNumber == 5) {
-            $(oldSection+'a').animate({top: "-700px"}, 2000).hide();
-            $(oldSection+'b').animate({top: "700px"}, 2000).hide();
+        if(currentSectionNumber == 3 || currentSectionNumber == 5) {
+            $(oldSection+'a').animate({top: "-700px"}, 2000);
+            $(oldSection+'b').animate({top: "700px"}, 2000);
+        } else if(currentSectionNumber == 4) {
+            $(oldSection+'a').animate({top: "700px"}, 2000);
+            $(oldSection+'b').animate({top: "-700px"}, 2000);
         }
-        $(oldSection).slideToggle();
+        if(currentSectionNumber-1 != 3 && currentSectionNumber-1 != 4) {
+            $(oldSection).slideToggle();
+        }
         if(currentSectionNumber-1 == 3 || currentSectionNumber-1 == 4 || currentSectionNumber-1 == 5) {
             $(newSection+'a').show().animate({top: "0px"}, 2000);
             $(newSection+'b').show().animate({top: "0px"}, 2000);
         }
-        $(newSection).slideToggle();
+        if(currentSectionNumber-1 != 3 && currentSectionNumber-1 != 4) {
+            if(currentSectionNumber == 6) {
+                $('#section'+3).slideToggle();
+            } else {
+                $(newSection).slideToggle();
+            }
+        }
         currentSectionNumber = currentSectionNumber - 1;
     }
 });

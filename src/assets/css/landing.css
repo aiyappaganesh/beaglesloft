@@ -20,14 +20,14 @@
 
 #section6 {
     background-image:url('/assets/img/landing/TerraceEntrance.jpg');
-}*/
+}
 
 #landing section {
     background-color:#cccccc;
     min-width: 1300px !important;
     max-width: 1300px !important;
     background-repeat:no-repeat;
-}
+}*/
 
 .landing-article-start {
     /*border-color:black;
