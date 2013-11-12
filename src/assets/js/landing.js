@@ -29,3 +29,55 @@ function smoothScrollTo(event, link) {
         preventDefault: true
     });
 }
+
+var currentSectionNumber = 1;
+var totalDelta = 0;
+$(window).mousewheel(function(event, delta){
+    event.preventDefault();
+    totalDelta = totalDelta + delta;
+    if(Math.abs(totalDelta) < 400) {
+        return;
+    } else {
+        totalDelta = 0;
+    }
+    oldSection = '#section'+currentSectionNumber;
+    newSection = null;
+    if (currentSectionNumber < 10 && delta < 0){
+        newSection = '#section'+(currentSectionNumber+1);
+        if(currentSectionNumber == 3 || currentSectionNumber == 4 || currentSectionNumber == 5) {
+            $(oldSection+'a').animate({top: "-700px"}, 2000).hide();
+            $(oldSection+'b').animate({top: "700px"}, 2000).hide();
+        }
+        $(oldSection).slideToggle();
+        if(currentSectionNumber+1 == 3 || currentSectionNumber+1 == 4 || currentSectionNumber+1 == 5) {
+            $(newSection+'a').show().animate({top: "0px"}, 2000);
+            $(newSection+'b').show().animate({top: "0px"}, 2000);
+        }
+        $(newSection).slideToggle();
+        currentSectionNumber = currentSectionNumber + 1;
+    } else if (currentSectionNumber > 1 && delta > 0) {
+        newSection = '#section'+(currentSectionNumber-1);
+        if(currentSectionNumber == 3 || currentSectionNumber == 4 || currentSectionNumber == 5) {
+            $(oldSection+'a').animate({top: "-700px"}, 2000).hide();
+            $(oldSection+'b').animate({top: "700px"}, 2000).hide();
+        }
+        $(oldSection).slideToggle();
+        if(currentSectionNumber-1 == 3 || currentSectionNumber-1 == 4 || currentSectionNumber-1 == 5) {
+            $(newSection+'a').show().animate({top: "0px"}, 2000);
+            $(newSection+'b').show().animate({top: "0px"}, 2000);
+        }
+        $(newSection).slideToggle();
+        currentSectionNumber = currentSectionNumber - 1;
+    }
+});
+
+$(document).ready(function() {
+    $(".nav-link").click( function(){
+        st_ind = this.href.indexOf('#');
+        sec_num = this.href.substring(st_ind+8);
+        if(sec_num == currentSectionNumber) return;
+        $('#section'+currentSectionNumber).slideToggle();
+        $(this.href.substring(st_ind)).slideToggle();
+        currentSectionNumber = sec_num;
+    });
+});

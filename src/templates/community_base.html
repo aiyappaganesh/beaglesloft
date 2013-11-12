@@ -7,43 +7,96 @@
     <!--<link href="/assets/css/common/normalize.css" type="text/css" rel="stylesheet">-->
     <link href="/assets/css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="/assets/css/common/haggle_base.css" type="text/css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Gudea:100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
     {% block Styles %}{% endblock %}
     <title>{% block Title %}Haggle - Your World. Your Bargain.{% endblock %}</title>
     <script src="/assets/js/common/config.js"></script>
 </head>
 <body data-spy="scroll" data-target=".landing-nav">
     <div class="wrap">
-        <nav class="landing-nav">
-            <ul class="nav navbar">
-                <li>
-                    <a href="/"><img src="/assets/img/Haggle_Logo_main.png"></a>
-                </li>
-                <li>
-                    <a href="#section1" onClick="return smoothScrollTo(event, '#section1')">Vision</a>
-                </li>
-                <li>
-                    <a href="#section2" onClick="return smoothScrollTo(event, '#section2')">Contact</a>
-                </li>
-                <li>
-                    <a href="#section3" onClick="return smoothScrollTo(event, '#section3')">Developer Community</a>
-                </li>
-                <li>
-                    <a href="#section4" onClick="return smoothScrollTo(event, '#section4')">Startup Community</a>
-                </li>
-                <li>
-                    <a href="#section5" onClick="return smoothScrollTo(event, '#section5')">Artist Community</a>
-                </li>
-                <li>
-                    <a href="#section6" onClick="return smoothScrollTo(event, '#section6')">Calendar</a>
-                </li>
-            </ul>
-        </nav>
+        <div id={% block Navbar_Type %}navbar-fluid{% endblock %} class="navbar navbar-fixed-top" style={% block Navbar_DisplayType %}{% endblock %}>
+            <div class="navbar-inner">
+                <div id="c820" class="container collapse-820">
+                    <div class="row-fluid">
+                        <div class="col-md-6">
+                            <ul class="nav pull-left">
+                                <li>
+                                    <a href="/" class="hover-enabled" style="padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;">
+                                        <img src="/assets/img/landing/beaglesloft.png">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="nav pull-right">
+                                <li><a href="/#section6" class="nav-link hover-enabled">ABOUT</a></li>
+                                <li><a href="/#section7" class="nav-link hover-enabled">PROGRAMS</a></li>
+                                <li><a href="/#section8" class="nav-link hover-enabled">PEOPLE</a></li>
+                                <li><a href="/#section9" class="nav-link hover-enabled">BUZZ</a></li>
+                                <li><a href="/#section10" class="nav-link hover-enabled">CONTACT</a></li>
+                                <li><a href="/" class="hover-enabled">BLOG</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="s820" class="container show-820" style="display:none">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="nav">
+                                <li class="dropdown">
+                                    <a style="padding:0px" href="#" data-toggle="dropdown">
+                                        <img src="/assets/img/Haggle_Mobile_navbar_menu_icon.png" alt="Menu Icon" height="20"/>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="/#section6" class="nav-link">
+                                                <div style="text-align:center">ABOUT</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/#section7" class="nav-link">
+                                                <div style="text-align:center">PROGRAMS</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/#section8" class="nav-link">
+                                                <div style="text-align:center">PEOPLE</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/#section9" class="nav-link">
+                                                <div style="text-align:center">BUZZ</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/#section10" class="nav-link">
+                                                <div style="text-align:center">CONTACT</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/">
+                                                <div style="text-align:center">BLOG</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="haggle-logo-small">
+                                    <a style="padding:0px;margin-left:75px" id="vendor-header-link" class="brand" href="/"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="content-page">
             {% block Content %}{% endblock %}
         </div>
         <script src="/assets/js/lib/jquery.min.js"></script>
         <script src="/assets/js/lib/bootstrap.min.js"></script>
+        <script src="/assets/js/lib/jquery.mousewheel.js"></script>
         {% block Scripts %}{% endblock %}
     </div>
 </body>

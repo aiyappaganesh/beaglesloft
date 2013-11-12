@@ -1,4 +1,4 @@
-#section1 {
+/*#section1 {
     background-image:url('/assets/img/landing/Entrance.jpg');
 }
 
@@ -20,11 +20,10 @@
 
 #section6 {
     background-image:url('/assets/img/landing/TerraceEntrance.jpg');
-}
+}*/
 
 #landing section {
     background-color:#cccccc;
-    min-height: 1000px !important;
     min-width: 1300px !important;
     max-width: 1300px !important;
     background-repeat:no-repeat;
@@ -74,4 +73,53 @@
     border-bottom-right-radius:100px;
     padding-top: 20px;
     color: #ffffff;
+}
+
+.section1_heading {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+}
+
+.section_text {
+    font-family: 'Gudea', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #8C8C86;
+    line-height: 26px;
+}
+
+.section2_text {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    color: #7A7D7F;
+}
+
+.section3_heading {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.section6_left_text {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.section6_right_heading {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    color: #000000;
+}
+
+.section6_right_text {
+    font-family: 'Gudea', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #676465;
 }
