@@ -10,11 +10,17 @@ function smoothScrollTo(event, link) {
 var currentSectionNumber = 1;
 var totalDelta = 0;
 var acceptScroll = true;
+var startTime = null;
 $(window).mousewheel(function(event, delta){
     event.preventDefault();
+    if(startTime) {
+        if(($.now() - startTime) < 1500) {
+            return;
+        }
+    }
     if(acceptScroll) {
         totalDelta = totalDelta + delta;
-        if(Math.abs(totalDelta) < 500) {
+        if(Math.abs(totalDelta) < 50) {
             return;
         } else {
             acceptScroll = false;
@@ -50,6 +56,7 @@ $(window).mousewheel(function(event, delta){
         }
         totalDelta = 0;
         acceptScroll = true;
+        startTime = $.now();
     }
 });
 
@@ -67,11 +74,11 @@ $(document).ready(function() {
 function hideOldOnScrollDown(currentSectionNumber) {
     windowHeight = $(window).height();
     if(currentSectionNumber == 3 || currentSectionNumber == 5) {
-        $(oldSection+'a').animate({top: -1*windowHeight}, 2000);
-        $(oldSection+'b').animate({top: windowHeight}, 2000);
+        $(oldSection+'a').animate({top: -1*windowHeight}, 2000, function(){$(oldSection+'a').hide();});
+        $(oldSection+'b').animate({top: windowHeight}, 2000, function(){$(oldSection+'b').hide();});
     } else if(currentSectionNumber == 4) {
-        $(oldSection+'a').animate({top: windowHeight}, 2000);
-        $(oldSection+'b').animate({top: -1*windowHeight}, 2000);
+        $(oldSection+'a').animate({top: windowHeight}, 2000, function(){$(oldSection+'a').hide();});
+        $(oldSection+'b').animate({top: -1*windowHeight}, 2000, function(){$(oldSection+'b').hide();});
     }
     if(currentSectionNumber+1 != 4 && currentSectionNumber+1 != 5) {
         if(currentSectionNumber+1 == 6) {
@@ -85,11 +92,11 @@ function hideOldOnScrollDown(currentSectionNumber) {
 function hideOldOnScrollUp(currentSectionNumber) {
     windowHeight = $(window).height();
     if(currentSectionNumber == 3 || currentSectionNumber == 5) {
-        $(oldSection+'a').animate({top: -1*windowHeight}, 2000);
-        $(oldSection+'b').animate({top: windowHeight}, 2000);
+        $(oldSection+'a').animate({top: -1*windowHeight}, 2000, function(){$(oldSection+'a').hide();});
+        $(oldSection+'b').animate({top: windowHeight}, 2000, function(){$(oldSection+'b').hide();});
     } else if(currentSectionNumber == 4) {
-        $(oldSection+'a').animate({top: windowHeight}, 2000);
-        $(oldSection+'b').animate({top: -1*windowHeight}, 2000);
+        $(oldSection+'a').animate({top: windowHeight}, 2000, function(){$(oldSection+'a').hide();});
+        $(oldSection+'b').animate({top: -1*windowHeight}, 2000, function(){$(oldSection+'b').hide();});
     }
     if(currentSectionNumber-1 != 3 && currentSectionNumber-1 != 4) {
         $(oldSection).slideToggle();
@@ -103,11 +110,12 @@ $(document).ready(function() {
 function resizeWindow() {
     windowHeight = $(window).height();
     windowWidth = $(window).width();
+    $("#landing").height(windowHeight);
     $(".quarter-height").height(windowHeight*0.25);
     $(".half-height").height(windowHeight*0.5);
     $(".three-quarter-height").height(windowHeight*0.75);
     $(".full-height").height(windowHeight);
-    $(".section6a-top").height(windowHeight*0.214);
+    $(".section6a-top").height(windowHeight*0.3);
     $(".section6a-bottom").height(windowHeight*0.285);
     $(".section6b-top").height(windowHeight*0.143);
     $(".section6b-bottom").height(windowHeight*0.357);

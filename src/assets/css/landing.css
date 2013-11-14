@@ -29,20 +29,22 @@
 .section6_left_text {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size: 22px;
-    color: #ffffff;
+    font-size: 24px;
+    color: #53625F;
 }
 
 .section6_right_heading {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size: 22px;
-    color: #000000;
+    font-size: 24px;
+    color: #ffffff;
+    text-align:center
 }
 
 .section6_right_text {
     font-family: 'Gudea', sans-serif;
     font-weight: 500;
-    font-size: 13px;
-    color: #676465;
+    font-size: 15px;
+    color: #e5edec;
+    text-align:center
 }
