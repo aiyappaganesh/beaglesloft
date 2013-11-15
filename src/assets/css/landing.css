@@ -38,7 +38,7 @@
     font-weight: 300;
     font-size: 24px;
     color: #ffffff;
-    text-align:center
+    text-align:center;
 }
 
 .section6_right_text {
@@ -46,5 +46,43 @@
     font-weight: 500;
     font-size: 15px;
     color: #e5edec;
-    text-align:center
+    text-align:center;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #999;
+}
+
+.program-time {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #72624f;
+    text-align:left;
+}
+
+.program-heading {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    color: #cc4445;
+    text-align:left;
+}
+
+.program-desc {
+    font-family: 'Gudea', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #53493a;
+    text-align:left;
+}
+
+.people-picture {
+    height:47%;
+    border:black solid;
+    margin:5px;
+}
+
+.people-picture:hover, .people-picture:active {
+    border: yellow solid;
 }
