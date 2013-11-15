@@ -98,7 +98,7 @@ function hideOldOnScrollDown(currentSectionNumber) {
             $('#section'+3).fadeToggle();
         } else {
             if(currentSectionNumber > 5) {
-                $(oldSection).fadeToggle('fast');
+                $(oldSection).fadeToggle();
             } else {
                 $(oldSection).slideToggle();
             }
