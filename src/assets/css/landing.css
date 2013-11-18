@@ -39,6 +39,7 @@
     font-size: 24px;
     color: #ffffff;
     text-align:center;
+    text-shadow:1px 1px 1px #000000;
 }
 
 .section6_right_text {
@@ -47,6 +48,7 @@
     font-size: 15px;
     color: #e5edec;
     text-align:center;
+    text-shadow:1px 1px 1px #000000;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
@@ -81,8 +83,22 @@
     height:47%;
     border:black solid;
     margin:5px;
+    background: url('/assets/img/landing/rajiv.png') no-repeat center;
+    background-size: 100% 100%;
 }
 
 .people-picture:hover, .people-picture:active {
     border: yellow solid;
+}
+
+.program-middle {
+    position: relative;
+}
+
+.people-modal {
+    overflow: auto;
+    max-height: 50%;
+    max-width: 50%;
+    top: 20%;
+    left: 25%;
 }
