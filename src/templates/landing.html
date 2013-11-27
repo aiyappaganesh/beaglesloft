@@ -315,140 +315,218 @@
     <section id="section8" style="display:none;background: url('/assets/img/landing/pattern-people.png') repeat">
         <div class="full-height" style="width:100%;">
             <div class="col-md-2">
+                <input type="hidden" name="member_keys" id="member_keys"
+									value="{% for key, value in member_keys.items %}{{key}}{% if forloop.counter != member_keys|length %},{% endif %}{% endfor %}">
             </div>
             <div class="col-md-8">
                 <div class="row one-sixth-height"></div>
                 <div class="row three-quarter-height" style="background: url('/assets/img/landing/border-people.png') no-repeat left top;background-size: 100% 100%">
-                    <div class="row program-top"></div>
-                    <div class="program-middle">
-                        <div id="people-carousel" style="width:100%;height:100%" class="carousel slide">
-                            <div class="carousel-inner" style="height:100%">
-                                <div class="item active" style="text-align:center;height:100%">
-                                    <div class="row" style="height:100%">
-                                        <div class="col-md-1" style="height:100%">
+                    <div id="people-grid">
+                        <div class="row program-top"></div>
+                        <div class="program-middle">
+                            <div id="people-carousel" style="width:100%;height:100%" class="carousel slide">
+                                <div class="carousel-inner" style="height:100%">
+                                    <div class="item active" style="text-align:center;height:100%">
+                                        <div class="row" style="height:100%">
+                                            <div class="col-md-1" style="height:100%">
+                                            </div>
+                                            {% for key, value in member_keys.items %}
+                                                <div class="col-md-2" style="height:100%">
+                                                    <div class="people-picture" style="background: url('https://graph.facebook.com/{{value}}/picture?type=normal') no-repeat center;" onclick="showMemberInfo($(this).parent().find('input').val())"></div>
+                                                    <input type="hidden" value="{{key}}">
+                                                </div>
+                                            {% endfor %}
+                                            <!--<div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>-->
+                                            <div class="col-md-1" style="height:100%">
+                                            </div>
                                         </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                    </div>
+                                    <div class="item" style="text-align:center;height:100%">
+                                        <div class="row" style="height:100%">
+                                            <div class="col-md-1" style="height:100%">
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-1" style="height:100%">
+                                            </div>
                                         </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                        </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                        </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                        </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                        </div>
-                                        <div class="col-md-1" style="height:100%">
+                                    </div>
+                                    <div class="item" style="text-align:center;height:100%">
+                                        <div class="row" style="height:100%">
+                                            <div class="col-md-1" style="height:100%">
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-2" style="height:100%">
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                            </div>
+                                            <div class="col-md-1" style="height:100%">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item" style="text-align:center;height:100%">
-                                    <div class="row" style="height:100%">
-                                        <div class="col-md-1" style="height:100%">
+                                <a class="left carousel-control" href="#people-carousel" data-slide="prev" style="background-image:none">
+                                    <span style="position: absolute;top: 42%;z-index: 5;display: inline-block;left: 5%;"><img src="/assets/img/landing/people-left-arrow.png"></span>
+                                </a>
+                                <a class="right carousel-control" href="#people-carousel" data-slide="next" style="background-image:none">
+                                    <span style="position: absolute;top: 42%;z-index: 5;display: inline-block;right: 5%;"><img src="/assets/img/landing/people-right-arrow.png"></span>
+                                </a>
+                                <ol class="carousel-indicators">
+                                    <li data-target="#people-carousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#people-carousel" data-slide-to="1"></li>
+                                    <li data-target="#people-carousel" data-slide-to="2"></li>
+                                </ol>
+                            </div>
+                            <div id="people-description" class="people-modal modal fade">
+                                <div class="haggle-modal-dialog-header modal-header" style="background: url('/assets/img/landing/pattern-people.png') repeat;text-align:center">
+                                    <label class="haggle-modal-dialog-header">
+                                        DETAILS
+                                    </label>
+                                    <a class="pull-right close" onClick="clearHideVendorUserChartModal()" data-dismiss="modal" href="#user_standing">&times;</a>
+                                </div>
+                                <div class="haggle-modal-dialog-body haggle-gray-bg modal-body">
+                                    <div class="row-fluid">
+                                        <div class="span6" id="people-description-influence" style="min-height:100%;">
+                                            2000 Facebook Friends, 1500 Twitter Followers
                                         </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                        <div class="span6" id="people-description-history" style="min-height:100%;">
+                                            Part of 30 high-profile social circles
                                         </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
+                                        <div class="span6" id="people-description-interest" style="min-height:100%;">
+                                            Participated in 30 Beagles Loft events
                                         </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                        </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                        </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                        </div>
-                                        <div class="col-md-1" style="height:100%">
+                                        <div class="span6" id="people-description-bio" style="min-height:100%;">
+                                            Works with Haggle as The CEO
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item" style="text-align:center;height:100%">
-                                    <div class="row" style="height:100%">
-                                        <div class="col-md-1" style="height:100%">
-                                        </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                        </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                        </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                        </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                        </div>
-                                        <div class="col-md-2" style="height:100%">
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                        </div>
-                                        <div class="col-md-1" style="height:100%">
-                                        </div>
-                                    </div>
+                                <div class="haggle-modal-dialog-body modal-footer" style="background: url('/assets/img/landing/pattern-people.png') repeat;text-align:center;margin-top:0px">
+                                    <strong>RAJIV SALIMATH</strong>
                                 </div>
                             </div>
-                            <a class="left carousel-control" href="#people-carousel" data-slide="prev" style="background-image:none">
-                                <span style="position: absolute;top: 42%;z-index: 5;display: inline-block;left: 5%;"><img src="/assets/img/landing/people-left-arrow.png"></span>
-                            </a>
-                            <a class="right carousel-control" href="#people-carousel" data-slide="next" style="background-image:none">
-                                <span style="position: absolute;top: 42%;z-index: 5;display: inline-block;right: 5%;"><img src="/assets/img/landing/people-right-arrow.png"></span>
-                            </a>
-                            <ol class="carousel-indicators">
-                                <li data-target="#people-carousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#people-carousel" data-slide-to="1"></li>
-                                <li data-target="#people-carousel" data-slide-to="2"></li>
-                            </ol>
                         </div>
-                        <div id="people-description" class="people-modal modal fade">
-                            <div class="haggle-modal-dialog-header modal-header" style="background: url('/assets/img/landing/pattern-people.png') repeat;text-align:center">
-                                <label class="haggle-modal-dialog-header">
-                                    DETAILS
-                                </label>
-                                <a class="pull-right close" onClick="clearHideVendorUserChartModal()" data-dismiss="modal" href="#user_standing">&times;</a>
-                            </div>
-                            <div class="haggle-modal-dialog-body haggle-gray-bg modal-body">
-                                <div class="row-fluid">
-                                    <div class="span6" id="people-description-influence" style="min-height:100%;">
-                                        2000 Facebook Friends, 1500 Twitter Followers
-                                    </div>
-                                    <div class="span6" id="people-description-history" style="min-height:100%;">
-                                        Part of 30 high-profile social circles
-                                    </div>
-                                    <div class="span6" id="people-description-interest" style="min-height:100%;">
-                                        Participated in 30 Beagles Loft events
-                                    </div>
-                                    <div class="span6" id="people-description-bio" style="min-height:100%;">
-                                        Works with Haggle as The CEO
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="haggle-modal-dialog-body modal-footer" style="background: url('/assets/img/landing/pattern-people.png') repeat;text-align:center;margin-top:0px">
-                                <strong>RAJIV SALIMATH</strong>
-                            </div>
-                        </div>
+                        <div class="row program-bottom"></div>
                     </div>
-                    <div class="row program-bottom"></div>
+                    <div id="people-detail" style="max-height:100%;display:none">
+                        <div class="people-detail-1" style="text-align:center">
+                            <div class="people-detail-1-top"></div>
+                            <div class="people-detail-1-bottom">
+                                <button style="height:30px;width:108px;font-size:12px;background-color:#cd4445;border:none" onclick="showMemberGrid()">BACK TO GRID</button>
+                            </div>
+                        </div>
+                        <div class="people-detail-2">
+                            <div class="col-md-1" style="height:100%"></div>
+                            <div class="col-md-4" style="height:100%">
+                                <div class="people-designation" style="height:25%"><p id="designation">FOUNDER, HAGGLE</p></div>
+                                <div class="people-name" style="height:75%"><p id="name">RAJIV SALIMATH</p></div>
+                            </div>
+                            <div class="col-md-6" style="height:100%">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4 people-website"><p id="website">gethaggle.com</p></div>
+                                <div class="col-md-4 people-twitter-handle"><p id="twitter_handle">@gethaggle</p></div>
+                            </div>
+                            <div class="col-md-1" style="height:100%"></div>
+                        </div>
+                        <div class="people-detail-3">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-4">
+                                <img id="picture" style="max-height:100%;max-width:100%" src="https://graph.facebook.com/rajiv.salimath/picture?width=300&height=300">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="people-desc row">
+                                    <div class="col-md-12">
+                                        <p id="bio">This is about who this person is and what the person is upto. You can get details about what the person does, what his qualifications are and what are the person's unique abilities.</p>
+                                    </div>
+                                </div>
+                                <div class="people-desc-gap"></div>
+                                <div class="people-scores">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="people-score-name">INFLUENCE</div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="people-score-value progress" style="vertical-align:middle">
+                                                <div class="progress-bar" id="influence" style="width: 80%;height:100%">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="people-score-name">ACTIVITY</div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="people-score-value progress">
+                                                <div class="progress-bar" id="activity" style="width: 75%;height:100%">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="people-score-name">PROFICIENCY</div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="people-score-value progress">
+                                                <div class="progress-bar" id="proficiency" style="width: 90%;height:100%">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="people-detail-4"></div>
+                    </div>
                 </div>
                 <div class="row one-twelfth-height"></div>
             </div>
@@ -546,9 +624,9 @@
                         </div>
                         <div class="col-md-1"></div>
                         <div class="col-md-5" style="height:100%">
-                            <p><input style="width:90%;background-color:transparent;border: black solid;" id="name" type="text" placeholder="Name"></p>
-                            <p><input style="width:90%;background-color:transparent;border: black solid;" id="email" type="text" placeholder="Email Address"></p>
-                            <p style="min-height:50%"><textarea style="width:90%;background-color:transparent;border: black solid;" id="message" placeholder="Your Message"></textarea></p>
+                            <p><input style="width:90%;background-color:transparent;border: black solid;" id="contact-name" type="text" placeholder="Name"></p>
+                            <p><input style="width:90%;background-color:transparent;border: black solid;" id="contact-email" type="text" placeholder="Email Address"></p>
+                            <p style="min-height:50%"><textarea style="width:90%;background-color:transparent;border: black solid;" id="contact-message" placeholder="Your Message"></textarea></p>
                         </div>
                     </div>
                     <div class="contact-bottom" style="text-align:center">

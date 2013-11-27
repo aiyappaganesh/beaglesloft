@@ -10,11 +10,24 @@ builtins:
 - appstats: on
 
 handlers:
+
+- url: /api/members/.*
+  script: handlers.rest.members.app
+  secure: always
+
 - url: /
   script: handlers.web.index.app
   secure: always
 
 - url: /testspy
+  script: handlers.web.index.app
+  secure: always
+
+- url: /calendar
+  script: handlers.web.index.app
+  secure: always
+
+- url: /member_registration
   script: handlers.web.index.app
   secure: always
 

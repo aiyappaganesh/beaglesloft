@@ -1,0 +1,30 @@
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div id="calendar">
+    <div class="row" style="height:100px"></div>
+    <div class="row" style="height:50px">
+        <div class="col-md-2"></div>
+        <div class="col-md-10 calendar-text">
+            To schedule an event write to us at <a href="mailto:events@b-eagles.com?subject=Event Schedule Request">events@b-eagles.com</a>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <iframe src="https://www.google.com/calendar/embed?title=Loft%20Calendar&amp;height=600&amp;wkst=1&amp;bgcolor=%23F9F9ED&amp;src=aiyappaganesh%40gmail.com&amp;color=%232952A3&amp;src=jlukn02bi4tqu4h4iks078sgig%40group.calendar.google.com&amp;color=%238D6F47&amp;src=6vc66n485b1n935hqgbc8hm8us%40group.calendar.google.com&amp;color=%232F6309&amp;ctz=Asia%2FCalcutta" style=" border-width:0;font-family: 'Oswald', sans-serif" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block Scripts %}
+<script src="/assets/js/lib/stellar.js"></script>
+<script src="/assets/js/lib/jquery.smooth-scroll.min.js"></script>
+{% endblock %}

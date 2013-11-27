@@ -102,3 +102,74 @@
     top: 20%;
     left: 25%;
 }
+
+.progress {
+    height: 18px;
+    background-color: rgba(0,0,0,0.15);
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    background-color: rgba(0,0,0,0.5);
+    margin-bottom: 5px;
+}
+
+.people-designation {
+    font-family: 'Gudea', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #e4b5b4;
+    text-align:left;
+}
+
+.people-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    color: #ffffff;
+    text-align:left;
+}
+
+.people-website {
+    font-family: 'Gudea', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #e4b5b4;
+    text-align:left;
+    float: right;
+}
+
+.people-twitter-handle {
+    font-family: 'Gudea', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #e4b5b4;
+    text-align:left;
+    float: right;
+}
+
+.people-desc {
+    font-family: 'Gudea', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #ffffff;
+    text-align:left;
+}
+
+.people-score-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 23px;
+    color: #ffffff;
+    text-align:left;
+}
+
+.calendar-text {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 19px;
+    color: #000000;
+    text-align:left;
+}
+
+button:focus {outline:none;}

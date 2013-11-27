@@ -41,7 +41,7 @@ $(window).mousewheel(function(event, delta){
                     $(newSection).slideToggle();
                 }
                 if(newSectionNumber != 3 && newSectionNumber != 6) {
-                    highlightLink(newSection);
+                    highlightSection(newSection);
                 }
             }
             hideOldOnScrollDown(currentSectionNumber);
@@ -64,9 +64,9 @@ $(window).mousewheel(function(event, delta){
                     }
                 }
                 if(newSectionNumber == 6) {
-                    highlightLink('#section'+2);
+                    highlightSection('#section'+2);
                 } else if(newSectionNumber != 5 && newSectionNumber != 4 &&  newSectionNumber != 3) {
-                    highlightLink(newSection);
+                    highlightSection(newSection);
                 }
             }
             hideOldOnScrollUp(currentSectionNumber);
@@ -76,19 +76,6 @@ $(window).mousewheel(function(event, delta){
         acceptScroll = true;
         startTime = $.now();
     }
-});
-
-$(document).ready(function() {
-    $(".nav-link").click( function(){
-        $(".nav-link").each(function(){this.style.textDecoration="none"});
-        this.style.textDecoration="overline";
-        st_ind = this.href.indexOf('#');
-        sec_num = parseInt(this.href.substring(st_ind+8));
-        if(sec_num == currentSectionNumber) return;
-        $('#section'+currentSectionNumber).slideToggle();
-        $(this.href.substring(st_ind)).slideToggle();
-        currentSectionNumber = sec_num;
-    });
 });
 
 function hideOldOnScrollDown(currentSectionNumber) {
@@ -133,7 +120,7 @@ function hideOldOnScrollUp(currentSectionNumber) {
     }
 }
 
-function highlightLink(section) {
+function highlightSection(section) {
     $(".nav-link").each(function(){
         st_ind = this.href.indexOf('#');
         if(this.href.substring(st_ind) == section) {
@@ -175,10 +162,65 @@ function resizeWindow() {
     $(".people-top").height(windowHeight*0.1575);
     $(".people-middle").height(windowHeight*0.515);
     $(".people-bottom").height(windowHeight*0.0775);
+    $(".people-detail-1").height(windowHeight*0.14375);
+    $(".people-detail-1-top").height(windowHeight*0.030975);
+    $(".people-detail-1-bottom").height(windowHeight*0.071875);
+    $(".people-detail-2").height(windowHeight*0.1);
+    $(".people-detail-3").height(windowHeight*0.4125);
+    $(".people-detail-4").height(windowHeight*0.09375);
     $(".contact-top").height(windowHeight*0.1875);
     $(".contact-middle").height(windowHeight*0.375);
     $(".contact-bottom").height(windowHeight*0.1875);
     $(".all-the-way-up").css('top',-1*windowHeight);
     $(".all-the-way-down").css('top',windowHeight);
     $(".half-way-across").css('left',windowWidth/2);
+}
+
+function showMemberInfo(key) {
+    $('#people-grid').fadeOut(10);
+    $.post('/api/members/get_member',{email:key}).done(function(data){
+        var desig_text = '';
+        if(data.designation) {
+            desig_text = data.designation;
+        }
+        if(desig_text != '') {
+            desig_text = desig_text + ', ';
+        }
+        if(data.organization) {
+            desig_text = desig_text + data.organization;
+        }
+        if(desig_text != '') {
+            $('#designation').text(desig_text);
+        }
+        if(data.name) {
+            $('#name').text(data.name);
+        }
+        if(data.website) {
+            $('#website').text(data.website);
+        }
+        if(data.twitter_handle) {
+            $('#twitter_handle').text(data.twitter_handle);
+        }
+        if(data.facebook_id) {
+            $('#picture').attr('src','https://graph.facebook.com/'+data.facebook_id+'/picture?width=300&height=300');
+        }
+        if(data.bio) {
+            $('#bio').text(data.bio);
+        }
+        if(data.influence_score) {
+            $('#influence').css('width',data.influence_score+'%');
+        }
+        if(data.activity_score) {
+            $('#activity').css('width',data.activity_score+'%');
+        }
+        if(data.proficiency_score) {
+            $('#proficiency').css('width',data.proficiency_score+'%');
+        }
+    });
+    $('#people-detail').fadeIn(1000);
+}
+
+function showMemberGrid() {
+    $('#people-detail').fadeOut(0);
+    $('#people-grid').fadeIn(1000);
 }

@@ -1,0 +1,71 @@
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div id="member_registration">
+    <div class="row" style="height:100px"></div>
+    <div class="row" style="height:50px">
+        <div class="col-md-2"></div>
+        <div class="col-md-10 calendar-text">
+            <form action="/api/members/save_member" method="POST" onsubmit="return validateMemberRegistrationForm()">
+                <div class="row">
+                    <p>Member Registration</p>
+                </div>
+                <div class="row">
+                    <p>Fill Information from Facebook: </p>
+                    <fb:login-button show-faces="true" width="200" max-rows="1" scope="email,user_work_history"></fb:login-button>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>EMAIL : </label></div><div class="col-md-8"><input type="text" id="email" name="email"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>NAME : </label></div><div class="col-md-8"><input type="text" id="name" name="name"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>DESIGNATION : </label></div><div class="col-md-8"><input type="text" id="designation" name="designation"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>ORGANIZATION : </label></div><div class="col-md-8"><input type="text" id="organization" name="organization"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>WEBSITE : </label></div><div class="col-md-8"><input type="text" id="website" name="website"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>TWITTER HANDLE : </label></div><div class="col-md-8"><input type="text" id="twitter_handle" name="twitter_handle"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>FACEBOOK ID : </label></div><div class="col-md-8"><input type="text" id="facebook_id" name="facebook_id"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>BIO : </label></div><div class="col-md-8"><textarea id="bio" name="bio"></textarea></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>INFLUENCE SCORE : </label></div><div class="col-md-8"><input type="text" id="influence_score" name="influence_score"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>ACTIVITY SCORE : </label></div><div class="col-md-8"><input type="text" id="activity_score" name="activity_score"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>PROFICIENCY SCORE : </label></div><div class="col-md-8"><input type="text" id="proficiency_score" name="proficiency_score"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>ACCESS CODE : </label></div><div class="col-md-8"><input type="text" id="access_code" name="access_code"></div>
+                </div>
+                <div class="row">
+                    <input type="submit">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block Scripts %}
+<script src="/assets/js/lib/stellar.js"></script>
+<script src="/assets/js/lib/jquery.smooth-scroll.min.js"></script>
+<script src="/assets/js/member-registration.js"></script>
+{% endblock %}
