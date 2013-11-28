@@ -7,6 +7,13 @@ function smoothScrollTo(event, link) {
     });
 }
 
+var currentMemberIndex = 0;
+var member_keys = [];
+
+$(document).ready(function(){
+    member_keys = $('#member_keys').val().split(',');
+});
+
 var currentSectionNumber = 1;
 var totalDelta = 0;
 var acceptScroll = true;
@@ -218,9 +225,23 @@ function showMemberInfo(key) {
         }
     });
     $('#people-detail').fadeIn(1000);
+    currentMemberIndex = member_keys.indexOf(key);
+    if(currentMemberIndex == -1) {currentMemberIndex = 0;}
 }
 
 function showMemberGrid() {
     $('#people-detail').fadeOut(0);
     $('#people-grid').fadeIn(1000);
+}
+
+function showNextMemberInfo() {
+    if((currentMemberIndex+1) < member_keys.length) {
+        showMemberInfo(member_keys[currentMemberIndex+1]);
+    }
+}
+
+function showPreviousMemberInfo() {
+    if((currentMemberIndex-1) >= 0) {
+        showMemberInfo(member_keys[currentMemberIndex-1]);
+    }
 }

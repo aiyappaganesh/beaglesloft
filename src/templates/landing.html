@@ -324,7 +324,7 @@
                     <div id="people-grid">
                         <div class="row program-top"></div>
                         <div class="program-middle">
-                            <div id="people-carousel" style="width:100%;height:100%" class="carousel slide">
+                            <div id="people-carousel" style="width:100%;height:100%" class="carousel slide" data-interval="false">
                                 <div class="carousel-inner" style="height:100%">
                                     <div class="item active" style="text-align:center;height:100%">
                                         <div class="row" style="height:100%">
@@ -336,22 +336,6 @@
                                                     <input type="hidden" value="{{key}}">
                                                 </div>
                                             {% endfor %}
-                                            <!--<div class="col-md-2" style="height:100%">
-                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            </div>
-                                            <div class="col-md-2" style="height:100%">
-                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            </div>
-                                            <div class="col-md-2" style="height:100%">
-                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            </div>
-                                            <div class="col-md-2" style="height:100%">
-                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                                <div class="people-picture"  data-toggle="modal" data-target="#people-description"></div>
-                                            </div>-->
                                             <div class="col-md-1" style="height:100%">
                                             </div>
                                         </div>
@@ -475,7 +459,8 @@
                             </div>
                             <div class="col-md-1" style="height:100%"></div>
                         </div>
-                        <div class="people-detail-3">
+                        <div class="people-detail-3" style="position:relative">
+                            <span style="position: absolute;top: 30%;z-index: 5;display: inline-block;left: 0%;cursor:pointer" onclick="showPreviousMemberInfo()"><img src="/assets/img/landing/people-left-arrow.png"></span>
                             <div class="col-md-1"></div>
                             <div class="col-md-4">
                                 <img id="picture" style="max-height:100%;max-width:100%" src="https://graph.facebook.com/rajiv.salimath/picture?width=300&height=300">
@@ -524,6 +509,7 @@
                                 </div>
                             </div>
                             <div class="col-md-1"></div>
+                            <span style="position: absolute;top: 30%;z-index: 5;display: inline-block;right: 0%;cursor:pointer" onclick="showNextMemberInfo()"><img src="/assets/img/landing/people-right-arrow.png"></span>
                         </div>
                         <div class="people-detail-4"></div>
                     </div>
