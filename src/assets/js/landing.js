@@ -174,6 +174,9 @@ function resizeWindow() {
     $(".people-detail-1-bottom").height(windowHeight*0.071875);
     $(".people-detail-2").height(windowHeight*0.1);
     $(".people-detail-3").height(windowHeight*0.4125);
+    $(".people-desc").height(windowHeight*0.4125*0.6);
+    $(".people-desc-gap").height(windowHeight*0.4125*0.1);
+    $(".people-scores").height(windowHeight*0.4125*0.3);
     $(".people-detail-4").height(windowHeight*0.09375);
     $(".contact-top").height(windowHeight*0.1875);
     $(".contact-middle").height(windowHeight*0.375);

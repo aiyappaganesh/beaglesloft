@@ -104,14 +104,15 @@
 }
 
 .progress {
-    height: 18px;
+    height: 20px;
     background-color: rgba(0,0,0,0.15);
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    margin-top: 6px;
 }
 
 .progress-bar {
     background-color: rgba(0,0,0,0.5);
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .people-designation {
@@ -159,9 +160,10 @@
 .people-score-name {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size: 23px;
+    font-size: 20px;
     color: #ffffff;
     text-align:left;
+    height: 20px;
 }
 
 .calendar-text {
@@ -173,3 +175,4 @@
 }
 
 button:focus {outline:none;}
+input[type="submit"]:focus {outline:none;}
