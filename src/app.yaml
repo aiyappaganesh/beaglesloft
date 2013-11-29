@@ -31,6 +31,10 @@ handlers:
   script: handlers.web.index.app
   secure: always
 
+- url: /member_access
+  script: handlers.web.index.app
+  secure: always
+
 - url: /accept_contact
   script: handlers.web.index.app
   secure: always

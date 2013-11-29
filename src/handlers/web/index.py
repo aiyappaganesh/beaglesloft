@@ -53,6 +53,17 @@ class MemberRegistrationPage(WebRequestHandler):
             template_values['ua'] = 'mobile'
         self.write(self.get_rendered_html(path, template_values), 200)
 
+class MemberAccessPage(WebRequestHandler):
+    def get(self):
+        path = 'member_access.html'
+        ua = self.request.headers['User-Agent']
+        b = reg_b.search(ua)
+        v = reg_v.search(ua[0:4])
+        template_values = {'ua' : 'non-mobile'}
+        if b or v:
+            template_values['ua'] = 'mobile'
+        self.write(self.get_rendered_html(path, template_values), 200)
+
 class AcceptContact(WebRequestHandler):
     def post(self):
         name = self['contact_name']
@@ -71,6 +82,7 @@ app = webapp2.WSGIApplication(
         ('/testspy', TestSpyPage),
         ('/calendar', CalendarPage),
         ('/member_registration', MemberRegistrationPage),
+        ('/member_access', MemberAccessPage),
         ('/accept_contact', AcceptContact)
     ]
 )

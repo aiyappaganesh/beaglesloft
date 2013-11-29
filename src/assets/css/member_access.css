@@ -1,0 +1,65 @@
+.member-access {
+    background-color: #575555;
+}
+
+.access-box-out {
+    height: 100%;
+    border-top-style: outset;
+    border-bottom-style: inset;
+    border-left-style: outset;
+    border-right-style: inset;
+    border-width: 30px;
+    border-left-color: #757474;
+    border-bottom-color: #6d6c6c;
+    border-right-color: #757474;
+    border-top-color: #878686;
+    padding: 0px;
+}
+
+.access-box-in {
+    height: 100%;
+    width: 100%;
+    border-top-style: outset;
+    border-bottom-style: inset;
+    border-left-style: outset;
+    border-right-style: inset;
+    border-width: 10px;
+    border-left-color: #3d3c3c;
+    border-bottom-color: #4e4d4d;
+    border-right-color: #464444;
+    border-top-color: #3d3c3c;
+    padding: 0px;
+    position: relative;
+}
+
+a:focus{outline:none}
+
+.dropdown-menu>li {
+    border: lightgrey 1px solid;
+}
+
+.dropdown a {
+    font-family: 'Oswald', sans-serif !important;
+    font-weight: 100 !important;
+    color: rgba(0,0,0,0.5) !important;
+    font-size: 18px !important;
+}
+
+.dropdown>a {
+    position: absolute;
+    left: 5%;
+    top: 17%;
+}
+
+.dropdown-menu {
+    border: none;
+}
+
+.dropdown {
+    background-color: white;
+    height: 30%;
+    margin-top: 8%;
+    margin-left: 30%;
+    width: 40%;
+    text-align: center;
+}

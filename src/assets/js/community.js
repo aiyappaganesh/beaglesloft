@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 function highlightLink(link) {
     var accessed_page = link.substring(link.lastIndexOf('/'));
-    link_st_ind = link.indexOf('#');
+    link_st_ind = link.indexOf('#section');
     if(link_st_ind != -1) {
         sec_num = parseInt(link.substring(link_st_ind+8));
         if(sec_num == currentSectionNumber) return;
