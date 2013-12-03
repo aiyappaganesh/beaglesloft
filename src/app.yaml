@@ -35,7 +35,15 @@ handlers:
   script: handlers.web.index.app
   secure: always
 
+- url: /member_access_question
+  script: handlers.web.index.app
+  secure: always
+
 - url: /accept_contact
+  script: handlers.web.index.app
+  secure: always
+
+- url: /validate_access_code
   script: handlers.web.index.app
   secure: always
 

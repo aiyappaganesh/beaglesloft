@@ -64,6 +64,33 @@ class MemberAccessPage(WebRequestHandler):
             template_values['ua'] = 'mobile'
         self.write(self.get_rendered_html(path, template_values), 200)
 
+class MemberAccessQuestionPage(WebRequestHandler):
+    def get(self):
+        path = 'member_access_question.html'
+        category = self['category']
+        ua = self.request.headers['User-Agent']
+        b = reg_b.search(ua)
+        v = reg_v.search(ua[0:4])
+        template_values = {'ua' : 'non-mobile'}
+        if b or v:
+            template_values['ua'] = 'mobile'
+        if category == 'Mathematics':
+            template_values['question'] = 'If 10 men can build 10 houses in 10 days, how many houses can 1 man build in 10 days?'
+            template_values['question_id'] = 'M1'
+        elif category == 'Science':
+            template_values['question'] = 'The Large Hadron Collider (LHC) was built to confirm the existence of which particle?'
+            template_values['question_id'] = 'S1'
+        elif category == 'Business':
+            template_values['question'] = 'If 10 men can build 10 houses in 10 days, how many houses can 1 man build in 10 days?'
+            template_values['question_id'] = 'B1'
+        elif category == 'Art':
+            template_values['question'] = 'If 10 men can build 10 houses in 10 days, how many houses can 1 man build in 10 days?'
+            template_values['question_id'] = 'A1'
+        else:
+            template_values['question'] = 'If 10 men can build 10 houses in 10 days, how many houses can 1 man build in 10 days?'
+            template_values['question_id'] = 'O1'
+        self.write(self.get_rendered_html(path, template_values), 200)
+
 class AcceptContact(WebRequestHandler):
     def post(self):
         name = self['contact_name']
@@ -83,6 +110,7 @@ app = webapp2.WSGIApplication(
         ('/calendar', CalendarPage),
         ('/member_registration', MemberRegistrationPage),
         ('/member_access', MemberAccessPage),
+        ('/member_access_question', MemberAccessQuestionPage),
         ('/accept_contact', AcceptContact)
     ]
 )

@@ -1,5 +1,6 @@
 import logging
 import json
+import random
 from handlers.rest.rest_application import RestApplication
 from handlers import RequestHandler
 from model import Member
@@ -72,6 +73,37 @@ class AllMembersFetchHandler(RequestHandler):
             ),200,'application/json'
         )
 
+class ValidateAccessCodeHandler(RequestHandler):
+    def post(self):
+        logging.info("Trying to validate access code")
+        result_json = {'url':''}
+        access_code = self["accessCode"]
+        logging.info(access_code)
+        if access_code and int(access_code) == 1234:
+            result_json['url'] = '/member_registration'
+        self.write(
+            json.dumps(
+                result_json
+            ),200,'application/json'
+        )
+
+class ProcessAccessAnswerHandler(RequestHandler):
+    def post(self):
+        logging.info("Trying to process access answer")
+        result_json = {'url':''}
+        access_answer = self["access_answer"]
+        question_id = self["qid"]
+        logging.info(access_answer + ',' + question_id)
+        if question_id and access_answer:
+            result_json['url'] = '/member_registration'
+        self.write(
+            json.dumps(
+                result_json
+            ),200,'application/json'
+        )
+
 app = RestApplication([("/api/members/save_member", MemberSaveHandler),
                        ("/api/members/get_member", MemberFetchHandler),
-                       ("/api/members/get_all_members", AllMembersFetchHandler)])
+                       ("/api/members/get_all_members", AllMembersFetchHandler),
+                       ("/api/members/validate_access_code", ValidateAccessCodeHandler),
+                       ("/api/members/process_access_answer", ProcessAccessAnswerHandler)])

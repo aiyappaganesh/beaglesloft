@@ -16,6 +16,14 @@
     padding: 0px;
 }
 
+.access-question-box-out {
+    height: 100%;
+    border-width: 10px;
+    border-color: #535151;
+    border-style: solid;
+    padding: 0px;
+}
+
 .access-box-in {
     height: 100%;
     width: 100%;
@@ -30,22 +38,45 @@
     border-top-color: #3d3c3c;
     padding: 0px;
     position: relative;
+    font-family:'Oswald', sans-serif;
+    overflow: hidden;
+}
+
+.access {
+    background-color:black;
+    height:100%;
+    width:100%;
+    max-width:100%;
+    text-align:center;
+    position:absolute;
+    z-index:20;
+    word-wrap: break-word;
+}
+
+.access-answer {
+     border:none;
+     color:white;
+     padding-top:3%;
+     padding-left:3%;
+     text-align:left;
 }
 
 a:focus{outline:none}
+input:focus{outline:none}
+textarea:focus{outline:none}
 
 .dropdown-menu>li {
     border: lightgrey 1px solid;
 }
 
-.dropdown a {
+.questions-dropdown a {
     font-family: 'Oswald', sans-serif !important;
     font-weight: 100 !important;
     color: rgba(0,0,0,0.5) !important;
     font-size: 18px !important;
 }
 
-.dropdown>a {
+.questions-dropdown>a {
     position: absolute;
     left: 5%;
     top: 17%;
@@ -55,11 +86,31 @@ a:focus{outline:none}
     border: none;
 }
 
-.dropdown {
+.questions-dropdown {
     background-color: white;
     height: 30%;
     margin-top: 8%;
     margin-left: 30%;
     width: 40%;
     text-align: center;
+}
+
+.access-answer-submit {
+    background-color:#474646;
+    border:none;
+    color:white;
+    font-family:'Oswald', sans-serif;
+    font-weight:lighter;
+    font-size:12px;
+    width: 23%;
+    padding: 0px;
+    height: 30px;
+}
+
+.access-question {
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: text;
 }
