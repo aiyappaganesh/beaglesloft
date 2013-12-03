@@ -73,11 +73,19 @@ function submitAccessAnswer() {
     $.post('/api/members/process_access_answer',{'access_answer':$('#access-answer').val(),'qid':$('#question-id').val()})
     .done(function(data){
         if(data.url != '') {
-            $('#access-answer').animate({'background-color':'#90EE90'}, 1200, function(){
-                window.location.href = data.url;
-                /*$("#access-selection").css('left','-100%').show().animate({left: "0%"}, 2000, function(){
-
-                });*/
+            $('#member-access-contents').fadeOut(function(){
+                $('#access-question').hide();
+                $('#access-answer').css('z-index','0');
+                $('#submit-answer').hide();
+                $(".access-box-in").css("overflow", "hidden");
+                $('#access-box').removeClass('access-question-box-out').addClass('access-box-out');
+                $('#member-access-contents').fadeIn(function(){
+                    $('#access-answer').animate({'background-color':'#90EE90'}, 1200, function(){
+                        $("#access-selection").css('left','-100%').show().animate({left: "0%"}, 2000, function(){
+                            window.location.href = data.url;
+                        });
+                    });
+                });
             });
         } else {
             clearAccessAnswer();
@@ -93,5 +101,23 @@ function clearAccessAnswer() {
         $('#access-answer').animate({'background-color':'black'}, 1000, function(){
             $('#access-answer').val('');
         });
+    });
+}
+
+function showAccessQuestion(category) {
+    $('#member-access-contents').fadeOut(function(){
+        $.post('/api/members/fetch_access_question',{'category':category})
+        .done(function(data){
+            $('#access-question').text(data.question);
+            $('#question-id').val(data.question_id);
+        })
+        .fail();
+        $('#access-box').removeClass('access-box-out').addClass('access-question-box-out');
+        $('#access-selection').hide();
+        $('#code-entry').hide();
+        $('#question-pick').hide();
+        $('#access-answer').show();
+        $('#submit-answer').show();
+        $('#member-access-contents').fadeIn();
     });
 }

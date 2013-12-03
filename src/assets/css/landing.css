@@ -1,7 +1,7 @@
 .section1_heading {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size: 40px;
+    font-size: 42px;
 }
 
 .section_text {
@@ -15,8 +15,10 @@
 .section2_text {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size: 40px;
-    color: #7A7D7F;
+    font-size: 32px;
+    line-height: 50px;
+    color: #62615F;
+    text-align:center;
 }
 
 .section3_heading {
