@@ -139,7 +139,7 @@ function highlightSection(section) {
 }
 
 $(document).ready(function() {
-    $(window).on("resize load", resizeWindow);
+    $(window).on("load", resizeWindow);
 });
 
 function resizeWindow() {
