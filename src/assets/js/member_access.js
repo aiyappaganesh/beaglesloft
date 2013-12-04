@@ -79,11 +79,10 @@ function submitAccessAnswer() {
                 $('#submit-answer').hide();
                 $(".access-box-in").css("overflow", "hidden");
                 $('#access-box').removeClass('access-question-box-out').addClass('access-box-out');
-                $('#member-access-contents').fadeIn(function(){
-                    $('#access-answer').animate({'background-color':'#90EE90'}, 1200, function(){
-                        $("#access-selection").css('left','-100%').show().animate({left: "0%"}, 2000, function(){
-                            window.location.href = data.url;
-                        });
+                $('#member-access-contents').fadeIn();
+                $('#access-answer').animate({'background-color':'#90EE90'}, 800, function(){
+                    $("#access-selection").css('left','-100%').show().animate({left: "0%"}, 2000, function(){
+                        window.location.href = data.url;
                     });
                 });
             });

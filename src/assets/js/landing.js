@@ -204,27 +204,43 @@ function showMemberInfo(key) {
         }
         if(data.name) {
             $('#name').text(data.name);
+        } else {
+            $('#name').text('');
         }
         if(data.website) {
             $('#website').text(data.website);
+        } else {
+            $('#website').text('');
         }
         if(data.twitter_handle) {
             $('#twitter_handle').text(data.twitter_handle);
+        } else {
+            $('#twitter_handle').text('');
         }
         if(data.facebook_id) {
             $('#picture').attr('src','https://graph.facebook.com/'+data.facebook_id+'/picture?width=300&height=300');
+        } else {
+            $('#picture').attr('src','/assets/img/landing/default-user.gif');
         }
         if(data.bio) {
             $('#bio').text(data.bio);
+        } else {
+            $('#bio').text('');
         }
         if(data.influence_score) {
             $('#influence').css('width',data.influence_score+'%');
+        } else {
+            $('#influence').css('width',0+'%');
         }
         if(data.activity_score) {
             $('#activity').css('width',data.activity_score+'%');
+        } else {
+            $('#activity').css('width',0+'%');
         }
         if(data.proficiency_score) {
             $('#proficiency').css('width',data.proficiency_score+'%');
+        } else {
+            $('#proficiency').css('width',0+'%');
         }
     });
     $('#people-detail').fadeIn(1000);

@@ -13,7 +13,6 @@ class Member(db.Model):
     influence_score = db.RatingProperty(indexed=False)
     activity_score = db.RatingProperty(indexed=False)
     proficiency_score = db.RatingProperty(indexed=False)
-    access_code = db.StringProperty(indexed=False)
 
     @classmethod
     def get_or_insert(cls, key_name, **kwds):
@@ -51,8 +50,6 @@ class Member(db.Model):
                     member_json['activity_score'] = member.activity_score
                 if member.proficiency_score:
                     member_json['proficiency_score'] = member.proficiency_score
-                if member.access_code:
-                    member_json['access_code'] = member.access_code
         return member_json
 
     @staticmethod

@@ -1,0 +1,12 @@
+.blanks {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid black 1px;
+}
+
+.optional {
+    border-bottom: dotted black 1px !important;
+}
+
+input:focus{outline:none}

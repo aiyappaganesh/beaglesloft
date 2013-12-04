@@ -68,8 +68,29 @@ $(document).ready(function(){
 
 function validateMemberRegistrationForm() {
     var email = $('#email').val();
-    if(!email || email == '') {
-        alert('Email is required');
+    var name = $('#name').val();
+    var designation = $('#designation').val();
+    var organization = $('#organization').val();
+    var bio = $('#bio').val();
+    $('input').css('background-color','white');
+    $('textarea').css('background-color','white');
+    if(!name || name == '') {
+        $('#name').css('background-color','rgba(255,0,0,0.5)');
+        $('#name').focus();
+        return false;
+    } else if(!designation || designation == '') {
+        $('#designation').css('background-color','rgba(255,0,0,0.5)');
+        $('#designation').focus();
+        return false;
+    } else if(!organization || organization == '') {
+        $('#organization').css('background-color','rgba(255,0,0,0.5)');
+        $('#organization').focus();
+        return false;
+    } else if(!bio || bio == '') {
+        $('#bio').css('background-color','rgba(255,0,0,0.5)');
+        $('#bio').focus();
+        return false;
+    } else if(!email || email == '') {
         $('#email').css('background-color','rgba(255,0,0,0.5)');
         $('#email').focus();
         return false;

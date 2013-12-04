@@ -37,14 +37,9 @@ class MemberSaveHandler(RequestHandler):
                     member.facebook_id = facebook_id
                 if bio:
                     member.bio = bio
-                if influence_score:
-                    member.influence_score = int(influence_score)
-                if activity_score:
-                    member.activity_score = int(activity_score)
-                if proficiency_score:
-                    member.proficiency_score = int(proficiency_score)
-                if access_code:
-                    member.access_code = access_code
+                member.influence_score = random.randint(0, 100)
+                member.activity_score = random.randint(0, 100)
+                member.proficiency_score = random.randint(0, 100)
                 member.put()
                 self.redirect("/")
             else:

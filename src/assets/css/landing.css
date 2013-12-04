@@ -157,6 +157,8 @@
     font-size: 16px;
     color: #ffffff;
     text-align:left;
+    max-height: 100%;
+    overflow: scroll;
 }
 
 .people-score-name {
