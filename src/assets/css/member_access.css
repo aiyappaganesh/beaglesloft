@@ -63,7 +63,7 @@
 
 a:focus{outline:none}
 input:focus{outline:none}
-textarea:focus{outline:none}
+textarea:focus{outline:none;}
 
 .dropdown-menu>li {
     border: lightgrey 1px solid;

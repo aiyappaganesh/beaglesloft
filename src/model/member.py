@@ -61,6 +61,18 @@ class Member(db.Model):
         return member_keys
 
     @staticmethod
+    def get_paged_member_keys():
+        paged_member_keys = {}
+        members = Member.all().fetch(limit=200)
+        c1 = 0
+        for member in members:
+            if not c1/10 in paged_member_keys:
+                paged_member_keys[c1/10] = {}
+            paged_member_keys[c1/10][member.email] = member.facebook_id
+            c1+=1
+        return paged_member_keys
+
+    @staticmethod
     def get_members_json():
         members_json = {}
         members = Member.all().fetch(limit=200)

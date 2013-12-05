@@ -95,6 +95,18 @@ function validateMemberRegistrationForm() {
         $('#email').focus();
         return false;
     } else {
+        logoutFB();
         return true;
     }
+}
+
+function logoutFB() {
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            FB.logout(function(r){});
+        } else if (response.status === 'not_authorized') {
+            FB.logout(function(r){});
+        } else {
+        }
+    });
 }

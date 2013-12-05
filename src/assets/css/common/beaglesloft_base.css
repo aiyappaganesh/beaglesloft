@@ -260,14 +260,6 @@ body {
     color: #c6c0be;
 }
 
-.left {
-    float: left;
-}
-
-.right {
-    float: right;
-}
-
 .clear {
     clear: both;
 }
@@ -373,7 +365,7 @@ a, a:hover {
     }  
     .nav{
         width:100%;
-        background: url('../img/Haggle_Logo_mobile.png') no-repeat center;
+        background: url('/assets/img/landing/beaglesloft.png') no-repeat center;
         background-size: 50px 30px;
     }
     .navbar .nav{

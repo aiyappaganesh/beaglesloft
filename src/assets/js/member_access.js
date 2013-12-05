@@ -18,6 +18,7 @@ function resizeWindow() {
 function showPasscodeEntry() {
     $("#code-entry").show();
     $("#access-selection").animate({left: "100%"}, 2000, function(){$("#access-selection").hide();});
+    $('input[name="access-code-a"]').focus();
 }
 
 function showQuestionPick() {
@@ -31,7 +32,11 @@ $(document).ready(function(){
         codeB = $('input[name="access-code-b"]').val();
         codeC = $('input[name="access-code-c"]').val();
         codeD = $('input[name="access-code-d"]').val();
-        if(isValidCodePart(codeA) && isValidCodePart(codeB) && isValidCodePart(codeC) && isValidCodePart(codeD)) {
+        isValidCodeA = isValidCodePart(codeA);
+        isValidCodeB = isValidCodePart(codeB);
+        isValidCodeC = isValidCodePart(codeC);
+        isValidCodeD = isValidCodePart(codeD);
+        if(isValidCodeA && isValidCodeB && isValidCodeC && isValidCodeD) {
             $.post('/api/members/validate_access_code',{'accessCode':(codeA+codeB+codeC+codeD)})
             .done(function(data){
                 if(data.url != ''){
@@ -47,6 +52,14 @@ $(document).ready(function(){
             .fail(function(){
                 clearAccessCode();
             });
+        } else if (!isValidCodeA) {
+            $('input[name="access-code-a"]').focus();
+        } else if (!isValidCodeB) {
+            $('input[name="access-code-b"]').focus();
+        } else if (!isValidCodeC) {
+            $('input[name="access-code-c"]').focus();
+        } else if (!isValidCodeD) {
+            $('input[name="access-code-d"]').focus();
         }
     });
 });
@@ -118,5 +131,6 @@ function showAccessQuestion(category) {
         $('#access-answer').show();
         $('#submit-answer').show();
         $('#member-access-contents').fadeIn();
+        $('#access-answer').focus();
     });
 }

@@ -166,9 +166,9 @@ function resizeWindow() {
     $(".program-top").height(windowHeight*0.1875);
     $(".program-middle").height(windowHeight*0.375);
     $(".program-bottom").height(windowHeight*0.1875);
-    $(".people-top").height(windowHeight*0.1575);
+    $(".people-top").height(windowHeight*0.1875);
     $(".people-middle").height(windowHeight*0.515);
-    $(".people-bottom").height(windowHeight*0.0775);
+    $(".people-bottom").height(windowHeight*0.0475);
     $(".people-detail-1").height(windowHeight*0.14375);
     $(".people-detail-1-top").height(windowHeight*0.030975);
     $(".people-detail-1-bottom").height(windowHeight*0.071875);
