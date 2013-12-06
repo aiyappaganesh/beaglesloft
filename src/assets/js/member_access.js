@@ -71,7 +71,7 @@ function isValidCodePart(codePart) {
 }
 
 function clearAccessCode() {
-    $('#code-entry').animate({'background-color':'red'}, 2000, function(){
+    $('#code-entry').animate({'background-color':'rgba(255,0,0,0.5)'}, 2000, function(){
         $('#code-entry').animate({'background-color':'white'}, 1000, function(){
             $('input[name="access-code-a"]').val('');
             $('input[name="access-code-b"]').val('');
@@ -109,7 +109,7 @@ function submitAccessAnswer() {
 }
 
 function clearAccessAnswer() {
-    $('#access-answer').animate({'background-color':'red'}, 2000, function(){
+    $('#access-answer').animate({'background-color':'rgba(255,0,0,0.5)'}, 2000, function(){
         $('#access-answer').animate({'background-color':'black'}, 1000, function(){
             $('#access-answer').val('');
         });

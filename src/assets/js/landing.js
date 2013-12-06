@@ -264,3 +264,8 @@ function showPreviousMemberInfo() {
         showMemberInfo(member_keys[currentMemberIndex-1]);
     }
 }
+
+$(document).ready(function(){
+    $('.progress').hover(function(){$(this).addClass('progress-striped active')},function(){$(this).removeClass('progress-striped active')});
+    $('.progress-bar').hover(function(){$(this).css('background-color','rgba(255,215,0,0.5)')},function(){$(this).css('background-color','rgba(0,0,0,0.5)')});
+});
