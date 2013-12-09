@@ -1,0 +1,56 @@
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div id="member_profile">
+    <div style="height:100px"></div>
+    <div style="height:50px">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 calendar-text">
+            <b>PROFILE</b>
+            <form action={{ form_url }} method="POST" enctype="multipart/form-data">
+                <br/>
+                <table>
+                    <tr>
+                        <td><input type="file" id="image" name="image"></input></td>
+                    </tr>
+                    <tr>
+                        <td>NAME</td>
+                        <td><input id="name" name="name" value={% if member.name %}{{ member.name }}{% endif %}></input></td>
+                    </tr>
+                    <tr>
+                        <td>EMAIL</td>
+                        <td><input id="email" name="email" value={% if member.email %}{{ member.email }}{% endif %}></input></td>
+                    </tr>
+                    <tr>
+                        <td>TWITTER HANDLE</td>
+                        <td><input id="twitter_handle" name="twitter_handle" value={% if member.twitter_handle %}{{ member.twitter_handle }}{% endif %}></input></td>
+                    </tr>
+                    <tr>
+                        <td>FACEBOOK ID</td>
+                        <td><input id="facebook_id" name="facebook_id" value={% if member.facebook_id %}{{ member.facebook_id }}{% endif %}></input></td>
+                    </tr>
+                    <tr>
+                        <td>ORGANIZATION</td>
+                        <td><input id="organization" name="organization" value={% if member.organization %}{{ member.organization }}{% endif %}></input></td>
+                    </tr>
+                    <tr>
+                        <td>DESIGNATION</td>
+                        <td><input id="designation" name="designation" value={% if member.designation %}{{ member.designation }}{% endif %}></input></td>
+                    </tr>
+                    <tr>
+                        <td>BIO</td>
+                        <td><input id="bio" name="bio" value={% if member.bio %}{{ member.bio }}{% endif %}></input></td>
+                    </tr>
+                </table>
+                <br/>
+                <input type="submit" onsubmit="validateRegistrationFields">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
