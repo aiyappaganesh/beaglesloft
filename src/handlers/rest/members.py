@@ -9,43 +9,17 @@ class MemberSaveHandler(RequestHandler):
     def post(self):
         logging.info("Trying to save member")
         email = self["email"]
-        if email:
-            name = self["name"]
-            designation = self["designation"]
-            organization = self["organization"]
-            website = self["website"]
-            twitter_handle = self["twitter_handle"]
-            facebook_id = self["facebook_id"]
-            bio = self["bio"]
-            influence_score = self["influence_score"]
-            activity_score = self["activity_score"]
-            proficiency_score = self["proficiency_score"]
-            access_code = self["access_code"]
-            member = Member.get_or_insert(email)
-            if member:
-                if name:
-                    member.name = name
-                if designation:
-                    member.designation = designation
-                if organization:
-                    member.organization = organization
-                if website:
-                    member.website = website
-                if twitter_handle:
-                    member.twitter_handle = twitter_handle
-                if facebook_id:
-                    member.facebook_id = facebook_id
-                if bio:
-                    member.bio = bio
-                member.influence_score = random.randint(0, 100)
-                member.activity_score = random.randint(0, 100)
-                member.proficiency_score = random.randint(0, 100)
-                member.put()
-                self.redirect("/")
-            else:
-                self.write("Member could not be found or created", status=500)
-        else:
-            self.write("Please provide an email", status=400)
+        name = self['name']
+        designation = self["designation"]
+        organization = self["organization"]
+        website = self["website"]
+        twitter_handle = self["twitter_handle"]
+        facebook_id = self["facebook_id"]
+        bio = self["bio"]
+        image = self["image"]
+        Member.create_or_update(email=email, name=name, organization=organization, designation=designation, image=image,
+                                website=website, twitter_handle=twitter_handle, facebook_id=facebook_id, bio=bio)
+        self.redirect("/")
 
 class MemberFetchHandler(RequestHandler):
     def post(self):

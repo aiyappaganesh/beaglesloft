@@ -13,11 +13,38 @@ class Member(db.Model):
     influence_score = db.RatingProperty(indexed=False)
     activity_score = db.RatingProperty(indexed=False)
     proficiency_score = db.RatingProperty(indexed=False)
+    image = db.StringProperty(indexed=False)
 
     @classmethod
     def get_or_insert(cls, key_name, **kwds):
         kwds['email'] = key_name
         return super(Member, cls).get_or_insert(key_name, **kwds)
+
+    @classmethod
+    def create_or_update(cls, email=None, name=None, organization=None, designation=None, website=None,
+                      twitter_handle=None, facebook_id=None, bio=None, image=None):
+        member = Member.get_by_email(email)
+        if not member:
+            member = Member(key_name=email)
+        if name:
+            member.name = name
+        if email:
+            member.email = email
+        if designation:
+            member.designation = designation
+        if organization:
+            member.organization = organization
+        if website:
+            member.website = website
+        if twitter_handle:
+            member.twitter_handle = twitter_handle
+        if facebook_id:
+            member.facebook_id = facebook_id
+        if bio:
+            member.bio = bio
+        if image:
+            member.image = image
+        member.put()
 
     @staticmethod
     def get_by_email(email):
