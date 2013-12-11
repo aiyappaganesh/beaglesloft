@@ -1,24 +1,18 @@
 import logging
 import json
+from google.appengine.ext import blobstore
+from google.appengine.ext.webapp import blobstore_handlers
 import random
 from handlers.rest.rest_application import RestApplication
 from handlers import RequestHandler
 from model import Member
 
-class MemberSaveHandler(RequestHandler):
+class MemberSaveHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandler):
     def post(self):
-        logging.info("Trying to save member")
-        email = self["email"]
-        name = self['name']
-        designation = self["designation"]
-        organization = self["organization"]
-        website = self["website"]
-        twitter_handle = self["twitter_handle"]
-        facebook_id = self["facebook_id"]
-        bio = self["bio"]
-        image = self["image"]
-        Member.create_or_update(email=email, name=name, organization=organization, designation=designation, image=image,
-                                website=website, twitter_handle=twitter_handle, facebook_id=facebook_id, bio=bio)
+        image = str(self.get_uploads("image")[0].key())
+        Member.create_or_update(email=self["email"], name=self['name'], organization=self["organization"],
+                                designation=self["designation"], image=image, website=self["website"],
+                                twitter_handle=self["twitter_handle"], facebook_id=self["facebook_id"], bio=self["bio"])
         self.redirect("/")
 
 class MemberFetchHandler(RequestHandler):
@@ -94,8 +88,16 @@ class FetchAccessQuestionHandler(RequestHandler):
             ),200,'application/json'
         )
 
+class ImageHandler(blobstore_handlers.BlobstoreDownloadHandler):
+    def get(self, email):
+        member = Member.get_by_email(email)
+        if member.image:
+            image = blobstore.BlobInfo.get(member.image)
+            self.send_blob(image)
+
 app = RestApplication([("/api/members/save_member", MemberSaveHandler),
                        ("/api/members/get_member", MemberFetchHandler),
+                       ("/api/members/([^/]+)/image", ImageHandler),
                        ("/api/members/get_all_members", AllMembersFetchHandler),
                        ("/api/members/validate_access_code", ValidateAccessCodeHandler),
                        ("/api/members/process_access_answer", ProcessAccessAnswerHandler),
