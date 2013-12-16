@@ -28,6 +28,7 @@ class LoginHandler(BaseHandler, WebRequestHandler):
         self.write(self.get_rendered_html(path, {}), 200)
 
 class MemberProfilePage(BaseHandler, WebRequestHandler):
+    @login_required
     def get(self):
         path = 'member_profile.html'
         email = self.session['member']
