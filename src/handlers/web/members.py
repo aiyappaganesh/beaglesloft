@@ -12,6 +12,7 @@ class LoginHandler(BaseHandler, WebRequestHandler):
         password = self['password']
         member = Member.get_by_email(email)
         if 'member' in self.session and not email is self.session['member']:
+            self.response.out.write('another user already logged in')
             return
         if not email or not member:
             self.response.out.write('user not in db')
