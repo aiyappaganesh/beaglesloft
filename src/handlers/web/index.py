@@ -77,20 +77,9 @@ class AcceptContact(WebRequestHandler):
         mail.send_mail(from_email, to_email, subject, body)
         self.redirect("/")
 
-class MemberProfilePage(WebRequestHandler):
-    def get(self):
-        path = 'member_profile.html'
-        email = self['email']
-        logging.info(email)
-        member = Member.get_by_email(email)
-        form_url = blobstore.create_upload_url('/api/members/save_member')
-        template_values = {'member': member, 'form_url': form_url}
-        self.write(self.get_rendered_html(path, template_values), 200)
-
 app = webapp2.WSGIApplication(
     [
         ('/', IndexPage),
-        ('/member_profile', MemberProfilePage),
         ('/testspy', TestSpyPage),
         ('/calendar', CalendarPage),
         ('/member_registration', MemberRegistrationPage),
