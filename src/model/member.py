@@ -14,6 +14,7 @@ class Member(db.Model):
     activity_score = db.RatingProperty(indexed=False)
     proficiency_score = db.RatingProperty(indexed=False)
     image = db.StringProperty(indexed=False)
+    password = db.StringProperty(indexed=False)
 
     @classmethod
     def get_or_insert(cls, key_name, **kwds):
@@ -22,7 +23,7 @@ class Member(db.Model):
 
     @classmethod
     def create_or_update(cls, email=None, name=None, organization=None, designation=None, website=None,
-                      twitter_handle=None, facebook_id=None, bio=None, image=None):
+                      twitter_handle=None, facebook_id=None, bio=None, image=None, password=None):
         member = Member.get_by_email(email)
         if not member:
             member = Member(key_name=email)
@@ -44,6 +45,8 @@ class Member(db.Model):
             member.bio = bio
         if image:
             member.image = image
+        if password:
+            member.password = password
         member.put()
 
     @staticmethod
