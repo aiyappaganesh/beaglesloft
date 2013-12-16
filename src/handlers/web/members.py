@@ -11,6 +11,8 @@ class LoginHandler(BaseHandler, WebRequestHandler):
         email = self['email']
         password = self['password']
         member = Member.get_by_email(email)
+        if 'member' in self.session and not email is self.session['member']:
+            return
         if not email or not member:
             self.response.out.write('user not in db')
             return
@@ -27,7 +29,7 @@ class LoginHandler(BaseHandler, WebRequestHandler):
 class TempHandler(BaseHandler):
     @login_required
     def get(self):
-        self.response.out.write('temp handler')
+        self.response.out.write(self.session['member'])
 
 
 app = RestApplication([("/members/login", LoginHandler),
