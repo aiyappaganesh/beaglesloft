@@ -6,12 +6,15 @@ import random
 from handlers.rest.rest_application import RestApplication
 from handlers import RequestHandler
 from model import Member
+from handlers.sessions import BaseHandler
+from auth import login_required
 
 class MemberSaveHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandler):
     def post(self):
-        image = str(self.get_uploads("image")[0].key())
+        image = self.get_uploads("image")
+        image_key = str(image[0].key()) if image else None
         Member.create_or_update(email=self["email"], name=self['name'], organization=self["organization"],
-                                designation=self["designation"], image=image, website=self["website"],
+                                designation=self["designation"], image=image_key, website=self["website"],
                                 twitter_handle=self["twitter_handle"], facebook_id=self["facebook_id"], bio=self["bio"])
         self.redirect("/")
 
@@ -95,10 +98,10 @@ class ImageHandler(blobstore_handlers.BlobstoreDownloadHandler):
             image = blobstore.BlobInfo.get(member.image)
             self.send_blob(image)
 
-app = RestApplication([("/api/members/save_member", MemberSaveHandler),
-                       ("/api/members/get_member", MemberFetchHandler),
-                       ("/api/members/([^/]+)/image", ImageHandler),
-                       ("/api/members/get_all_members", AllMembersFetchHandler),
-                       ("/api/members/validate_access_code", ValidateAccessCodeHandler),
-                       ("/api/members/process_access_answer", ProcessAccessAnswerHandler),
-                       ("/api/members/fetch_access_question", FetchAccessQuestionHandler)])
+app = RestApplication([ ("/api/members/save_member", MemberSaveHandler),
+                        ("/api/members/get_member", MemberFetchHandler),
+                        ("/api/members/([^/]+)/image", ImageHandler),
+                        ("/api/members/get_all_members", AllMembersFetchHandler),
+                        ("/api/members/validate_access_code", ValidateAccessCodeHandler),
+                        ("/api/members/process_access_answer", ProcessAccessAnswerHandler),
+                        ("/api/members/fetch_access_question", FetchAccessQuestionHandler)])
