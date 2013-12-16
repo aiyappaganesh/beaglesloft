@@ -9,8 +9,13 @@ from handlers.web import WebRequestHandler
 class LoginHandler(BaseHandler, WebRequestHandler):
     def post(self):
         email = self['email']
-        if not email or not Member.get_by_email(email):
+        password = self['password']
+        member = Member.get_by_email(email)
+        if not email or not member:
             self.response.out.write('user not in db')
+            return
+        if not password == member.password:
+            self.response.out.write('wrong password')
             return
         self.session['member'] = email
 

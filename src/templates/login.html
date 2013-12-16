@@ -1,5 +1,41 @@
-<form action="/members/login" method="POST">
-    <label for="email">Username</label>
-    <input id="email" name="email">
-    <input type="submit">
-</form>
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+<style>
+.wide {
+    width: 50%;
+}
+</style>
+{% endblock %}
+
+{% block Content %}
+<div id="member_login">
+    <div style="height:200px"></div>
+    <div style="height:50px">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 calendar-text">
+            <form action="/members/login" method="POST">
+                <div class="col-md-2">
+                    <label for="email">Username</label>
+                </div>
+                <div class="col-md-10">
+                    <input class="wide" id="email" name="email">
+                </div>
+                <div class="col-md-2">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-md-10">
+                    <input class="wide" id="password" name="password">
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-6">
+                    <input type="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
