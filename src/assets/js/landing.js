@@ -1,8 +1,14 @@
 var currentMemberIndex = 0;
 var member_keys = [];
 
-$(document).ready(function(){
+$(document).ready(function() {
+    $(window).on("load", resizeWindow);
     member_keys = $('#member_keys').val().split(',');
+});
+
+$(document).ready(function(){
+    $('.progress').hover(function(){$(this).addClass('progress-striped active')},function(){$(this).removeClass('progress-striped active')});
+    $('.progress-bar').hover(function(){$(this).css('background-color','rgba(255,215,0,0.5)')},function(){$(this).css('background-color','rgba(0,0,0,0.5)')});
 });
 
 $(document).ready(function(){
@@ -21,25 +27,25 @@ $(document).ready(function(){
         var window_top = $(window).scrollTop();
         var window_middle = $(window).scrollTop()+($(window).height() * 0.5);
 
-        if(section1_top < window_middle && section1_top > window_top) {
+        if(section1_top < window_middle && section1_top >= window_top) {
             highlightSection('#section1');
-        } else if(section2_top < window_middle && section2_top > window_top) {
+        } else if(section2_top < window_middle && section2_top >= window_top) {
             highlightSection('#section2');
-        } else if(section3_top < window_middle && section3_top > window_top) {
+        } else if(section3_top < window_middle && section3_top >= window_top) {
             highlightSection('#section2');
-        } else if(section4_top < window_middle && section4_top > window_top) {
+        } else if(section4_top < window_middle && section4_top >= window_top) {
             highlightSection('#section2');
-        } else if(section5_top < window_middle && section5_top > window_top) {
+        } else if(section5_top < window_middle && section5_top >= window_top) {
             highlightSection('#section2');
-        } else if(section6_top < window_middle && section6_top > window_top) {
+        } else if(section6_top < window_middle && section6_top >= window_top) {
             highlightSection('#section2');
-        } else if(section7_top < window_middle && section7_top > window_top) {
+        } else if(section7_top < window_middle && section7_top >= window_top) {
             highlightSection('#section7');
-        } else if(section8_top < window_middle && section8_top > window_top) {
+        } else if(section8_top < window_middle && section8_top >= window_top) {
             highlightSection('#section8');
-        } else if(section9_top < window_middle && section9_top > window_top) {
+        } else if(section9_top < window_middle && section9_top >= window_top) {
             highlightSection('#section9');
-        } else if(section10_top < window_middle && section10_top > window_top) {
+        } else if(section10_top < window_middle && section10_top >= window_top) {
             highlightSection('#section10');
         }
     });
@@ -56,14 +62,9 @@ function highlightSection(section) {
     });
 }
 
-$(document).ready(function() {
-    $(window).on("load", resizeWindow);
-});
-
 function resizeWindow() {
     windowHeight = $(window).height();
     windowWidth = $(window).width();
-    $("#landing").height(windowHeight);
     $(".quarter-height").height(windowHeight*0.25);
     $(".half-height").height(windowHeight*0.5);
     $(".three-quarter-height").height(windowHeight*0.75);
@@ -73,6 +74,19 @@ function resizeWindow() {
     $(".one-tenth-height").height(windowHeight*0.1);
     $(".one-sixth-height").height(windowHeight*0.167);
     $(".one-twelfth-height").height(windowHeight*0.083);
+
+    //Element Sizes
+    s1mh = 43 + ((1280-windowWidth) * 0.029167);
+    s1mh = Math.max(43,s1mh);
+    s1mh = Math.min(71,s1mh);
+    $(".section1-message").css('height',s1mh+'%');
+    s1ih = 57 - ((1280-windowWidth) * 0.029167);
+    s1ih = Math.max(29, s1ih);
+    s1ih = Math.min(57, s1ih);
+    $(".section1-image").css('height',s1ih+'%');
+    $(".section1-img").css('height','100%');
+
+
     $(".section6a-top").height(windowHeight*0.3);
     $(".section6a-bottom").height(windowHeight*0.285);
     $(".section6b-top").height(windowHeight*0.203);
@@ -135,17 +149,6 @@ function resizeWindow() {
     //Set dimensions
     $(".progress").css('height',windowWidth/64);
     $(".people-score-name").css('height',windowWidth/64);
-
-    //Element Sizes
-    s1mh = 43 + ((1280-windowWidth) * 0.029167);
-    s1mh = Math.max(43,s1mh);
-    s1mh = Math.min(71,s1mh);
-    $(".section1-message").css('height',s1mh+'%');
-    s1ih = 57 - ((1280-windowWidth) * 0.029167);
-    s1ih = Math.max(29, s1ih);
-    s1ih = Math.min(57, s1ih);
-    $(".section1-image").css('height',s1ih+'%');
-    $(".section1-img").css('height','100%');
 }
 
 function showMemberInfo(key) {
@@ -226,8 +229,3 @@ function showPreviousMemberInfo() {
         showMemberInfo(member_keys[currentMemberIndex-1]);
     }
 }
-
-$(document).ready(function(){
-    $('.progress').hover(function(){$(this).addClass('progress-striped active')},function(){$(this).removeClass('progress-striped active')});
-    $('.progress-bar').hover(function(){$(this).css('background-color','rgba(255,215,0,0.5)')},function(){$(this).css('background-color','rgba(0,0,0,0.5)')});
-});
