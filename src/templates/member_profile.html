@@ -54,7 +54,7 @@
                     </tr>
                     <tr>
                         <td><label for="bio">Bio</label></td>
-                        <td><textarea class="wide bio" id="bio" name="bio" value={% if member.bio %}{{ member.bio }}{% endif %}></textarea></td>
+                        <td><textarea class="wide bio" id="bio" name="bio" >{% if member.bio %}{{ member.bio }}{% endif %}</textarea></td>
                     </tr>
                     <tr>
                         <td><label for="twitter_handle">Twitter Handle</label></td>
