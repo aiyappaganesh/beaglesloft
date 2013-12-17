@@ -7,18 +7,27 @@
 .wide {
     width: 150%;
 }
-.profile tr {
+.member-profile tr {
     line-height: 150%;
 }
-.profile td {
+.member-profile td {
     width: 50%;
 }
-.profile label, input, textarea {
+.member-profile label, input {
     font-weight: 100;
+}
+.bio {
+    font-weight: 100;
+    resize: none;
 }
 .hidden {
     visibility: hidden;
     display: none;
+}
+.member-image-holder {
+    border: 1px solid black;
+    height: 150px;
+    width: 150px;
 }
 </style>
 {% endblock %}
@@ -31,10 +40,10 @@
             <b>PROFILE</b>
             <form action={{ form_url }} method="POST" enctype="multipart/form-data">
                 <div style="height:20px"></div>
-                <img src="/api/members/{{ member.email }}/image" onclick="$('#image').click()">
-                <input type="file" class="hidden" id="image" name="image">
+                <img src="/api/members/{{ member.email }}/image" class="member-image-holder" onclick="$('#member-image').click()">
+                <input type="file" class="hidden" id="member-image" name="member-image">
                 <div style="height:20px"></div>
-                <table class="profile">
+                <table class="member-profile">
                     <tr>
                         <td><label for="name">Name</label></td>
                         <td><input class="wide blanks" id="name" name="name" value={% if member.name %}{{ member.name }}{% endif %}></td>
@@ -45,7 +54,7 @@
                     </tr>
                     <tr>
                         <td><label for="bio">Bio</label></td>
-                        <td><textarea class="wide" id="bio" name="bio" value={% if member.bio %}{{ member.bio }}{% endif %}></textarea></td>
+                        <td><textarea class="wide bio" id="bio" name="bio" value={% if member.bio %}{{ member.bio }}{% endif %}></textarea></td>
                     </tr>
                     <tr>
                         <td><label for="twitter_handle">Twitter Handle</label></td>
