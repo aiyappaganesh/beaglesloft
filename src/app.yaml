@@ -39,10 +39,6 @@ handlers:
   script: handlers.web.index.app
   secure: always
 
-- url: /member_profile
-  script: handlers.web.index.app
-  secure: always
-
 - url: /member_access_question
   script: handlers.web.index.app
   secure: always
