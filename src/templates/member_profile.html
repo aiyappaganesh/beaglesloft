@@ -5,7 +5,20 @@
 <link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
 <style>
 .wide {
+    width: 150%;
+}
+.profile tr {
+    line-height: 150%;
+}
+.profile td {
     width: 50%;
+}
+.profile label, input {
+    font-weight: 100;
+}
+.hidden {
+    visibility: hidden;
+    display: none;
 }
 </style>
 {% endblock %}
@@ -17,23 +30,45 @@
         <div class="col-md-8 calendar-text">
             <b>PROFILE</b>
             <form action={{ form_url }} method="POST" enctype="multipart/form-data">
-                <div class="col-md-12"><input type="file" id="image" name="image"></div>
-                <div class="col-md-3"><label for="name">Name</label></div>
-                <div class="col-md-9"><input class="wide" id="name" name="name" value={% if member.name %}{{ member.name }}{% endif %}></div>
-                <div class="col-md-3"><label for="email">Email</label></div>
-                <div class="col-md-9"><input class="wide" id="email" name="email" value={% if member.email %}{{ member.email }}{% endif %}></div>
-                <div class="col-md-3"><label for="twitter_handle">Twitter Handle</label></div>
-                <div class="col-md-9"><input class="wide" id="twitter_handle" name="twitter_handle" value={% if member.twitter_handle %}{{ member.twitter_handle }}{% endif %}></div>
-                <div class="col-md-3"><label for="facebook_id">Facebook Id</label></div>
-                <div class="col-md-9"><input class="wide" id="facebook_id" name="facebook_id" value={% if member.facebook_id %}{{ member.facebook_id }}{% endif %}></div>
-                <div class="col-md-3"><label for="organization">Organization</label></div>
-                <div class="col-md-9"><input class="wide" id="organization" name="organization" value={% if member.organization %}{{ member.organization }}{% endif %}></div>
-                <div class="col-md-3"><label for="designation">Designation</label></div>
-                <div class="col-md-9"><input class="wide" id="designation" name="designation" value={% if member.designation %}{{ member.designation }}{% endif %}></div>
-                <div class="col-md-3"><label for="bio">Bio</label></div>
-                <div class="col-md-9"><input class="wide" id="bio" name="bio" value={% if member.bio %}{{ member.bio }}{% endif %}></div>
-                <div class="col-md-3"><label for="website">Website</label></div>
-                <div class="col-md-9"><input class="wide" id="website" name="website" value={% if member.website %}{{ member.website }}{% endif %}></div>
+                <div style="height:20px"></div>
+                <img src="/api/members/{{ member.email }}/image" onclick="$('#image').click()">
+                <input type="file" class="hidden" id="image" name="image">
+                <div style="height:20px"></div>
+                <table class="profile">
+                    <tr>
+                        <td><label for="name">Name</label></td>
+                        <td><input class="wide blanks" id="name" name="name" value={% if member.name %}{{ member.name }}{% endif %}></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email</label></td>
+                        <td><input class="wide blanks" id="email" name="email" value={% if member.email %}{{ member.email }}{% endif %}></td>
+                    </tr>
+                    <tr>
+                        <td><label for="bio">Bio</label></td>
+                        <td><textarea class="wide" id="bio" name="bio" value={% if member.bio %}{{ member.bio }}{% endif %}></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label for="twitter_handle">Twitter Handle</label></td>
+                        <td><input class="wide blanks" id="twitter_handle" name="twitter_handle" value={% if member.twitter_handle %}{{ member.twitter_handle }}{% endif %}></td>
+                    </tr>
+                    <tr>
+                        <td><label for="facebook_id">Facebook Id</label></td>
+                        <td><input class="wide blanks" id="facebook_id" name="facebook_id" value={% if member.facebook_id %}{{ member.facebook_id }}{% endif %}></td>
+                    </tr>
+                    <tr>
+                        <td><label for="organization">Organization</label></td>
+                        <td><input class="wide blanks" id="organization" name="organization" value={% if member.organization %}{{ member.organization }}{% endif %}></td>
+                    </tr>
+                    <tr>
+                        <td><label for="designation">Designation</label></td>
+                        <td><input class="wide blanks" id="designation" name="designation" value={% if member.designation %}{{ member.designation }}{% endif %}></td>
+                    </tr>
+                    <tr>
+                        <td><label for="website">Website</label></td>
+                        <td><input class="wide blanks" id="website" name="website" value={% if member.website %}{{ member.website }}{% endif %}></td>
+                    </tr>
+                </table>
+                <div style="height:20px"></div>
                 <input type="submit">
             </form>
         </div>
