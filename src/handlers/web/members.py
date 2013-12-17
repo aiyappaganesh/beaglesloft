@@ -2,7 +2,7 @@ from handlers.rest.rest_application import RestApplication
 from handlers.sessions import BaseHandler
 from auth import login_required
 from model import Member
-#from handlers import RequestHandler
+import logging
 from google.appengine.api.blobstore import blobstore
 from handlers.web import WebRequestHandler
 
@@ -11,6 +11,7 @@ class LoginHandler(BaseHandler, WebRequestHandler):
     def post(self):
         email = self['email']
         password = self['password']
+        redirect_url = str(self['redirect_url']) if self['redirect_url'] else '/'
         member = Member.get_by_email(email)
         if 'member' in self.session and not email is self.session['member']:
             self.response.out.write('another user already logged in')
@@ -22,10 +23,13 @@ class LoginHandler(BaseHandler, WebRequestHandler):
             self.response.out.write('wrong password')
             return
         self.session['member'] = email
+        if redirect_url:
+            self.redirect(redirect_url)
 
     def get(self):
         path = 'login.html'
-        self.write(self.get_rendered_html(path, {}), 200)
+        redirect_url = self['redirect_url']
+        self.write(self.get_rendered_html(path, {'redirect_url': redirect_url}), 200)
 
 class MemberProfilePage(BaseHandler, WebRequestHandler):
     @login_required
