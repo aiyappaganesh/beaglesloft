@@ -101,6 +101,8 @@ class CreateEventPage(WebRequestHandler):
         template_values = {'ua' : 'non-mobile'}
         if b or v:
             template_values['ua'] = 'mobile'
+        form_url = blobstore.create_upload_url('/api/events/save_event')
+        template_values['form_url'] = form_url
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class AcceptContact(WebRequestHandler):

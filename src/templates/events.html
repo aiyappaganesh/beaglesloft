@@ -17,7 +17,7 @@
             <div style="text-align:center">
                {% for event in events %}
                 <div class="col-xs-3 event-vw">
-                    <a target="_blank" href="{{event.link}}"><img style="max-width:100%" src="/assets/img/landing/xino.jpeg"></a>
+                    <a target="_blank" href="{{event.link}}"><img style="max-width:100%" src="{% if event.snapshot %}/api/common/download_image/{{event.snapshot}}{% else %}/assets/img/landing/xino.jpeg{% endif %}"></a>
                     <p>{{event.name}}</p>
                     <p>{{event.date_time}}</p>
                 </div>

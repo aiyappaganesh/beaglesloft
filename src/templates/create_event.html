@@ -14,26 +14,26 @@
             <div>
                 <p><b>CREATE EVENT</b></p>
             </div>
-            <form action="/api/events/save_event" method="POST" onsubmit="">
+            <form action={{ form_url }} method="POST" enctype="multipart/form-data">
                 <div>
                     <div class="col-xs-6">
                        <p>
                            NAME:
-                       </p>
-                       <p>
-                           TYPE:
-                       </p>
-                       <p>
-                           DATE TIME:
-                       </p>
-                       <p>
-                           LINK:
                        </p>
                     </div>
                     <div class="col-xs-6">
                        <p>
                            <input type="text" name="name" placeholder="Event Name">
                        </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           TYPE:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
                        <p>
                            <select name="type">
                                 <option value="VentureWednesdays">VENTURE WEDNESDAYS</option>
@@ -41,11 +41,41 @@
                                 <option value="TechBuilders">TECH BUILDERS</option>
                            </select>
                        </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           DATE TIME:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
                        <p>
                            <input name="date_time" type="datetime-local">
                        </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           LINK:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
                        <p>
                            <input style="width:100%" type="url" name="link" placeholder="http://www.your-event-website.com">
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           SNAPSHOT:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <input style="width:100%" type="file" name="snapshot" placeholder="Snapshot of event">
                        </p>
                     </div>
                 </div>

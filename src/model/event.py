@@ -5,6 +5,7 @@ class Event(db.Model):
     type = db.StringProperty()
     date_time = db.DateTimeProperty()
     link = db.StringProperty(indexed=False)
+    snapshot = db.StringProperty(indexed=False)
 
     @staticmethod
     def get_event_json(event):
@@ -14,6 +15,7 @@ class Event(db.Model):
             event_json['type'] = event.type
             event_json['date_time'] = event.date_time
             event_json['link'] = event.link
+            event_json['snapshot'] = event.snapshot
         return event_json
 
     @staticmethod

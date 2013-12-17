@@ -18,9 +18,13 @@ handlers:
 - url: /members/.*
   script: handlers.web.members.app
   secure: always
-  
+
 - url: /api/events/.*
   script: handlers.rest.events.app
+  secure: always
+
+- url: /api/common/.*
+  script: handlers.rest.common.app
   secure: always
 
 - url: /
