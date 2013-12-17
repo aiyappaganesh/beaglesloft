@@ -1,12 +1,3 @@
-function smoothScrollTo(event, link) {
-    event.preventDefault();
-    $.smoothScroll({
-        scrollTarget: link,
-        speed: 2000,
-        preventDefault: true
-    });
-}
-
 var currentMemberIndex = 0;
 var member_keys = [];
 
@@ -14,118 +5,45 @@ $(document).ready(function(){
     member_keys = $('#member_keys').val().split(',');
 });
 
-var currentSectionNumber = 1;
-var totalDelta = 0;
-var acceptScroll = true;
-var startTime = null;
-$(window).mousewheel(function(event, delta){
-    event.preventDefault();
-    if(startTime) {
-        if(($.now() - startTime) < 1500) {
-            return;
-        }
-    }
-    if(acceptScroll) {
-        totalDelta = totalDelta + delta;
-        if(Math.abs(totalDelta) < 50) {
-            return;
-        } else {
-            acceptScroll = false;
-        }
+$(document).ready(function(){
+    $(window).scroll(function(){
+        var section1_top = $('#section1').offset().top;
+        var section2_top = $('#section2').offset().top;
+        var section3_top = $('#section3').offset().top;
+        var section4_top = $('#section4').offset().top;
+        var section5_top = $('#section5').offset().top;
+        var section6_top = $('#section6').offset().top;
+        var section7_top = $('#section7').offset().top;
+        var section8_top = $('#section8').offset().top;
+        var section9_top = $('#section9').offset().top;
+        var section10_top = $('#section10').offset().top;
 
-        newSection = null;
-        if (currentSectionNumber < 10 && delta < 0){
-            newSectionNumber = currentSectionNumber+1;
-            newSection = '#section'+newSectionNumber;
-            if(newSectionNumber == 3 || newSectionNumber == 4 || newSectionNumber == 5) {
-                $(newSection+'a').show().animate({top: "0px"}, 2000);
-                $(newSection+'b').show().animate({top: "0px"}, 2000);
-            }
-            if(newSectionNumber != 4 && newSectionNumber != 5) {
-                if(newSectionNumber > 5) {
-                    $(newSection).fadeToggle();
-                } else {
-                    $(newSection).slideToggle();
-                }
-                if(newSectionNumber != 3 && newSectionNumber != 6) {
-                    highlightSection(newSection);
-                }
-            }
-            hideOldOnScrollDown(currentSectionNumber);
-            currentSectionNumber = newSectionNumber;
-        } else if (currentSectionNumber > 1 && delta > 0) {
-            newSectionNumber = currentSectionNumber-1;
-            newSection = '#section'+newSectionNumber;
-            if(newSectionNumber == 3 || newSectionNumber == 4 || newSectionNumber == 5) {
-                $(newSection+'a').show().animate({top: "0px"}, 2000);
-                $(newSection+'b').show().animate({top: "0px"}, 2000);
-            }
-            if(newSectionNumber != 3 && newSectionNumber != 4) {
-                if(currentSectionNumber == 6) {
-                    $('#section'+3).fadeToggle();
-                } else {
-                    if(newSectionNumber > 5) {
-                        $(newSection).fadeToggle();
-                    } else {
-                        $(newSection).slideToggle();
-                    }
-                }
-                if(newSectionNumber == 6) {
-                    highlightSection('#section'+2);
-                } else if(newSectionNumber != 5 && newSectionNumber != 4 &&  newSectionNumber != 3) {
-                    highlightSection(newSection);
-                }
-            }
-            hideOldOnScrollUp(currentSectionNumber);
-            currentSectionNumber = newSectionNumber;
+        var window_top = $(window).scrollTop();
+        var window_middle = $(window).scrollTop()+($(window).height() * 0.5);
+
+        if(section1_top < window_middle && section1_top > window_top) {
+            highlightSection('#section1');
+        } else if(section2_top < window_middle && section2_top > window_top) {
+            highlightSection('#section2');
+        } else if(section3_top < window_middle && section3_top > window_top) {
+            highlightSection('#section2');
+        } else if(section4_top < window_middle && section4_top > window_top) {
+            highlightSection('#section2');
+        } else if(section5_top < window_middle && section5_top > window_top) {
+            highlightSection('#section2');
+        } else if(section6_top < window_middle && section6_top > window_top) {
+            highlightSection('#section2');
+        } else if(section7_top < window_middle && section7_top > window_top) {
+            highlightSection('#section7');
+        } else if(section8_top < window_middle && section8_top > window_top) {
+            highlightSection('#section8');
+        } else if(section9_top < window_middle && section9_top > window_top) {
+            highlightSection('#section9');
+        } else if(section10_top < window_middle && section10_top > window_top) {
+            highlightSection('#section10');
         }
-        totalDelta = 0;
-        acceptScroll = true;
-        startTime = $.now();
-    }
+    });
 });
-
-function hideOldOnScrollDown(currentSectionNumber) {
-    oldSection = '#section'+currentSectionNumber;
-    windowHeight = $(window).height();
-    if(currentSectionNumber == 3 || currentSectionNumber == 5) {
-        $(oldSection+'a').animate({top: -1*windowHeight}, 2000, function(){$(oldSection+'a').hide();});
-        $(oldSection+'b').animate({top: windowHeight}, 2000, function(){$(oldSection+'b').hide();});
-    } else if(currentSectionNumber == 4) {
-        $(oldSection+'a').animate({top: windowHeight}, 2000, function(){$(oldSection+'a').hide();});
-        $(oldSection+'b').animate({top: -1*windowHeight}, 2000, function(){$(oldSection+'b').hide();});
-    }
-    if(currentSectionNumber+1 != 4 && currentSectionNumber+1 != 5) {
-        if(currentSectionNumber+1 == 6) {
-            $('#section'+3).fadeToggle();
-        } else {
-            if(currentSectionNumber > 5) {
-                $(oldSection).fadeToggle();
-            } else {
-                $(oldSection).slideToggle();
-            }
-        }
-    }
-}
-
-function hideOldOnScrollUp(currentSectionNumber) {
-    oldSection = '#section'+currentSectionNumber;
-    windowHeight = $(window).height();
-    if(currentSectionNumber == 3 || currentSectionNumber == 5) {
-        $(oldSection+'a').animate({top: -1*windowHeight}, 2000, function(){$(oldSection+'a').hide();});
-        $(oldSection+'b').animate({top: windowHeight}, 2000, function(){$(oldSection+'b').hide();});
-    } else if(currentSectionNumber == 4) {
-        $(oldSection+'a').animate({top: windowHeight}, 2000, function(){$(oldSection+'a').hide();});
-        $(oldSection+'b').animate({top: -1*windowHeight}, 2000, function(){$(oldSection+'b').hide();});
-    }
-    if(currentSectionNumber-1 != 3 && currentSectionNumber-1 != 4) {
-        if(currentSectionNumber > 5) {
-            $(oldSection).fadeToggle();
-        } else {
-            $(oldSection).slideToggle();
-        }
-    }
-}
 
 function highlightSection(section) {
     $(".nav-link").each(function(){
@@ -181,9 +99,53 @@ function resizeWindow() {
     $(".contact-top").height(windowHeight*0.1875);
     $(".contact-middle").height(windowHeight*0.375);
     $(".contact-bottom").height(windowHeight*0.1875);
-    $(".all-the-way-up").css('top',-1*windowHeight);
-    $(".all-the-way-down").css('top',windowHeight);
-    $(".half-way-across").css('left',windowWidth/2);
+    $(".people-margin-top").height(windowHeight/6.936);
+    $(".people-container").height(windowHeight/1.238);
+    $(".people-container").width(windowWidth/1.544);
+    $(".people-margin-bottom").height(windowHeight/20.807);
+
+    //Set font-sizes
+    $(".section1_heading").css('font-size',windowWidth/30.476);
+    $(".section_text").css('font-size',windowWidth/80);
+    $(".section2_text").css('font-size',windowWidth/40);
+    $(".section3_heading").css('font-size',windowWidth/32);
+    $(".section6_left_text").css('font-size',windowWidth/53.33);
+    $(".section6_right_heading").css('font-size',windowWidth/53.33);
+    $(".section6_right_text").css('font-size',windowWidth/85.33);
+    $(".program-time").css('font-size',windowWidth/80);
+    $(".program-heading").css('font-size',windowWidth/53.33);
+    $(".program-desc").css('font-size',windowWidth/98.46);
+    $(".people-designation").css('font-size',windowWidth/91.43);
+    $(".people-name").css('font-size',windowWidth/42.67);
+    $(".people-website").css('font-size',windowWidth/91.43);
+    $(".people-twitter-handle").css('font-size',windowWidth/91.43);
+    $(".people-desc").css('font-size',windowWidth/80);
+    $(".people-score-name").css('font-size',windowWidth/64);
+    $(".calendar-text").css('font-size',windowWidth/67.368);
+
+    //Set line-height
+    $(".section_text").css('line-height',(windowWidth/49.23)+'px');
+    $(".section2_text").css('line-height',(windowWidth/25.6)+'px');
+
+    //Set Margin
+    $(".people-picture").css('margin',windowWidth/256);
+    $(".progress").css('margin-bottom',windowWidth/426.67);
+    $(".progress").css('margin-top',windowWidth/213.33);
+
+    //Set dimensions
+    $(".progress").css('height',windowWidth/64);
+    $(".people-score-name").css('height',windowWidth/64);
+
+    //Element Sizes
+    s1mh = 43 + ((1280-windowWidth) * 0.029167);
+    s1mh = Math.max(43,s1mh);
+    s1mh = Math.min(71,s1mh);
+    $(".section1-message").css('height',s1mh+'%');
+    s1ih = 57 - ((1280-windowWidth) * 0.029167);
+    s1ih = Math.max(29, s1ih);
+    s1ih = Math.min(57, s1ih);
+    $(".section1-image").css('height',s1ih+'%');
+    $(".section1-img").css('height','100%');
 }
 
 function showMemberInfo(key) {

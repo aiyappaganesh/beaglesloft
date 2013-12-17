@@ -1,0 +1,44 @@
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div id="member_registration">
+    <div style="height:100px"></div>
+    <div style="height:50px">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 calendar-text">
+            <div>
+                <p><b>MEMBER REGISTRATION</b> <i style="font-size: 14px">(dotted information is optional)</i></p>
+            </div>
+            <div>
+                <fb:registration redirect_uri=https://hagglecommunitydev.appspot.com/api/members/save_member fields="[
+                 {'name':'name','description':'What is your name',             'type':'text','no_submit':'true'},
+                 {'name':'email'},
+                 {'name':'location','no_submit':'true'},
+                 {'name':'gender','no_submit':'true'},
+                 {'name':'birthday','no_submit':'true'},
+                 {'name':'password','no_submit':'true'},
+                 {'name':'like',       'description':'Do you like this plugin?', 'type':'checkbox',  'default':'checked','no_submit':'true'},
+                 {'name':'phone',      'description':'Phone Number',             'type':'text','no_submit':'true'},
+                 {'name':'anniversary','description':'Anniversary',              'type':'date','no_submit':'true'},
+                 {'name':'captain',    'description':'Best Captain',             'type':'select',    'options':{'P':'Jean-Luc Picard','K':'James T. Kirk'},'no_submit':'true'},
+                 {'name':'force',      'description':'Which side?',              'type':'select',    'options':{'jedi':'Jedi','sith':'Sith'}, 'default':'sith','no_submit':'true'},
+                 {'name':'live',       'description':'Best Place to Live',       'type':'typeahead', 'categories':['city','country','state_province'],'no_submit':'true'},
+                 {'name':'captcha','no_submit':'true'}
+                ]"/>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block Scripts %}
+<script src="/assets/js/lib/stellar.js"></script>
+<script src="/assets/js/lib/jquery.smooth-scroll.min.js"></script>
+<script src="/assets/js/member-registration.js"></script>
+{% endblock %}

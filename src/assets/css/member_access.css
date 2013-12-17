@@ -53,6 +53,10 @@
     word-wrap: break-word;
 }
 
+.access-option {
+    cursor: pointer;
+}
+
 .access-answer {
      border:none;
      color:white;

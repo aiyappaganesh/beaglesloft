@@ -2,7 +2,7 @@ import webapp2
 import logging
 from handlers.web import WebRequestHandler
 import re
-from model import Member
+from model import Member, Event
 from google.appengine.api import mail
 from google.appengine.api.blobstore import blobstore
 
@@ -54,9 +54,47 @@ class MemberRegistrationPage(WebRequestHandler):
             template_values['ua'] = 'mobile'
         self.write(self.get_rendered_html(path, template_values), 200)
 
+class MemberFBRegistrationPage(WebRequestHandler):
+    def get(self):
+        path = 'member_fbregistration.html'
+        ua = self.request.headers['User-Agent']
+        b = reg_b.search(ua)
+        v = reg_v.search(ua[0:4])
+        template_values = {'ua' : 'non-mobile'}
+        if b or v:
+            template_values['ua'] = 'mobile'
+        self.write(self.get_rendered_html(path, template_values), 200)
+
 class MemberAccessPage(WebRequestHandler):
     def get(self):
         path = 'member_access.html'
+        ua = self.request.headers['User-Agent']
+        b = reg_b.search(ua)
+        v = reg_v.search(ua[0:4])
+        template_values = {'ua' : 'non-mobile'}
+        if b or v:
+            template_values['ua'] = 'mobile'
+        self.write(self.get_rendered_html(path, template_values), 200)
+
+class EventsPage(WebRequestHandler):
+    def get(self):
+        path = 'events.html'
+        ua = self.request.headers['User-Agent']
+        b = reg_b.search(ua)
+        v = reg_v.search(ua[0:4])
+        template_values = {'ua' : 'non-mobile'}
+        if b or v:
+            template_values['ua'] = 'mobile'
+        type = self['type']
+        if not type:
+            type = 'VentureWednesdays'
+        template_values['events'] = Event.get_events(type)
+        template_values['type'] = type
+        self.write(self.get_rendered_html(path, template_values), 200)
+
+class CreateEventPage(WebRequestHandler):
+    def get(self):
+        path = 'create_event.html'
         ua = self.request.headers['User-Agent']
         b = reg_b.search(ua)
         v = reg_v.search(ua[0:4])
@@ -71,8 +109,8 @@ class AcceptContact(WebRequestHandler):
         from_email = self['contact_email']
         message = self['contact_message']
 
-        to_email = "BeaglesLoft Contact <aiyappa@b-eagles.com>"
-        subject = "BeaglesLoft Contact"
+        to_email = "BeaglesLoft Contact <bangalore@b-eagles.com>"
+        subject = "Message from BeaglesLoft Contact Page"
         body = """ Name: %s , Email: %s , Message: %s """ % (name, from_email, message)
         mail.send_mail(from_email, to_email, subject, body)
         self.redirect("/")
@@ -83,7 +121,10 @@ app = webapp2.WSGIApplication(
         ('/testspy', TestSpyPage),
         ('/calendar', CalendarPage),
         ('/member_registration', MemberRegistrationPage),
+        ('/member_fbregistration', MemberFBRegistrationPage),
         ('/member_access', MemberAccessPage),
-        ('/accept_contact', AcceptContact)
+        ('/accept_contact', AcceptContact),
+        ('/events', EventsPage),
+        ('/create_event', CreateEventPage)
     ]
 )

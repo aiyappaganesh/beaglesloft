@@ -1,0 +1,68 @@
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div id="create-event">
+    <div style="height:100px"></div>
+    <div style="height:50px">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 calendar-text">
+            <div>
+                <p><b>CREATE EVENT</b></p>
+            </div>
+            <form action="/api/events/save_event" method="POST" onsubmit="">
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           NAME:
+                       </p>
+                       <p>
+                           TYPE:
+                       </p>
+                       <p>
+                           DATE TIME:
+                       </p>
+                       <p>
+                           LINK:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <input type="text" name="name" placeholder="Event Name">
+                       </p>
+                       <p>
+                           <select name="type">
+                                <option value="VentureWednesdays">VENTURE WEDNESDAYS</option>
+                                <option value="ReDesign">RE: DESIGN</option>
+                                <option value="TechBuilders">TECH BUILDERS</option>
+                           </select>
+                       </p>
+                       <p>
+                           <input name="date_time" type="datetime-local">
+                       </p>
+                       <p>
+                           <input style="width:100%" type="url" name="link" placeholder="http://www.your-event-website.com">
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                       <input type="submit" value="ADD EVENT">
+                   </p>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block Scripts %}
+<script src="/assets/js/lib/stellar.js"></script>
+<script src="/assets/js/lib/jquery.smooth-scroll.min.js"></script>
+<script src="/assets/js/member-registration.js"></script>
+{% endblock %}

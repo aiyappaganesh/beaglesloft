@@ -65,7 +65,7 @@
     text-align:left;
 }
 
-.program-heading {
+.program-heading, .program-heading a {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
     font-size: 24px;
@@ -82,11 +82,10 @@
 }
 
 .people-picture {
-    height:47%;
     border:black solid;
     margin:5px;
-    background: url('/assets/img/landing/rajiv.png') no-repeat center;
-    background-size: 100% 100%;
+    background-size: cover;
+    height: 75%;
 }
 
 .people-picture:hover, .people-picture:active {
@@ -180,3 +179,18 @@
 
 button:focus {outline:none;}
 input[type="submit"]:focus {outline:none;}
+
+.event-vw {
+    border: 1px solid black;
+    margin: 4%;
+}
+
+.back-to-grid-button {
+    height:30px;
+    width:100px;
+    font-size:16px;
+    color:#3f2c35;
+    background: url('/assets/img/landing/pattern-people.png') repeat;
+    border:none;
+    font-family: 'Oswald', sans-serif;
+}

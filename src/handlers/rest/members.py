@@ -58,11 +58,22 @@ class ProcessAccessAnswerHandler(RequestHandler):
     def post(self):
         logging.info("Trying to process access answer")
         result_json = {'url':''}
-        access_answer = self["access_answer"]
-        question_id = self["qid"]
+        access_answer = str(self["access_answer"])
+        question_id = str(self["qid"])
         logging.info(access_answer + ',' + question_id)
         if question_id and access_answer:
-            result_json['url'] = '/member_registration'
+            if question_id == 'M1':
+                if access_answer=='1' or access_answer.lower().strip()=='one':
+                    result_json['url'] = '/member_registration'
+            elif question_id == 'S1':
+                if access_answer.lower().strip().find('higg')!=-1 or access_answer.lower().strip().find('boson')!=-1:
+                    result_json['url'] = '/member_registration'
+            elif question_id == 'B1':
+                if access_answer.lower().strip().find('whiskey')!=-1 or access_answer.lower().strip().find('whisky')!=-1:
+                    result_json['url'] = '/member_registration'
+            elif question_id == 'A1':
+                if access_answer.lower().strip().find('acrylic')!=-1:
+                    result_json['url'] = '/member_registration'
         self.write(
             json.dumps(
                 result_json
@@ -81,10 +92,10 @@ class FetchAccessQuestionHandler(RequestHandler):
             result_json['question'] = 'The Large Hadron Collider (LHC) was built to confirm the existence of which particle?'
             result_json['question_id'] = 'S1'
         elif category == 'Business':
-            result_json['question'] = 'If 10 men can build 10 houses in 10 days, how many houses can 1 man build in 10 days?'
+            result_json['question'] = "With what product did the term 'brand name' originate?"
             result_json['question_id'] = 'B1'
         elif category == 'Art':
-            result_json['question'] = 'If 10 men can build 10 houses in 10 days, how many houses can 1 man build in 10 days?'
+            result_json['question'] = 'What kind of paint is made from pigments and plastic?'
             result_json['question_id'] = 'A1'
         self.write(
             json.dumps(

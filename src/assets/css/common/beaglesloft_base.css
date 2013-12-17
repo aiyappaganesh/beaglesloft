@@ -310,10 +310,6 @@ footer {
     float: left !important;
 }
 
-a, a:hover {
-    color:#45acbf;
-}
-
 .navbar .nav>li>a.hover-enabled:hover{
     color:#e58170 !important;
 }
@@ -365,7 +361,7 @@ a, a:hover {
     }  
     .nav{
         width:100%;
-        background: url('/assets/img/landing/beaglesloft.png') no-repeat center;
+        background: url('/assets/img/landing/beagles-grunge-small-wide.png') no-repeat center;
         background-size: 50px 30px;
     }
     .navbar .nav{
