@@ -11,7 +11,7 @@ from auth import login_required
 
 class MemberSaveHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandler):
     def post(self):
-        image = self.get_uploads("image")
+        image = self.get_uploads("member-image")
         image_key = str(image[0].key()) if image else None
         Member.create_or_update(email=self["email"], name=self['name'], organization=self["organization"],
                                 designation=self["designation"], image=image_key, website=self["website"],
