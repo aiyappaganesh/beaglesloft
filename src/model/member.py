@@ -1,5 +1,6 @@
 import logging
 from google.appengine.ext import db
+from google.appengine.ext import blobstore
 
 class Member(db.Model):
     email = db.StringProperty()
@@ -44,6 +45,7 @@ class Member(db.Model):
         if bio:
             member.bio = bio
         if image:
+            Member.delete_image(member.image)
             member.image = image
         if password:
             member.password = password
@@ -109,3 +111,7 @@ class Member(db.Model):
         for member in members:
             members_json[member.email] = Member.get_member_json(member.email)
         return members_json
+
+    @classmethod
+    def delete_image(cls, key):
+        blobstore.delete(key)
