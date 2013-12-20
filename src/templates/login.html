@@ -2,40 +2,30 @@
 
 {% block Styles %}
 <link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
-<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
-<style>
-.wide {
-    width: 50%;
-}
-</style>
+<link href="/assets/css/member_login.css" type="text/css" rel="stylesheet">
 {% endblock %}
-
 {% block Content %}
 <div id="member_login">
     <div style="height:200px"></div>
     <div style="height:50px">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 calendar-text">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 calendar-text">
             <form action="/members/login?redirect_url={{ redirect_url }}" method="POST">
-                <div class="col-md-2">
-                    <label for="email">Username</label>
-                </div>
-                <div class="col-md-10">
-                    <input class="wide" id="email" name="email">
-                </div>
-                <div class="col-md-2">
-                    <label for="password">Password</label>
-                </div>
-                <div class="col-md-10">
-                    <input class="wide" id="password" name="password" type="password">
-                </div>
-                <div class="col-md-4">
-                </div>
+                <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <input type="submit">
+                    <div class="form-field col-md-12">
+                        <input class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-field col-md-12">
+                        <input class="form-control" id="password" name="password" type="password" placeholder="Password">
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn-block btn-primary" type="submit">Sign In</button>
+                    </div>
                 </div>
             </form>
         </div>
+        <div class="col-md-3"></div>
     </div>
 </div>
 {% endblock %}
