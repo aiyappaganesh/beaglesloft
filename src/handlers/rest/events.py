@@ -17,9 +17,11 @@ class CreateEventHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandl
         snapshot_key = str(snapshot[0].key()) if snapshot else None
         name = self['name']
         type = self['type']
-        date_time = self['date_time']
+        description = self['description']
+        date = self['date']
+        time = self['time']
         link = self['link']
-        Event.get_or_insert(type+date_time,name=name,type=type,date_time=datetime.fromtimestamp(mktime(time.strptime(date_time,"%Y-%m-%dT%H:%M"))),link=link, snapshot=snapshot_key)
+        Event.get_or_insert(type+date,name=name,type=type,description=description,date=datetime.strptime(date,"%Y-%m-%d"),time=time,link=link,snapshot=snapshot_key)
         self.redirect("/")
 
 app = RestApplication([("/api/events/save_event",CreateEventHandler)])

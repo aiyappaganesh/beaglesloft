@@ -1,10 +1,14 @@
 from google.appengine.ext import db
 
+format = '%b. %w %Y'
+
 class Event(db.Model):
     name = db.StringProperty(indexed=False)
     type = db.StringProperty()
-    date_time = db.DateTimeProperty()
+    date = db.DateTimeProperty()
+    time = db.StringProperty(indexed=False)
     link = db.StringProperty(indexed=False)
+    description = db.TextProperty(indexed=False)
     snapshot = db.StringProperty(indexed=False)
 
     @staticmethod
@@ -13,7 +17,8 @@ class Event(db.Model):
         if event:
             event_json['name'] = event.name
             event_json['type'] = event.type
-            event_json['date_time'] = event.date_time
+            event_json['date'] = event.date.strftime(format)
+            event_json['time'] = event.time
             event_json['link'] = event.link
             event_json['snapshot'] = event.snapshot
         return event_json
