@@ -6,54 +6,163 @@
 {% endblock %}
 
 {% block Content %}
-<div id="events">
-    <div class="" style="height:100px"></div>
+<div id="events" class="container" style="background-color:#e5e5e5;margin:0px;width: 100%;">
+    <div class="row" style="text-align:center;background: url('/assets/img/landing/pattern-programs.png') repeat;">
+        <div class="row empty-row"><div class="col-xs-12"></div></div>
+        <div class="row empty-row"><div class="col-xs-12"></div></div>
+        <div class="row empty-row"><div class="col-xs-12"></div></div>
+        <div class="row empty-row"><div class="col-xs-12"></div></div>
+        <div class="row empty-row"><div class="col-xs-12"></div></div>
+        <div class="row empty-row"><div class="col-xs-12"></div></div>
+        <div class="row empty-row"><div class="col-xs-12"></div></div>
+        <div class="row">
+            <div class="col-xs-4">
+            </div>
+            <div class="col-xs-4">
+                <p class="section2_heading">
+                    EVENTS
+                </p>
+            </div>
+            <div class="col-xs-4">
+            </div>
+        </div>
+        <div class="row empty-row"><div class="col-xs-12"></div></div>
+        <div class="row empty-row"><div class="col-xs-12"></div></div>
+    </div>
+    <div class="row empty-row"><div class="col-xs-12"></div></div>
+    <div class="row empty-row"><div class="col-xs-12"></div></div>
+
     <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+            <div class="row" style="background-color:black;">
+                <div style="margin:60px;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <p style="font-family: 'Oswald', sans-serif;color:#FF0017;">FEATURED EVENT</p>
+                            <p style="font-family: 'Oswald', sans-serif;color:#ffffff;font-size: 45px;font-weight:300">HOW TO BECOME A VC</p>
+                            <p style="font-family: 'Gudea', sans-serif;color:#ffffff;font-size: 16px">
+                                Maecenas tempor egestas arcu, ac laoreet sem posuere ac.
+                                Sed rhoncus massa et viverra maefladsf. Sed dgd rsffga sf
+                                ojcn awreoio mdbsdfn. Edf hgffd wreo fgfkf.
+                            </p>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="row empty-row"><div class="col-xs-12"></div></div>
+                            <div class="row empty-row"><div class="col-xs-12"></div></div>
+                            <p style="text-align:center;font-family: 'Oswald', sans-serif;color:#ffffff;font-size:22px;font-weight:300">DEC. 18, 2013, 6-9 PM</p>
+                            <p style="text-align:center;">
+                                <a target="_blank" href="https://venturewednesdaystestevent1.splashthat.com/">
+                                    <button value="LEARN MORE" style="background-color:#FF0017;width: 65%;
+    height: 60px;margin-top: 2%;color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:16px;">LEARN MORE</button>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row empty-row"><div class="col-xs-12"></div></div>
+            <div class="row empty-row"><div class="col-xs-12"></div></div>
+            <div class="row">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4" style="text-align:center">
+                    <p style="font-family: 'Oswald', sans-serif;font-weight: 300;font-size:28px;color:#9a9a9a">PAST EVENTS</p>
+                </div>
+                <div class="col-xs-4"></div>
+            </div>
+            {% for k, v in events.items %}
+                <div class="row">
+                    {% for event in v %}
+                        <div style="width:31.8%;display:inline-block;margin-top:12px;margin-bottom:12px;{% if forloop.first %}margin-left:0px;{% else %}margin-left:10px;{% endif %}{% if forloop.last %}margin-right:0px;{% else %}margin-right:10px;{% endif %}">
+                            <div style="text-align:center"><a target="_blank" href="{{event.link}}"><img style="width:100%;height:175px" src="{% if event.snapshot %}/api/common/download_image/{{event.snapshot}}{% else %}/assets/img/landing/xino.jpeg{% endif %}"></a></div>
+                            <div style="height:50px;border-bottom: 1px solid lightgrey;background-color:#ffffff;font-family: 'Gudea', sans-serif;font-weight: 300;font-size:16px;color:#b7b7b7"><p class="pull-left">{{event.date_time}}</p></div>
+                            <div style="height:120px;border-bottom: 1px solid lightgrey;background-color:#ffffff;font-family: 'Gudea', sans-serif;font-weight: 300;font-size:16px;"><p style="text-align:left">{{event.name}}</p></div>
+                            <div style="height:60px;background-color:#ffffff;text-align:center;">
+                                <a target="_blank" href="{{event.link}}">
+                                    <button value="LEARN MORE" style="background-color:#FF0017;width: 90%;
+height: 60%;margin-top: 3.5%;color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:16px;">LEARN MORE</button>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+
+    <!--<div class="" style="height: 300px">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-9" style="height:100%;background-color:black;margin-left:4%;margin-right:4%">
+            <div style="margin:60px">
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <p style="font-family: 'Oswald', sans-serif;color:#FF0017;">FEATURED EVENT</p>
+                        <p style="font-family: 'Oswald', sans-serif;color:#ffffff;font-size: 45px;font-weight:300">HOW TO BECOME A VC</p>
+                        <p style="font-family: 'Gudea', sans-serif;color:#ffffff;font-size: 16px">
+                            Maecenas tempor egestas arcu, ac laoreet sem posuere ac.
+                            Sed rhoncus massa et viverra maefladsf. Sed dgd rsffga sf
+                            ojcn awreoio mdbsdfn. Edf hgffd wreo fgfkf.
+                        </p>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="row empty-row"><div class="col-xs-12"></div></div>
+                        <div class="row empty-row"><div class="col-xs-12"></div></div>
+                        <p style="text-align:center;font-family: 'Oswald', sans-serif;color:#ffffff;font-size:22px;font-weight:300">DEC. 18, 2013, 6-9 PM</p>
+                        <p style="text-align:center;">
+                            <a target="_blank" href="https://venturewednesdaystestevent1.splashthat.com/">
+                                <button value="LEARN MORE" style="background-color:#FF0017;width: 65%;
+height: 60px;margin-top: 2%;color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:16px;">LEARN MORE</button>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row empty-row"><div class="col-xs-12"></div></div>
+    <div class="row empty-row"><div class="col-xs-12"></div></div>
+    <div>
         <div class="col-sm-1"></div>
         <div class="col-sm-10 calendar-text">
-            <div>
-                <p><b>{{type}}</b></p>
+            <div class="row">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4" style="text-align:center">
+                    <p style="font-family: 'Oswald', sans-serif;font-weight: 300;font-size:28px;color:#9a9a9a">PAST EVENTS</p>
+                </div>
+                <div class="col-xs-4"></div>
             </div>
             <div style="text-align:center">
-               {% for event in events %}
-                <div class="col-xs-3 event-vw">
-                    <a target="_blank" href="{{event.link}}"><img style="max-width:100%" src="{% if event.snapshot %}/api/common/download_image/{{event.snapshot}}{% else %}/assets/img/landing/xino.jpeg{% endif %}"></a>
-                    <p>{{event.name}}</p>
-                    <p>{{event.date_time}}</p>
+               {% for k, v in events.items %}
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    {% for event in v %}
+                        <div class="col-xs-3 event-vw">
+                            <a target="_blank" href="{{event.link}}"><img style="width:100%;height:175px" src="{% if event.snapshot %}/api/common/download_image/{{event.snapshot}}{% else %}/assets/img/landing/xino.jpeg{% endif %}"></a>
+                            <div style="height:50px;border-bottom: 1px solid lightgrey;background-color:#ffffff;font-family: 'Gudea', sans-serif;font-weight: 300;font-size:16px;color:#b7b7b7"><p class="pull-left">{{event.date_time}}</p></div>
+                            <div style="height:120px;border-bottom: 1px solid lightgrey;background-color:#ffffff;font-family: 'Gudea', sans-serif;font-weight: 300;font-size:16px;"><p style="text-align:left">{{event.name}}</p></div>
+                            <div style="height:60px;background-color:#ffffff">
+                                <a target="_blank" href="{{event.link}}">
+                                    <button value="LEARN MORE" style="background-color:#FF0017;width: 90%;
+height: 60%;margin-top: 4%;color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:16px;">LEARN MORE</button>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="col-xs-1"></div>
                 </div>
                {% endfor %}
             </div>
         </div>
         <div class="col-sm-1"></div>
-    </div>
-    <div style="margin-top:10%">
-        <div class="col-xs-1"></div>
-        <div class="col-xs-5">
-            <div><p><b><u>Events Blog</u></b></p><iframe width="100%" frameborder="1" src="https://aiyappabeagles.wordpress.com" height="400"></iframe></div>
-        </div>
-        <div class="col-xs-5">
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                var disqus_shortname = 'aiyappabeagles'; // Required - Replace example with your forum shortname
+    </div>-->
 
-                /* * * DON'T EDIT BELOW THIS LINE * * */
-                (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-            <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-        </div>
-        <div class="col-xs-1"></div>
-    </div>
 </div>
 {% endblock %}
 
 {% block Scripts %}
-<script src="/assets/js/lib/stellar.js"></script>
 <script src="/assets/js/lib/jquery.smooth-scroll.min.js"></script>
-<script src="/assets/js/member-registration.js"></script>
+<script src="/assets/js/events.js"></script>
 {% endblock %}

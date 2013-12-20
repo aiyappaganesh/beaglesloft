@@ -71,6 +71,10 @@ handlers:
   script: handlers.web.index.app
   secure: always
 
+- url: /values
+  script: handlers.web.index.app
+  secure: always
+
 ######################### STATIC ENDPOINTS #########################
 
 - url: /assets/css

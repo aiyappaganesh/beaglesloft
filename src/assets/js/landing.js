@@ -14,12 +14,12 @@ $(document).ready(function(){
 $(document).ready(function(){
     $(window).scroll(function(){
         var section1_top = $('#section1').offset().top;
-        var section2_top = $('#section2').offset().top;
-        var section3_top = $('#section3').offset().top;
-        var section4_top = $('#section4').offset().top;
-        var section5_top = $('#section5').offset().top;
-        var section6_top = $('#section6').offset().top;
-        var section7_top = $('#section7').offset().top;
+        //var section2_top = $('#section2').offset().top;
+        //var section3_top = $('#section3').offset().top;
+        //var section4_top = $('#section4').offset().top;
+        //var section5_top = $('#section5').offset().top;
+        //var section6_top = $('#section6').offset().top;
+        //var section7_top = $('#section7').offset().top;
         var section8_top = $('#section8').offset().top;
         var section9_top = $('#section9').offset().top;
         var section10_top = $('#section10').offset().top;
@@ -29,7 +29,7 @@ $(document).ready(function(){
 
         if(section1_top < window_middle && section1_top >= window_top) {
             highlightSection('#section1');
-        } else if(section2_top < window_middle && section2_top >= window_top) {
+        } /*else if(section2_top < window_middle && section2_top >= window_top) {
             highlightSection('#section2');
         } else if(section3_top < window_middle && section3_top >= window_top) {
             highlightSection('#section2');
@@ -41,7 +41,7 @@ $(document).ready(function(){
             highlightSection('#section2');
         } else if(section7_top < window_middle && section7_top >= window_top) {
             highlightSection('#section7');
-        } else if(section8_top < window_middle && section8_top >= window_top) {
+        } */else if(section8_top < window_middle && section8_top >= window_top) {
             highlightSection('#section8');
         } else if(section9_top < window_middle && section9_top >= window_top) {
             highlightSection('#section9');
@@ -74,6 +74,7 @@ function resizeWindow() {
     $(".one-tenth-height").height(windowHeight*0.1);
     $(".one-sixth-height").height(windowHeight*0.167);
     $(".one-twelfth-height").height(windowHeight*0.083);
+    $(".values-height").height(windowHeight*1.5);
 
     //Element Sizes
     s1mh = 43 + ((1280-windowWidth) * 0.029167);
@@ -120,6 +121,7 @@ function resizeWindow() {
 
     //Set font-sizes
     $(".section1_heading").css('font-size',windowWidth/30.476);
+    $(".section1_text").css('font-size',windowWidth/58.18);
     $(".section_text").css('font-size',windowWidth/80);
     $(".section2_text").css('font-size',windowWidth/40);
     $(".section3_heading").css('font-size',windowWidth/32);
@@ -138,6 +140,7 @@ function resizeWindow() {
     $(".calendar-text").css('font-size',windowWidth/67.368);
 
     //Set line-height
+    $(".section1_text").css('line-height',(windowWidth/49.23)+'px');
     $(".section_text").css('line-height',(windowWidth/49.23)+'px');
     $(".section2_text").css('line-height',(windowWidth/25.6)+'px');
 
@@ -229,3 +232,21 @@ function showPreviousMemberInfo() {
         showMemberInfo(member_keys[currentMemberIndex-1]);
     }
 }
+
+$(document).ready(function(){
+    var url = document.URL;
+    var accessed_page_section = url.substring(url.lastIndexOf('/'));
+    if(accessed_page_section != '/') {
+        $('#landing-logo').hide(100, function(){$('#landing-main').show(0, function(){scrollTo(url)})});
+        return;
+    }
+    $('#navbar-fluid').hide();
+    $('#logo').fadeIn(1000, function(){
+            $('#landing-logo').fadeOut(2000, function(){
+                $('#navbar-fluid').fadeIn(2000);
+                $('#landing-main').fadeIn(2000, function() {
+                    scrollTo(document.URL);
+                })
+            })
+        });
+});

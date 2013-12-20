@@ -18,20 +18,22 @@
     <div id="fb-root"></div>
     <div class="wrap">
         <div id={% block Navbar_Type %}navbar-fluid{% endblock %} class="navbar navbar-fixed-top" style={% block Navbar_DisplayType %}{% endblock %}>
+            <div class="row empty-row"><div class="col-xs-12"></div></div>
             <div class="navbar-inner">
                 <div id="c820" class="container collapse-820">
                     <div class="row">
                         <ul class="nav pull-left">
                             <li>
                                 <a href="/" class="hover-enabled" style="padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;">
-                                    <img src="/assets/img/landing/beagles-grunge-small-wide.png">
+                                    <img id="navbar-logo" src="/assets/img/landing/beagles-logo-black.png">
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav pull-right">
-                            <li><a href="/#section2" class="nav-link hover-enabled">ABOUT</a></li>
-                            <li><a href="/#section7" class="nav-link hover-enabled">PROGRAMS</a></li>
-                            <li><a href="/#section8" class="nav-link hover-enabled">PEOPLE</a></li>
+                            <li><a href="/" class="nav-link hover-enabled">THE LOFT</a></li>
+                            <li><a href="/values" class="nav-link hover-enabled">OUR VALUES</a></li>
+                            <li><a href="/events" class="nav-link hover-enabled">EVENTS</a></li>
+                            <li><a href="/#section8" class="nav-link hover-enabled">MEMBERS</a></li>
                             <li><a href="/#section9" class="nav-link hover-enabled">BUZZ</a></li>
                             <li><a href="/#section10" class="nav-link hover-enabled">CONTACT</a></li>
                             <li><a href="/" class="nav-link hover-enabled">BLOG</a></li>
@@ -53,18 +55,23 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="/#section2" class="nav-link">
-                                                <div style="text-align:center">ABOUT</div>
+                                            <a href="/" class="nav-link">
+                                                <div style="text-align:center">THE LOFT</div>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/#section7" class="nav-link">
-                                                <div style="text-align:center">PROGRAMS</div>
+                                            <a href="/values" class="nav-link">
+                                                <div style="text-align:center">OUR VALUES</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/events" class="nav-link">
+                                                <div style="text-align:center">EVENTS</div>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/#section8" class="nav-link">
-                                                <div style="text-align:center">PEOPLE</div>
+                                                <div style="text-align:center">MEMBERS</div>
                                             </a>
                                         </li>
                                         <li>
@@ -112,6 +119,7 @@
                     </div>
                 </div>
             </div>
+            <div class="row empty-row"><div class="col-xs-12"></div></div>
         </div>
         <div class="content-page">
             {% block Content %}{% endblock %}

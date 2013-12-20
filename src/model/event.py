@@ -36,3 +36,19 @@ class Event(db.Model):
             for event in events:
                 events_json.append(Event.get_event_json(event))
         return events_json
+
+    @staticmethod
+    def get_paged_events(type):
+        events_json = {}
+        query = Event.all()
+        if type:
+            query = query.filter('type =', type)
+        events = query.order('-date_time').fetch(limit=200)
+        if events:
+            counter = 0
+            for event in events:
+                if not counter/3 in events_json:
+                    events_json[counter/3] = []
+                events_json[counter/3].append(Event.get_event_json(event))
+                counter+=1
+        return events_json

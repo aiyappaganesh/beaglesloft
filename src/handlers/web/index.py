@@ -87,6 +87,7 @@ class EventsPage(WebRequestHandler):
         template_values = {'ua' : 'non-mobile'}
         if b or v:
             template_values['ua'] = 'mobile'
+
         past_events = []
         upcoming_events = []
         for event in Event.all().order('-date_time'):
@@ -96,6 +97,14 @@ class EventsPage(WebRequestHandler):
                 upcoming_events.append(event.json())
         template_values['past_events'] = past_events
         template_values['upcoming_events'] = upcoming_events
+
+        #type = self['type']
+        #if not type:
+        #    type = 'VentureWednesdays'
+        #template_values['events'] = Event.get_paged_events(type)
+        #logging.info(template_values['events'])
+        #template_values['type'] = type
+
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class CreateEventPage(WebRequestHandler):
@@ -123,6 +132,17 @@ class AcceptContact(WebRequestHandler):
         mail.send_mail(from_email, to_email, subject, body)
         self.redirect("/")
 
+class ValuesPage(WebRequestHandler):
+    def get(self):
+        path = 'values.html'
+        ua = self.request.headers['User-Agent']
+        b = reg_b.search(ua)
+        v = reg_v.search(ua[0:4])
+        template_values = {'ua' : 'non-mobile'}
+        if b or v:
+            template_values['ua'] = 'mobile'
+        self.write(self.get_rendered_html(path, template_values), 200)
+
 app = webapp2.WSGIApplication(
     [
         ('/', IndexPage),
@@ -133,6 +153,7 @@ app = webapp2.WSGIApplication(
         ('/member_access', MemberAccessPage),
         ('/accept_contact', AcceptContact),
         ('/events', EventsPage),
-        ('/create_event', CreateEventPage)
+        ('/create_event', CreateEventPage),
+        ('/values', ValuesPage)
     ]
 )

@@ -2,6 +2,14 @@
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
     font-size: 42px;
+    color: #000000;
+}
+
+.section1_text {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 26px;
 }
 
 .section_text {
@@ -12,12 +20,21 @@
     line-height: 26px;
 }
 
+.section2_heading {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 50px;
+    color: #000000;
+    text-align:center;
+}
+
 .section2_text {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
     font-size: 32px;
     line-height: 50px;
-    color: #62615F;
+    color: #ffffff;
     text-align:center;
 }
 
@@ -25,7 +42,7 @@
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
     font-size: 40px;
-    color: #ffffff;
+    color: #000000;
 }
 
 .section6_left_text {
@@ -181,8 +198,8 @@ button:focus {outline:none;}
 input[type="submit"]:focus {outline:none;}
 
 .event-vw {
-    border: 1px solid black;
-    margin: 4%;
+    margin: 1.5%;
+    padding: 0px;
 }
 
 .back-to-grid-button {
@@ -194,3 +211,5 @@ input[type="submit"]:focus {outline:none;}
     border:none;
     font-family: 'Oswald', sans-serif;
 }
+
+button {border:none}

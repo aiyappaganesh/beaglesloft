@@ -1,3 +1,18 @@
+$(document).ready(function(){
+    var url = document.URL;
+    var current_page = '';
+    var current_last_index = document.URL.lastIndexOf('#');
+    if(current_last_index == -1) {
+        current_page = document.URL.substring(document.URL.lastIndexOf('/'));
+    } else {
+        current_page = document.URL.substring(document.URL.lastIndexOf('/'),current_last_index);
+    }
+    if(current_page == '/') return;
+    $('#navbar-fluid').css('background-color','rgba(48,46,46,1)');
+    $('#navbar-fluid a').css('color','#adacac');
+    $('#navbar-logo').attr('src','/assets/img/landing/beagles-logo.png');
+});
+
 $(document).ready(function() {
     $(".nav-link").click( function(event){
         var current_page = '';
@@ -44,10 +59,8 @@ function highlightLink(link) {
 }
 
 function scrollTo(link) {
-    var link_st_ind = link.indexOf('#section');
-    if(link_st_ind != -1) {
-        smoothScrollTo(link.substring(link_st_ind));
-    }
+    var link_st_ind = link.lastIndexOf('/');
+    smoothScrollTo(link.substring(link_st_ind+1));
 }
 
 function smoothScrollTo(link) {
