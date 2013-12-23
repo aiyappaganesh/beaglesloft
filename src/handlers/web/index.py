@@ -89,7 +89,7 @@ class EventsPage(WebRequestHandler):
             template_values['ua'] = 'mobile'
         past_events = []
         upcoming_events = []
-        for event in Event.all():
+        for event in Event.all().order('-date_time'):
             if event.date_time < datetime.now():     #change to gmt+530
                 past_events.append(event.json())
             elif event.date_time >= datetime.now():
