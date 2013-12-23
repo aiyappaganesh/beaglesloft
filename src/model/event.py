@@ -21,7 +21,6 @@ class Event(db.Model):
         event_json['time'] = "%s - %s"%(self.date_time.strftime(time_format),
                                         (self.date_time + timedelta(hours=self.duration)).strftime(time_format))
         event_json['description'] = self.description
-        event_json['duration'] = self.duration
         event_json['link'] = self.link
         event_json['snapshot'] = self.snapshot
         return event_json
