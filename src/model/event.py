@@ -1,30 +1,33 @@
 from google.appengine.ext import db
+from datetime import datetime, timedelta
 
-format = '%b. %w %Y'
+date_format = '%b. %w %Y'
+time_format = "%I:%M%p"
 
 class Event(db.Model):
     name = db.StringProperty(indexed=False)
     type = db.StringProperty()
-    date = db.DateTimeProperty()
-    time = db.StringProperty(indexed=False)
+    date_time = db.DateTimeProperty()
+    duration = db.IntegerProperty(indexed=False)
     link = db.StringProperty(indexed=False)
     description = db.TextProperty(indexed=False)
     snapshot = db.StringProperty(indexed=False)
 
-    @staticmethod
-    def get_event_json(event):
-        event_json = {}
-        if event:
-            event_json['name'] = event.name
-            event_json['type'] = event.type
-            event_json['date'] = event.date.strftime(format)
-            event_json['time'] = event.time
-            event_json['link'] = event.link
-            event_json['snapshot'] = event.snapshot
+    def json(self):
+        event_json = dict()
+        event_json['name'] = self.name
+        event_json['type'] = self.type
+        event_json['date'] = self.date_time.strftime(date_format)
+        event_json['time'] = "%s - %s"%(self.date_time.strftime(time_format),
+                                        (self.date_time + timedelta(hours=self.duration)).strftime(time_format))
+        event_json['description'] = self.description
+        event_json['duration'] = self.duration
+        event_json['link'] = self.link
+        event_json['snapshot'] = self.snapshot
         return event_json
 
     @staticmethod
-    def get_events(type):
+    def get_events(type=None):
         events_json = []
         query = Event.all()
         if type:
