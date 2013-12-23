@@ -1,7 +1,7 @@
 from google.appengine.ext import db
 from datetime import datetime, timedelta
 
-date_format = '%b. %w %Y'
+date_format = '%b. %d %Y'
 time_format = "%I:%M%p"
 
 class Event(db.Model):
@@ -17,9 +17,9 @@ class Event(db.Model):
         event_json = dict()
         event_json['name'] = self.name
         event_json['type'] = self.type
-        event_json['date'] = self.date_time.strftime(date_format)
-        event_json['time'] = "%s - %s"%(self.date_time.strftime(time_format),
-                                        (self.date_time + timedelta(hours=self.duration)).strftime(time_format))
+        event_json['date'] = (self.date_time + timedelta(hours=5, minutes=30)).strftime(date_format)
+        event_json['time'] = "%s - %s"%((self.date_time + timedelta(hours=5, minutes=30)).strftime(time_format),
+                                        (self.date_time + timedelta(hours=self.duration) + timedelta(hours=5, minutes=30)).strftime(time_format))
         event_json['description'] = self.description
         event_json['link'] = self.link
         event_json['snapshot'] = self.snapshot
