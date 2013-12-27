@@ -20,7 +20,6 @@ class IndexPage(WebRequestHandler):
         template_values = {'ua' : 'non-mobile'}
         if b or v:
             template_values['ua'] = 'mobile'
-        template_values['member_keys'] = Member.get_paged_member_keys()
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class TestSpyPage(WebRequestHandler):
@@ -87,7 +86,6 @@ class EventsPage(WebRequestHandler):
         template_values = {'ua' : 'non-mobile'}
         if b or v:
             template_values['ua'] = 'mobile'
-
         past_events = []
         upcoming_events = []
         for event in Event.all().order('-date_time'):
@@ -104,6 +102,9 @@ class EventsPage(WebRequestHandler):
         #template_values['events'] = Event.get_paged_events(type)
         #logging.info(template_values['events'])
         #template_values['type'] = type
+        #table_length = rows*450 + (rows-1)*24
+        #logging.info(table_length)
+        #template_values['table_length'] = table_length
 
         self.write(self.get_rendered_html(path, template_values), 200)
 
@@ -143,6 +144,51 @@ class ValuesPage(WebRequestHandler):
             template_values['ua'] = 'mobile'
         self.write(self.get_rendered_html(path, template_values), 200)
 
+class PeoplePage(WebRequestHandler):
+    def get(self):
+        path = 'people.html'
+        ua = self.request.headers['User-Agent']
+        b = reg_b.search(ua)
+        v = reg_v.search(ua[0:4])
+        template_values = {'ua' : 'non-mobile'}
+        if b or v:
+            template_values['ua'] = 'mobile'
+        template_values['member_keys'] = Member.get_member_keys()
+        self.write(self.get_rendered_html(path, template_values), 200)
+
+class BuzzPage(WebRequestHandler):
+    def get(self):
+        path = 'buzz.html'
+        ua = self.request.headers['User-Agent']
+        b = reg_b.search(ua)
+        v = reg_v.search(ua[0:4])
+        template_values = {'ua' : 'non-mobile'}
+        if b or v:
+            template_values['ua'] = 'mobile'
+        self.write(self.get_rendered_html(path, template_values), 200)
+
+class ContactPage(WebRequestHandler):
+    def get(self):
+        path = 'contact.html'
+        ua = self.request.headers['User-Agent']
+        b = reg_b.search(ua)
+        v = reg_v.search(ua[0:4])
+        template_values = {'ua' : 'non-mobile'}
+        if b or v:
+            template_values['ua'] = 'mobile'
+        self.write(self.get_rendered_html(path, template_values), 200)
+
+class BlogPage(WebRequestHandler):
+    def get(self):
+        path = 'blog.html'
+        ua = self.request.headers['User-Agent']
+        b = reg_b.search(ua)
+        v = reg_v.search(ua[0:4])
+        template_values = {'ua' : 'non-mobile'}
+        if b or v:
+            template_values['ua'] = 'mobile'
+        self.write(self.get_rendered_html(path, template_values), 200)
+
 app = webapp2.WSGIApplication(
     [
         ('/', IndexPage),
@@ -154,6 +200,9 @@ app = webapp2.WSGIApplication(
         ('/accept_contact', AcceptContact),
         ('/events', EventsPage),
         ('/create_event', CreateEventPage),
-        ('/values', ValuesPage)
+        ('/people', PeoplePage),
+        ('/buzz', BuzzPage),
+        ('/contact', ContactPage),
+        ('/blog', BlogPage)
     ]
 )

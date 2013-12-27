@@ -71,9 +71,21 @@ handlers:
   script: handlers.web.index.app
   secure: always
 
-- url: /values
+- url: /people
   script: handlers.web.index.app
   secure: always
+
+- url: /buzz
+  script: handlers.web.index.app
+  secure: always
+
+- url: /contact
+  script: handlers.web.index.app
+  secure: always
+
+- url: /blog
+  script: handlers.web.index.app
+  secure: never
 
 ######################### STATIC ENDPOINTS #########################
 

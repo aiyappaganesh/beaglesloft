@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <meta name="description" content="The Haggle Community">
     <!--<link href="/assets/css/common/normalize.css" type="text/css" rel="stylesheet">-->
     <link href="/assets/css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
@@ -10,42 +10,41 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oswald:100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Gudea:100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
     {% block Styles %}{% endblock %}
     <title>{% block Title %}BeaglesLoft{% endblock %}</title>
     <script src="/assets/js/common/config.js"></script>
 </head>
 <body data-spy="scroll" data-target=".landing-nav">
     <div id="fb-root"></div>
-    <div class="wrap">
-        <div id={% block Navbar_Type %}navbar-fluid{% endblock %} class="navbar navbar-fixed-top" style={% block Navbar_DisplayType %}{% endblock %}>
-            <div class="row empty-row"><div class="col-xs-12"></div></div>
+    <div id="wrap-div" class="wrap">
+        <div id={% block Navbar_Type %}navbar-fluid{% endblock %} class="navbar navbar-fixed-top" style={% block Navbar_DisplayType %}opacity:0{% endblock %}>
             <div class="navbar-inner">
-                <div id="c820" class="container collapse-820">
-                    <div class="row">
+                <div id="c820" class=" collapse-820" style="padding-top:10px;padding-bottom:10px;padding-left:0px;padding-right:0px;margin:0px;width:100%">
+                    <div id="navbar-inner-row" class="row" style="margin-left:20px;margin-right:20px;">
                         <ul class="nav pull-left">
                             <li>
                                 <a href="/" class="hover-enabled" style="padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;">
-                                    <img id="navbar-logo" src="/assets/img/landing/beagles-logo-black.png">
+                                    <img id="navbar-logo" style="height:50px;width:50px;" src="/assets/img/landing/beagles-logo-mark.png">
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav pull-right">
-                            <li><a href="/" class="nav-link hover-enabled">THE LOFT</a></li>
-                            <li><a href="/values" class="nav-link hover-enabled">OUR VALUES</a></li>
+                            <!--<li><a href="/" class="nav-link hover-enabled">THE LOFT</a></li>-->
+                            <!--<li><a href="/#values" class="nav-link hover-enabled">OUR VALUES</a></li>-->
                             <li><a href="/events" class="nav-link hover-enabled">EVENTS</a></li>
-                            <li><a href="/#section8" class="nav-link hover-enabled">MEMBERS</a></li>
-                            <li><a href="/#section9" class="nav-link hover-enabled">BUZZ</a></li>
-                            <li><a href="/#section10" class="nav-link hover-enabled">CONTACT</a></li>
-                            <li><a href="/" class="nav-link hover-enabled">BLOG</a></li>
-                            <li><a href="/calendar" class="nav-link hover-enabled">CALENDAR</a></li>
-                            <!--<li><a href="/member_registration" class="nav-link hover-enabled">MEMBER REGISTRATION</a></li>-->
-                            <li><a href="/member_access" class="nav-link hover-enabled">MEMBER ACCESS</a></li>
-                            <li><a href="/members/profile" class="nav-link hover-enabled">PROFILE</a></li>
-                            <li><a href="/create_event" class="nav-link hover-enabled">CREATE EVENT</a></li>
+                            <li><a href="/people" class="nav-link hover-enabled">MEMBERS</a></li>
+                            <!--<li><a href="/buzz" class="nav-link hover-enabled">BUZZ</a></li>-->
+                            <!--<li><a href="/contact" class="nav-link hover-enabled">CONTACT</a></li>-->
+                            <li><a href="/blog" class="nav-link hover-enabled">BLOG</a></li>
+                            <!--<li><a href="/calendar" class="nav-link hover-enabled">CALENDAR</a></li>-->
+                            <!--<li><a href="/members/profile" class="nav-link hover-enabled">LOGIN</a></li>-->
+                            <!--<li><a href="/member_access" class="nav-link hover-enabled">SIGN UP</a></li>-->
+                            <!--<li><a href="/create_event" class="nav-link hover-enabled">CREATE EVENT</a></li>-->
                         </ul>
                     </div>
                 </div>
-                <div id="s820" class="container show-820" style="display:none">
+                <div id="s820" class=" show-820" style="display:none">
                     <div class="row">
                         <div class="col-md-12">
                             <ul class="nav">
@@ -54,61 +53,61 @@
                                         <img src="/assets/img/Haggle_Mobile_navbar_menu_icon.png" alt="Menu Icon" height="20"/>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="/" class="nav-link">
-                                                <div style="text-align:center">THE LOFT</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/values" class="nav-link">
-                                                <div style="text-align:center">OUR VALUES</div>
-                                            </a>
-                                        </li>
+                                        <!--<li>-->
+                                            <!--<a href="/" class="nav-link">-->
+                                                <!--<div style="text-align:center">THE LOFT</div>-->
+                                            <!--</a>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<a href="/#values" class="nav-link">-->
+                                                <!--<div style="text-align:center">OUR VALUES</div>-->
+                                            <!--</a>-->
+                                        <!--</li>-->
                                         <li>
                                             <a href="/events" class="nav-link">
                                                 <div style="text-align:center">EVENTS</div>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/#section8" class="nav-link">
+                                            <a href="/people" class="nav-link">
                                                 <div style="text-align:center">MEMBERS</div>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="/#section9" class="nav-link">
-                                                <div style="text-align:center">BUZZ</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/#section10" class="nav-link">
-                                                <div style="text-align:center">CONTACT</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/" class="nav-link">
-                                                <div style="text-align:center">BLOG</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/calendar" class="nav-link">
-                                                <div style="text-align:center">CALENDAR</div>
-                                            </a>
-                                        </li>
                                         <!--<li>-->
-                                            <!--<a href="/member_registration" class="nav-link">-->
-                                                <!--<div style="text-align:center">MEMBER REGISTRATION</div>-->
+                                            <!--<a href="/buzz" class="nav-link">-->
+                                                <!--<div style="text-align:center">BUZZ</div>-->
+                                            <!--</a>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<a href="/contact" class="nav-link">-->
+                                                <!--<div style="text-align:center">CONTACT</div>-->
                                             <!--</a>-->
                                         <!--</li>-->
                                         <li>
-                                            <a href="/member_access" class="nav-link">
-                                                <div style="text-align:center">MEMBER ACCESS</div>
+                                            <a href="/blog" class="nav-link">
+                                                <div style="text-align:center">BLOG</div>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="/create_event" class="nav-link">
-                                                <div style="text-align:center">CREATE EVENT</div>
-                                            </a>
-                                        </li>
+                                        <!--<li>-->
+                                            <!--<a href="/calendar" class="nav-link">-->
+                                                <!--<div style="text-align:center">CALENDAR</div>-->
+                                            <!--</a>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<a href="/members/profile" class="nav-link">-->
+                                                <!--<div style="text-align:center">LOGIN</div>-->
+                                            <!--</a>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<a href="/member_access" class="nav-link">-->
+                                                <!--<div style="text-align:center">SIGN UP</div>-->
+                                            <!--</a>-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<a href="/create_event" class="nav-link">-->
+                                                <!--<div style="text-align:center">CREATE EVENT</div>-->
+                                            <!--</a>-->
+                                        <!--</li>-->
                                     </ul>
                                 </li>
                                 <li class="haggle-logo-small">
@@ -119,7 +118,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row empty-row"><div class="col-xs-12"></div></div>
         </div>
         <div class="content-page">
             {% block Content %}{% endblock %}
