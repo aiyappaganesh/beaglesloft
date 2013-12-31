@@ -86,13 +86,7 @@ class EventsPage(WebRequestHandler):
         template_values = {'ua' : 'non-mobile'}
         if b or v:
             template_values['ua'] = 'mobile'
-        past_events = []
-        upcoming_events = []
-        for event in Event.all().order('-date_time'):
-            if event.date_time < datetime.now():     #change to gmt+530
-                past_events.append(event.json())
-            elif event.date_time >= datetime.now():
-                upcoming_events.append(event.json())
+        upcoming_events, past_events = Event.get_paged_events()
         template_values['past_events'] = past_events
         template_values['upcoming_events'] = upcoming_events
 

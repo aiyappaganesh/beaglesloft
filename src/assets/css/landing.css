@@ -17,7 +17,6 @@
     font-size: 16px;
     color: #8C8C86;
     line-height: 30px;
-    letter-spacing: 0.5px;
 }
 
 .events_heading {
@@ -32,18 +31,18 @@
 .section2_heading {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size: 36px;
-    line-height: 50px;
+    font-size: 32px;
+    line-height: 32px;
     color: #000000;
     text-align: center;
 }
 
 .section2_text {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Gudea', sans-serif;
     font-weight: 300;
-    font-size: 32px;
-    line-height: 40px;
-    color: #acacac;
+    font-size: 22px;
+    line-height: 32px;
+    color: #727272;
     text-align:center;
 }
 
@@ -64,19 +63,18 @@
 .section6_right_heading {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size: 36px;
+    font-size: 40px;
     color: #ffffff;
-    text-align:center;
-    text-shadow:1px 1px 1px #000000;
+    text-align:right;
 }
 
 .section6_right_text {
     font-family: 'Gudea', sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
     color: #e5edec;
-    text-align:center;
-    text-shadow:1px 1px 1px #000000;
+    text-align: left;
+    line-height: 28px;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
@@ -253,4 +251,9 @@ button {border:none}
     background: -o-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,0.1),rgba(255,255,255,0),rgba(255,255,255,0.1),rgba(255,255,255,0)); /*Opera 11-12*/
     background: -moz-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,0.1),rgba(255,255,255,0),rgba(255,255,255,0.1),rgba(255,255,255,0)); /*Fx 3.6-15*/
     background: linear-gradient(to right,rgba(255,255,255,0),rgba(255,255,255,0.1),rgba(255,255,255,0),rgba(255,255,255,0.1),rgba(255,255,255,0)); /*Standard*/
+}
+
+footer>a, footer>a:hover {
+    color: #000000;
+    text-decoration: none;
 }

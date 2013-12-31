@@ -3,21 +3,6 @@ $(document).ready(function(){
     if(url.indexOf('blog')!=-1) {
         $("#navbar-fluid").css({ opacity: 1 });
     }
-    var current_page = '';
-    var current_last_index = document.URL.lastIndexOf('#');
-    if(current_last_index == -1) {
-        current_page = document.URL.substring(document.URL.lastIndexOf('/'));
-    } else {
-        current_page = document.URL.substring(document.URL.lastIndexOf('/'),current_last_index);
-    }
-    if(current_page == '/') return;
-    //$('#wrap-div').css('min-width', '1280px');
-    //$('#navbar-fluid').css('background-color','rgba(48,46,46,0.95)');
-    //$('#navbar-fluid a').css('color','#adacac');
-    //$('#navbar-logo').attr('src','/assets/img/landing/beagles-logo-mark.png');
-    //$('#navbar-logo').height('50px');
-    //$('#navbar-logo').width('50px');
-    //$('#navbar-inner-row').css('margin','0px');
 });
 
 $(document).ready(function() {
@@ -25,17 +10,8 @@ $(document).ready(function() {
         var top_of_window = $(window).scrollTop();
         var show_navbar = ($(window).height() * 0.1);
         if(top_of_window > show_navbar) {
-            /*if($("#navbar-fluid").css('display') == 'none') {
-                $("#navbar-fluid").css({ opacity: 1 });
-                //$("#navbar-fluid").slideDown('slow');
-                //$("#navbar-fluid").height('0px').show().animate({height: "50px"}, 5000);
-            }*/
             $("#navbar-fluid").css({ opacity: 1 });
-        }
-        /*else if($("#navbar-fluid").css('display') != 'none') {
-            $("#navbar-fluid").hide();
-        }*/
-        else if(document.URL.indexOf('blog')==-1){
+        } else if(document.URL.indexOf('blog')==-1){
             var curr_opacity = (top_of_window)/(show_navbar);
             $("#navbar-fluid").css({ opacity: curr_opacity });
         }

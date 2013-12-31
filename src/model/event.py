@@ -17,9 +17,9 @@ class Event(db.Model):
         event_json = dict()
         event_json['name'] = self.name
         event_json['type'] = self.type
-        event_json['date'] = (self.date_time + timedelta(hours=5, minutes=30)).strftime(date_format)
-        event_json['time'] = "%s - %s"%((self.date_time + timedelta(hours=5, minutes=30)).strftime(time_format),
-                                        (self.date_time + timedelta(hours=self.duration) + timedelta(hours=5, minutes=30)).strftime(time_format))
+        event_json['date'] = (self.date_time).strftime(date_format)
+        event_json['time'] = "%s - %s"%((self.date_time).strftime(time_format),
+                                        (self.date_time + timedelta(hours=self.duration)).strftime(time_format))
         event_json['description'] = self.description
         event_json['link'] = self.link
         event_json['snapshot'] = self.snapshot
@@ -27,28 +27,30 @@ class Event(db.Model):
 
     @staticmethod
     def get_events(type=None):
-        events_json = []
-        query = Event.all()
-        if type:
-            query = query.filter('type =', type)
-        events = query.order('-date_time').fetch(limit=200)
-        if events:
-            for event in events:
-                events_json.append(Event.get_event_json(event))
-        return events_json
+        past_events = []
+        upcoming_events = []
+        for event in Event.all().order('-date_time'):
+            if event.date_time < datetime.now():     #change to gmt+530
+                past_events.append(event.json())
+            elif event.date_time >= datetime.now():
+                upcoming_events.append(event.json())
+        return upcoming_events, past_events
 
     @staticmethod
-    def get_paged_events(type):
-        events_json = {}
-        query = Event.all()
-        if type:
-            query = query.filter('type =', type)
-        events = query.order('-date_time').fetch(limit=200)
-        if events:
+    def get_paged_events(type=None):
+        past_events = {}
+        past_events_temp = []
+        upcoming_events = []
+        for event in Event.all().order('-date_time'):
+            if event.date_time < datetime.now():     #change to gmt+530
+                past_events_temp.append(event.json())
+            elif event.date_time >= datetime.now():
+                upcoming_events.append(event.json())
+        if past_events_temp:
             counter = 0
-            for event in events:
-                if not counter/3 in events_json:
-                    events_json[counter/3] = []
-                events_json[counter/3].append(Event.get_event_json(event))
+            for event in past_events_temp:
+                if not counter/3 in past_events:
+                    past_events[counter/3] = []
+                past_events[counter/3].append(event)
                 counter+=1
-        return events_json
+        return upcoming_events, past_events
