@@ -30,11 +30,14 @@ $(document).ready(function(){
         $('#landing-logo').hide(100, function(){$('#landing-main').show(0, function(){scrollTo(url)})});
         return;
     }
-    $('#logo').fadeIn(1000, function(){
-            $('#landing-logo').fadeOut(2000, function(){
-                $('#landing-main').fadeIn(2000, function() {
+    $('#landing-logo').fadeIn(600, function(){
+        $('#logo').fadeIn(3000, function(){
+            $('#logo').fadeOut(2000, function(){
+                $('#landing-logo').fadeOut(1000);
+                $('#landing-main').fadeIn(500, function() {
                     scrollTo(document.URL);
-                })
-            })
+                });
+            });
         });
+    });
 });

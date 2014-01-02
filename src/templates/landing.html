@@ -5,26 +5,13 @@
 {% endblock %}
 
 {% block Content %}
-<div id="landing-logo" style="background-color:#ffffff;text-align:center;">
-    <div class="row empty-row"><div class="col-xs-12"></div></div>
-    <div class="row empty-row"><div class="col-xs-12"></div></div>
-    <div class="row empty-row"><div class="col-xs-12"></div></div>
-    <div class="row empty-row"><div class="col-xs-12"></div></div>
-    <div class="row empty-row"><div class="col-xs-12"></div></div>
-    <div class="row empty-row"><div class="col-xs-12"></div></div>
-    <div class="row empty-row"><div class="col-xs-12"></div></div>
-    <div class="row empty-row"><div class="col-xs-12"></div></div>
-    <div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4" style="padding:0px">
-            <div id="logo" style="text-align:center;display:none;"><img src="/assets/img/landing/beagles-logo-large.png"></div>
-        </div>
-        <div class="col-sm-4"></div>
-    </div>
+<div id="landing-logo" style="position:relative;text-align:center;display:none;height:100%">
+    <img src="/assets/img/landing/intro-gate.png" class="bg">
+    <div id="logo" style="text-align:center;display:none;position:absolute;top:50%;width:100%;"><img style="margin:auto;margin-top:-150px;" src="/assets/img/landing/bl-logo-intro.png"></div>
 </div>
 <div id="landing-main" style="display:none;">
-    <section id="section1" style="background-color:#F9F9ED;height:700px;">
-        <div id="section1-carousel" style="height:700px" class="carousel slide">
+    <section id="section1" style="background-color:#F9F9ED;">
+        <div id="section1-carousel" class="carousel slide">
             <ol class="carousel-indicators" style="left:100% !important;width:30%;">
                 <li data-target="#section1-carousel" data-slide-to="0" class="active"></li>
                 <li data-target="#section1-carousel" data-slide-to="1"></li>

@@ -380,14 +380,6 @@ footer {
     }
 }
 
-img.bg {
-    max-width: 100%;
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
 .vendor-button {
     margin-top: 10px;
     margin-bottom: 10px;

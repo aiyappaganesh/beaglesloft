@@ -15,9 +15,9 @@
     <title>{% block Title %}BeaglesLoft{% endblock %}</title>
     <script src="/assets/js/common/config.js"></script>
 </head>
-<body data-spy="scroll" data-target=".landing-nav">
+<body data-spy="scroll" data-target=".landing-nav" style="height:100%">
     <div id="fb-root"></div>
-    <div id="wrap-div" class="wrap">
+    <div id="wrap-div" class="wrap" style="height:100%">
         <div id={% block Navbar_Type %}navbar-fluid{% endblock %} class="navbar navbar-fixed-top" style={% block Navbar_DisplayType %}opacity:0{% endblock %}>
             <div class="navbar-inner" style="text-align:center;">
                 <div id="c820" class=" collapse-820" style="padding-top:10px;padding-bottom:10px;padding-left:0px;padding-right:0px;margin:0px;width:940px;margin:auto;">
@@ -119,7 +119,7 @@
                 </div>
             </div>
         </div>
-        <div class="content-page">
+        <div class="content-page" style="height:100%">
             {% block Content %}{% endblock %}
         </div>
         <script src="/assets/js/lib/jquery.min.js"></script>
