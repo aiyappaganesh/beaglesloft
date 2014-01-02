@@ -1,6 +1,7 @@
 import logging
 from google.appengine.ext import db
 from google.appengine.ext import blobstore
+import random
 
 class Member(db.Model):
     email = db.StringProperty()
@@ -49,6 +50,9 @@ class Member(db.Model):
             member.image = image
         if password:
             member.password = password
+        member.influence_score = random.randint(0, 100)
+        member.activity_score = random.randint(0, 100)
+        member.proficiency_score = random.randint(0, 100)
         member.put()
 
     @staticmethod
