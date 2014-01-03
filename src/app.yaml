@@ -13,75 +13,75 @@ handlers:
 
 - url: /api/members/.*
   script: handlers.rest.members.app
-  secure: always
+  secure: never
 
 - url: /members/.*
   script: handlers.web.members.app
-  secure: always
+  secure: never
 
 - url: /api/events/.*
   script: handlers.rest.events.app
-  secure: always
+  secure: never
 
 - url: /api/common/.*
   script: handlers.rest.common.app
-  secure: always
+  secure: never
 
 - url: /
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /testspy
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /calendar
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /member_registration
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /member_fbregistration
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /member_access
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /member_access_question
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /accept_contact
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /validate_access_code
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /events
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /create_event
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /people
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /buzz
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /contact
   script: handlers.web.index.app
-  secure: always
+  secure: never
 
 - url: /blog
   script: handlers.web.index.app
@@ -91,19 +91,19 @@ handlers:
 
 - url: /assets/css
   static_dir: assets/css
-  secure: always
+  secure: never
 
 - url: /assets/js
   static_dir: assets/js
-  secure: always
+  secure: never
 
 - url: /assets/img
   static_dir: assets/img
-  secure: always
+  secure: never
 
 - url: /assets/fonts
   static_dir: assets/fonts
-  secure: always
+  secure: never
 
 libraries:
 - name: django
