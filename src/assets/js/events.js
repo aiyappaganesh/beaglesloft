@@ -1,12 +1,8 @@
-$(document).ready(function() {
-    $(window).on("load resize", resizeWindow);
+$(document).ready(function(){
+    $('.learn-more-button').mouseover(function(){
+        $(this).animate({'background-color':'#FF0017 !important','color':'#ffffff'},500);
+    });
+    $('.learn-more-button').mouseout(function(){
+        $(this).animate({'background-color':'transparent','color':'#FF0017'},500);
+    });
 });
-
-function resizeWindow() {
-    windowHeight = $(window).height();
-    windowWidth = $(window).width();
-    $(".quarter-height").height(windowHeight*0.25);
-    $(".half-height").height(windowHeight*0.5);
-    $(".three-quarter-height").height(windowHeight*0.75);
-    $(".full-height").height(windowHeight);
-}

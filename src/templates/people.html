@@ -21,9 +21,9 @@
                         <tbody>
                             <tr>
                                 {% for k, v in member_keys.items %}
-                                    <td style="min-width:120px">
+                                    <td style="min-width:120px;padding:0px;">
                                         <div style="height:100px;width:100px;display:inline-table;float:left;">
-                                            <div id="people-{{forloop.counter}}" class="people-picture" style="height:100px;width:100px;background: url('{% if v %} https://graph.facebook.com/{{v}}/picture?type=normal&height=100&width=100 {% else %} /assets/img/landing/default-user.gif {% endif %}') no-repeat center;{% if forloop.first %}border:#848484 solid;{% endif %}" onclick="showMemberInfo($(this).parent().find('input').val());"></div>
+                                            <div id="people-{{forloop.counter}}" class="people-picture" style="height:100px;width:100px;background: url('{% if v.0 %} /api/members/{{k}}/image {% elif v.1 %} https://graph.facebook.com/{{v.1}}/picture?type=normal&height=300&width=300 {% else %} /assets/img/landing/default-user.gif {% endif %}') no-repeat center;{% if forloop.first %}border:#848484 solid;{% endif %};background-size:contain;" onclick="showMemberInfo($(this).parent().find('input').val());"></div>
                                             <input type="hidden" value="{{k}}">
                                         </div>
                                     </td>
@@ -39,7 +39,7 @@
             <div style="width:940px;height:590px;margin:auto;">
                 <div style="height:55px;"></div>
                 <div style="height:300px;text-align:left;">
-                    <div style="width:300px;height:300px;display:inline-block;float:left;background-color:black;">
+                    <div style="width:300px;height:300px;display:inline-block;float:left;">
                         <img id="picture" style="max-height:100%;max-width:100%;height:100%;width:100%" src="/assets/img/landing/default-user.gif">
                     </div>
                     <div style="width:55px;height:300px;display:inline-block;float:left;"></div>
@@ -48,8 +48,8 @@
                             <div class="people-designation" style="height:25%"><i><p id="designation">Founder, Haggle</p></i></div>
                             <div class="people-name" style="height:50%"><p id="name">RAJIV SALIMATH</p></div>
                             <div style="height:25%">
-                                <div class="people-website" style="display:inline-block;float:left;"><p id="website">gethaggle.com</p></div>
-                                <div class="people-twitter-handle" style="display:inline-block;float:left;margin-left:30px;"><p id="twitter_handle">@gethaggle</p></div>
+                                <div class="people-website" style="display:inline-block;float:left;"><img src="/assets/img/landing/link-icon.png" style="display:inline-block"><p id="website" style="display:inline-block;margin-left:10px;">gethaggle.com</p></div>
+                                <div class="people-twitter-handle" style="display:inline-block;float:left;margin-left:30px;"><img src="/assets/img/landing/tw-icon.png" style="display:inline-block"><p id="twitter_handle" style="display:inline-block;margin-left:10px;">@gethaggle</p></div>
                             </div>
                         </div>
                         <div class="people-desc" style="height:150px">

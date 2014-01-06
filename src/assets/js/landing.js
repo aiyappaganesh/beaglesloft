@@ -33,10 +33,11 @@ $(document).ready(function(){
     $('#landing-logo').fadeIn(600, function(){
         $('#logo').fadeIn(3000, function(){
             $('#logo').fadeOut(2000, function(){
-                $('#landing-logo').fadeOut(1000);
-                $('#landing-main').fadeIn(500, function() {
-                    scrollTo(document.URL);
+                $('#intro-bg').fadeOut(2000, function(){
+                    $('#landing-logo').fadeOut(2000);
+                    $('#landing-main').fadeIn(1500);
                 });
+                $('#intro-bg-bright').fadeIn(1500);
             });
         });
     });

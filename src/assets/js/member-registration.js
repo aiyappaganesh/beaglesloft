@@ -62,6 +62,7 @@ $(document).ready(function(){
                 $("#organization").val(response.work[0].employer.name);
             }
           }
+          $('#facebook-login').hide();
         });
       }
 });

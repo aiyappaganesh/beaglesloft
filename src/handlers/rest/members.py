@@ -106,7 +106,7 @@ class FetchAccessQuestionHandler(RequestHandler):
 class ImageHandler(blobstore_handlers.BlobstoreDownloadHandler):
     def get(self, email):
         member = Member.get_by_email(email)
-        if member.image:
+        if member and member.image:
             image = blobstore.BlobInfo.get(member.image)
             self.send_blob(image)
 

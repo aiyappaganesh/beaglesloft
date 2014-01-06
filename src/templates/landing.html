@@ -5,225 +5,208 @@
 {% endblock %}
 
 {% block Content %}
-<div id="landing-logo" style="position:relative;text-align:center;display:none;height:100%">
-    <img src="/assets/img/landing/intro-gate.png" class="bg">
-    <div id="logo" style="text-align:center;display:none;position:absolute;top:50%;width:100%;"><img style="margin:auto;margin-top:-150px;" src="/assets/img/landing/bl-logo-intro.png"></div>
-</div>
-<div id="landing-main" style="display:none;">
-    <section id="section1" style="background-color:#F9F9ED;">
-        <div id="section1-carousel" class="carousel slide">
-            <ol class="carousel-indicators" style="left:100% !important;width:30%;">
-                <li data-target="#section1-carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#section1-carousel" data-slide-to="1"></li>
-                <li data-target="#section1-carousel" data-slide-to="2"></li>
-                <li data-target="#section1-carousel" data-slide-to="3"></li>
-                <li data-target="#section1-carousel" data-slide-to="4"></li>
-                <li data-target="#section1-carousel" data-slide-to="5"></li>
-            </ol>
-            <div class="carousel-inner" style="height:100%">
-                <div class="item active" style="text-align:center;height:100%;background:url('/assets/img/landing/TerraceEntrance.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;">
-                    <div style="height:290px">
-                    </div>
-                    <div style="height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;">
-                        <p class="section1_heading" style="padding-top:19px;">KNOCK TWICE FOR REVOLUTION</p>
-                    </div>
-                    <div style="height:265px">
-                    </div>
-                </div>
-                <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/gridlight.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;">
-                    <div style="height:290px">
-                    </div>
-                    <div style="height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;">
-                        <p class="section1_heading" style="padding-top:19px;">KNOCK TWICE FOR REVOLUTION</p>
-                    </div>
-                    <div style="height:265px">
-                    </div>
-                </div>
-                <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/stairs.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;">
-                    <div style="height:290px">
-                    </div>
-                    <div style="height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;">
-                        <p class="section1_heading" style="padding-top:19px;">KNOCK TWICE FOR REVOLUTION</p>
-                    </div>
-                    <div style="height:265px">
-                    </div>
-                </div>
-                <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/cornerchair.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;">
-                    <div style="height:290px">
-                    </div>
-                    <div style="height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;">
-                        <p class="section1_heading" style="padding-top:19px;">KNOCK TWICE FOR REVOLUTION</p>
-                    </div>
-                    <div style="height:265px">
-                    </div>
-                </div>
-                <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/greenbalcony.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;">
-                    <div style="height:290px">
-                    </div>
-                    <div style="height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;">
-                        <p class="section1_heading" style="padding-top:19px;">KNOCK TWICE FOR REVOLUTION</p>
-                    </div>
-                    <div style="height:265px">
-                    </div>
-                </div>
-                <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/easychair.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;">
-                    <div style="height:290px">
-                    </div>
-                    <div style="height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;">
-                        <p class="section1_heading" style="padding-top:19px;">KNOCK TWICE FOR REVOLUTION</p>
-                    </div>
-                    <div style="height:265px">
-                    </div>
-                </div>
-            </div>
-            <a class="left carousel-control" href="#section1-carousel" data-slide="prev" style="background-image:none">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#section1-carousel" data-slide="next" style="background-image:none">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
+<div style="position:relative;height:100%">
+    <div id="landing-logo" style="position:absolute;text-align:center;display:none;height:100%;width:100%;">
+        <img id="intro-bg" src="/assets/img/landing/dark-gate.png" class="bg">
+        <img id="intro-bg-bright" src="/assets/img/landing/light-gate.png" class="bg" style="display:none;">
+        <div id="logo" style="text-align:center;display:none;position:absolute;top:50%;width:100%;margin-top:-188.5px;">
+            <img style="margin:auto;" src="/assets/img/landing/bl-logo-intro.png">
+            <div style="height:50px;margin:auto;"></div>
+            <p style="margin:auto;height:27px;color:#c62530;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:27px;line-height:27px;">KNOCK TWICE FOR REVOLUTION</p>
         </div>
-    </section>
-    <div class="full-width" style="background-color:#e8e4dc;text-align:center;height:244px;">
-        <div style="height:74px;"></div>
-        <div style="width:735px;height:92px;margin:auto;color:#2c2b27;font-family: 'Oswald', sans-serif;font-weight: 200;font-size:24px;">
-            <p>
-                WELCOME TO THE BEAGLES LOFT, BANGALORE'S PLAYGROUND FOR STARTUPS, INNOVATORS, ARTISTS AND NERDS IN GENERAL.
-                COME IN, SIT, HAVE SOME TEA & HANG WITH THE SMARTEST, MOST INTERESTING PEOPLE IN TOWN. PEOPLE LIKE YOU.
-            </p>
-        </div>
-        <div style="height:78px;"></div>
     </div>
-    <div id="values">
-        <div class="full-width" style="text-align:center">
-            <div class="full-width" style="height:150px;">
-                <div style="width:940px;height:150px;margin:auto">
-                    <div style="height:73px;"></div>
-                    <div style="height:77px;">
-                        <p style="margin:0px;padding:0px;" class="section2_heading">
-                            OUR VALUES
-                        </p>
-                        <br>
-                        <p style="margin:0px;padding:0px;" class="section2_text">
-                            <i>At The Beagles Loft, we abide by three main mantras:</i>
-                        </p>
+    <div id="landing-main" style="position:absolute;display:none;height:100%;width:100%;">
+        <section id="section1" style="background-color:#F9F9ED;height:100%;">
+            <div id="section1-carousel" class="carousel slide" style="height:100%;">
+                <ol class="carousel-indicators" style="left:100% !important;width:30%;">
+                    <li data-target="#section1-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#section1-carousel" data-slide-to="1"></li>
+                    <li data-target="#section1-carousel" data-slide-to="2"></li>
+                    <li data-target="#section1-carousel" data-slide-to="3"></li>
+                    <li data-target="#section1-carousel" data-slide-to="4"></li>
+                    <li data-target="#section1-carousel" data-slide-to="5"></li>
+                </ol>
+                <div class="carousel-inner" style="height:100%">
+                    <div class="item active" style="text-align:center;height:100%;background:url('/assets/img/landing/TerraceEntrance.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;">
+                        <div style="position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;margin-top:-47.5px;left:50%;margin-left:-370px;">
+                            <p class="section1_heading" style="padding:20px;">KNOCK TWICE FOR REVOLUTION</p>
+                        </div>
+                    </div>
+                    <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/gridlight.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;">
+                        <div style="position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;margin-top:-47.5px;left:50%;margin-left:-370px;">
+                            <p class="section1_heading" style="padding:20px;">KNOCK TWICE FOR REVOLUTION</p>
+                        </div>
+                    </div>
+                    <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/stairs.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;">
+                        <div style="position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;margin-top:-47.5px;left:50%;margin-left:-370px;">
+                            <p class="section1_heading" style="padding:20px;">KNOCK TWICE FOR REVOLUTION</p>
+                        </div>
+                    </div>
+                    <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/cornerchair.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;">
+                        <div style="position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;margin-top:-47.5px;left:50%;margin-left:-370px;">
+                            <p class="section1_heading" style="padding:20px;">KNOCK TWICE FOR REVOLUTION</p>
+                        </div>
+                    </div>
+                    <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/greenbalcony.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;">
+                        <div style="position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;margin-top:-47.5px;left:50%;margin-left:-370px;">
+                            <p class="section1_heading" style="padding:20px;">KNOCK TWICE FOR REVOLUTION</p>
+                        </div>
+                    </div>
+                    <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/easychair.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;">
+                        <div style="position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;margin-top:-47.5px;left:50%;margin-left:-370px;">
+                            <p class="section1_heading" style="padding:20px;">KNOCK TWICE FOR REVOLUTION</p>
+                        </div>
                     </div>
                 </div>
+                <a class="left carousel-control" href="#section1-carousel" data-slide="prev" style="background-image:none">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#section1-carousel" data-slide="next" style="background-image:none">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
             </div>
-            <div style="width:940px;height:510px;margin:auto;">
-                <div style="height:100px;"></div>
-                <div style="height:320px;text-align:center;">
-                    <div style="height:320px;width:40px;display:inline-block;float:left;"></div>
-                    <div style="height:320px;width:200px;display:inline-block;float:left;">
-                        <p class="section3_heading">
-                            YEARN, <br>DON'T BURN
-                        </p>
-                        <br>
-                        <p class="section_text" style="color:#606060">
-                            Be a dreamer, be a fixer, be an inventor flying kites in the storm. Fail as much as you can handle, but complain and do nothing and you’ll find yourself locked out.
-                        </p>
-                    </div>
-                    <div style="height:320px;width:120px;display:inline-block;float:left;"></div>
-                    <div style="height:320px;width:200px;display:inline-block;float:left;">
-                        <p class="section3_heading">
-                            MAKE A <br>BIG IMPACT
-                        </p>
-                        <br>
-                        <p class="section_text" style="color:#606060">
-                            The world is too big not to do big things. We want you to work on things that impact a billion people. Knock on our front door with a purpose or don’t expect the doorman to let you in.
-                        </p>
-                    </div>
-                    <div style="height:320px;width:120px;display:inline-block;float:left;"></div>
-                    <div style="height:320px;width:200px;display:inline-block;float:left;">
-                        <p class="section3_heading">
-                            FOCUS, NO <br>HOCUS POCUS
-                        </p>
-                        <br>
-                        <p class="section_text" style="color:#606060">
-                            Whether it’s access to venture capitalists, coders who can actually code, strong coffee, or event space, everything you need to work on your big idea is available and free.
-                        </p>
-                    </div>
-                    <div style="height:320px;width:40px;display:inline-block;float:left;"></div>
-                </div>
-                <div style="height:110px;"></div>
+        </section>
+        <div class="full-width" style="background-color:#e8e4dc;text-align:center;height:244px;">
+            <div style="height:74px;"></div>
+            <div style="width:735px;height:92px;margin:auto;color:#2c2b27;font-family: 'Oswald', sans-serif;font-weight: 200;font-size:24px;">
+                <p>
+                    WELCOME TO THE BEAGLES LOFT, BANGALORE'S PLAYGROUND FOR STARTUPS, INNOVATORS, ARTISTS AND NERDS IN GENERAL.
+                    COME IN, SIT, HAVE SOME TEA & HANG WITH THE SMARTEST, MOST INTERESTING PEOPLE IN TOWN. PEOPLE LIKE YOU.
+                </p>
             </div>
+            <div style="height:78px;"></div>
         </div>
-        <div class="full-width" style="height:369px;background-color:#c72430;">
-            <div style="width:940px;height:369px;margin:auto;">
-                <div style="width:940px;height:129px;"></div>
-                <div style="width:940px;height:103px;">
-                    <p class="section6_left_text" style="text-align:center;">
-                        WE'RE NOT AN ACCELERATOR, AN
-                        INCUBATOR, OR A COWORKING SPACE;
-                        WE'RE A PLAYGROUND FOR
-                        INNOVATORS AND ARTISTS. LOFT
-                        MEMBERS ARE HERE TO ACCELERATE
-                        PROGRESS, MAKE BEAUTIFUL THINGS
-                        AND DEVELOP BIG IDEAS.
-                    </p>
-                </div>
-                <div style="width:940px;height:137px;"></div>
-            </div>
-        </div>
-        <div class="full-width" style="height:520px;background-color:#444444;background:url('/assets/img/landing/basketball-court.png') center center fixed;background-size: cover;
-background-repeat: no-repeat;">
-            <div style="width:940px;height:520px;margin:auto;">
-                <div style="width:940px;height:138px;"></div>
-                <div style="width:940px;height:244px;">
-                    <div style="height:244px;width:330px;display:inline-block;float:left;">
-                        <div style="height:112px;width:330px;"></div>
-                        <div style="height:34px;width:330px;">
-                            <p class="section6_right_heading">
-                                WHY BEAGLES LOFT?
+        <div id="values">
+            <div class="full-width" style="text-align:center">
+                <div class="full-width" style="height:150px;">
+                    <div style="width:940px;height:150px;margin:auto">
+                        <div style="height:73px;"></div>
+                        <div style="height:77px;">
+                            <p style="margin:0px;padding:0px;" class="section2_heading">
+                                OUR VALUES
+                            </p>
+                            <br>
+                            <p style="margin:0px;padding:0px;" class="section2_text">
+                                <i>At The Beagles Loft, we abide by three main mantras:</i>
                             </p>
                         </div>
-                        <div style="height:98px;width:330px;"></div>
-                    </div>
-                    <div style="height:244px;width:130px;display:inline-block;float:left;"></div>
-                    <div style="height:244px;width:480px;display:inline-block;float:left;">
-                        <p class="section6_right_text">
-                            The name is inspired by an old basketball playground in
-                            Bangalore. In this playground, we built friendships that
-                            have lasted the length of our current lives, we discussed
-                            how we'd disrupt the status quo and we tinkered with
-                            technology and music. We often underestimate the value
-                            of these playgrounds in our lives, but these little
-                            playgrounds offer the three key tools that are sufficient
-                            to work on the really big ideas that can push life forward
-                            - community, disruptive ideas and a framework for
-                            tinkering.
-                        </p>
                     </div>
                 </div>
-                <div style="width:940px;height:138px;"></div>
+                <div style="width:940px;height:510px;margin:auto;">
+                    <div style="height:100px;"></div>
+                    <div style="height:320px;text-align:center;">
+                        <div style="height:320px;width:40px;display:inline-block;float:left;"></div>
+                        <div style="height:320px;width:200px;display:inline-block;float:left;">
+                            <p class="section3_heading">
+                                YEARN, <br>DON'T BURN
+                            </p>
+                            <br>
+                            <p class="section_text" style="color:#606060">
+                                Be a dreamer, be a fixer, be an inventor flying kites in the storm. Fail as much as you can handle, but complain and do nothing and you’ll find yourself locked out.
+                            </p>
+                        </div>
+                        <div style="height:320px;width:120px;display:inline-block;float:left;"></div>
+                        <div style="height:320px;width:200px;display:inline-block;float:left;">
+                            <p class="section3_heading">
+                                MAKE A <br>BIG IMPACT
+                            </p>
+                            <br>
+                            <p class="section_text" style="color:#606060">
+                                The world is too big not to do big things. We want you to work on things that impact a billion people. Knock on our front door with a purpose or don’t expect the doorman to let you in.
+                            </p>
+                        </div>
+                        <div style="height:320px;width:120px;display:inline-block;float:left;"></div>
+                        <div style="height:320px;width:200px;display:inline-block;float:left;">
+                            <p class="section3_heading">
+                                FOCUS, NO <br>HOCUS POCUS
+                            </p>
+                            <br>
+                            <p class="section_text" style="color:#606060">
+                                Whether it’s access to venture capitalists, coders who can actually code, strong coffee, or event space, everything you need to work on your big idea is available and free.
+                            </p>
+                        </div>
+                        <div style="height:320px;width:40px;display:inline-block;float:left;"></div>
+                    </div>
+                    <div style="height:110px;"></div>
+                </div>
+            </div>
+            <div class="full-width" style="height:369px;background-color:#c72430;">
+                <div style="width:940px;height:369px;margin:auto;">
+                    <div style="width:940px;height:129px;"></div>
+                    <div style="width:940px;height:103px;">
+                        <p class="section6_left_text" style="text-align:center;">
+                            WE'RE NOT AN ACCELERATOR, AN
+                            INCUBATOR, OR A COWORKING SPACE;
+                            WE'RE A PLAYGROUND FOR
+                            INNOVATORS AND ARTISTS. LOFT
+                            MEMBERS ARE HERE TO ACCELERATE
+                            PROGRESS, MAKE BEAUTIFUL THINGS
+                            AND DEVELOP BIG IDEAS.
+                        </p>
+                    </div>
+                    <div style="width:940px;height:137px;"></div>
+                </div>
+            </div>
+            <div class="full-width" style="height:520px;background-color:#444444;background:url('/assets/img/landing/basketball-court.png') center center fixed;background-size: cover;
+    background-repeat: no-repeat;">
+                <div style="width:940px;height:520px;margin:auto;">
+                    <div style="width:940px;height:138px;"></div>
+                    <div style="width:940px;height:244px;">
+                        <div style="height:244px;width:330px;display:inline-block;float:left;">
+                            <div style="height:112px;width:330px;"></div>
+                            <div style="height:34px;width:330px;">
+                                <p class="section6_right_heading">
+                                    WHY BEAGLES LOFT?
+                                </p>
+                            </div>
+                            <div style="height:98px;width:330px;"></div>
+                        </div>
+                        <div style="height:244px;width:130px;display:inline-block;float:left;"></div>
+                        <div style="height:244px;width:480px;display:inline-block;float:left;">
+                            <p class="section6_right_text">
+                                The name is inspired by an old basketball playground in
+                                Bangalore. In this playground, we built friendships that
+                                have lasted the length of our current lives, we discussed
+                                how we'd disrupt the status quo and we tinkered with
+                                technology and music. We often underestimate the value
+                                of these playgrounds in our lives, but these little
+                                playgrounds offer the three key tools that are sufficient
+                                to work on the really big ideas that can push life forward
+                                - community, disruptive ideas and a framework for
+                                tinkering.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="width:940px;height:138px;"></div>
+                </div>
             </div>
         </div>
+        <footer style="text-align:center;height:75px;background-color:#e5e5e5;font-family: 'Oswald', sans-serif;font-weight: 300;font-size: 18px;padding-top: 25px;"><a href="https://twitter.com/BeaglesLoft" target="_blank">@BEAGLESLOFT</a></footer>
     </div>
-    <footer style="text-align:center;height:75px;background-color:#e5e5e5;font-family: 'Oswald', sans-serif;font-weight: 300;font-size: 18px;padding-top: 25px;"><a href="https://twitter.com/BeaglesLoft" target="_blank">@BEAGLESLOFT</a></footer>
 </div>
 {% endblock %}
 

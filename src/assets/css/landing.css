@@ -106,7 +106,7 @@
 }
 
 .people-picture {
-    background-size: cover;
+    background-size: contain;
     height: 75%;
 }
 
@@ -131,11 +131,14 @@
     background-color: rgba(235,233,234,1);
     margin-bottom: 3px;
     margin-top: 6px;
+    border-radius:0px;
+    box-shadow:none;
 }
 
 .progress-bar {
     background-color: rgba(199,36,48,1);
     margin-bottom: 0px;
+    box-shadow:none;
 }
 
 .people-designation {
@@ -158,7 +161,7 @@
     font-family: 'Gudea', sans-serif;
     font-weight: 300;
     font-size: 14px;
-    color: #000000;
+    color: #c62530;
     text-align:left;
     float: right;
 }
@@ -167,7 +170,7 @@
     font-family: 'Gudea', sans-serif;
     font-weight: 300;
     font-size: 14px;
-    color: #000000;
+    color: #c62530;
     text-align:left;
     float: right;
 }
@@ -229,11 +232,6 @@ button {border:none}
     font-weight: 300;
     font-size:16px;
     border:2px solid #FF0017;
-}
-
-.learn-more-button:hover {
-    color:#FFFFFF;
-    background-color:#FF0017 !important;
 }
 
 .grad

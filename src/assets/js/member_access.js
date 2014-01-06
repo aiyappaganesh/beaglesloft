@@ -22,8 +22,13 @@ function showPasscodeEntry() {
 }
 
 function showQuestionPick() {
-    $("#question-pick").show();
-    $("#access-selection").animate({left: "-100%"}, 2000, function(){$("#access-selection").hide();$(".access-box-in").css("overflow", "visible");});
+    $("#message-bottom").fadeOut();
+    $("#message").fadeOut();
+    $("#access-code").fadeOut(function(){
+        $("#message").text('ANSWER A CHALLENGE QUESTION TO GET A PASS CODE');
+        $("#message").fadeIn();
+        $("#question-pick").fadeIn();
+    });
 }
 
 $(document).ready(function(){
@@ -40,10 +45,9 @@ $(document).ready(function(){
             $.post('/api/members/validate_access_code',{'accessCode':(codeA+codeB+codeC+codeD)})
             .done(function(data){
                 if(data.url != ''){
-                    $('#code-entry').animate({'background-color':'#90EE90'}, 1200, function(){
-                        $("#access-selection").css('left','100%').show().animate({left: "0%"}, 2000, function(){
-                            window.location.href = data.url;
-                        });
+                    clearAccessCode();
+                    $('#member-access').fadeOut(function(){
+                        window.location.href = data.url;
                     });
                 } else {
                     clearAccessCode();
@@ -71,33 +75,20 @@ function isValidCodePart(codePart) {
 }
 
 function clearAccessCode() {
-    $('#code-entry').animate({'background-color':'rgba(255,0,0,0.5)'}, 2000, function(){
-        $('#code-entry').animate({'background-color':'white'}, 1000, function(){
-            $('input[name="access-code-a"]').val('');
-            $('input[name="access-code-b"]').val('');
-            $('input[name="access-code-c"]').val('');
-            $('input[name="access-code-d"]').val('');
-            $('input[name="access-code-a"]').focus();
-        });
-    });
+    $('input[name="access-code-a"]').val('');
+    $('input[name="access-code-b"]').val('');
+    $('input[name="access-code-c"]').val('');
+    $('input[name="access-code-d"]').val('');
+    $('input[name="access-code-a"]').focus();
 }
 
 function submitAccessAnswer() {
-    $.post('/api/members/process_access_answer',{'access_answer':$('#access-answer').val(),'qid':$('#question-id').val()})
+    $.post('/api/members/process_access_answer',{'access_answer':$('#access-answer-text').val(),'qid':$('#question-id').val()})
     .done(function(data){
         if(data.url != '') {
-            $('#member-access-contents').fadeOut(function(){
-                $('#access-question').hide();
-                $('#access-answer').css('z-index','0');
-                $('#submit-answer').hide();
-                $(".access-box-in").css("overflow", "hidden");
-                $('#access-box').removeClass('access-question-box-out').addClass('access-box-out');
-                $('#member-access-contents').fadeIn();
-                $('#access-answer').animate({'background-color':'#90EE90'}, 800, function(){
-                    $("#access-selection").css('left','-100%').show().animate({left: "0%"}, 2000, function(){
-                        window.location.href = data.url;
-                    });
-                });
+            clearAccessAnswer();
+            $('#member-access').fadeOut(function(){
+                window.location.href = data.url;
             });
         } else {
             clearAccessAnswer();
@@ -109,28 +100,22 @@ function submitAccessAnswer() {
 }
 
 function clearAccessAnswer() {
-    $('#access-answer').animate({'background-color':'rgba(255,0,0,0.5)'}, 2000, function(){
-        $('#access-answer').animate({'background-color':'black'}, 1000, function(){
-            $('#access-answer').val('');
-        });
-    });
+    $('#access-answer-text').val('');
 }
 
 function showAccessQuestion(category) {
-    $('#member-access-contents').fadeOut(function(){
+    $("#message").fadeOut();
+    $('#question-pick').fadeOut(function(){
         $.post('/api/members/fetch_access_question',{'category':category})
         .done(function(data){
-            $('#access-question').text(data.question);
+            $('#message').text(data.question);
             $('#question-id').val(data.question_id);
+            $("#message").fadeIn();
+            $('#access-answer').fadeIn();
         })
-        .fail();
-        $('#access-box').removeClass('access-box-out').addClass('access-question-box-out');
-        $('#access-selection').hide();
-        $('#code-entry').hide();
-        $('#question-pick').hide();
-        $('#access-answer').show();
-        $('#submit-answer').show();
-        $('#member-access-contents').fadeIn();
-        $('#access-answer').focus();
+        .fail(function(data){
+            $('#message').text('FAILED FETCHING CHALLENGE. PLEASE TRY AGAIN.');
+            $("#message").fadeIn();
+        });
     });
 }

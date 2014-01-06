@@ -78,6 +78,8 @@ class Member(db.Model):
                     member_json['twitter_handle'] = member.twitter_handle
                 if member.facebook_id:
                     member_json['facebook_id'] = member.facebook_id
+                if member.image:
+                    member_json['image'] = member.image
                 if member.bio:
                     member_json['bio'] = member.bio
                 if member.influence_score:
@@ -93,7 +95,10 @@ class Member(db.Model):
         member_keys = {}
         members = Member.all().fetch(limit=200)
         for member in members:
-            member_keys[member.email] = member.facebook_id
+            if not member.email in member_keys:
+                member_keys[member.email] = []
+            member_keys[member.email].append(member.image)
+            member_keys[member.email].append(member.facebook_id)
         return member_keys
 
     @staticmethod
