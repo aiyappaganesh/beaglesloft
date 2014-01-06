@@ -6,7 +6,6 @@ import random
 from handlers.rest.rest_application import RestApplication
 from handlers import RequestHandler
 from model import Member
-from handlers.sessions import BaseHandler
 from auth import login_required
 
 class MemberSaveHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandler):

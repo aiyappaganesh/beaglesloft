@@ -1,5 +1,4 @@
 from handlers.rest.rest_application import RestApplication
-from handlers.sessions import BaseHandler
 from auth import login_required
 from model import Member
 import logging
@@ -7,7 +6,7 @@ from google.appengine.api.blobstore import blobstore
 from handlers.web import WebRequestHandler
 
 
-class LoginHandler(BaseHandler, WebRequestHandler):
+class LoginHandler(WebRequestHandler):
     def post(self):
         email = self['email']
         password = self['password']
@@ -31,7 +30,7 @@ class LoginHandler(BaseHandler, WebRequestHandler):
         redirect_url = self['redirect_url']
         self.write(self.get_rendered_html(path, {'redirect_url': redirect_url}), 200)
 
-class MemberProfilePage(BaseHandler, WebRequestHandler):
+class MemberProfilePage(WebRequestHandler):
     @login_required
     def get(self):
         path = 'member_profile.html'
@@ -42,7 +41,7 @@ class MemberProfilePage(BaseHandler, WebRequestHandler):
         self.write(self.get_rendered_html(path, template_values), 200)
 
 
-class TempHandler(BaseHandler):
+class TempHandler(WebRequestHandler):
     @login_required
     def get(self):
         self.response.out.write(self.session['member'])
