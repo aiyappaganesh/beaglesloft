@@ -7,6 +7,7 @@ from handlers.rest.rest_application import RestApplication
 from handlers import RequestHandler
 from model import Member
 from auth import login_required
+from handlers.web import WebRequestHandler
 
 class MemberSaveHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandler):
     def post(self):
@@ -39,13 +40,15 @@ class AllMembersFetchHandler(RequestHandler):
             ),200,'application/json'
         )
 
-class ValidateAccessCodeHandler(RequestHandler):
+
+class ValidateAccessCodeHandler(WebRequestHandler):
     def post(self):
         logging.info("Trying to validate access code")
         result_json = {'url':''}
         access_code = self["accessCode"]
         logging.info(access_code)
         if access_code and int(access_code) == 1234:
+            self.session['access_code'] = access_code
             result_json['url'] = '/member_registration'
         self.write(
             json.dumps(
