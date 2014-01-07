@@ -1,5 +1,7 @@
 var currentMemberIndex = 0;
 var member_keys = [];
+var currentPartner = 1;
+var partnerCycleInterval = null;
 
 $(document).ready(function() {
     member_keys = $('#member_keys').val().split(',');
@@ -10,6 +12,62 @@ $(document).ready(function(){
     $('.progress').hover(function(){$(this).addClass('progress-striped active')},function(){$(this).removeClass('progress-striped active')});
     $('.progress-bar').hover(function(){$(this).css('background-color','rgba(255,215,0,0.5)')},function(){$(this).css('background-color','rgba(199,36,48,1)')});
 });
+
+$(document).ready(function(){
+    $("body").keydown(function(e) {
+        if(e.keyCode == 37) { // left
+            showPreviousMemberInfo();
+        } else if(e.keyCode == 39) { // right
+            showNextMemberInfo();
+        }
+    });
+});
+
+$(document).ready(function(){
+    selectCurrentPartner();
+});
+
+$(document).ready(function(){
+    setPartnerCycleTimer();
+});
+
+$(document).ready(function(){
+    $(".partner-square").click(function(){
+        window.clearInterval(partnerCycleInterval);
+        selectPartner(this);
+        window.setTimeout(function(){
+            setPartnerCycleTimer();
+        }, 5000);
+    });
+});
+
+function setPartnerCycleTimer() {
+    window.clearInterval(partnerCycleInterval);
+    partnerCycleInterval = window.setInterval(function(){
+        selectCurrentPartner();
+    },2500);
+}
+
+function selectCurrentPartner() {
+    selectPartner($('#partner-'+currentPartner));
+    currentPartner = currentPartner + 1;
+    if(currentPartner == 10) {
+        currentPartner = 1;
+    }
+}
+
+function selectPartner(e) {
+    $(".partner-square").each(function(){
+        $(this).css('border','none');
+    });
+    $(e).css('border','5px solid #c62530');
+    var value_str = $($(e).find('input')[0]).val();
+    values = value_str.split(';');
+    $('#partner-img').attr('src',values[0]);
+    $('#partner-website').text(values[1]);
+    $('#partner-website').parent().attr('href','http://'+values[1]);
+    $('#partner-desc').text(values[2]);
+}
 
 function showMemberInfo(key) {
     //$('#people-grid').fadeOut(10);
@@ -76,7 +134,7 @@ function showMemberInfo(key) {
     $('.people-picture').each(function(){
         $(this).css('border', 'none');
     });
-    $('#people-'+(currentMemberIndex+1)).css('border', '#848484 solid');
+    $('#people-'+(currentMemberIndex+1)).css('border', '5px solid #c62530');
     $('#people-'+(currentMemberIndex+1)).focus();
 }
 
@@ -96,13 +154,3 @@ function showPreviousMemberInfo() {
         showMemberInfo(member_keys[currentMemberIndex-1]);
     }
 }
-
-$(document).ready(function(){
-    $("body").keydown(function(e) {
-        if(e.keyCode == 37) { // left
-            showPreviousMemberInfo();
-        } else if(e.keyCode == 39) { // right
-            showNextMemberInfo();
-        }
-    });
-});
