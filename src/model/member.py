@@ -46,7 +46,8 @@ class Member(db.Model):
         if bio:
             member.bio = bio
         if image:
-            Member.delete_image(member.image)
+            if member.image:
+                Member.delete_image(member.image)
             member.image = image
         if password:
             member.password = password
