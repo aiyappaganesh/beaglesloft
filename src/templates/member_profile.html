@@ -3,6 +3,7 @@
 {% block Styles %}
 <link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
 <link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/lib/jquery.Jcrop.css" type="text/css" />
 <style>
 .wide {
     width: 150%;
@@ -40,7 +41,7 @@
             <b>PROFILE</b>
             <form action={{ form_url }} method="POST" enctype="multipart/form-data">
                 <div style="height:20px"></div>
-                <img src="/api/members/{{ member.email }}/image" class="member-image-holder" onclick="$('#member-image').click()">
+                <img id="member-picture" src="/api/members/{{ member.email }}/image" class="member-image-holder" onclick="$('#member-image').click()">
                 <input type="file" class="hidden" id="member-image" name="member-image">
                 <div style="height:20px"></div>
                 <table class="member-profile">
@@ -84,4 +85,21 @@
         <div class="col-md-2"></div>
     </div>
 </div>
+{% endblock %}
+{% block Scripts %}
+    <script src="/assets/js/lib/jquery.Jcrop.min.js"></script>
+    <script language="Javascript">
+        function useCoords(c){
+              // variables can be accessed here as
+              // c.x, c.y, c.x2, c.y2, c.w, c.h
+              console.log(c.x + ',' + c.y + ',' + c.x2 + ',' + c.y2);
+        };
+    </script>
+    <!--<script language="Javascript">-->
+        <!--jQuery(function($) {-->
+            <!--$('#member-picture').Jcrop({-->
+                <!--onSelect: useCoords-->
+            <!--});-->
+        <!--});-->
+    <!--</script>-->
 {% endblock %}
