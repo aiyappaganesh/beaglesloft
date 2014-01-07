@@ -31,13 +31,12 @@ $(document).ready(function(){
         return;
     }
     $('#landing-logo').fadeIn(600, function(){
-        $('#logo').fadeIn(3000, function(){
-            $('#logo').fadeOut(2000, function(){
-                $('#intro-bg').fadeOut(2000, function(){
+        $('#logo-img').fadeIn(2000, function(){
+            $('#logo-msg').fadeIn(2000, function(){
+                $('#logo').fadeOut(2000, function(){
                     $('#landing-logo').fadeOut(2000);
                     $('#landing-main').fadeIn(1500);
                 });
-                $('#intro-bg-bright').fadeIn(1500);
             });
         });
     });
