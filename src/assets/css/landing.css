@@ -12,9 +12,9 @@
 }
 
 .section_text {
-    font-family: 'Gudea', sans-serif;
+    font-family: 'Merriweather', sans-serif;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 15px;
     color: #8C8C86;
     line-height: 30px;
 }
@@ -33,12 +33,12 @@
     font-weight: 300;
     font-size: 32px;
     line-height: 32px;
-    color: #000000;
+    color: #c62530;
     text-align: center;
 }
 
 .section2_text {
-    font-family: 'Gudea', sans-serif;
+    font-family: 'Merriweather', sans-serif;
     font-weight: 300;
     font-size: 22px;
     line-height: 32px;
@@ -69,9 +69,9 @@
 }
 
 .section6_right_text {
-    font-family: 'Gudea', sans-serif;
-    font-weight: 500;
-    font-size: 18px;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
     color: #e5edec;
     text-align: left;
     line-height: 28px;
@@ -252,6 +252,6 @@ button {border:none}
 }
 
 footer>a, footer>a:hover {
-    color: #000000;
+    color: #44433f;
     text-decoration: none;
 }
