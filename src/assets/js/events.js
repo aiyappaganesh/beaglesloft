@@ -6,3 +6,14 @@ $(document).ready(function(){
         $(this).animate({'background-color':'transparent','color':'#FF0017'},250);
     });
 });
+
+function showPage(page) {
+    $('.page-select').each(function(){
+        $(this).css('color','#c62530');
+    });
+    $('.tab-page').each(function(){
+        $(this).css('display','none');
+    });
+    $('#' + page + '-select').css('color','#9c9c9c');
+    $('#' + page + '-page').css('display','block');
+}
