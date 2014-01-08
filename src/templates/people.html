@@ -8,7 +8,7 @@
 <div id="people">
     <div class="full-width" style="text-align:center">
         <input type="hidden" name="member_keys" id="member_keys"
-									value="{% for k, v in member_keys.items %}{{k}}{% if forloop.counter != member_keys|length %},{% endif %}{% endfor %}">
+									value="{% for page in paged_member_keys %}{% for v in page %}{{v.0}}{% if forloop.counter != page|length %},{% endif %}{% endfor %}{% if forloop.counter != paged_member_keys|length %},{% endif %}{% endfor %}">
         <div class="full-width" style="height:340px;background: url('/assets/img/landing/people.png') center center fixed no-repeat;background-size: cover;">
             <div style="height:135px"></div>
             <div style="height:90px;width:620px;margin:auto;background-color:#c62530;color:#ffffff;padding:20px;"><p class="section1_heading">THE PEOPLE THAT MAKE US WHO WE ARE</p></div>
@@ -16,21 +16,41 @@
         <div class="full-width" style="height:165px;background-color:#ffffff;">
             <div style="width:940px;height:165px;margin:auto">
                 <div style="height:35px;"></div>
-                <div style="height:100px;overflow-x:scroll;overflow-y:hidden;">
-                    <table style="height:100px;">
-                        <tbody>
-                            <tr>
-                                {% for k, v in member_keys.items %}
-                                    <td style="min-width:120px;padding:0px;">
-                                        <div style="height:100px;width:100px;display:inline-table;float:left;">
-                                            <div id="people-{{forloop.counter}}" class="people-picture" style="height:100px;width:100px;background: url('{% if v.0 %} /api/members/{{k}}/image {% elif v.1 %} https://graph.facebook.com/{{v.1}}/picture?type=normal&height=300&width=300 {% else %} /assets/img/landing/default-user.gif {% endif %}') no-repeat center;{% if forloop.first %}border:#848484 solid;{% endif %};background-size:contain;" onclick="showMemberInfo($(this).parent().find('input').val());"></div>
-                                            <input type="hidden" value="{{k}}">
-                                        </div>
-                                    </td>
-                                {% endfor %}
-                            </tr>
-                        </tbody>
-                    </table>
+                <div style="height:100px;" id="member-carousel" class="carousel slide" data-interval="0">
+                    <div style="height:100px;width:820px;overflow-x:hidden;overflow-y:hidden;display:inline-block;float:left;" class="carousel-inner">
+                        {% for page in paged_member_keys %}
+                        <table style="height:100px;" class="item {% if forloop.first %}active{% endif %}">
+                            <tbody>
+                                <tr>
+                                    {% for v in page %}
+                                        <td style="min-width:120px;padding:0px;">
+                                            <div style="height:100px;width:100px;display:inline-table;float:left;">
+                                                <div id="people-{{v.3}}" class="people-picture" style="height:100px;width:100px;background: url('{% if v.1 %} /api/members/{{v.0}}/image {% elif v.2 %} https://graph.facebook.com/{{v.2}}/picture?type=normal&height=300&width=300 {% else %} /assets/img/landing/default-user.gif {% endif %}') no-repeat center;{% if forloop.first %}border:#848484 solid;{% endif %};background-size:contain;" onclick="showMemberInfo($(this).parent().find('input').val());"></div>
+                                                <input type="hidden" value="{{v.0}}">
+                                            </div>
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                    </div>
+                    <div style="height:100px;width:100px;margin-left:20px;display:inline-block;float:left;">
+                        <div style="height:100px;width:50px;display:inline-block;float:left;background-color:#f2f1ed;">
+                            <div style="height:38px;"></div>
+                            <a class="carousel-arrow" href="#member-carousel" data-slide="prev" style="background-image:none">
+                                <img src="/assets/img/landing/communityarrows/left-red.png">
+                            </a>
+                            <div style="height:38px;"></div>
+                        </div>
+                        <div style="height:100px;width:50px;display:inline-block;float:left;background-color:#f2f1ed;">
+                            <div style="height:38px;"></div>
+                            <a class="carousel-arrow" href="#member-carousel" data-slide="next" style="background-image:none">
+                                <img src="/assets/img/landing/communityarrows/right-red.png">
+                            </a>
+                            <div style="height:38px;"></div>
+                        </div>
+                    </div>
                 </div>
                 <div style="height:30px;"></div>
             </div>

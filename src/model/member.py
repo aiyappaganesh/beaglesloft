@@ -103,14 +103,22 @@ class Member(db.Model):
 
     @staticmethod
     def get_paged_member_keys():
-        paged_member_keys = {}
+        paged_member_keys = []
+        page = []
         members = Member.all().fetch(limit=200)
         c1 = 0
         for member in members:
-            if not c1/10 in paged_member_keys:
-                paged_member_keys[c1/10] = {}
-            paged_member_keys[c1/10][member.email] = member.facebook_id
+            paged_member = []
+            paged_member.append(member.email)
+            paged_member.append(member.image)
+            paged_member.append(member.facebook_id)
+            paged_member.append(c1+1)
+            if len(page) >= 7:
+                paged_member_keys.append(page)
+                page = []
+            page.append(paged_member)
             c1+=1
+        logging.info(paged_member_keys)
         return paged_member_keys
 
     @staticmethod

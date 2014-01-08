@@ -148,7 +148,7 @@ class PeoplePage(WebRequestHandler):
         template_values = {'ua' : 'non-mobile'}
         if b or v:
             template_values['ua'] = 'mobile'
-        template_values['member_keys'] = Member.get_member_keys()
+        template_values['paged_member_keys'] = Member.get_paged_member_keys()
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class BuzzPage(WebRequestHandler):

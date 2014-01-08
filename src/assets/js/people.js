@@ -136,6 +136,7 @@ function showMemberInfo(key) {
     });
     $('#people-'+(currentMemberIndex+1)).css('border', '5px solid #c62530');
     $('#people-'+(currentMemberIndex+1)).focus();
+    $('#member-carousel').carousel(Math.floor(currentMemberIndex/7));
 }
 
 function showMemberGrid() {
@@ -144,13 +145,17 @@ function showMemberGrid() {
 }
 
 function showNextMemberInfo() {
-    if((currentMemberIndex+1) < member_keys.length) {
-        showMemberInfo(member_keys[currentMemberIndex+1]);
+    nextMemberIndex = currentMemberIndex+1;
+    if(nextMemberIndex >= member_keys.length) {
+        nextMemberIndex = 0;
     }
+    showMemberInfo(member_keys[nextMemberIndex]);
 }
 
 function showPreviousMemberInfo() {
-    if((currentMemberIndex-1) >= 0) {
-        showMemberInfo(member_keys[currentMemberIndex-1]);
+    nextMemberIndex = currentMemberIndex-1;
+    if(nextMemberIndex < 0) {
+        nextMemberIndex = member_keys.length-1;
     }
+    showMemberInfo(member_keys[nextMemberIndex]);
 }
