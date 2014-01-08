@@ -25,10 +25,17 @@
     visibility: hidden;
     display: none;
 }
-.member-image-holder {
+.member-image-thumbnail-holder {
     border: 1px solid black;
-    height: 150px;
-    width: 150px;
+    max-height: 150px;
+    max-width: 150px;
+}
+.member-image-holder {
+    max-height: 600px;
+    max-width: 600px;
+}
+.member-image-upload-modal {
+    min-width: 100%;
 }
 </style>
 {% endblock %}
@@ -39,43 +46,44 @@
         <div class="col-md-2"></div>
         <div class="col-md-8 calendar-text">
             <b>PROFILE</b>
-            <form action={{ form_url }} method="POST" enctype="multipart/form-data">
-                <div style="height:20px"></div>
-                <img id="member-picture" src="/api/members/{{ member.email }}/image" class="member-image-holder" onclick="$('#member-image').click()">
-                <input type="file" class="hidden" id="member-image" name="member-image">
+            <div style="height:20px"></div>
+            <img id="member-image-thumbnail" src="/api/members/{{ member.email }}/image" class="member-image-thumbnail-holder">
+            <div style="height:20px"></div>
+            <a class="btn" href="/members/profile/image">Upload Picture</a>
+            <form action={{ form_url }} method="POST">
                 <div style="height:20px"></div>
                 <table class="member-profile">
                     <tr>
                         <td><label for="name">Name</label></td>
-                        <td><input class="wide blanks" id="name" name="name" value={% if member.name %}{{ member.name }}{% endif %}></td>
+                        <td><input class="wide blanks" id="name" name="name" value='{% if member.name %}{{ member.name }}{% endif %}'></td>
                     </tr>
-                    <tr>
-                        <td><label for="email">Email</label></td>
-                        <td><input class="wide blanks" id="email" name="email" value={% if member.email %}{{ member.email }}{% endif %}></td>
-                    </tr>
+                    <!--<tr>-->
+                        <!--<td><label for="email">Email</label></td>-->
+                        <!--<td><input class="wide blanks" id="email" name="email" value='{% if member.email %}{{ member.email }}{% endif %}'></td>-->
+                    <!--</tr>-->
                     <tr>
                         <td><label for="bio">Bio</label></td>
-                        <td><textarea class="wide bio" id="bio" name="bio" >{% if member.bio %}{{ member.bio }}{% endif %}</textarea></td>
+                        <td><textarea class="wide bio" id="bio" name="bio">{% if member.bio %}{{ member.bio }}{% endif %}</textarea></td>
                     </tr>
                     <tr>
                         <td><label for="twitter_handle">Twitter Handle</label></td>
-                        <td><input class="wide blanks" id="twitter_handle" name="twitter_handle" value={% if member.twitter_handle %}{{ member.twitter_handle }}{% endif %}></td>
+                        <td><input class="wide blanks" id="twitter_handle" name="twitter_handle" value='{% if member.twitter_handle %}{{ member.twitter_handle }}{% endif %}'></td>
                     </tr>
                     <tr>
                         <td><label for="facebook_id">Facebook Id</label></td>
-                        <td><input class="wide blanks" id="facebook_id" name="facebook_id" value={% if member.facebook_id %}{{ member.facebook_id }}{% endif %}></td>
+                        <td><input class="wide blanks" id="facebook_id" name="facebook_id" value='{% if member.facebook_id %}{{ member.facebook_id }}{% endif %}'></td>
                     </tr>
                     <tr>
                         <td><label for="organization">Organization</label></td>
-                        <td><input class="wide blanks" id="organization" name="organization" value={% if member.organization %}{{ member.organization }}{% endif %}></td>
+                        <td><input class="wide blanks" id="organization" name="organization" value='{% if member.organization %}{{ member.organization }}{% endif %}'></td>
                     </tr>
                     <tr>
                         <td><label for="designation">Designation</label></td>
-                        <td><input class="wide blanks" id="designation" name="designation" value={% if member.designation %}{{ member.designation }}{% endif %}></td>
+                        <td><input class="wide blanks" id="designation" name="designation" value='{% if member.designation %}{{ member.designation }}{% endif %}'></td>
                     </tr>
                     <tr>
                         <td><label for="website">Website</label></td>
-                        <td><input class="wide blanks" id="website" name="website" value={% if member.website %}{{ member.website }}{% endif %}></td>
+                        <td><input class="wide blanks" id="website" name="website" value='{% if member.website %}{{ member.website }}{% endif %}'></td>
                     </tr>
                 </table>
                 <div style="height:20px"></div>
@@ -87,19 +95,5 @@
 </div>
 {% endblock %}
 {% block Scripts %}
-    <script src="/assets/js/lib/jquery.Jcrop.min.js"></script>
-    <script language="Javascript">
-        function useCoords(c){
-              // variables can be accessed here as
-              // c.x, c.y, c.x2, c.y2, c.w, c.h
-              console.log(c.x + ',' + c.y + ',' + c.x2 + ',' + c.y2);
-        };
-    </script>
-    <!--<script language="Javascript">-->
-        <!--jQuery(function($) {-->
-            <!--$('#member-picture').Jcrop({-->
-                <!--onSelect: useCoords-->
-            <!--});-->
-        <!--});-->
-    <!--</script>-->
+    <script type="text/javascript" src="/assets/js/member-profile.js"></script>
 {% endblock %}

@@ -17,6 +17,7 @@ class Member(db.Model):
     proficiency_score = db.RatingProperty(indexed=False)
     image = db.StringProperty(indexed=False)
     password = db.StringProperty(indexed=False)
+    image_coords = db.ListProperty(float, indexed=False)
 
     @classmethod
     def get_or_insert(cls, key_name, **kwds):
@@ -24,8 +25,8 @@ class Member(db.Model):
         return super(Member, cls).get_or_insert(key_name, **kwds)
 
     @classmethod
-    def create_or_update(cls, email=None, name=None, organization=None, designation=None, website=None,
-                      twitter_handle=None, facebook_id=None, bio=None, image=None, password=None):
+    def create_or_update(cls, email, name=None, organization=None, designation=None, website=None,
+                      twitter_handle=None, facebook_id=None, bio=None, image=None, password=None, image_coords=None):
         member = Member.get_by_email(email)
         if not member:
             member = Member(key_name=email)
@@ -49,6 +50,8 @@ class Member(db.Model):
             if member.image:
                 Member.delete_image(member.image)
             member.image = image
+        if image_coords:
+            member.image_coords = image_coords
         if password:
             member.password = password
         member.influence_score = random.randint(0, 100)

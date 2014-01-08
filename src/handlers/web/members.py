@@ -30,13 +30,14 @@ class LoginHandler(WebRequestHandler):
         redirect_url = self['redirect_url']
         self.write(self.get_rendered_html(path, {'redirect_url': redirect_url}), 200)
 
+
 class MemberProfilePage(WebRequestHandler):
     @login_required
     def get(self):
         path = 'member_profile.html'
         email = self.session['member']
         member = Member.get_by_email(email)
-        form_url = blobstore.create_upload_url('/api/members/save_member')
+        form_url = '/api/members/' + email + '/save_member'
         template_values = {'member': member, 'form_url': form_url}
         self.write(self.get_rendered_html(path, template_values), 200)
 
@@ -47,6 +48,17 @@ class TempHandler(WebRequestHandler):
         self.response.out.write(self.session['member'])
 
 
+class MemberProfileImagePage(WebRequestHandler):
+    @login_required
+    def get(self):
+        path = 'member_profile_image.html'
+        email = self.session['member']
+        member = Member.get_by_email(email)
+        image_upload_url = blobstore.create_upload_url('/api/members/' + email + '/save_member')
+        template_values = {'member': member, 'image_upload_url': image_upload_url}
+        self.write(self.get_rendered_html(path, template_values), 200)
+
 app = RestApplication([("/members/login", LoginHandler),
                        ('/members/profile', MemberProfilePage),
+                       ('/members/profile/image', MemberProfileImagePage),
                        ("/members/temp", TempHandler)])

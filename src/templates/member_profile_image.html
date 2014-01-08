@@ -1,0 +1,27 @@
+{% extends "community_base.html" %}
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/lib/jquery.Jcrop.css" type="text/css" />
+{% endblock %}
+{% block Content %}
+<div id="member_profile_image">
+    <div style="height:100px"></div>
+    <div style="height:50px">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <img id="member-image" name="member-image" src="/api/members/{{ member.email }}/image"/>
+            <form id="member-image-form" action={{ image_upload_url }} method="POST" enctype="multipart/form-data">
+                <input type="text" class="hidden" id="image_coords" name="image_coords"/>
+                <input type="file" id="member-image-upload" name="member-image-upload"/>
+                <button type="button" class="btn btn-primary" onclick=saveMemberImage()>Save</button>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
+{% block Scripts %}
+    <script type="text/javascript" src="/assets/js/member-profile-image.js"></script>
+    <script src="/assets/js/lib/jquery.Jcrop.min.js"></script>
+{% endblock %}

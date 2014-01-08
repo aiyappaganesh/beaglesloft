@@ -10,14 +10,17 @@ from auth import login_required
 from handlers.web import WebRequestHandler
 
 class MemberSaveHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandler):
-    def post(self):
-        image = self.get_uploads("member-image")
+    def post(self, email=None):
+        image = self.get_uploads("member-image-upload")
         image_key = str(image[0].key()) if image else None
-        Member.create_or_update(email=self["email"], name=self['name'], organization=self["organization"],
+        image_coords = [float(coord) for coord in self['image_coords'].split(',')] if self['image_coords'] else None
+        key = email if email else self['email']
+        Member.create_or_update(key, name=self['name'], organization=self["organization"],
                                 designation=self["designation"], image=image_key, website=self["website"],
                                 twitter_handle=self["twitter_handle"], facebook_id=self["facebook_id"], bio=self["bio"],
-                                password=self['password'])
+                                password=self['password'], image_coords=image_coords)
         self.redirect("/")
+
 
 class MemberFetchHandler(RequestHandler):
     def post(self):
@@ -29,6 +32,7 @@ class MemberFetchHandler(RequestHandler):
                 member_json
             ),200,'application/json'
         )
+
 
 class AllMembersFetchHandler(RequestHandler):
     def post(self):
@@ -105,14 +109,20 @@ class FetchAccessQuestionHandler(RequestHandler):
             ),200,'application/json'
         )
 
-class ImageHandler(blobstore_handlers.BlobstoreDownloadHandler):
+from google.appengine.api import images
+
+class ImageHandler(blobstore_handlers.BlobstoreDownloadHandler, WebRequestHandler):
     def get(self, email):
         member = Member.get_by_email(email)
         if member and member.image:
-            image = blobstore.BlobInfo.get(member.image)
-            self.send_blob(image)
+            left_x, top_y, right_x, bottom_y = member.image_coords
+            image = images.Image(blob_key=member.image)
+            image.crop(left_x=left_x, top_y=top_y, right_x=right_x, bottom_y=bottom_y)
+            self.response.headers['Content-Type'] = 'image/jpeg'
+            self.response.out.write(image.execute_transforms(output_encoding=images.JPEG))
 
-app = RestApplication([ ("/api/members/save_member", MemberSaveHandler),
+app = RestApplication([ ("/api/members/([^/]+)/save_member", MemberSaveHandler),
+                        ("/api/members/save_member", MemberSaveHandler),
                         ("/api/members/get_member", MemberFetchHandler),
                         ("/api/members/([^/]+)/image", ImageHandler),
                         ("/api/members/get_all_members", AllMembersFetchHandler),
