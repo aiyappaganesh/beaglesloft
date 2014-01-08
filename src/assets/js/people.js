@@ -2,6 +2,7 @@ var currentMemberIndex = 0;
 var member_keys = [];
 var currentPartner = 1;
 var partnerCycleInterval = null;
+var partnerTimeout = null;
 
 $(document).ready(function() {
     member_keys = $('#member_keys').val().split(',');
@@ -35,7 +36,8 @@ $(document).ready(function(){
     $(".partner-square").click(function(){
         window.clearInterval(partnerCycleInterval);
         selectPartner(this);
-        window.setTimeout(function(){
+        window.clearTimeout(partnerTimeout);
+        partnerTimeout = window.setTimeout(function(){
             setPartnerCycleTimer();
         }, 5000);
     });
@@ -51,7 +53,7 @@ function setPartnerCycleTimer() {
 function selectCurrentPartner() {
     selectPartner($('#partner-'+currentPartner));
     currentPartner = currentPartner + 1;
-    if(currentPartner == 10) {
+    if(currentPartner == 5) {
         currentPartner = 1;
     }
 }
@@ -63,7 +65,10 @@ function selectPartner(e) {
     $(e).css('border','5px solid #c62530');
     var value_str = $($(e).find('input')[0]).val();
     values = value_str.split(';');
-    $('#partner-img').attr('src',values[0]);
+    $(".partner-img").each(function(){
+        $(this).css('display','none');
+    });
+    $('#partner-img-'+values[0]).css('display','block');
     $('#partner-website').text(values[1]);
     $('#partner-website').parent().attr('href','http://'+values[1]);
     $('#partner-desc').text(values[2]);
