@@ -115,11 +115,15 @@ class ImageHandler(blobstore_handlers.BlobstoreDownloadHandler, WebRequestHandle
     def get(self, email):
         member = Member.get_by_email(email)
         if member and member.image:
-            left_x, top_y, right_x, bottom_y = member.image_coords
-            image = images.Image(blob_key=member.image)
-            image.crop(left_x=left_x, top_y=top_y, right_x=right_x, bottom_y=bottom_y)
-            self.response.headers['Content-Type'] = 'image/jpeg'
-            self.response.out.write(image.execute_transforms(output_encoding=images.JPEG))
+            if member.image_coords:
+                left_x, top_y, right_x, bottom_y = member.image_coords
+                image = images.Image(blob_key=member.image)
+                image.crop(left_x=left_x, top_y=top_y, right_x=right_x, bottom_y=bottom_y)
+                self.response.headers['Content-Type'] = 'image/jpeg'
+                self.response.out.write(image.execute_transforms(output_encoding=images.JPEG))
+            else:
+                image = blobstore.BlobInfo.get(member.image)
+                self.send_blob(image)
 
 app = RestApplication([ ("/api/members/([^/]+)/save_member", MemberSaveHandler),
                         ("/api/members/save_member", MemberSaveHandler),

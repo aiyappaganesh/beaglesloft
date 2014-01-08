@@ -50,7 +50,10 @@ function saveMemberImage() {
     var top_y = image_coord_y1/height;
     var right_x = image_coord_x2/width;
     var bottom_y = image_coord_y2/height;
-    var image_coords = [left_x, top_y, right_x, bottom_y].join(',');
+    var image_coords = null
+    if (left_x && top_y && right_x && bottom_y) {
+        image_coords = [left_x, top_y, right_x, bottom_y].join(',');
+    }
     $('#image_coords').val(image_coords);
     $('#member-image-form').submit();
 }
