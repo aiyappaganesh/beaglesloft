@@ -118,6 +118,7 @@ class Member(db.Model):
                 page = []
             page.append(paged_member)
             c1+=1
+        paged_member_keys.append(page)
         logging.info(paged_member_keys)
         return paged_member_keys
 
