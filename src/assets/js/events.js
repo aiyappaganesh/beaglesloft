@@ -12,8 +12,8 @@ function showPage(page) {
         $(this).css('color','#c62530');
     });
     $('.tab-page').each(function(){
-        $(this).css('display','none');
+        $(this).fadeOut(500);
     });
     $('#' + page + '-select').css('color','#9c9c9c');
-    $('#' + page + '-page').css('display','block');
+    $('#' + page + '-page').fadeIn(1500);
 }

@@ -3,6 +3,16 @@ $(document).ready(function(){
     if(url.indexOf('blog')!=-1) {
         $("#navbar-fluid").css({ opacity: 1 });
     }
+    /*var current_page = '';
+    var current_last_index = url.lastIndexOf('#');
+    if(current_last_index == -1) {
+        current_page = url.substring(url.lastIndexOf('/'));
+    } else {
+        current_page = url.substring(url.lastIndexOf('/'),current_last_index);
+    }
+    if(current_page == '/') {
+        $('.navbar-inner').css('background-color','transparent');
+    }*/
 });
 
 $(document).ready(function() {

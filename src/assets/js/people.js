@@ -47,7 +47,7 @@ function setPartnerCycleTimer() {
     window.clearInterval(partnerCycleInterval);
     partnerCycleInterval = window.setInterval(function(){
         selectCurrentPartner();
-    },2500);
+    },5000);
 }
 
 function selectCurrentPartner() {
@@ -60,18 +60,21 @@ function selectCurrentPartner() {
 
 function selectPartner(e) {
     $(".partner-square").each(function(){
-        $(this).css('border','none');
+        $(this).animate({borderWidth:'0px'},400);
     });
-    $(e).css('border','5px solid #c62530');
+    $(e).animate({borderWidth:'5px'},400);
     var value_str = $($(e).find('input')[0]).val();
     values = value_str.split(';');
-    $(".partner-img").each(function(){
-        $(this).css('display','none');
+    $('#partner-details').fadeOut(function(){
+        $(".partner-img").each(function(){
+            $(this).css('display','none');
+        });
+        $('#partner-img-'+values[0]).css('display','block');
+        $('#partner-website').text(values[1]);
+        $('#partner-website').parent().attr('href','http://'+values[1]);
+        $('#partner-desc').text(values[2]);
+        $('#partner-details').fadeIn(1000);
     });
-    $('#partner-img-'+values[0]).css('display','block');
-    $('#partner-website').text(values[1]);
-    $('#partner-website').parent().attr('href','http://'+values[1]);
-    $('#partner-desc').text(values[2]);
 }
 
 function showMemberInfo(key) {
