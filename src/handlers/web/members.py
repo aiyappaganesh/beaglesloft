@@ -9,7 +9,7 @@ from handlers.web import WebRequestHandler
 class LoginHandler(WebRequestHandler):
     def post(self):
         email = self['email']
-        password = self['password']
+        password = self['password'] if self['password'] else None
         redirect_url = str(self['redirect_url']) if self['redirect_url'] else '/'
         member = Member.get_by_email(email)
         if 'member' in self.session and not email is self.session['member']:
