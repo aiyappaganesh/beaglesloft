@@ -37,7 +37,7 @@ class MemberProfilePage(WebRequestHandler):
         path = 'member_profile.html'
         email = self.session['member']
         member = Member.get_by_email(email)
-        form_url = '/api/members/' + email + '/save_member'
+        form_url = '/api/members/' + email + '/update'
         template_values = {'member': member, 'form_url': form_url}
         self.write(self.get_rendered_html(path, template_values), 200)
 
@@ -54,7 +54,7 @@ class MemberProfileImagePage(WebRequestHandler):
         path = 'member_profile_image.html'
         email = self.session['member']
         member = Member.get_by_email(email)
-        image_upload_url = blobstore.create_upload_url('/api/members/' + email + '/save_member')
+        image_upload_url = blobstore.create_upload_url('/api/members/' + email + '/update')
         template_values = {'member': member, 'image_upload_url': image_upload_url}
         self.write(self.get_rendered_html(path, template_values), 200)
 

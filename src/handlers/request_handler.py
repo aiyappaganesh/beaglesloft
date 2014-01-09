@@ -1,6 +1,12 @@
 import third_party_libs
-import webapp2
 from util import http_util
+import webapp2
+import webapp2_extras
+from webapp2_extras import sessions
+from django.template import loader
+
+webapp2_extras.sessions.default_config['secret_key'] = 'asdasd'         #change this to something random and unguessable
+webapp2_extras.sessions.default_config['cookie_name'] = 'beaglesloft'
 
 APP_JSON = "application/json"
 
@@ -18,5 +24,17 @@ class RequestHandlerMixin(object):
     def get_all(self, name):
         return self.request.get_all(name)
 
-class RequestHandler(webapp2.RequestHandler, RequestHandlerMixin): pass
+class RequestHandler(webapp2.RequestHandler, RequestHandlerMixin):
+    def dispatch(self):
+        self.session_store = sessions.get_store(request=self.request)
+        try:
+            webapp2.RequestHandler.dispatch(self)
+        finally:
+            self.session_store.save_sessions(self.response)
+
+    @webapp2.cached_property
+    def session(self):
+        return self.session_store.get_session()
+
+
 
