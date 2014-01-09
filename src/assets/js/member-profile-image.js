@@ -6,6 +6,7 @@ var image_coord_y2;
 function enableCropping() {
     $('#member-image').Jcrop({
         onSelect: saveCoords,
+        setSelect: [50, 50, 500, 500],
         aspectRatio: 1.0
     });
 }
