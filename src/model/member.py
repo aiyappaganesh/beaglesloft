@@ -30,29 +30,29 @@ class Member(db.Model):
         member = Member.get_by_email(email)
         if not member:
             member = Member(key_name=email)
-        if name:
+        if name != None:
             member.name = name
-        if email:
+        if email != None:
             member.email = email
-        if designation:
+        if designation != None:
             member.designation = designation
-        if organization:
+        if organization != None:
             member.organization = organization
-        if website:
+        if website != None:
             member.website = website
-        if twitter_handle:
+        if twitter_handle != None:
             member.twitter_handle = twitter_handle
-        if facebook_id:
+        if facebook_id != None:
             member.facebook_id = facebook_id
-        if bio:
+        if bio != None:
             member.bio = bio
-        if image:
+        if image != None:
             if member.image:
                 Member.delete_image(member.image)
             member.image = image
-        if image_coords:
+        if image_coords != None:
             member.image_coords = image_coords
-        if password:
+        if password != None:
             member.password = password
         member.influence_score = random.randint(0, 100)
         member.activity_score = random.randint(0, 100)
