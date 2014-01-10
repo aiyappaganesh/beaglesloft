@@ -19,10 +19,10 @@ class RequestHandlerMixin(object):
         self.response.set_status(value)
 
     def __getitem__(self, name):
-        return self.request.get(name)
+        return self.request.get(name, default_value=None)
 
     def get_all(self, name):
-        return self.request.get_all(name)
+        return self.request.get_all(name, default_value=None)
 
 class RequestHandler(webapp2.RequestHandler, RequestHandlerMixin):
     def dispatch(self):
