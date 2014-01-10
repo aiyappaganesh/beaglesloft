@@ -3,28 +3,38 @@ $(document).ready(function(){
     if(url.indexOf('blog')!=-1) {
         $("#navbar-fluid").css({ opacity: 1 });
     }
-    /*var current_page = '';
-    var current_last_index = url.lastIndexOf('#');
-    if(current_last_index == -1) {
-        current_page = url.substring(url.lastIndexOf('/'));
-    } else {
-        current_page = url.substring(url.lastIndexOf('/'),current_last_index);
-    }
-    if(current_page == '/') {
-        $('.navbar-inner').css('background-color','transparent');
-    }*/
 });
 
 $(document).ready(function() {
     $(window).scroll( function(){
         var top_of_window = $(window).scrollTop();
         var show_navbar = ($(window).height() * 0.1);
+
         if(top_of_window > show_navbar) {
             $("#navbar-fluid").css({ opacity: 1 });
         } else if(document.URL.indexOf('blog')==-1){
             var curr_opacity = (top_of_window)/(show_navbar);
             $("#navbar-fluid").css({ opacity: curr_opacity });
         }
+
+        /*var current_page = getCurrentPage();
+        if(current_page == '/') {
+            var welcome_top = $('#welcome').offset().top;
+            if(top_of_window > (welcome_top-70)) {
+                $('.navbar-inner').css('background-color','rgba(48,46,46,0.95)');
+                $('.nav>li>a').css('color','#adacac');
+            } else {
+                $('.navbar-inner').css('background-color','transparent');
+                $('.nav>li>a').css('color','#000000');
+            }
+        } else {
+            if(top_of_window > show_navbar) {
+                $("#navbar-fluid").css({ opacity: 1 });
+            } else if(document.URL.indexOf('blog')==-1){
+                var curr_opacity = (top_of_window)/(show_navbar);
+                $("#navbar-fluid").css({ opacity: curr_opacity });
+            }
+        }*/
     });
 });
 
@@ -57,6 +67,18 @@ $(document).ready(function() {
     var url = document.URL;
     highlightLink(url);
 });
+
+function getCurrentPage() {
+    var url = document.URL;
+    var current_page = '';
+    var current_last_index = url.lastIndexOf('#');
+    if(current_last_index == -1) {
+        current_page = url.substring(url.lastIndexOf('/'));
+    } else {
+        current_page = url.substring(url.lastIndexOf('/'),current_last_index);
+    }
+    return current_page;
+}
 
 function highlightLink(link) {
     var accessed_page = link.substring(link.lastIndexOf('/'));

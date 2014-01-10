@@ -27,7 +27,7 @@ $(window).load(function(){
     var url = document.URL;
     var accessed_page_section = url.substring(url.lastIndexOf('/'));
     if(accessed_page_section != '/') {
-        $('#landing-logo').hide(100, function(){$('#landing-main').show(0, function(){scrollTo(url)})});
+        $('#landing-logo').hide(100, function(){$('#landing-main').fadeIn(300, function(){scrollTo(url)})});
         return;
     }
     $('#landing-logo').fadeIn(1000, function(){
@@ -35,7 +35,11 @@ $(window).load(function(){
             $('#logo-msg').fadeIn(1000, function(){
                 $('#logo').fadeOut(1000, function(){
                     $('#landing-logo').fadeOut(2000);
-                    $('#landing-main').fadeIn(1500);
+                    $('#landing-main').fadeIn(1500, function(){
+                        /*$('.navbar-inner').css('background-color','transparent');
+                        $('.nav>li>a').css('color','#000000');
+                        $("#navbar-fluid").css({ opacity: 1 });*/
+                    });
                 });
             });
         });
