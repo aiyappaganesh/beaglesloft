@@ -9,6 +9,7 @@ function enableCropping() {
     $('#member-image').Jcrop({
         onSelect: saveCoords,
         setSelect: [50, 50, 500, 500],
+        bgColor: 'transparent',
         aspectRatio: 1.0
     }, function(){ jcrop_api = this; });
 }
