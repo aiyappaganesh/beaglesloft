@@ -47,7 +47,7 @@
         <div class="col-md-8 calendar-text">
             <b>PROFILE</b>
             <div style="height:20px"></div>
-            <img id="member-image-thumbnail" src="/api/members/{{ member.email }}/image" class="member-image-thumbnail-holder">
+            <img id="member-image-thumbnail" src="{% if member.image %}/api/members/{{ member.email }}/image{% elif member.facebook_id%}https://graph.facebook.com/{{member.facebook_id}}/picture?type=normal&height=300&width=300{% else %}/assets/img/landing/default-user.gif{% endif %}" class="member-image-thumbnail-holder">
             <div style="height:20px"></div>
             <a class="btn btn-primary" href="/members/profile/image">Upload Picture</a>
             <form action={{ form_url }} method="POST">
@@ -94,7 +94,4 @@
         <div class="col-md-2"></div>
     </div>
 </div>
-{% endblock %}
-{% block Scripts %}
-    <script type="text/javascript" src="/assets/js/member-profile.js"></script>
 {% endblock %}
