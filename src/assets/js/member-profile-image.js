@@ -3,12 +3,14 @@ var image_coord_x2;
 var image_coord_y1;
 var image_coord_y2;
 
+var jcrop_api;
+
 function enableCropping() {
     $('#member-image').Jcrop({
         onSelect: saveCoords,
         setSelect: [50, 50, 500, 500],
         aspectRatio: 1.0
-    });
+    }, function(){ jcrop_api = this; });
 }
 
 function displayPhotoThumbnail(e) {
@@ -24,6 +26,10 @@ function displayPhotoThumbnail(e) {
     var file_reader = new FileReader();
     file_reader.onload = (function(photo) {
       return function(ev) {
+        if(jcrop_api) {
+            jcrop_api.destroy();
+            $('#member-image').css({height:'auto',width:'auto'});
+        }
         $('#member-image').attr('src', ev.target.result);
         $('#member-image').attr('title', photo.name);
         enableCropping();

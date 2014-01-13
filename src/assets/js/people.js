@@ -78,73 +78,74 @@ function selectPartner(e) {
 }
 
 function showMemberInfo(key) {
-    //$('#people-grid').fadeOut(10);
-    $.post('/api/members/get_member',{email:key}).done(function(data){
-        var desig_text = '';
-        if(data.designation) {
-            desig_text = data.designation;
-        }
-        if(desig_text != '') {
-            desig_text = desig_text + ', ';
-        }
-        if(data.organization) {
-            desig_text = desig_text + data.organization;
-        }
-        if(desig_text != '') {
-            $('#designation').text(desig_text);
-        }
-        if(data.name) {
-            $('#name').text(data.name);
-        } else {
-            $('#name').text('');
-        }
-        if(data.website) {
-            $('#website').text(data.website);
-        } else {
-            $('#website').text('');
-        }
-        if(data.twitter_handle) {
-            $('#twitter_handle').text(data.twitter_handle);
-        } else {
-            $('#twitter_handle').text('');
-        }
-        if(data.image) {
-            $('#picture').attr('src','/api/members/'+data.email+'/image');
-        } else if(data.facebook_id) {
-            $('#picture').attr('src','https://graph.facebook.com/'+data.facebook_id+'/picture?width=300&height=300');
-        } else {
-            $('#picture').attr('src','/assets/img/landing/default-user.gif');
-        }
-        if(data.bio) {
-            $('#bio').text(data.bio);
-        } else {
-            $('#bio').text('');
-        }
-        if(data.influence_score) {
-            $('#influence').css('width',data.influence_score+'%');
-        } else {
-            $('#influence').css('width',0+'%');
-        }
-        if(data.activity_score) {
-            $('#activity').css('width',data.activity_score+'%');
-        } else {
-            $('#activity').css('width',0+'%');
-        }
-        if(data.proficiency_score) {
-            $('#proficiency').css('width',data.proficiency_score+'%');
-        } else {
-            $('#proficiency').css('width',0+'%');
-        }
+    $('#people-detail').fadeOut(500, function(){
+        $.post('/api/members/get_member',{email:key}).done(function(data){
+            var desig_text = '';
+            if(data.designation) {
+                desig_text = data.designation;
+            }
+            if(desig_text != '') {
+                desig_text = desig_text + ', ';
+            }
+            if(data.organization) {
+                desig_text = desig_text + data.organization;
+            }
+            if(desig_text != '') {
+                $('#designation').text(desig_text);
+            }
+            if(data.name) {
+                $('#name').text(data.name);
+            } else {
+                $('#name').text('');
+            }
+            if(data.website) {
+                $('#website').text(data.website);
+            } else {
+                $('#website').text('');
+            }
+            if(data.twitter_handle) {
+                $('#twitter_handle').text(data.twitter_handle);
+            } else {
+                $('#twitter_handle').text('');
+            }
+            if(data.image) {
+                $('#picture').attr('src','/api/members/'+data.email+'/image');
+            } else if(data.facebook_id) {
+                $('#picture').attr('src','https://graph.facebook.com/'+data.facebook_id+'/picture?width=300&height=300');
+            } else {
+                $('#picture').attr('src','/assets/img/landing/default-user.gif');
+            }
+            if(data.bio) {
+                $('#bio').text(data.bio);
+            } else {
+                $('#bio').text('');
+            }
+            if(data.influence_score) {
+                $('#influence').css('width',data.influence_score+'%');
+            } else {
+                $('#influence').css('width',0+'%');
+            }
+            if(data.activity_score) {
+                $('#activity').css('width',data.activity_score+'%');
+            } else {
+                $('#activity').css('width',0+'%');
+            }
+            if(data.proficiency_score) {
+                $('#proficiency').css('width',data.proficiency_score+'%');
+            } else {
+                $('#proficiency').css('width',0+'%');
+            }
+            $('#people-detail').fadeIn(500);
+        });
+        currentMemberIndex = member_keys.indexOf(key);
+        if(currentMemberIndex == -1) {currentMemberIndex = 0;}
+        $('.people-picture').each(function(){
+            $(this).css('border', 'none');
+        });
+        $('#people-'+(currentMemberIndex+1)).css('border', '5px solid #c62530');
+        $('#people-'+(currentMemberIndex+1)).focus();
+        $('#member-carousel').carousel(Math.floor(currentMemberIndex/7));
     });
-    //$('#people-detail').fadeIn(1000);
-    currentMemberIndex = member_keys.indexOf(key);
-    if(currentMemberIndex == -1) {currentMemberIndex = 0;}
-    $('.people-picture').each(function(){
-        $(this).css('border', 'none');
-    });
-    $('#people-'+(currentMemberIndex+1)).css('border', '5px solid #c62530');
-    $('#people-'+(currentMemberIndex+1)).focus();
-    $('#member-carousel').carousel(Math.floor(currentMemberIndex/7));
 }
 
 function showMemberGrid() {

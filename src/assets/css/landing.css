@@ -1,7 +1,35 @@
+.page_heading {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 38px;
+}
+
 .section1_heading {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
     font-size: 38px;
+    padding:20px;
+    text-align:center;
+    position:absolute;
+    height:95px;
+    width:740px;
+    margin:auto;
+    background-color:#c62530;
+    color:#ffffff;
+    top:50%;
+    z-index:20;
+    margin-top:-47.5px;
+    left:50%;
+    margin-left:-370px;
+}
+
+@media (max-width: 740px) {
+    .section1_heading {
+        width:auto;
+        height: auto;
+        font-size: 15px;
+        margin-left:-156px;
+    }
 }
 
 .section1_text {
@@ -109,6 +137,7 @@
 .people-picture {
     background-size: contain;
     height: 75%;
+    -webkit-transition: border 1s;
 }
 
 .people-picture:hover, .people-picture:active {
@@ -234,6 +263,8 @@ button {border:none}
     font-weight: 300;
     font-size:16px;
     border:2px solid #FF0017;
+    -webkit-transition: color 0.25s ease-in;
+    -webkit-transition: background-color 0.25s ease-in;
 }
 
 .grad
@@ -280,6 +311,18 @@ footer>a, footer>a:hover {
     filter: alpha(opacity=100);
 }
 
+.carousel-indicators {
+    left:100% !important;
+    width:30%;
+}
+
+@media (max-width: 740px) {
+    .carousel-indicators {
+        left:50% !important;
+        width:60%;
+    }
+}
+
 .partner-img {
     position:absolute;
     max-height:100%;
@@ -294,4 +337,14 @@ footer>a, footer>a:hover {
 
 .st-bg-today {
     background-color: #c62530;
+}
+
+.glyphicon-chevron-left:before, .glyphicon-chevron-right:before {
+    content: none;
+}
+
+@media (max-width: 979px) {
+    .glyphicon-chevron-left, .glyphicon-chevron-right {
+        top: 75% !important;
+    }
 }

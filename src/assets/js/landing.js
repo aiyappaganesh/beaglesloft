@@ -36,9 +36,9 @@ $(window).load(function(){
                 $('#logo').fadeOut(1000, function(){
                     $('#landing-logo').fadeOut(2000);
                     $('#landing-main').fadeIn(1500, function(){
-                        /*$('.navbar-inner').css('background-color','transparent');
-                        $('.nav>li>a').css('color','#000000');
-                        $("#navbar-fluid").css({ opacity: 1 });*/
+                        //$('.navbar-inner').css('background-color','transparent');
+                        //$('.nav>li>a').css('color','#000000');
+                        //$("#navbar-fluid").css({ opacity: 1 });
                     });
                 });
             });

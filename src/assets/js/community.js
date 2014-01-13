@@ -9,30 +9,37 @@ $(document).ready(function() {
     $(window).scroll( function(){
         var top_of_window = $(window).scrollTop();
         var show_navbar = ($(window).height() * 0.1);
+        var current_page = getCurrentPage();
 
         if(top_of_window > show_navbar) {
             $("#navbar-fluid").css({ opacity: 1 });
+            $('#navbar-fluid').css('-webkit-transform','translateY(0%)');
         } else if(document.URL.indexOf('blog')==-1){
             var curr_opacity = (top_of_window)/(show_navbar);
             $("#navbar-fluid").css({ opacity: curr_opacity });
+            $('#navbar-fluid').css('-webkit-transform','translateY(-100%)');
         }
 
-        /*var current_page = getCurrentPage();
-        if(current_page == '/') {
+        /*if(current_page == '/') {
+            $("#navbar-fluid").css({ opacity: 1 });
             var welcome_top = $('#welcome').offset().top;
-            if(top_of_window > (welcome_top-70)) {
-                $('.navbar-inner').css('background-color','rgba(48,46,46,0.95)');
+            if(top_of_window >= (welcome_top-70)) {
+                $('.navbar-inner').css('background-color','transparent');
                 $('.nav>li>a').css('color','#adacac');
+                $('.nav-bg').css('-webkit-transform','translateY(0%)');
             } else {
                 $('.navbar-inner').css('background-color','transparent');
                 $('.nav>li>a').css('color','#000000');
+                $('.nav-bg').css('-webkit-transform','translateY(-100%)');
             }
         } else {
             if(top_of_window > show_navbar) {
                 $("#navbar-fluid").css({ opacity: 1 });
+                $('#navbar-fluid').css('-webkit-transform','translateY(0%)');
             } else if(document.URL.indexOf('blog')==-1){
                 var curr_opacity = (top_of_window)/(show_navbar);
                 $("#navbar-fluid").css({ opacity: curr_opacity });
+                $('#navbar-fluid').css('-webkit-transform','translateY(-100%)');
             }
         }*/
     });

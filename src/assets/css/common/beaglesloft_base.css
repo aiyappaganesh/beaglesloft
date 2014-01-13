@@ -289,7 +289,14 @@ footer {
 }
 
 .navbar{
-    margin-bottom: 0
+    margin-bottom: 0;
+    -webkit-transition: -webkit-transform 2s;
+    /*-webkit-transform: translateY(-100%);*/
+}
+
+#navbar-fluid {
+    -webkit-transform: translateY(-100%);
+    -webkit-transition: -webkit-transform 0.5s;
 }
 
 .navbar-inner {
@@ -297,6 +304,15 @@ footer {
     background-image: none;
     background-repeat: no-repeat;
     filter: none;
+}
+
+.nav>li>a {
+    -webkit-transition: color 1s;
+}
+
+.nav-bg {
+    -webkit-transition: -webkit-transform 1s;
+    -webkit-transform: translateY(-100%);
 }
 
 .navbar .nav>li>a{

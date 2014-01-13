@@ -46,8 +46,12 @@ $(document).ready(function(){
             .done(function(data){
                 if(data.url != ''){
                     clearAccessCode();
-                    $('#member-access').fadeOut(function(){
-                        window.location.href = data.url;
+                    $('#logo').fadeOut();
+                    $('#dark-gate').fadeOut(2000);
+                    $('#light-gate').fadeIn(1500, function(){
+                        $('#member-access').fadeOut(function(){
+                            window.location.href = data.url;
+                        });
                     });
                 } else {
                     clearAccessCode();
@@ -87,8 +91,12 @@ function submitAccessAnswer() {
     .done(function(data){
         if(data.url != '') {
             clearAccessAnswer();
-            $('#member-access').fadeOut(function(){
-                window.location.href = data.url;
+            $('#logo').fadeOut();
+            $('#dark-gate').fadeOut(2000);
+            $('#light-gate').fadeIn(1500, function(){
+                $('#member-access').fadeOut(function(){
+                    window.location.href = data.url;
+                });
             });
         } else {
             clearAccessAnswer();

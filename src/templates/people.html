@@ -11,7 +11,7 @@
 									value="{% for page in paged_member_keys %}{% for v in page %}{{v.0}}{% if forloop.counter != page|length %},{% endif %}{% endfor %}{% if forloop.counter != paged_member_keys|length %},{% endif %}{% endfor %}">
         <div class="full-width" style="height:340px;background: url('/assets/img/landing/people.png') center center fixed no-repeat;background-size: cover;">
             <div style="height:135px"></div>
-            <div style="height:90px;width:620px;margin:auto;background-color:#c62530;color:#ffffff;padding:20px;"><p class="section1_heading">THE PEOPLE THAT MAKE US WHO WE ARE</p></div>
+            <div style="height:90px;width:620px;margin:auto;background-color:#c62530;color:#ffffff;padding:20px;"><p class="page_heading">THE PEOPLE THAT MAKE US WHO WE ARE</p></div>
         </div>
         <div class="full-width" style="height:165px;background-color:#ffffff;">
             <div style="width:940px;height:165px;margin:auto">
@@ -58,7 +58,7 @@
         <div class="full-width" style="background-color:#f4f0ed">
             <div style="width:940px;height:410px;margin:auto;">
                 <div style="height:55px;"></div>
-                <div style="height:300px;text-align:left;">
+                <div id="people-detail" style="height:300px;text-align:left;">
                     <div style="width:300px;height:300px;display:inline-block;float:left;">
                         <img id="picture" style="max-height:100%;max-width:100%;height:100%;width:100%" src="/assets/img/landing/default-user.gif">
                     </div>

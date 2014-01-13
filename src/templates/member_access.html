@@ -6,7 +6,8 @@
 
 {% block Content %}
 <div id="member-access" class="member-access" style="height:100%;position:relative;text-align:center;">
-    <img src="/assets/img/landing/dark-gate.png" class="bg">
+    <img id="dark-gate" src="/assets/img/landing/dark-gate.png" class="bg">
+    <img id="light-gate" src="/assets/img/landing/light-gate.png" class="bg" style="display:none">
     <div id="logo" style="position:absolute;top:5%;width:100%;">
         <img style="margin:auto;height:150px;width:150px;" src="/assets/img/landing/bl-logo-intro.png">
         <div style="margin:auto;height:30px;"></div>
@@ -36,11 +37,11 @@
                 <textarea id="access-answer-text" name="access_answer" class="access access-answer" tabindex="1" style="height:100%;width:100%;background:url('/assets/img/landing/access/answer-box.png') no-repeat;background-size: cover;"></textarea>
             </div>
             <div style="height:15px;"></div>
-            <div style="height:55px;background:url('/assets/img/landing/access/submit-button.png') no-repeat;margin-left:20px;margin-right:20px;color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;padding-top:18px;line-height:17px;" onclick="submitAccessAnswer()">SUBMIT ANSWER</div>
+            <div style="height:55px;background:url('/assets/img/landing/access/submit-button.png') no-repeat;margin-left:20px;margin-right:20px;color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;padding-top:18px;line-height:17px;cursor:pointer;" onclick="submitAccessAnswer()">SUBMIT ANSWER</div>
             <div style="height:18px;"></div>
         </div>
         <div style="margin:auto;height:25px;"></div>
-        <p id="message-bottom" style="margin:auto;color:#515151;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;width:190px;">DON'T HAVE A CODE? <a style="color:#c62530" onclick="showQuestionPick()">GET ONE</a></p>
+        <p id="message-bottom" style="margin:auto;color:#515151;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;width:190px;cursor:pointer;" onclick="showQuestionPick()">DON'T HAVE A CODE? <a style="color:#c62530;text-decoration:none;">GET ONE</a></p>
     </div>
     <!--<div id="member-access-contents">-->
         <!--<div class="access-top-top"></div>-->
