@@ -33,6 +33,17 @@ function displayPhotoThumbnail(e) {
         }
         $('#member-image').attr('src', ev.target.result);
         $('#member-image').attr('title', photo.name);
+
+        if ($('#member-image').width() > 800){
+            $('#member-image').width(800);
+        }
+        orig_height = $('#member-image').height();
+        orig_width = $('#member-image').width();
+        aspect_ratio = orig_width/orig_height;
+        if ($('#member-image').height() > 600){
+            $('#member-image').height(600);
+            $('#member-image').width(aspect_ratio*600);
+        }
         enableCropping();
       };
     })(photo_file);
@@ -58,8 +69,8 @@ function saveMemberImage() {
     var top_y = image_coord_y1/height;
     var right_x = image_coord_x2/width;
     var bottom_y = image_coord_y2/height;
-    var image_coords = null
-    if (left_x && top_y && right_x && bottom_y) {
+    var image_coords = null;
+    if (left_x != null && top_y != null && right_x != null && bottom_y != null) {
         image_coords = [left_x, top_y, right_x, bottom_y].join(',');
     }
     $('#image_coords').val(image_coords);
