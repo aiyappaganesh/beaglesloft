@@ -3,6 +3,11 @@ $(document).ready(function(){
     if(url.indexOf('blog')!=-1) {
         $("#navbar-fluid").css({ opacity: 1 });
     }
+    /*var current_page = getCurrentPage();
+    if(current_page == '/') {
+        $("#navbar-fluid").css({ 'position':'absolute', '-webkit-transform': 'translateY(0%)' });
+        $('#navbar-logo').attr('src','/assets/img/landing/beagles-logo-black.png');
+    }*/
 });
 
 $(document).ready(function() {
@@ -24,22 +29,24 @@ $(document).ready(function() {
             $("#navbar-fluid").css({ opacity: 1 });
             var welcome_top = $('#welcome').offset().top;
             if(top_of_window >= (welcome_top-70)) {
+                $('#navbar-fluid').css('position','fixed');
+                $('#navbar-logo').attr('src','/assets/img/landing/beagles-logo-nav.png');
                 $('.navbar-inner').css('background-color','transparent');
                 $('.nav>li>a').css('color','#adacac');
                 $('.nav-bg').css('-webkit-transform','translateY(0%)');
             } else {
+                $('#navbar-fluid').css('position','absolute');
+                $('#navbar-logo').attr('src','/assets/img/landing/beagles-logo-black.png');
                 $('.navbar-inner').css('background-color','transparent');
                 $('.nav>li>a').css('color','#000000');
                 $('.nav-bg').css('-webkit-transform','translateY(-100%)');
             }
         } else {
             if(top_of_window > show_navbar) {
-                $("#navbar-fluid").css({ opacity: 1 });
-                $('#navbar-fluid').css('-webkit-transform','translateY(0%)');
+                $("#navbar-fluid").css({ 'opacity':'1', '-webkit-transform':'translateY(0%)' });
             } else if(document.URL.indexOf('blog')==-1){
                 var curr_opacity = (top_of_window)/(show_navbar);
-                $("#navbar-fluid").css({ opacity: curr_opacity });
-                $('#navbar-fluid').css('-webkit-transform','translateY(-100%)');
+                $("#navbar-fluid").css({ 'opacity': curr_opacity, '-webkit-transform': 'translateY(-100%)' });
             }
         }*/
     });

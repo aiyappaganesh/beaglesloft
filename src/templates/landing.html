@@ -6,7 +6,7 @@
 
 {% block Content %}
 <div style="position:relative;height:100%">
-    <div id="landing-logo" style="position:absolute;text-align:center;display:none;height:100%;width:100%;background:url('/assets/img/landing/dark-gate.png') no-repeat center center fixed;
+    <div id="landing-logo" style="position:absolute;text-align:center;display:none;height:100%;width:100%;background:url('/assets/img/landing/dark-gate.jpg') no-repeat center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -19,7 +19,7 @@
     </div>
     <div id="landing-main" style="position:absolute;display:none;height:100%;width:100%;">
         <section id="section1" style="background-color:#F9F9ED;height:100%;">
-            <div id="section1-carousel" class="carousel slide" style="height:100%;" data-interval="1500">
+            <div id="section1-carousel" class="carousel slide" style="height:100%;" data-interval="2500">
                 <ol class="carousel-indicators">
                     <li data-target="#section1-carousel" data-slide-to="0" class="active"></li>
                     <li data-target="#section1-carousel" data-slide-to="1"></li>
@@ -29,71 +29,28 @@
                     <li data-target="#section1-carousel" data-slide-to="5"></li>
                     <li data-target="#section1-carousel" data-slide-to="6"></li>
                 </ol>
-                <!--<div style="text-align:center;position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;z-index:20;margin-top:-47.5px;left:50%;margin-left:-370px;">-->
-                    <!--<p class="section1_heading" style="padding:20px;">TRANSFORM THE WAY YOU WORK, LEARN & THRIVE</p>-->
-                <!--</div>-->
-                <p class="section1_heading">TRANSFORM THE WAY YOU WORK, LEARN & THRIVE</p>
+                <p class="section1_heading" id="slide-copy">TRANSFORM THE WAY YOU WORK, LEARN & THRIVE</p>
                 <div class="carousel-inner" style="height:100%">
-                    <div class="item active" style="text-align:center;height:100%;background:url('/assets/img/landing/light-gate.png') no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;">
-
+                    <div class="item active landing-carousel-item" style="background:url('/assets/img/landing/light-gate.jpg') no-repeat center center fixed;">
+                        <input type="hidden" value="TRANSFORM THE WAY YOU WORK, LEARN & THRIVE">
                     </div>
-                    <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/TerraceEntrance.jpg') no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;">
-                        <!--<div style="position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;margin-top:-47.5px;left:50%;margin-left:-370px;">-->
-                            <!--<p class="section1_heading" style="padding:20px;">TRANSFORM THE WAY YOU WORK, LEARN & THRIVE</p>-->
-                        <!--</div>-->
+                    <div class="item landing-carousel-item" style="background:url('/assets/img/landing/TerraceEntrance.jpg') no-repeat center center fixed;">
+                        <input type="hidden" value="it’s a speakeasy for doers, it’s a treehouse for creators">
                     </div>
-                    <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/gridlight.jpg') no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;">
-                        <!--<div style="position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;margin-top:-47.5px;left:50%;margin-left:-370px;">-->
-                            <!--<p class="section1_heading" style="padding:20px;">TRANSFORM THE WAY YOU WORK, LEARN & THRIVE</p>-->
-                        <!--</div>-->
+                    <div class="item landing-carousel-item" style="background:url('/assets/img/landing/gridlight.jpg') no-repeat center center fixed;">
+                        <input type="hidden" value="If it doesn’t matter, it doesn’t belong here">
                     </div>
-                    <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/stairs.jpg') no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;">
-                        <!--<div style="position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;margin-top:-47.5px;left:50%;margin-left:-370px;">-->
-                            <!--<p class="section1_heading" style="padding:20px;">TRANSFORM THE WAY YOU WORK, LEARN & THRIVE</p>-->
-                        <!--</div>-->
+                    <div class="item landing-carousel-item" style="background:url('/assets/img/landing/stairs.jpg') no-repeat center center fixed;">
+                        <input type="hidden" value="Access everything you need for your big ideas">
                     </div>
-                    <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/cornerchair.jpg') no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;">
-                        <!--<div style="position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;margin-top:-47.5px;left:50%;margin-left:-370px;">-->
-                            <!--<p class="section1_heading" style="padding:20px;">TRANSFORM THE WAY YOU WORK, LEARN & THRIVE</p>-->
-                        <!--</div>-->
+                    <div class="item landing-carousel-item" style="background:url('/assets/img/landing/cornerchair.jpg') no-repeat center center fixed;">
+                        <input type="hidden" value="Fail as much as you can to succeed">
                     </div>
-                    <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/greenbalcony.jpg') no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;">
-                        <!--<div style="position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;margin-top:-47.5px;left:50%;margin-left:-370px;">-->
-                            <!--<p class="section1_heading" style="padding:20px;">TRANSFORM THE WAY YOU WORK, LEARN & THRIVE</p>-->
-                        <!--</div>-->
+                    <div class="item landing-carousel-item" style="background:url('/assets/img/landing/greenbalcony.jpg') no-repeat center center fixed;">
+                        <input type="hidden" value="Three floors (and a roof deck) for those who take the red pill">
                     </div>
-                    <div class="item" style="text-align:center;height:100%;background:url('/assets/img/landing/easychair.jpg') no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;">
-                        <!--<div style="position:absolute;height:95px;width:740px;margin:auto;background-color:#c62530;color:#ffffff;top:50%;margin-top:-47.5px;left:50%;margin-left:-370px;">-->
-                            <!--<p class="section1_heading" style="padding:20px;">TRANSFORM THE WAY YOU WORK, LEARN & THRIVE</p>-->
-                        <!--</div>-->
+                    <div class="item landing-carousel-item" style="background:url('/assets/img/landing/easychair.jpg') no-repeat center center fixed;">
+                        <input type="hidden" value="TRANSFORM THE WAY YOU WORK, LEARN & THRIVE">
                     </div>
                 </div>
                 <a class="left carousel-control" href="#section1-carousel" data-slide="prev" style="background-image:none">

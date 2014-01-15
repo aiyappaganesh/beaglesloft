@@ -6,7 +6,7 @@
 
 {% block Content %}
 <div id="people">
-    <div class="full-width" style="text-align:center">
+    <div class="full-width">
         <input type="hidden" name="member_keys" id="member_keys"
 									value="{% for page in paged_member_keys %}{% for v in page %}{{v.0}}{% if forloop.counter != page|length %},{% endif %}{% endfor %}{% if forloop.counter != paged_member_keys|length %},{% endif %}{% endfor %}">
         <div class="full-width" style="height:340px;background: url('/assets/img/landing/people.png') center center fixed no-repeat;background-size: cover;">
@@ -25,7 +25,10 @@
                                     {% for v in page %}
                                         <td style="min-width:120px;padding:0px;">
                                             <div style="height:100px;width:100px;display:inline-table;float:left;">
-                                                <div id="people-{{v.3}}" class="people-picture" style="height:100px;width:100px;background: url('{% if v.1 %} /api/members/{{v.0}}/image {% elif v.2 %} https://graph.facebook.com/{{v.2}}/picture?type=normal&height=300&width=300 {% else %} /assets/img/landing/default-user.gif {% endif %}') no-repeat center;{% if forloop.first %}border:#848484 solid;{% endif %};background-size:contain;" onclick="showMemberInfo($(this).parent().find('input').val());"></div>
+                                                <div style="height:100px;width:100px;position:relative;" onclick="showMemberInfo($(this).parent().find('input').val());">
+                                                    <img style="position:absolute;height:100px;width:100px;z-index:10;" src="{% if v.1 %} /api/members/{{v.0}}/image {% elif v.2 %} https://graph.facebook.com/{{v.2}}/picture?type=normal&height=300&width=300 {% else %} /assets/img/landing/default-user.gif {% endif %}">
+                                                    <div class="people-picture" id="people-{{v.3}}" style="height:100px;width:100px;position:absolute;z-index:20;"></div>
+                                                </div>
                                                 <input type="hidden" value="{{v.0}}">
                                             </div>
                                         </td>
@@ -35,7 +38,7 @@
                         </table>
                         {% endfor %}
                     </div>
-                    <div style="height:100px;width:100px;margin-left:20px;display:inline-block;float:left;">
+                    <div style="height:100px;width:100px;margin-left:20px;display:inline-block;float:left;text-align:center;">
                         <div style="height:100px;width:50px;display:inline-block;float:left;background-color:#f2f1ed;">
                             <div style="height:38px;"></div>
                             <a class="carousel-arrow" href="#member-carousel" data-slide="prev" style="background-image:none">
@@ -119,8 +122,8 @@
                 </div>
             </div>
         </div>
-        <div class="full-width" style="background-color:#ffffff">
-            <div style="height:95px;margin:auto;border-bottom:1px solid #e5e5e5;">
+        <div class="full-width" style="background-color:#ffffff;">
+            <div style="height:95px;margin:auto;border-bottom:1px solid #e5e5e5;text-align:center;">
                 <div style="height:30px;"></div>
                 <div style="height:25px;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:30px;color:#c62530;">OUR PARTNERS</div>
                 <div style="height:40px;"></div>
@@ -145,74 +148,44 @@
                         </div>
                         <div style="width:105px;height:341px;display:inline-block;float:left;"></div>
                         <div style="width:340px;height:341px;display:inline-block;float:left;">
-                            <!--<div style="height:110px;">-->
-                                <!--<div class="partner-square" style="margin-right:10px;margin-bottom:10px;" id="partner-1">-->
-                                    <!--<img src="/assets/img/landing/sequoia.png" style="position:absolute;top:35%;left:0%;max-width:100%;max-height:100%;">-->
-                                    <!--<input type="hidden" value="/assets/img/landing/sequoia.png;www.sequoiacap.com;Sequoia placerat vel est in ultricies. Proin congue mi ut lectus venenatis fringilla vitae in libero. Nullam eu consectetur mauris. Cras venenatis velit at felis ultrices, id mollis justo fermentum.">-->
-                                <!--</div>-->
-                                <!--<div class="partner-square" style="margin-left:10px;margin-right:10px;margin-bottom:10px;" id="partner-2">-->
-                                    <!--<img src="/assets/img/landing/jaaga.png" style="position:absolute;top:35%;left:0%;max-width:100%;max-height:100%;">-->
-                                    <!--<input type="hidden" value="/assets/img/landing/jaaga.png;www.jaaga.in;Jaaga placerat vel est in ultricies. Proin congue mi ut lectus venenatis fringilla vitae in libero. Nullam eu consectetur mauris. Cras venenatis velit at felis ultrices, id mollis justo fermentum.">-->
-                                <!--</div>-->
-                                <!--<div class="partner-square" style="margin-left:10px;margin-bottom:10px;" id="partner-3">-->
-                                    <!--<img src="/assets/img/landing/accel.png" style="position:absolute;top:35%;left:0%;max-width:100%;max-height:100%;">-->
-                                    <!--<input type="hidden" value="/assets/img/landing/accel.png;www.accel.com;Accel placerat vel est in ultricies. Proin congue mi ut lectus venenatis fringilla vitae in libero. Nullam eu consectetur mauris. Cras venenatis velit at felis ultrices, id mollis justo fermentum.">-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div style="height:120px;">-->
-                                <!--<div class="partner-square" style="margin-right:10px;margin-bottom:10px;margin-top:10px;" id="partner-4">-->
-                                    <!--<img src="/assets/img/landing/accel.png" style="position:absolute;top:35%;left:0%;max-width:100%;max-height:100%;">-->
-                                    <!--<input type="hidden" value="/assets/img/landing/accel.png;www.accel.com;Accel placerat vel est in ultricies. Proin congue mi ut lectus venenatis fringilla vitae in libero. Nullam eu consectetur mauris. Cras venenatis velit at felis ultrices, id mollis justo fermentum.">-->
-                                <!--</div>-->
-                                <!--<div class="partner-square" style="margin-left:10px;margin-right:10px;margin-top:10px;margin-bottom:10px;" id="partner-5">-->
-                                    <!--<img src="/assets/img/landing/sequoia.png" style="position:absolute;top:35%;left:0%;max-width:100%;max-height:100%;">-->
-                                    <!--<input type="hidden" value="/assets/img/landing/sequoia.png;www.sequoiacap.com;Sequoia placerat vel est in ultricies. Proin congue mi ut lectus venenatis fringilla vitae in libero. Nullam eu consectetur mauris. Cras venenatis velit at felis ultrices, id mollis justo fermentum.">-->
-                                <!--</div>-->
-                                <!--<div class="partner-square" style="margin-left:10px;margin-bottom:10px;margin-top:10px;" id="partner-6">-->
-                                    <!--<img src="/assets/img/landing/jaaga.png" style="position:absolute;top:35%;left:0%;max-width:100%;max-height:100%;">-->
-                                    <!--<input type="hidden" value="/assets/img/landing/jaaga.png;www.jaaga.in;Jaaga placerat vel est in ultricies. Proin congue mi ut lectus venenatis fringilla vitae in libero. Nullam eu consectetur mauris. Cras venenatis velit at felis ultrices, id mollis justo fermentum.">-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div style="height:110px;">-->
-                                <!--<div class="partner-square" style="margin-right:10px;margin-top:10px;" id="partner-7">-->
-                                    <!--<img src="/assets/img/landing/sequoia.png" style="position:absolute;top:35%;left:0%;max-width:100%;max-height:100%;">-->
-                                    <!--<input type="hidden" value="/assets/img/landing/sequoia.png;www.sequoiacap.com;Sequoia placerat vel est in ultricies. Proin congue mi ut lectus venenatis fringilla vitae in libero. Nullam eu consectetur mauris. Cras venenatis velit at felis ultrices, id mollis justo fermentum.">-->
-                                <!--</div>-->
-                                <!--<div class="partner-square" style="margin-left:10px;margin-right:10px;margin-top:10px;" id="partner-8">-->
-                                    <!--<img src="/assets/img/landing/jaaga.png" style="position:absolute;top:35%;left:0%;max-width:100%;max-height:100%;">-->
-                                    <!--<input type="hidden" value="/assets/img/landing/jaaga.png;www.jaaga.in;Jaaga placerat vel est in ultricies. Proin congue mi ut lectus venenatis fringilla vitae in libero. Nullam eu consectetur mauris. Cras venenatis velit at felis ultrices, id mollis justo fermentum.">-->
-                                <!--</div>-->
-                                <!--<div class="partner-square" style="margin-left:10px;margin-top:10px;" id="partner-9">-->
-                                    <!--<img src="/assets/img/landing/accel.png" style="position:absolute;top:35%;left:0%;max-width:100%;max-height:100%;">-->
-                                    <!--<input type="hidden" value="/assets/img/landing/accel.png;www.accel.com;Accel placerat vel est in ultricies. Proin congue mi ut lectus venenatis fringilla vitae in libero. Nullam eu consectetur mauris. Cras venenatis velit at felis ultrices, id mollis justo fermentum.">-->
-                                <!--</div>-->
-                            <!--</div>-->
                             <div style="height:170px;">
                                 <div class="partner-square" style="margin-right:20px;margin-bottom:20px;" id="partner-1">
-                                    <div style="height:40px;"></div>
-                                    <img src="/assets/img/landing/sequoia_capital.png" class="partner-icon">
-                                    <div style="height:30px;"></div>
-                                    <input type="hidden" value="sequoia;www.sequoiacap.com;Sequoia Capital is one of the leading Venture Capital firms having invested in such seminal companies as Apple and Google. Sequoia India’s investments including some of the leading startups in India like Justdial, Zomato, Druva and Mu Sigma.">
+                                    <div class="partner-icon-box">
+                                        <div style="height:40px;"></div>
+                                        <img src="/assets/img/landing/sequoia_capital.png" class="partner-icon">
+                                        <div style="height:30px;"></div>
+                                        <input type="hidden" value="sequoia;www.sequoiacap.com;Sequoia Capital is one of the leading Venture Capital firms having invested in such seminal companies as Apple and Google. Sequoia India’s investments including some of the leading startups in India like Justdial, Zomato, Druva and Mu Sigma.">
+                                    </div>
+                                    <div class="partner-border-box"></div>
                                 </div>
                                 <div class="partner-square" style="margin-left:20px;margin-bottom:20px;" id="partner-2">
-                                    <div style="height:40px;"></div>
-                                    <img src="/assets/img/landing/startupleadership.png" class="partner-icon">
-                                    <div style="height:30px;"></div>
-                                    <input type="hidden" value="sl;www.startupleadership.com;Startup Leadership Program is a highly selective, 80-hour, 6-month world-class training program and lifetime network for outstanding founders and innovators. SLP Fellows have founded 1000 companies that have raised $400 million.">
+                                    <div class="partner-icon-box">
+                                        <div style="height:40px;"></div>
+                                        <img src="/assets/img/landing/startupleadership.png" class="partner-icon">
+                                        <div style="height:30px;"></div>
+                                        <input type="hidden" value="sl;www.startupleadership.com;Startup Leadership Program is a highly selective, 80-hour, 6-month world-class training program and lifetime network for outstanding founders and innovators. SLP Fellows have founded 1000 companies that have raised $400 million.">
+                                    </div>
+                                    <div class="partner-border-box"></div>
                                 </div>
                             </div>
                             <div style="height:170px;">
                                 <div class="partner-square" style="margin-right:20px;margin-top:20px;" id="partner-3">
-                                    <div style="height:40px;"></div>
-                                    <img src="/assets/img/landing/BessemerVenturePartners.gif" class="partner-icon">
-                                    <div style="height:30px;"></div>
-                                    <input type="hidden" value="bvp;www.bvp.com;Bessemer Venture Partners is a top tier Venture Capital firm with marquee investments like Linkedin and Skype. Bessemer’s India team include fast growing startups such as Snapdeal, Matrimony.com and OnMobile.">
+                                    <div class="partner-icon-box">
+                                        <div style="height:40px;"></div>
+                                        <img src="/assets/img/landing/BessemerVenturePartners.gif" class="partner-icon">
+                                        <div style="height:30px;"></div>
+                                        <input type="hidden" value="bvp;www.bvp.com;Bessemer Venture Partners is a top tier Venture Capital firm with marquee investments like Linkedin and Skype. Bessemer’s India team include fast growing startups such as Snapdeal, Matrimony.com and OnMobile.">
+                                    </div>
+                                    <div class="partner-border-box"></div>
                                 </div>
                                 <div class="partner-square" style="margin-left:20px;margin-top:20px;" id="partner-4">
-                                    <div style="height:40px;"></div>
-                                    <img src="/assets/img/landing/jaaga.jpg" class="partner-icon">
-                                    <div style="height:30px;"></div>
-                                    <input type="hidden" value="jaaga;www.jaaga.in;Jaaga is a creative community space supporting and connecting creative entrepreneurs and online learners. Jaaga has three programs - Study for training software developers, Startup for supporting entrepreneurs and and DNA to bring together the Jaaga community through design, art and networks.">
+                                    <div class="partner-icon-box">
+                                        <div style="height:40px;"></div>
+                                        <img src="/assets/img/landing/jaaga.jpg" class="partner-icon">
+                                        <div style="height:30px;"></div>
+                                        <input type="hidden" value="jaaga;www.jaaga.in;Jaaga is a creative community space supporting and connecting creative entrepreneurs and online learners. Jaaga has three programs - Study for training software developers, Startup for supporting entrepreneurs and and DNA to bring together the Jaaga community through design, art and networks.">
+                                    </div>
+                                    <div class="partner-border-box"></div>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 body:after{
     display:none;
-    content: url('/assets/img/landing/light-gate.png');
+    content: url('/assets/img/landing/light-gate.jpg');
 }
 
 .landing-nav {

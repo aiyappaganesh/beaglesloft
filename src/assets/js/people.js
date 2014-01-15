@@ -59,10 +59,10 @@ function selectCurrentPartner() {
 }
 
 function selectPartner(e) {
-    $(".partner-square").each(function(){
-        $(this).animate({borderWidth:'0px'},400);
+    $(".partner-border-box").each(function(){
+        $(this).css('border','0px #c62530 solid');
     });
-    $(e).animate({borderWidth:'5px'},400);
+    $($(e).find('.partner-border-box')[0]).css('border','5px #c62530 solid');
     var value_str = $($(e).find('input')[0]).val();
     values = value_str.split(';');
     $('#partner-details').fadeOut(function(){
