@@ -73,6 +73,7 @@ function validateMemberRegistrationForm() {
     var designation = $('#designation').val();
     var organization = $('#organization').val();
     var bio = $('#bio').val();
+    var password = $('#password').val();
     $('input').css('background-color','white');
     $('textarea').css('background-color','white');
     if(!name || name == '') {
@@ -94,6 +95,10 @@ function validateMemberRegistrationForm() {
     } else if(!email || email == '') {
         $('#email').css('background-color','rgba(255,0,0,0.5)');
         $('#email').focus();
+        return false;
+    } else if(password.length < 6) {
+        $('#password').css('background-color','rgba(255,0,0,0.5)');
+        $('#password').focus();
         return false;
     } else {
         logoutFB();

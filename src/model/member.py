@@ -1,7 +1,9 @@
+import random
 import logging
 from google.appengine.ext import db
 from google.appengine.ext import blobstore
-import random
+from webapp2_extras.security import generate_password_hash, check_password_hash
+
 
 class Member(db.Model):
     email = db.StringProperty()
@@ -53,7 +55,7 @@ class Member(db.Model):
         if image_coords != None:
             member.image_coords = image_coords
         if password != None:
-            member.password = password
+            member.password = generate_password_hash(password)
         member.influence_score = random.randint(0, 100)
         member.activity_score = random.randint(0, 100)
         member.proficiency_score = random.randint(0, 100)
