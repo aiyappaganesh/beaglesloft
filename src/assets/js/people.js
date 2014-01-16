@@ -24,13 +24,13 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
+/*$(document).ready(function(){
     selectCurrentPartner();
 });
 
 $(document).ready(function(){
     setPartnerCycleTimer();
-});
+});*/
 
 $(document).ready(function(){
     $(".partner-square").click(function(){

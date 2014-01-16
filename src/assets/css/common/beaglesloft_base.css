@@ -452,3 +452,14 @@ img.bg {
     margin-left: -512px;   /* 50% */
   }
 }
+
+.beaglesloft-footer {
+    text-align:center;
+    height:75px;
+    background-color:#e5e5e5;
+    color:#44433f;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    padding-top: 25px;
+}
