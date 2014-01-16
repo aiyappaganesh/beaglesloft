@@ -36,7 +36,7 @@ $(window).load(function(){
     var url = document.URL;
     var accessed_page_section = url.substring(url.lastIndexOf('/'));
     if(accessed_page_section != '/') {
-        $('#landing-logo').hide(100, function(){$('#landing-main').fadeIn(300, function(){scrollTo(url)})});
+        $('#landing-logo').hide(function(){$('#landing-main').fadeIn()});
         return;
     }
     $('#landing-logo').fadeIn(1000, function(){
