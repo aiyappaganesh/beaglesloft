@@ -13,11 +13,13 @@ from handlers.web import WebRequestHandler
 class MemberCreateHandler(RequestHandler):
     def post(self):
         key = self['email']
+        redirect_url = str(self['redirect_url']) if self['redirect_url'] else '/'
         Member.create_or_update(key, name=self['name'], organization=self["organization"],
                                 designation=self["designation"], website=self["website"],
                                 twitter_handle=self["twitter_handle"], facebook_id=self["facebook_id"], bio=self["bio"],
                                 password=self['password'])
-        self.redirect("/")
+        self.session['member'] = key
+        self.redirect(redirect_url)
 
 
 class MemberUpdateHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandler):
@@ -88,15 +90,19 @@ class ProcessAccessAnswerHandler(RequestHandler):
         if question_id and access_answer:
             if question_id == 'M1':
                 if access_answer=='1' or access_answer.lower().strip()=='one':
+                    self.session['access_code'] = '1234'
                     result_json['url'] = '/member_registration'
             elif question_id == 'S1':
                 if access_answer.lower().strip().find('higg')!=-1 or access_answer.lower().strip().find('boson')!=-1:
+                    self.session['access_code'] = '1234'
                     result_json['url'] = '/member_registration'
             elif question_id == 'B1':
                 if access_answer.lower().strip().find('whiskey')!=-1 or access_answer.lower().strip().find('whisky')!=-1:
+                    self.session['access_code'] = '1234'
                     result_json['url'] = '/member_registration'
             elif question_id == 'A1':
                 if access_answer.lower().strip().find('acrylic')!=-1:
+                    self.session['access_code'] = '1234'
                     result_json['url'] = '/member_registration'
         self.write(
             json.dumps(

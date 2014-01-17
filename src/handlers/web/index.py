@@ -47,6 +47,7 @@ class CalendarPage(WebRequestHandler):
 class MemberRegistrationPage(WebRequestHandler):
     @access_code_required
     def get(self):
+        redirect_url = self['redirect_url'] if self['redirect_url'] else '/'
         path = 'member_registration.html'
         ua = self.request.headers['User-Agent']
         b = reg_b.search(ua)
@@ -54,6 +55,7 @@ class MemberRegistrationPage(WebRequestHandler):
         template_values = {'ua' : 'non-mobile'}
         if b or v:
             template_values['ua'] = 'mobile'
+        template_values['redirect_url'] = redirect_url
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class MemberFBRegistrationPage(WebRequestHandler):
@@ -69,6 +71,7 @@ class MemberFBRegistrationPage(WebRequestHandler):
 
 class MemberAccessPage(WebRequestHandler):
     def get(self):
+        redirect_url = self['redirect_url'] if self['redirect_url'] else '/'
         path = 'member_access.html'
         ua = self.request.headers['User-Agent']
         b = reg_b.search(ua)
@@ -76,6 +79,7 @@ class MemberAccessPage(WebRequestHandler):
         template_values = {'ua' : 'non-mobile'}
         if b or v:
             template_values['ua'] = 'mobile'
+        template_values['redirect_url'] = redirect_url
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class EventsPage(WebRequestHandler):
@@ -149,6 +153,7 @@ class PeoplePage(WebRequestHandler):
         if b or v:
             template_values['ua'] = 'mobile'
         template_values['paged_member_keys'] = Member.get_paged_member_keys()
+        template_values['is_member'] = True if 'member' in self.session else False
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class BuzzPage(WebRequestHandler):

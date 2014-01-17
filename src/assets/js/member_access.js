@@ -23,11 +23,23 @@ function showPasscodeEntry() {
 
 function showQuestionPick() {
     $("#message-bottom").fadeOut();
+    $("#message-login").fadeOut();
     $("#message").fadeOut();
     $("#access-code").fadeOut(function(){
         $("#message").text('ANSWER A CHALLENGE QUESTION TO GET A PASS CODE');
         $("#message").fadeIn();
         $("#question-pick").fadeIn();
+    });
+}
+
+function showLoginDialog() {
+    $("#message-bottom").fadeOut();
+    $("#message-login").fadeOut();
+    $("#message").fadeOut();
+    $("#access-code").fadeOut(function(){
+        $("#message").text('MEMBER LOGIN');
+        $("#message").fadeIn();
+        $("#login-dialog").fadeIn();
     });
 }
 
@@ -50,7 +62,7 @@ $(document).ready(function(){
                     $('#dark-gate').fadeOut(2000);
                     $('#light-gate').fadeIn(1500, function(){
                         $('#member-access').fadeOut(function(){
-                            window.location.href = data.url;
+                            window.location.href = data.url+'?redirect_url='+$('#redirect-url').val();
                         });
                     });
                 } else {
@@ -95,7 +107,7 @@ function submitAccessAnswer() {
             $('#dark-gate').fadeOut(2000);
             $('#light-gate').fadeIn(1500, function(){
                 $('#member-access').fadeOut(function(){
-                    window.location.href = data.url;
+                    window.location.href = data.url+'?redirect_url='+$('#redirect-url').val();
                 });
             });
         } else {

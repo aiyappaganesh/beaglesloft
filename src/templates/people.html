@@ -71,8 +71,12 @@
                             <div class="people-designation" style="height:25%"><i><p id="designation">Founder, Haggle</p></i></div>
                             <div class="people-name" style="height:50%"><p id="name">RAJIV SALIMATH</p></div>
                             <div style="height:25%">
+                                {% if is_member %}
                                 <div class="people-website" style="display:inline-block;float:left;"><img src="/assets/img/landing/link-icon.png" style="display:inline-block"><p style="display:inline-block;margin-left:10px;"><i id="website">gethaggle.com</i></p></div>
                                 <div class="people-twitter-handle" style="display:inline-block;float:left;margin-left:30px;"><img src="/assets/img/landing/tw-icon.png" style="display:inline-block"><p style="display:inline-block;margin-left:10px;"><i id="twitter_handle">@gethaggle</i></p></div>
+                                {% else %}
+                                <a class="member-access-button" href="" style="display:inline-block;float:left;"><button>CONTACT</button></a>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="people-desc" style="height:150px">

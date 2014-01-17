@@ -24,6 +24,12 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $('.member-access-button').each(function(){
+        $(this).attr('href','/member_access?redirect_url='+document.URL);
+    });
+});
+
 /*$(document).ready(function(){
     selectCurrentPartner();
 });

@@ -6,6 +6,7 @@
 
 {% block Content %}
 <div id="member-access" class="member-access" style="height:100%;position:relative;text-align:center;">
+    <input type="hidden" id="redirect-url" value="{{redirect_url}}">
     <img id="dark-gate" src="/assets/img/landing/dark-gate.png" class="bg">
     <img id="light-gate" src="/assets/img/landing/light-gate.png" class="bg" style="display:none">
     <div id="logo" style="position:absolute;top:5%;width:100%;">
@@ -41,8 +42,25 @@
             <div style="height:55px;background:url('/assets/img/landing/access/submit-button.png') no-repeat;margin-left:20px;margin-right:20px;color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;padding-top:18px;line-height:17px;cursor:pointer;" onclick="submitAccessAnswer()">SUBMIT ANSWER</div>
             <div style="height:18px;"></div>
         </div>
+        <div id="login-dialog" style="margin:auto;height:171px;width:500px;background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;background-size: cover;display:none">
+            <form action="/members/login?redirect_url={{ redirect_url }}" method="POST">
+                <div>
+                    <div class="form-field">
+                        <input class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-field">
+                        <input class="form-control" id="password" name="password" type="password" placeholder="Password">
+                    </div>
+                    <div>
+                        <button class="btn-block btn-primary" type="submit">Sign In</button>
+                    </div>
+                </div>
+            </form>
+        </div>
         <div style="margin:auto;height:25px;"></div>
         <p id="message-bottom" style="margin:auto;color:#515151;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;width:190px;cursor:pointer;" onclick="showQuestionPick()">DON'T HAVE A CODE? <a style="color:#c62530;text-decoration:none;">GET ONE</a></p>
+        <br>
+        <p id="message-login" style="margin:auto;color:#515151;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;width:190px;cursor:pointer;" onclick="showLoginDialog()">ALREADY MEMBER <a style="color:#c62530;text-decoration:none;">LOGIN</a></p>
     </div>
     <!--<div id="member-access-contents">-->
         <!--<div class="access-top-top"></div>-->

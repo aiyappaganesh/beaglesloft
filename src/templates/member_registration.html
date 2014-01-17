@@ -12,6 +12,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8 calendar-text">
             <form action="/api/members/create" method="POST" onsubmit="return validateMemberRegistrationForm()">
+                <input type="hidden" name="redirect_url" value="{{ redirect_url }}">
                 <div>
                     <p><b>MEMBER REGISTRATION</b> <i style="font-size: 14px">(dotted information is optional)</i></p>
                 </div>

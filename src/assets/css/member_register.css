@@ -10,3 +10,7 @@
 }
 
 input:focus{outline:none}
+
+.registration-text {
+    color: #c62530;
+}
