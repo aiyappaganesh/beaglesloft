@@ -42,6 +42,9 @@ class MemberFetchHandler(RequestHandler):
         logging.info("Trying to fetch member")
         email = self["email"]
         member_json = Member.get_member_json(email)
+        #if not 'member' in self.session:
+        #    member_json['website'] = ''
+        #    member_json['twitter_handle'] = ''
         self.write(
             json.dumps(
                 member_json
@@ -133,8 +136,8 @@ class ImageHandler(blobstore_handlers.BlobstoreDownloadHandler, WebRequestHandle
                 left_x, top_y, right_x, bottom_y = member.image_coords
                 image = images.Image(blob_key=member.image)
                 image.crop(left_x=left_x, top_y=top_y, right_x=right_x, bottom_y=bottom_y)
-                self.response.headers['Content-Type'] = 'image/jpeg'
-                self.response.out.write(image.execute_transforms(output_encoding=images.JPEG))
+                self.response.headers['Content-Type'] = 'image/png'
+                self.response.out.write(image.execute_transforms())
             else:
                 image = blobstore.BlobInfo.get(member.image)
                 self.send_blob(image)
