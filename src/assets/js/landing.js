@@ -12,14 +12,14 @@ $(document).ready(function(){
     });
 });
 
-$('#section1-carousel').on('slide.bs.carousel', function () {
+/*$('#section1-carousel').on('slide.bs.carousel', function () {
     $('#slide-copy').fadeTo(200,0);
-});
+});*/
 
-$('#section1-carousel').on('slid.bs.carousel', function () {
+/*$('#section1-carousel').on('slid.bs.carousel', function () {
     $('#slide-copy').text($($('.carousel-inner .active').find('input')[0]).val());
     $('#slide-copy').fadeTo(200,1);
-});
+});*/
 
 function highlightSection(section) {
     $(".nav-link").each(function(){

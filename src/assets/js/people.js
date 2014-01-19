@@ -119,7 +119,7 @@ function showMemberInfo(key) {
             } else if(data.facebook_id) {
                 $('#picture').attr('src','https://graph.facebook.com/'+data.facebook_id+'/picture?width=300&height=300');
             } else {
-                $('#picture').attr('src','/assets/img/landing/default-user.gif');
+                $('#picture').attr('src','/assets/img/landing/default_member.png');
             }
             if(data.bio) {
                 $('#bio').text(data.bio);

@@ -71,7 +71,7 @@ handlers:
   script: handlers.web.index.app
   secure: never
 
-- url: /people
+- url: /community
   script: handlers.web.index.app
   secure: never
 

@@ -200,7 +200,7 @@ app = webapp2.WSGIApplication(
         ('/accept_contact', AcceptContact),
         ('/events', EventsPage),
         ('/create_event', CreateEventPage),
-        ('/people', PeoplePage),
+        ('/community', PeoplePage),
         ('/buzz', BuzzPage),
         ('/contact', ContactPage),
         ('/blog', BlogPage)
