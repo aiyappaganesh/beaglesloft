@@ -1,5 +1,8 @@
 $(document).ready(function() {
-    $(window).on("load", resizeWindow);
+    $('#login-form').find("input").each(function(){
+        $(this).val('');
+        $(this).text('');
+    });
 });
 
 function resizeWindow() {
@@ -138,4 +141,20 @@ function showAccessQuestion(category) {
             $("#message").fadeIn();
         });
     });
+}
+
+function submitAuthentication() {
+    var submit = true;
+    $('#login-form').find("input").each(function(){
+        if($(this).val().trim() == '') {
+            $(this).val('');
+            $(this).focus();
+            submit = false;
+            return false;
+        }
+    });
+    if(!submit) {
+        return false;
+    }
+    $('#login-form').submit();
 }

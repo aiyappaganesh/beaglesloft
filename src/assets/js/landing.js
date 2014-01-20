@@ -36,7 +36,9 @@ $(window).load(function(){
     var url = document.URL;
     var accessed_page_section = url.substring(url.lastIndexOf('/'));
     if(accessed_page_section != '/') {
-        $('#landing-logo').hide(function(){$('#landing-main').fadeIn()});
+        $('#landing-logo').hide(function(){$('#landing-main').fadeIn(function(){
+            $('#section1-carousel').carousel('cycle');
+        })});
         return;
     }
     $('#landing-logo').fadeIn(1000, function(){

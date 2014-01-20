@@ -129,6 +129,23 @@ textarea:focus{outline:none;}
     font-weight: 300;
 }
 
+.authentication-input {
+    margin:auto;
+    width:400px;
+    height:60px;
+    text-align:center;
+    background-color:rgba(255,255,255,0.1);
+    border:none;
+    color:#c62530;
+    font-size:26px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: table-cell;
+    border-radius: 0px;
+}
+
 .caret {
     border-top: 4px solid #c62530;
 }

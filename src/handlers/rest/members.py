@@ -71,7 +71,7 @@ class ValidateAccessCodeHandler(WebRequestHandler):
         result_json = {'url':''}
         access_code = self["accessCode"]
         logging.info(access_code)
-        if access_code and int(access_code) == 1234:
+        if access_code and int(access_code) == 2013:
             self.session['access_code'] = access_code
             result_json['url'] = '/member_registration'
         self.write(
@@ -90,19 +90,19 @@ class ProcessAccessAnswerHandler(RequestHandler):
         if question_id and access_answer:
             if question_id == 'M1':
                 if access_answer=='1' or access_answer.lower().strip()=='one':
-                    self.session['access_code'] = '1234'
+                    self.session['access_code'] = '2013'
                     result_json['url'] = '/member_registration'
             elif question_id == 'S1':
                 if access_answer.lower().strip().find('higg')!=-1 or access_answer.lower().strip().find('boson')!=-1:
-                    self.session['access_code'] = '1234'
+                    self.session['access_code'] = '2013'
                     result_json['url'] = '/member_registration'
             elif question_id == 'B1':
                 if access_answer.lower().strip().find('whiskey')!=-1 or access_answer.lower().strip().find('whisky')!=-1:
-                    self.session['access_code'] = '1234'
+                    self.session['access_code'] = '2013'
                     result_json['url'] = '/member_registration'
             elif question_id == 'A1':
                 if access_answer.lower().strip().find('acrylic')!=-1:
-                    self.session['access_code'] = '1234'
+                    self.session['access_code'] = '2013'
                     result_json['url'] = '/member_registration'
         self.write(
             json.dumps(

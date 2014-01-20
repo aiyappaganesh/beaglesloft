@@ -21,7 +21,7 @@ def _check_access_code(handler):
     if not 'access_code' in handler.session:
         handler.redirect('/member_access')
         return False
-    if not handler.session['access_code'] == '1234':
+    if not handler.session['access_code'] == '2013':
         return False
     return True
 
