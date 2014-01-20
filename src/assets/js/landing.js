@@ -48,6 +48,7 @@ $(window).load(function(){
                         //('.navbar-inner').css('background-color','transparent');
                         //$('.nav>li>a').css('color','#000000');
                         //$("#navbar-fluid").css({ 'opacity': '1' });
+                        $('#section1-carousel').carousel('cycle');
                     });
                 });
             });
