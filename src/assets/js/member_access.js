@@ -64,9 +64,10 @@ $(document).ready(function(){
                     $('#logo').fadeOut();
                     $('#dark-gate').fadeOut(2000);
                     $('#light-gate').fadeIn(1500, function(){
-                        $('#member-access').fadeOut(function(){
-                            window.location.href = data.url+'?redirect_url='+$('#redirect-url').val();
-                        });
+                        window.location.href = data.url+'?redirect_url='+$('#redirect-url').val();
+                        /*$('#member-access').fadeOut(function(){
+
+                        });*/
                     });
                 } else {
                     clearAccessCode();
@@ -109,9 +110,10 @@ function submitAccessAnswer() {
             $('#logo').fadeOut();
             $('#dark-gate').fadeOut(2000);
             $('#light-gate').fadeIn(1500, function(){
-                $('#member-access').fadeOut(function(){
-                    window.location.href = data.url+'?redirect_url='+$('#redirect-url').val();
-                });
+                window.location.href = data.url+'?redirect_url='+$('#redirect-url').val();
+                /*$('#member-access').fadeOut(function(){
+
+                });*/
             });
         } else {
             clearAccessAnswer();

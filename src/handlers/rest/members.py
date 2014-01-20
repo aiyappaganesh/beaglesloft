@@ -13,7 +13,7 @@ from handlers.web import WebRequestHandler
 class MemberCreateHandler(RequestHandler):
     def post(self):
         key = self['email']
-        redirect_url = str(self['redirect_url']) if self['redirect_url'] else '/'
+        redirect_url = str(self['redirect_url']) if self['redirect_url'] else '/community'
         Member.create_or_update(key, name=self['name'], organization=self["organization"],
                                 designation=self["designation"], website=self["website"],
                                 twitter_handle=self["twitter_handle"], facebook_id=self["facebook_id"], bio=self["bio"],

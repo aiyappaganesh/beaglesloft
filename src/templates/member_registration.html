@@ -6,78 +6,49 @@
 {% endblock %}
 
 {% block Content %}
-<div id="member_registration">
-    <div style="height:100px"></div>
-    <div style="height:50px">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 calendar-text">
+<div id="member_registration" class="registration-background" style="display:none;">
+    <div style="height:50px;"></div>
+    <div style="height:1430px;width:620px;margin:auto;background-color:rgba(0,0,0,0.9);">
+        <div style="width:620px;height:225px;border-bottom:1px solid #1f1f1f;text-align:center;padding-left:80px;padding-right:80px;padding-top:35px;">
+            <img style="margin:auto;max-height:150px;max-width:150px;" src="/assets/img/landing/bl-logo-intro.png">
+        </div>
+        <div class="registration-text" style="width:620px;height:1060px;padding:80px;">
             <form action="/api/members/create" method="POST" onsubmit="return validateMemberRegistrationForm()">
                 <input type="hidden" name="redirect_url" value="{{ redirect_url }}">
-                <div>
-                    <p><b>MEMBER REGISTRATION</b> <i style="font-size: 14px">(dotted information is optional)</i></p>
-                </div>
                 <div id="facebook-login">
-                    <p><fb:login-button show-faces="false" width="200" max-rows="1" scope="email,user_work_history"></fb:login-button> to fill information from Facebook</p>
+                    <p><fb:login-button show-faces="false" width="200" max-rows="1" scope="email,user_work_history"></fb:login-button> to fill information from Facebook<br><br></p>
                 </div>
-                <!--<div>-->
-                    <!--<div class="col-md-4"><label>Email : </label></div><div class="col-md-8"><input type="text" id="email" name="email"></div>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<div class="col-md-4"><label>Name : </label></div><div class="col-md-8"><input type="text" id="name" name="name"></div>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<div class="col-md-4"><label>Designation : </label></div><div class="col-md-8"><input type="text" id="designation" name="designation"></div>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<div class="col-md-4"><label>Organization : </label></div><div class="col-md-8"><input type="text" id="organization" name="organization"></div>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<div class="col-md-4"><label>Website : </label></div><div class="col-md-8"><input type="text" id="website" name="website"></div>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<div class="col-md-4"><label>Twitter Handle : </label></div><div class="col-md-8"><input type="text" id="twitter_handle" name="twitter_handle"></div>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<div class="col-md-4"><label>Facebook ID : </label></div><div class="col-md-8"><input type="text" id="facebook_id" name="facebook_id"></div>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<div class="col-md-4"><label>Bio : </label></div><div class="col-md-8"><textarea id="bio" name="bio"></textarea></div>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<div class="col-md-4"><label>Influence Score : </label></div><div class="col-md-8"><input type="text" id="influence_score" name="influence_score"></div>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<div class="col-md-4"><label>Activity Score : </label></div><div class="col-md-8"><input type="text" id="activity_score" name="activity_score"></div>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<div class="col-md-4"><label>Proficiency Score : </label></div><div class="col-md-8"><input type="text" id="proficiency_score" name="proficiency_score"></div>-->
-                <!--</div>-->
                 <div>
                     <p>
-                        Hello. My name is <input class="blanks" type="text" id="name" name="name">. I am a <input class="blanks" type="text" id="designation" name="designation"> at <input class="blanks" type="text" id="organization" name="organization">.
-                        <br>
-                        Below is my short bio:
+                        HELLO. MY NAME IS<br><br>
+                        <input class="blanks" type="text" id="name" name="name" style="width: 100%;"><br><br>
+                        I AM A <input class="blanks" type="text" id="designation" name="designation" style="width: 36%;"> AT <input class="blanks" type="text" id="organization" name="organization" style="width: 40%;"><br><br>
+                        LET ME TELL YOU ABOUT MYSELF<br>
                     </p>
                     <p>
-                        <textarea id="bio" name="bio" maxlength="300" style="min-width:100%;width:100%;"></textarea>
+                        <textarea id="bio" name="bio" maxlength="300" style="min-width:100%;width:100%;min-height:145px;max-height:145px;overflow-y:scroll;border-bottom: solid #c62530 1px;background-color: rgba(198, 37, 48, 0.2);"></textarea><br><br>
                     </p>
                     <p>
-                        My Facebook ID is <input class="blanks optional" type="text" id="facebook_id" name="facebook_id"> and my Twitter handle is <input class="blanks optional" type="text" id="twitter_handle" name="twitter_handle">.
-                        You can find out more about me at my website <input class="blanks optional" type="text" id="website" name="website">. You can reach me at my email <input class="blanks" type="text" id="email" name="email">.
+                        MY FACEBOOK ID <input class="blanks optional" type="text" id="facebook_id" name="facebook_id" style="width: 59%;"><br><br>
+                        MY TWITTER HANDLE <input class="blanks optional" type="text" id="twitter_handle" name="twitter_handle" style="width: 51%;"><br><br>
+                        YOU CAN FIND OUT MORE ABOUT ME AT<br><br>
+                        <input class="blanks optional" type="text" id="website" name="website" style="width: 100%;" placeholder="HTTP://"><br><br>
+                        YOU CAN ALSO EMAIL ME AT<br><br>
+                        <input class="blanks" type="text" id="email" name="email" style="width: 100%;"><br><br>
                     </p>
                 </div>
                 <div>
                     <p>
-                        Password <input class="blanks" type="password" id="password" name="password">
+                        PASSWORD <input class="blanks" type="password" id="password" name="password" style="width: 71%;"><br><br>
                     </p>
                 </div>
                 <div>
-                    <input type="submit" onsubmit="validateRegistrationFields">
+                    <input type="submit" onsubmit="validateRegistrationFields" class="application-submit" value="SUBMIT APPLICATION">
                 </div>
             </form>
         </div>
-        <div class="col-md-2"></div>
     </div>
+    <div style="height:50px;"></div>
 </div>
 {% endblock %}
 

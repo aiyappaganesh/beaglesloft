@@ -67,6 +67,10 @@ $(document).ready(function(){
       }
 });
 
+$(document).ready(function(){
+    $('#member_registration').fadeIn(600);
+});
+
 function validateMemberRegistrationForm() {
     var email = $('#email').val();
     var name = $('#name').val();
@@ -74,30 +78,31 @@ function validateMemberRegistrationForm() {
     var organization = $('#organization').val();
     var bio = $('#bio').val();
     var password = $('#password').val();
-    $('input').css('background-color','white');
-    $('textarea').css('background-color','white');
+    $('input[type=text]').css('background-color','rgba(198, 37, 48, 0.2)');
+    $('input[type=password]').css('background-color','rgba(198, 37, 48, 0.2)');
+    $('textarea').css('background-color','rgba(198, 37, 48, 0.2)');
     if(!name || name == '') {
-        $('#name').css('background-color','rgba(255,0,0,0.5)');
+        $('#name').css('background-color','rgba(198, 37, 48, 0.6)');
         $('#name').focus();
         return false;
     } else if(!designation || designation == '') {
-        $('#designation').css('background-color','rgba(255,0,0,0.5)');
+        $('#designation').css('background-color','rgba(198, 37, 48, 0.6)');
         $('#designation').focus();
         return false;
     } else if(!organization || organization == '') {
-        $('#organization').css('background-color','rgba(255,0,0,0.5)');
+        $('#organization').css('background-color','rgba(198, 37, 48, 0.6)');
         $('#organization').focus();
         return false;
     } else if(!bio || bio == '') {
-        $('#bio').css('background-color','rgba(255,0,0,0.5)');
+        $('#bio').css('background-color','rgba(198, 37, 48, 0.6)');
         $('#bio').focus();
         return false;
     } else if(!email || email == '') {
-        $('#email').css('background-color','rgba(255,0,0,0.5)');
+        $('#email').css('background-color','rgba(198, 37, 48, 0.6)');
         $('#email').focus();
         return false;
     } else if(password.length < 6) {
-        $('#password').css('background-color','rgba(255,0,0,0.5)');
+        $('#password').css('background-color','rgba(198, 37, 48, 0.6)');
         $('#password').focus();
         return false;
     } else {

@@ -47,7 +47,7 @@ class CalendarPage(WebRequestHandler):
 class MemberRegistrationPage(WebRequestHandler):
     @access_code_required
     def get(self):
-        redirect_url = self['redirect_url'] if self['redirect_url'] else '/'
+        redirect_url = self['redirect_url'] if self['redirect_url'] else '/community'
         path = 'member_registration.html'
         ua = self.request.headers['User-Agent']
         b = reg_b.search(ua)
