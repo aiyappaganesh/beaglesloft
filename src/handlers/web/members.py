@@ -4,6 +4,7 @@ from model import Member
 import logging
 from google.appengine.api.blobstore import blobstore
 from handlers.web import WebRequestHandler
+from webapp2_extras.security import generate_password_hash, check_password_hash
 
 
 class LoginHandler(WebRequestHandler):
@@ -18,12 +19,11 @@ class LoginHandler(WebRequestHandler):
         if not email or not member:
             self.response.out.write('user not in db')
             return
-        if not password == member.password:
+        if not check_password_hash(password, member.password):
             self.response.out.write('wrong password')
             return
         self.session['member'] = email
-        if redirect_url:
-            self.redirect(redirect_url)
+        self.redirect(redirect_url)
 
     def get(self):
         path = 'login.html'
