@@ -155,8 +155,19 @@ function submitAuthentication() {
             return false;
         }
     });
+    $('#authentication-message').text('');
     if(!submit) {
         return false;
     }
-    $('#login-form').submit();
+    $.post('/api/members/login',{'email':$('#email').val(),'password':$('#password').val(),'redirect_url':$('#redirect-url').val()})
+        .done(function(data){
+            if(data.error) {
+                $('#authentication-message').text(data.errormsg);
+            } else {
+                window.location.href = data.redirect_url;
+            }
+        })
+        .fail(function(data){
+            $('#authentication-message').text('Server Error. Please Try Again Later.');
+        })
 }

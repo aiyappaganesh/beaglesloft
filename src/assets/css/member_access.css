@@ -153,3 +153,10 @@ textarea:focus{outline:none;}
 .dropdown>a{
     padding-top:0px !important;
 }
+
+.authentication-message {
+    color:#c62530;
+    font-size:26px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+}

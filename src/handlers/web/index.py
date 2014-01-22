@@ -20,6 +20,9 @@ class IndexPage(WebRequestHandler):
         template_values = {'ua' : 'non-mobile'}
         if b or v:
             template_values['ua'] = 'mobile'
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class TestSpyPage(WebRequestHandler):
@@ -56,6 +59,9 @@ class MemberRegistrationPage(WebRequestHandler):
         if b or v:
             template_values['ua'] = 'mobile'
         template_values['redirect_url'] = redirect_url
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class MemberFBRegistrationPage(WebRequestHandler):
@@ -71,7 +77,7 @@ class MemberFBRegistrationPage(WebRequestHandler):
 
 class MemberAccessPage(WebRequestHandler):
     def get(self):
-        redirect_url = self['redirect_url'] if self['redirect_url'] else '/'
+        redirect_url = self['redirect_url'] if self['redirect_url'] else '/community'
         path = 'member_access.html'
         ua = self.request.headers['User-Agent']
         b = reg_b.search(ua)
@@ -80,6 +86,9 @@ class MemberAccessPage(WebRequestHandler):
         if b or v:
             template_values['ua'] = 'mobile'
         template_values['redirect_url'] = redirect_url
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class EventsPage(WebRequestHandler):
@@ -94,7 +103,9 @@ class EventsPage(WebRequestHandler):
         upcoming_events, past_events = Event.get_paged_events()
         template_values['past_events'] = past_events
         template_values['upcoming_events'] = upcoming_events
-
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
         #type = self['type']
         #if not type:
         #    type = 'VentureWednesdays'
@@ -118,6 +129,9 @@ class CreateEventPage(WebRequestHandler):
             template_values['ua'] = 'mobile'
         form_url = blobstore.create_upload_url('/api/events/save_event')
         template_values['form_url'] = form_url
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class AcceptContact(WebRequestHandler):
@@ -154,6 +168,8 @@ class PeoplePage(WebRequestHandler):
             template_values['ua'] = 'mobile'
         template_values['paged_member_keys'] = Member.get_paged_member_keys()
         template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class BuzzPage(WebRequestHandler):

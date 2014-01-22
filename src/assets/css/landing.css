@@ -206,7 +206,7 @@
 .people-website {
     font-family: 'Merriweather', sans-serif;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 15px;
     color: #c62530;
     text-align:left;
     float: right;
@@ -215,7 +215,7 @@
 .people-twitter-handle {
     font-family: 'Merriweather', sans-serif;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 15px;
     color: #c62530;
     text-align:left;
     float: right;
@@ -339,13 +339,13 @@ footer>a, footer>a:hover {
     filter: alpha(opacity=100);
 }
 
-.carousel-indicators {
+.landing-carousel-indicators {
     left:21% !important;
     width:30%;
 }
 
 @media (max-width: 740px) {
-    .carousel-indicators {
+    .landing-carousel-indicators {
         left:50% !important;
         width:60%;
     }
@@ -387,7 +387,7 @@ footer>a, footer>a:hover {
 .partner-website {
     font-family: 'Merriweather', sans-serif;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 .partner-description {
@@ -395,4 +395,18 @@ footer>a, footer>a:hover {
     font-weight: 300;
     font-size: 16px;
     line-height:26px;
+}
+
+.carousel-inner>.item {
+    -webkit-transition: .6s cubic-bezier(1,1,1,1) left;
+    transition: .6s cubic-bezier(1,1,1,1) left;
+}
+
+#partners-carousel .carousel-indicators li {
+    background-color: #c62530;
+}
+
+#partners-carousel .carousel-indicators .active {
+    background-color: #ffffff;
+    border: 1px solid #c62530;
 }

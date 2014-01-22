@@ -37,21 +37,35 @@
 .member-image-upload-modal {
     min-width: 100%;
 }
+.logout-button {
+    width:20%;
+    height:60%;
+    border-radius:0px;
+    background-color: #c62530;
+    color: #ffffff;
+    border: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    padding:5px;
+}
 </style>
 {% endblock %}
 {% block Content %}
-<div id="member_profile">
+<div id="member_profile" class="registration-background">
     <div style="height:100px"></div>
-    <div style="height:50px">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 calendar-text">
-            <b>PROFILE</b>
+    <div style="width:620px;margin:auto;background-color:rgba(0,0,0,0.9);">
+        <div class="registration-text" style="padding:80px;">
+            <div style="height:50px">
+                <a class="btn pull-right logout-button" href="/members/logout">LOGOUT</a>
+            </div>
+            <div style="text-align:center;">
+                <img style="margin:auto;" id="member-image-thumbnail" src="{% if member.image %}/api/members/{{ member.email }}/image{% elif member.facebook_id%}https://graph.facebook.com/{{member.facebook_id}}/picture?type=normal&height=300&width=300{% else %}/assets/img/landing/default-user.gif{% endif %}" class="member-image-thumbnail-holder">
+                <div style="height:10px;margin:auto;"></div>
+                <a href="/members/profile/image" style="margin:auto;color:#c62530;font-size:20px;">Change Picture</a>
+            </div>
             <div style="height:20px"></div>
-            <img id="member-image-thumbnail" src="{% if member.image %}/api/members/{{ member.email }}/image{% elif member.facebook_id%}https://graph.facebook.com/{{member.facebook_id}}/picture?type=normal&height=300&width=300{% else %}/assets/img/landing/default-user.gif{% endif %}" class="member-image-thumbnail-holder">
-            <div style="height:20px"></div>
-            <a class="btn btn-primary" href="/members/profile/image">Upload Picture</a>
-            <form action={{ form_url }} method="POST" onsubmit="return validateMemberRegistrationForm()">
-                <div style="height:20px"></div>
+            <form action={{ form_url }} method="POST" onsubmit="return validateMemberUpdateForm()">
                 <table class="member-profile">
                     <tr>
                         <td><label for="name">Name</label></td>
@@ -85,18 +99,18 @@
                         <td><label for="website">Website</label></td>
                         <td><input class="wide blanks" id="website" name="website" value='{% if member.website %}{{ member.website }}{% endif %}'></td>
                     </tr>
-                    <tr>
-                        <td><label for="password">Password</label></td>
-                        <td><input class="wide blanks" id="password" name="password" type="password" value='{% if member.password %}{{ member.password }}{% endif %}'></td>
-                    </tr>
+                    <!--<tr>-->
+                        <!--<td><label for="password">Password</label></td>-->
+                        <!--<td><input class="wide blanks" id="password" name="password" type="password" value='{% if member.password %}{{ member.password }}{% endif %}'></td>-->
+                    <!--</tr>-->
                 </table>
                 <div style="height:20px"></div>
-                <a class="btn btn-default" href="/">Back</a>
-                <button class="btn btn-primary" type="submit">Save</button>
+                <!--<a class="btn btn-default" href="/#">Back</a>-->
+                <input type="submit" class="application-submit" value="UPDATE">
             </form>
         </div>
-        <div class="col-md-2"></div>
     </div>
+    <div style="height:100px"></div>
 </div>
 {% endblock %}
 {% block Scripts %}

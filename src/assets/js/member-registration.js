@@ -111,6 +111,46 @@ function validateMemberRegistrationForm() {
     }
 }
 
+function validateMemberUpdateForm() {
+    var email = $('#email').val();
+    var name = $('#name').val();
+    var designation = $('#designation').val();
+    var organization = $('#organization').val();
+    var bio = $('#bio').val();
+    var password = $('#password').val();
+    $('input[type=text]').css('background-color','rgba(198, 37, 48, 0.2)');
+    $('input[type=password]').css('background-color','rgba(198, 37, 48, 0.2)');
+    $('textarea').css('background-color','rgba(198, 37, 48, 0.2)');
+    if(!name || name == '') {
+        $('#name').css('background-color','rgba(198, 37, 48, 0.6)');
+        $('#name').focus();
+        return false;
+    } else if(!designation || designation == '') {
+        $('#designation').css('background-color','rgba(198, 37, 48, 0.6)');
+        $('#designation').focus();
+        return false;
+    } else if(!organization || organization == '') {
+        $('#organization').css('background-color','rgba(198, 37, 48, 0.6)');
+        $('#organization').focus();
+        return false;
+    } else if(!bio || bio == '') {
+        $('#bio').css('background-color','rgba(198, 37, 48, 0.6)');
+        $('#bio').focus();
+        return false;
+    } else if(!email || email == '') {
+        $('#email').css('background-color','rgba(198, 37, 48, 0.6)');
+        $('#email').focus();
+        return false;
+    } else if(password!='' && password.length < 6) {
+        $('#password').css('background-color','rgba(198, 37, 48, 0.6)');
+        $('#password').focus();
+        return false;
+    } else {
+        logoutFB();
+        return true;
+    }
+}
+
 function logoutFB() {
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {

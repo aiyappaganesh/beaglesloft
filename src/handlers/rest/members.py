@@ -8,6 +8,7 @@ from handlers import RequestHandler
 from model import Member
 from auth import login_required
 from handlers.web import WebRequestHandler
+from webapp2_extras.security import generate_password_hash, check_password_hash
 
 
 class MemberCreateHandler(RequestHandler):
@@ -148,8 +149,31 @@ class ImageHandler(blobstore_handlers.BlobstoreDownloadHandler, WebRequestHandle
                 image = blobstore.BlobInfo.get(member.image)
                 self.send_blob(image)
 
+class LoginHandler(RequestHandler):
+    def post(self):
+        result_json = {'redirect_url': str(self['redirect_url']) if self['redirect_url'] else '/community', 'error': False}
+        email = self['email']
+        password = self['password'] if self['password'] else None
+        member = Member.get_by_email(email)
+        if 'member' in self.session and not email is self.session['member']:
+            del self.session['member']
+        if not email or not member:
+            result_json['error'] = True
+            result_json['errormsg'] = 'Member not found'
+        elif not check_password_hash(password, member.password):
+            result_json['error'] = True
+            result_json['errormsg'] = 'Incorrect password'
+        else:
+            self.session['member'] = email
+        self.write(
+            json.dumps(
+                result_json
+            ),200,'application/json'
+        )
 
-app = RestApplication([ ("/api/members/([^/]+)/update", MemberUpdateHandler),
+
+app = RestApplication([ ("/api/members/login", LoginHandler),
+                        ("/api/members/([^/]+)/update", MemberUpdateHandler),
                         ("/api/members/create", MemberCreateHandler),
                         ("/api/members/get_member", MemberFetchHandler),
                         ("/api/members/([^/]+)/image", ImageHandler),
