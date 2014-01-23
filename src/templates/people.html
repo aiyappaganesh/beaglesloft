@@ -9,7 +9,7 @@
     <div class="full-width">
         <input type="hidden" name="member_keys" id="member_keys"
 									value="{% for page in paged_member_keys %}{% for v in page %}{{v.0}}{% if forloop.counter != page|length %},{% endif %}{% endfor %}{% if forloop.counter != paged_member_keys|length %},{% endif %}{% endfor %}">
-        <div class="full-width" style="height:340px;background: url('/assets/img/landing/community-header.png') center center fixed no-repeat;background-size: cover;">
+        <div class="full-width landing-carousel-item" style="height:340px;background: url('/assets/img/landing/community-header.jpg') center center no-repeat;">
             <div style="height:135px"></div>
             <div style="height:90px;width:620px;margin:auto;background-color:#c62530;color:#ffffff;padding:20px;"><p class="page_heading">THE PEOPLE THAT MAKE US WHO WE ARE</p></div>
         </div>
@@ -127,10 +127,10 @@
             </div>
         </div>
         <div class="full-width" style="background-color:#ffffff;">
-            <div style="height:95px;margin:auto;border-bottom:1px solid #e5e5e5;text-align:center;">
-                <div style="height:30px;"></div>
-                <div style="height:25px;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:30px;color:#c62530;">OUR PARTNERS</div>
-                <div style="height:40px;"></div>
+            <div style="height:100px;margin:auto;border-bottom:1px solid #e5e5e5;text-align:center;">
+                <div style="height:35px;"></div>
+                <div style="height:30px;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:30px;line-height:30px;color:#c62530;">OUR PARTNERS</div>
+                <div style="height:35px;"></div>
             </div>
             <!--<div style="width:940px;height:553px;margin:auto;">
                 <div style="height:553px;">
@@ -328,7 +328,7 @@
             </div>
         </div>
     </div>
-    <footer class="beaglesloft-footer"><a href="https://twitter.com/BeaglesLoft" target="_blank"><i>@beaglesloft</i></a></footer>
+    <footer class="beaglesloft-footer"><a href="https://twitter.com/BeaglesLoft" target="_blank"><i>Follow on Twitter</i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/beaglesloft" target="_blank"><i>Like on Facebook</i></a></footer>
 </div>
 {% endblock %}
 

@@ -6,14 +6,11 @@
 {% endblock %}
 
 {% block Content %}
-<div id="create-event">
+<div id="create-event" class="registration-background">
     <div style="height:100px"></div>
-    <div style="height:50px">
+    <div style="height:820px">
         <div class="col-md-2"></div>
-        <div class="col-md-8 calendar-text">
-            <div>
-                <p><b>CREATE EVENT</b></p>
-            </div>
+        <div class="col-md-8 registration-text" style="background-color:rgba(0,0,0,0.9);padding:80px;">
             <form action={{ form_url }} method="POST" enctype="multipart/form-data">
                 <div>
                     <div class="col-xs-6">
@@ -23,7 +20,7 @@
                     </div>
                     <div class="col-xs-6">
                        <p>
-                           <input type="text" name="name" placeholder="Event Name">
+                           <input class="blanks" type="text" name="name" placeholder="Event Name">
                        </p>
                     </div>
                 </div>
@@ -51,19 +48,19 @@
                     </div>
                     <div class="col-xs-6">
                        <p>
-                           <textarea type="text" name="description" placeholder="Description"></textarea>
+                           <textarea class="blanks" name="description" placeholder="Description"></textarea>
                        </p>
                     </div>
                 </div>
                 <div>
                     <div class="col-xs-6">
                        <p>
-                           TIME:
+                           TIME (India Time):
                        </p>
                     </div>
                     <div class="col-xs-6">
                        <p>
-                           <input name="date_time" type="datetime-local"> India Time
+                           <input class="blanks" name="date_time" type="datetime-local">
                        </p>
                     </div>
                 </div>
@@ -75,7 +72,19 @@
                     </div>
                     <div class="col-xs-6">
                        <p>
-                           <input id="duration" name="duration" placeholder="Duration">
+                           <input class="blanks" id="duration" name="duration" placeholder="Duration">
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           ATTENDEES:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <input class="blanks" id="attendees" name="attendees" placeholder="Number of Attendees">
                        </p>
                     </div>
                 </div>
@@ -87,7 +96,7 @@
                     </div>
                     <div class="col-xs-6">
                        <p>
-                           <input style="width:100%" type="url" name="link" placeholder="http://www.your-event-website.com">
+                           <input class="blanks" style="width:100%" type="url" name="link" placeholder="http://www.your-event-website.com">
                        </p>
                     </div>
                 </div>
@@ -105,7 +114,7 @@
                 </div>
                 <div>
                     <p>
-                       <input type="submit" value="ADD EVENT">
+                       <input type="submit" value="ADD EVENT" style="color:#c62530">
                    </p>
                 </div>
             </form>

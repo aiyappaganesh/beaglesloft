@@ -12,6 +12,7 @@ class Event(db.Model):
     link = db.StringProperty(indexed=False)
     description = db.TextProperty(indexed=False)
     snapshot = db.StringProperty(indexed=False)
+    attendees = db.IntegerProperty(indexed=False)
 
     def json(self):
         event_json = dict()
@@ -23,6 +24,7 @@ class Event(db.Model):
         event_json['description'] = self.description
         event_json['link'] = self.link
         event_json['snapshot'] = self.snapshot
+        event_json['attendees'] = self.attendees
         return event_json
 
     @staticmethod
