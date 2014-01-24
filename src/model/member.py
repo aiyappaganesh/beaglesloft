@@ -14,9 +14,9 @@ class Member(db.Model):
     twitter_handle = db.StringProperty(indexed=False)
     facebook_id = db.StringProperty(indexed=False)
     bio = db.TextProperty(indexed=False)
-    influence_score = db.RatingProperty(indexed=False)
-    activity_score = db.RatingProperty(indexed=False)
-    proficiency_score = db.RatingProperty(indexed=False)
+    influence_score = db.RatingProperty()
+    activity_score = db.RatingProperty()
+    proficiency_score = db.RatingProperty()
     image = db.StringProperty(indexed=False)
     password = db.StringProperty(indexed=False)
     image_coords = db.ListProperty(float, indexed=False)
@@ -56,9 +56,12 @@ class Member(db.Model):
             member.image_coords = image_coords
         if password != None:
             member.password = generate_password_hash(password)
-        member.influence_score = random.randint(0, 100)
-        member.activity_score = random.randint(0, 100)
-        member.proficiency_score = random.randint(0, 100)
+        if not member.influence_score:
+            member.influence_score = random.randint(0, 100)
+        if not member.activity_score:
+            member.activity_score = random.randint(0, 100)
+        if not member.proficiency_score:
+            member.proficiency_score = random.randint(0, 100)
         member.put()
 
     @staticmethod
@@ -111,7 +114,7 @@ class Member(db.Model):
     def get_paged_member_keys():
         paged_member_keys = []
         page = []
-        members = Member.all().fetch(limit=200)
+        members = Member.all().order('-influence_score').order('-activity_score').order('-proficiency_score').fetch(limit=200)
         c1 = 0
         for member in members:
             paged_member = []
@@ -125,7 +128,6 @@ class Member(db.Model):
             page.append(paged_member)
             c1+=1
         paged_member_keys.append(page)
-        logging.info(paged_member_keys)
         return paged_member_keys
 
     @staticmethod

@@ -15,3 +15,12 @@ indexes:
   - name: type
   - name: date_time
     direction: desc
+
+- kind: Member
+  properties:
+  - name: influence_score
+    direction: desc
+  - name: activity_score
+    direction: desc
+  - name: proficiency_score
+    direction: desc
