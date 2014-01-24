@@ -24,12 +24,12 @@
                 <p style="margin-bottom:0px;text-align:left;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:20px;color:#000000;">UPCOMING EVENTS</p>
             </div>
             <div style="height:30px;"></div>
-            <div style="height:300px;text-align:center;background: url('/assets/img/landing/featured-event.png') no-repeat;background-size: cover;">
+            <div style="height:300px;text-align:center;background: url('/assets/img/landing/loftlaunch.jpg') no-repeat;background-size: cover;">
                 <div style="height:80px;"></div>
                 <div style="height:140px;width:780px;margin:auto;">
                     <div style="width:490px;height:140px;display:inline-block;float:left;text-align:left;padding-right:40px;">
-                        <p style="font-family: 'Oswald', sans-serif;color:#ffffff;font-size: 40px;font-weight:300;height:70px;text-transform:uppercase;">{% if upcoming_events.0 %}{{upcoming_events.0.name}}{% else %}HOW TO BECOME A VC{% endif %}</p>
-                        <p style="font-family: 'Merriweather', sans-serif;color:#ffffff;font-size: 15px;height:70px;line-height:25px;">
+                        <p style="font-family: 'Oswald', sans-serif;color:#ffffff;text-shadow:2px 2px #000000;font-size: 40px;font-weight:300;height:70px;text-transform:uppercase;">{% if upcoming_events.0 %}{{upcoming_events.0.name}}{% else %}HOW TO BECOME A VC{% endif %}</p>
+                        <p style="font-family: 'Merriweather', sans-serif;color:#ffffff;text-shadow:2px 2px #000000;font-size: 15px;height:70px;line-height:25px;">
                             {% if upcoming_events.0 %}
                             {{upcoming_events.0.description}}
                             {% else %}
@@ -40,10 +40,10 @@
                         </p>
                     </div>
                     <div style="width:290px;height:140px;display:inline-block;float:left;">
-                        <p style="text-align:center;font-family: 'Oswald', sans-serif;color:#ffffff;font-size:22px;font-weight:300;height:70px;padding-top:20px;">{% if upcoming_events.0 %}{{upcoming_events.0.date}},&nbsp{{upcoming_events.0.time}}{% else %}DEC. 18, 2013, 6-9 PM{% endif %}</p>
+                        <p style="text-align:center;font-family: 'Oswald', sans-serif;color:#ffffff;text-shadow:2px 2px #000000;font-size:22px;font-weight:300;height:70px;padding-top:20px;">{% if upcoming_events.0 %}{{upcoming_events.0.date}},&nbsp{{upcoming_events.0.time}}{% else %}DEC. 18, 2013, 6-9 PM{% endif %}</p>
                         <p style="text-align:center;height:70px;padding-top:8px;">
                             <a target="_blank" href="{% if upcoming_events.0 %}{{upcoming_events.0.link}}{% else %}https://venturewednesdaystestevent1.splashthat.com/{% endif %}">
-                                <button value="LEARN MORE" class="learn-more-button" style="width:270px;height:56px;background-color:transparent;">LEARN MORE</button>
+                                <button value="LEARN MORE" class="upcoming-learn-more-button">LEARN MORE</button>
                             </a>
                         </p>
                     </div>
