@@ -8,6 +8,7 @@ $(document).ready(function(){
 });
 
 function showPage(page) {
+    ga('send', 'event', 'Events Page', 'click', page + ' Clicked');
     $('.page-select').each(function(){
         $(this).css('color','#c62530');
     });

@@ -41,14 +41,14 @@
                     <div style="height:100px;width:100px;margin-left:20px;display:inline-block;float:left;text-align:center;">
                         <div style="height:100px;width:50px;display:inline-block;float:left;background-color:#f2f1ed;">
                             <div style="height:38px;"></div>
-                            <a class="carousel-arrow" href="#member-carousel" data-slide="prev" style="background-image:none">
+                            <a class="carousel-arrow" href="#member-carousel" data-slide="prev" style="background-image:none" onclick="ga('send', 'event', 'members-carousel', 'click-arrow', 'Left Arrow')">
                                 <img src="/assets/img/landing/communityarrows/left-red.png">
                             </a>
                             <div style="height:38px;"></div>
                         </div>
                         <div style="height:100px;width:50px;display:inline-block;float:left;background-color:#f2f1ed;">
                             <div style="height:38px;"></div>
-                            <a class="carousel-arrow" href="#member-carousel" data-slide="next" style="background-image:none">
+                            <a class="carousel-arrow" href="#member-carousel" data-slide="next" style="background-image:none" onclick="ga('send', 'event', 'members-carousel', 'click-arrow', 'Right Arrow')">
                                 <img src="/assets/img/landing/communityarrows/right-red.png">
                             </a>
                             <div style="height:38px;"></div>
@@ -75,7 +75,7 @@
                                 <div class="people-website" style="display:inline-block;float:left;"><img src="/assets/img/landing/link-icon.png" style="display:inline-block"><p style="display:inline-block;margin-left:10px;"><i id="website">gethaggle.com</i></p></div>
                                 <div class="people-twitter-handle" style="display:inline-block;float:left;margin-left:30px;"><img src="/assets/img/landing/tw-icon.png" style="display:inline-block"><p style="display:inline-block;margin-left:10px;"><i id="twitter_handle">@gethaggle</i></p></div>
                                 {% else %}
-                                <a class="member-access-button" href="" style="display:inline-block;float:left;"><button>CONTACT</button></a>
+                                <a class="member-access-button" href="" style="display:inline-block;float:left;" onclick="ga('send', 'event', 'member-details', 'click', 'Contact Member Button ' + $(this).parent().parent().find('.people-name p').text())"><button>CONTACT</button></a>
                                 {% endif %}
                             </div>
                         </div>

@@ -42,7 +42,7 @@
                     <div style="width:290px;height:140px;display:inline-block;float:left;">
                         <p style="text-align:center;font-family: 'Oswald', sans-serif;color:#ffffff;text-shadow:2px 2px #000000;font-size:22px;font-weight:300;height:70px;padding-top:20px;">{% if upcoming_events.0 %}{{upcoming_events.0.date}},&nbsp{{upcoming_events.0.time}}{% else %}DEC. 18, 2013, 6-9 PM{% endif %}</p>
                         <p style="text-align:center;height:70px;padding-top:8px;">
-                            <a target="_blank" href="{% if upcoming_events.0 %}{{upcoming_events.0.link}}{% else %}https://venturewednesdaystestevent1.splashthat.com/{% endif %}">
+                            <a target="_blank" href="{% if upcoming_events.0 %}{{upcoming_events.0.link}}{% else %}https://venturewednesdaystestevent1.splashthat.com/{% endif %}" onclick="ga('send', 'event', 'Events Page', 'click', 'Learn More Button - Upcoming ' + '{% if upcoming_events.0 %}{{upcoming_events.0.link}}{% else %}https://venturewednesdaystestevent1.splashthat.com/{% endif %}')">
                                 <button value="LEARN MORE" class="upcoming-learn-more-button">LEARN MORE</button>
                             </a>
                         </p>
@@ -69,7 +69,7 @@
                                 <div style="height:80px;background-color:#ffffff;text-align:center;">
                                     <div style="height:20px"></div>
                                     <div style="height:40px;margin:auto;width:260px;">
-                                        <a target="_blank" href="{{event.link}}">
+                                        <a target="_blank" href="{{event.link}}" onclick="ga('send', 'event', 'Events Page', 'click', 'Learn More Button - Past ' + '{{ event.link }}')">
                                             <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
                                         </a>
                                     </div>

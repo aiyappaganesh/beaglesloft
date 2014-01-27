@@ -84,6 +84,7 @@ function selectPartner(e) {
 }
 
 function showMemberInfo(key) {
+    ga('send', 'event', 'members-carousel', 'click', 'Member Viewed '+ key);
     $('#people-detail').fadeOut(500, function(){
         $.post('/api/members/get_member',{email:key}).done(function(data){
             var desig_text = '';

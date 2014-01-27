@@ -36,6 +36,7 @@ function showQuestionPick() {
 }
 
 function showLoginDialog() {
+    ga('send', 'event', 'Member Access Page', 'click', 'Member Login Clicked');
     $("#message-bottom").fadeOut();
     $("#message-login").fadeOut();
     $("#message").fadeOut();
@@ -57,9 +58,11 @@ $(document).ready(function(){
         isValidCodeC = isValidCodePart(codeC);
         isValidCodeD = isValidCodePart(codeD);
         if(isValidCodeA && isValidCodeB && isValidCodeC && isValidCodeD) {
+            ga('send', 'event', 'Member Access Page', 'code-entered', 'Attempting Access Code Check');
             $.post('/api/members/validate_access_code',{'accessCode':(codeA+codeB+codeC+codeD)})
             .done(function(data){
                 if(data.url != ''){
+                    ga('send', 'event', 'Member Access Page', 'code-entered', 'Access Code Valid');
                     clearAccessCode();
                     $('#logo').fadeOut();
                     $('#dark-gate').fadeOut(2000);
@@ -159,11 +162,13 @@ function submitAuthentication() {
     if(!submit) {
         return false;
     }
+    ga('send', 'event', 'Member Access Page', 'click', 'Member Login Submitted');
     $.post('/api/members/login',{'email':$('#email').val(),'password':$('#password').val(),'redirect_url':$('#redirect-url').val()})
         .done(function(data){
             if(data.error) {
                 $('#authentication-message').text(data.errormsg);
             } else {
+                ga('send', 'event', 'Member Access Page', 'success', 'Member Login Successful');
                 window.location.href = data.redirect_url;
             }
         })
