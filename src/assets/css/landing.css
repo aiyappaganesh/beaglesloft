@@ -153,6 +153,7 @@
     background-size: contain;
     height: 75%;
     -webkit-transition: border 1s;
+    transition: border 1s;
 }
 
 .people-picture:hover, .people-picture:active {
@@ -280,6 +281,8 @@ button {border:none}
     border:2px solid #FF0017;
     -webkit-transition: color 0.25s ease-in;
     -webkit-transition: background-color 0.25s ease-in;
+    transition: color 0.25s ease-in;
+    transition: background-color 0.25s ease-in;
 }
 
 .upcoming-learn-more-button {
@@ -332,6 +335,7 @@ footer>a, footer>a:hover {
     position:absolute;
     z-index:20;
     -webkit-transition: border 1.5s;
+    transition: border 1.5s;
 }
 
 .partner-icon-box {
