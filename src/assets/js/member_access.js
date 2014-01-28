@@ -73,6 +73,7 @@ $(document).ready(function(){
                         });*/
                     });
                 } else {
+                    ga('send', 'event', 'Member Access Page', 'code-entered', 'Access Code Invalid');
                     clearAccessCode();
                 }
             })
@@ -166,9 +167,10 @@ function submitAuthentication() {
     $.post('/api/members/login',{'email':$('#email').val(),'password':$('#password').val(),'redirect_url':$('#redirect-url').val()})
         .done(function(data){
             if(data.error) {
+                ga('send', 'event', 'Member Access Page', 'login-fail', 'Member Login Failed');
                 $('#authentication-message').text(data.errormsg);
             } else {
-                ga('send', 'event', 'Member Access Page', 'success', 'Member Login Successful');
+                ga('send', 'event', 'Member Access Page', 'login-success', 'Member Login Successful');
                 window.location.href = data.redirect_url;
             }
         })
