@@ -463,8 +463,14 @@ img.bg {
     height:75px;
     background-color:#e5e5e5;
     color:#44433f;
-    font-family: 'Merriweather', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 300;
     font-size: 18px;
-    padding-top: 25px;
+    padding-top: 21.5px;
+    vertical-align:middle;
+    line-height: 32px;
+}
+
+.beaglesloft-footer:hover {
+    color:#c62430;
 }
