@@ -3,22 +3,35 @@
 {% block Styles %}
 <link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
 <link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+<style>
+    .member-image-thumbnail-holder {
+        border: 1px solid black;
+        max-height: 150px;
+        max-width: 150px;
+    }
+</style>
 {% endblock %}
 
 {% block Content %}
 <div id="member_registration" class="registration-background" style="display:none;">
     <div style="height:50px;"></div>
-    <div style="height:1430px;width:620px;margin:auto;background-color:rgba(0,0,0,0.9);">
+    <div style="height:1630px;width:620px;margin:auto;background-color:rgba(0,0,0,0.9);">
         <div style="width:620px;height:225px;border-bottom:1px solid #1f1f1f;text-align:center;padding-left:80px;padding-right:80px;padding-top:35px;">
             <img style="margin:auto;max-height:150px;max-width:150px;" src="/assets/img/landing/bl-logo-intro.png">
         </div>
-        <div class="registration-text" style="width:620px;height:1060px;padding:80px;">
+        <div class="registration-text" style="width:620px;height:1260px;padding:80px;">
             <form action="/api/members/create" method="POST" onsubmit="return validateMemberRegistrationForm()">
                 <input type="hidden" name="redirect_url" value="{{ redirect_url }}">
                 <div id="facebook-login">
                     <p><fb:login-button show-faces="false" width="200" max-rows="1" scope="email,user_work_history"></fb:login-button> to fill information from Facebook<br><br></p>
                 </div>
                 <div>
+                    <p style="text-align:center;">
+                        <img id='profile-image' style="margin:auto;display:none" src="/assets/img/landing/default_member.png" class="member-image-thumbnail-holder">
+                    </p>
+                    <p id="use-fb-image" style="display:none;font-size:20px;">
+                        <input type="checkbox" id="fb-pic-checkbox" name="fb-pic-checkbox" value="true"> Use Facebook Profile Picture as BeaglesLoft Profile Picture<br><br>
+                    </p>
                     <p>
                         HELLO. MY NAME IS<br><br>
                         <input class="blanks" type="text" id="name" name="name" style="width: 97%;">*<br><br>
@@ -29,7 +42,7 @@
                         <textarea id="bio" name="bio" maxlength="300" style="min-width:97%;max-width:97%;"></textarea>*<br><br>
                     </p>
                     <p>
-                        MY FACEBOOK ID <input class="blanks optional" type="text" id="facebook_id" name="facebook_id" style="width: 57%;"><br><br>
+                        <input class="blanks optional" type="hidden" id="facebook_id" name="facebook_id">
                         MY TWITTER HANDLE <input class="blanks optional" type="text" id="twitter_handle" name="twitter_handle" style="width: 48%;"><br><br>
                         YOU CAN FIND OUT MORE ABOUT ME AT<br><br>
                         <input class="blanks optional" type="text" id="website" name="website" style="width: 97%;" placeholder="HTTP://"><br><br>

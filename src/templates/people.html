@@ -26,7 +26,7 @@
                                         <td style="min-width:120px;padding:0px;">
                                             <div style="height:100px;width:100px;display:inline-table;float:left;">
                                                 <div style="height:100px;width:100px;position:relative;" onclick="showMemberInfo($(this).parent().find('input').val());">
-                                                    <img style="position:absolute;height:100px;width:100px;z-index:10;" src="{% if v.1 %} /api/members/{{v.0}}/image {% elif v.2 %} https://graph.facebook.com/{{v.2}}/picture?type=normal&height=300&width=300 {% else %} /assets/img/landing/default_member.png {% endif %}">
+                                                    <img style="position:absolute;height:100px;width:100px;z-index:10;" src="{{v.1}}">
                                                     <div class="people-picture" id="people-{{v.3}}" style="height:100px;width:100px;position:absolute;z-index:20;"></div>
                                                 </div>
                                                 <input type="hidden" value="{{v.0}}">
@@ -68,22 +68,26 @@
                     <div style="width:55px;height:300px;display:inline-block;float:left;"></div>
                     <div style="width:585px;height:300px;display:inline-block;float:left;">
                         <div style="height:150px">
-                            <div class="people-designation" style="height:25%"><i><p id="designation">Founder, Haggle</p></i></div>
-                            <div class="people-name" style="height:50%"><p id="name">RAJIV SALIMATH</p></div>
+                            <div class="people-designation" style="height:25%"><i><p id="designation">Next Big Entrepreneur, Next Big Idea</p></i></div>
+                            <div class="people-name" style="height:50%"><p id="name">This could be you!</p></div>
+                            {% if paged_member_keys.0|length > 0 %}
                             <div style="height:25%">
                                 {% if is_member %}
-                                <div class="people-website" style="display:inline-block;float:left;"><img src="/assets/img/landing/link-icon.png" style="display:inline-block"><p style="display:inline-block;margin-left:10px;"><i id="website">gethaggle.com</i></p></div>
-                                <div class="people-twitter-handle" style="display:inline-block;float:left;margin-left:30px;"><img src="/assets/img/landing/tw-icon.png" style="display:inline-block"><p style="display:inline-block;margin-left:10px;"><i id="twitter_handle">@gethaggle</i></p></div>
+                                <div class="people-website" style="display:inline-block;float:left;"><img src="/assets/img/landing/link-icon.png" style="display:inline-block"><p style="display:inline-block;margin-left:10px;"><i id="website">website</i></p></div>
+                                <div class="people-twitter-handle" style="display:inline-block;float:left;margin-left:30px;"><img src="/assets/img/landing/tw-icon.png" style="display:inline-block"><p style="display:inline-block;margin-left:10px;"><i id="twitter_handle">twitter handle</i></p></div>
                                 {% else %}
                                 <a class="member-access-button" href="" style="display:inline-block;float:left;" onclick="ga('send', 'event', 'member-details', 'click', 'Contact Member Button ' + $(this).parent().parent().find('.people-name p').text())"><button style="background-color:#c0c0c0;">CONTACT</button></a>
                                 {% endif %}
                             </div>
+                            {% endif %}
                         </div>
+                        {% if paged_member_keys.0|length > 0 %}
                         <div class="people-desc" style="height:150px">
                             <p id="bio">
-                                Praesent vitae dignissim lacus, eu imperdiet sem. Nunc sodales ipsum nibh, vitae suscipit enim ornare eget. Etiam venenatis euismod ullamcorper. Morbi consequat non urna facilisis accumsan. Fusce mollis laoreet odio eget consectetur. Praesent dictum sem a fringilla hendrerit. Phasellus purus tellus, convallis volutpat pharetra non, venenatis sit amet neque.
+                                I've got the coolest idea in town!
                             </p>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div style="height:55px;"></div>

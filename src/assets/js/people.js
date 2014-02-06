@@ -5,8 +5,10 @@ var partnerCycleInterval = null;
 var partnerTimeout = null;
 
 $(document).ready(function() {
-    member_keys = $('#member_keys').val().split(',');
-    showMemberInfo(member_keys[0]);
+    if($('#member_keys').val() != '') {
+        member_keys = $('#member_keys').val().split(',');
+        showMemberInfo(member_keys[0]);
+    }
 });
 
 $(document).ready(function(){
@@ -115,13 +117,7 @@ function showMemberInfo(key) {
             } else {
                 $('#twitter_handle').text('');
             }
-            if(data.image) {
-                $('#picture').attr('src','/api/members/'+data.email+'/image');
-            } else if(data.facebook_id) {
-                $('#picture').attr('src','https://graph.facebook.com/'+data.facebook_id+'/picture?width=300&height=300');
-            } else {
-                $('#picture').attr('src','/assets/img/landing/default_member.png');
-            }
+            $('#picture').attr('src',data.image_url);
             if(data.bio) {
                 $('#bio').text(data.bio);
             } else {

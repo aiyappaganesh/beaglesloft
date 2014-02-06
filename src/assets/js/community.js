@@ -11,9 +11,9 @@ $(document).ready(function(){
 });
 
 $(document).ready(function() {
-    $(window).scroll( function(){
-        var top_of_window = $(window).scrollTop();
-        var show_navbar = ($(window).height() * 0.1);
+    $('.content-page').scroll( function(){
+        var top_of_window = $('.content-page').scrollTop();
+        var show_navbar = ($('.content-page').height() * 0.1);
         var current_page = getCurrentPage();
 
         if(top_of_window > show_navbar) {

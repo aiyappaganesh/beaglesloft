@@ -20,6 +20,7 @@ class Member(db.Model):
     image = db.StringProperty(indexed=False)
     password = db.StringProperty(indexed=False)
     image_coords = db.ListProperty(float, indexed=False)
+    image_url = db.StringProperty(indexed=False)
 
     @classmethod
     def get_or_insert(cls, key_name, **kwds):
@@ -28,7 +29,7 @@ class Member(db.Model):
 
     @classmethod
     def create_or_update(cls, email, name=None, organization=None, designation=None, website=None,
-                      twitter_handle=None, facebook_id=None, bio=None, image=None, password=None, image_coords=None):
+                      twitter_handle=None, facebook_id=None, bio=None, image=None, password=None, image_coords=None, image_url=None):
         member = Member.get_by_email(email)
         if not member:
             member = Member(key_name=email)
@@ -62,6 +63,8 @@ class Member(db.Model):
             member.activity_score = random.randint(0, 100)
         if not member.proficiency_score:
             member.proficiency_score = random.randint(0, 100)
+        if image_url is not None:
+            member.image_url = image_url
         member.put()
 
     @staticmethod
@@ -89,6 +92,8 @@ class Member(db.Model):
                     member_json['facebook_id'] = member.facebook_id
                 if member.image:
                     member_json['image'] = member.image
+                if member.image_url:
+                    member_json['image_url'] = member.image_url
                 if member.bio:
                     member_json['bio'] = member.bio
                 if member.influence_score:
@@ -106,7 +111,7 @@ class Member(db.Model):
         for member in members:
             if not member.email in member_keys:
                 member_keys[member.email] = []
-            member_keys[member.email].append(member.image)
+            member_keys[member.email].append(member.image_url)
             member_keys[member.email].append(member.facebook_id)
         return member_keys
 
@@ -119,7 +124,7 @@ class Member(db.Model):
         for member in members:
             paged_member = []
             paged_member.append(member.email)
-            paged_member.append(member.image)
+            paged_member.append(member.image_url)
             paged_member.append(member.facebook_id)
             paged_member.append(c1+1)
             if len(page) >= 7:

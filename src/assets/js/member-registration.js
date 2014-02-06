@@ -54,6 +54,8 @@ $(document).ready(function(){
           $('#facebook_id').val(response.username);
           $('#name').val(response.first_name+' '+response.last_name);
           $('#email').val(response.email);
+          $('#profile-image').attr('src','https://graph.facebook.com/'+response.username+'/picture?type=normal&height=300&width=300');
+          $('#profile-image').show();
           if(response.work) {
             if(response.work[0].position) {
                 $("#designation").val(response.work[0].position.name);
@@ -63,6 +65,7 @@ $(document).ready(function(){
             }
           }
           $('#facebook-login').hide();
+          $('#use-fb-image').show();
         });
       }
 });
@@ -160,4 +163,13 @@ function logoutFB() {
         } else {
         }
     });
+}
+
+function showPicture() {
+    if(document.getElementById("fb-pic-checkbox").checked) {
+        $('#profile-image').show();
+    }
+    else {
+        $('#profile-image').hide();
+    }
 }

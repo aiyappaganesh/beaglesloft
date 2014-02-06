@@ -27,7 +27,7 @@
 
     </script>
 </head>
-<body data-spy="scroll" data-target=".landing-nav" style="height:100%">
+<body style="height:100%;">
     <div id="fb-root"></div>
     <div id="wrap-div" class="wrap" style="height:100%">
         <div id={% block Navbar_Type %}navbar-fluid{% endblock %} class="navbar navbar-fixed-top" style={% block Navbar_DisplayType %}opacity:0{% endblock %}>
@@ -52,8 +52,8 @@
                             <li><a href="http://beaglesblog.tumblr.com" target="_blank" class="hover-enabled" onclick="ga('send', 'event', 'website-navbar', 'click', 'Blog Clicked')">BLOG</a></li>
                             <!--<li><a href="/calendar" class="nav-link hover-enabled">CALENDAR</a></li>-->
                             <!--<li><a href="/members/profile" class="nav-link hover-enabled">LOGIN</a></li>-->
-                            <li><a href="{% if is_member %}/members/profile{% else %}/member_access{% endif %}" class="nav-link hover-enabled" {% if is_member %}style="padding-top:0px;padding-bottom:0px;"  onclick="ga('send', 'event', 'website-navbar', 'click', 'Member Profile Clicked')" {% else %} onclick="ga('send', 'event', 'website-navbar', 'click', 'Join Clicked')" {% endif %}>{% if is_member %}<img style="height:50px;width:50px;" src="{% if member.image %} /api/members/{{member.email}}/image {% elif member.facebook_id %} https://graph.facebook.com/{{member.facebook_id}}/picture?type=normal&height=50&width=50 {% else %} /assets/img/landing/default_member.png {% endif %}">{% else %}JOIN{% endif %}</a></li>
                             <!--<li><a href="/create_event" class="nav-link hover-enabled">CREATE EVENT</a></li>-->
+                            <li><a href="{% if is_member %}/members/profile{% else %}/member_access{% endif %}" class="nav-link hover-enabled" {% if is_member %}style="padding-top:0px;padding-bottom:0px;"  onclick="ga('send', 'event', 'website-navbar', 'click', 'Member Profile Clicked')" {% else %} onclick="ga('send', 'event', 'website-navbar', 'click', 'Join Clicked')" {% endif %}>{% if is_member %}<img style="height:50px;width:50px;" src="{{member.image_url}}">{% else %}JOIN{% endif %}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -132,14 +132,12 @@
                 </div>
             </div>
         </div>
-        <div class="content-page" style="height:100%">
+        <div class="content-page" style="height:100%;overflow-x:hidden;overflow-y:scroll;">
             {% block Content %}{% endblock %}
         </div>
         <script src="/assets/js/lib/jquery.min.js"></script>
         <script src="/assets/js/lib/jquery-ui.js"></script>
         <script src="/assets/js/lib/bootstrap.min.js"></script>
-        <script src="/assets/js/lib/jquery.mousewheel.js"></script>
-        <script src="/assets/js/lib/waypoints.min.js"></script>
         <script src="/assets/js/community.js"></script>
         {% block Scripts %}{% endblock %}
     </div>

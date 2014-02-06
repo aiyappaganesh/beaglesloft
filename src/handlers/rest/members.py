@@ -15,10 +15,14 @@ class MemberCreateHandler(RequestHandler):
     def post(self):
         key = self['email']
         redirect_url = str(self['redirect_url']) if self['redirect_url'] else '/community'
+        if self['fb-pic-checkbox']:
+            image_url = 'https://graph.facebook.com/'+self["facebook_id"]+'/picture?type=normal&height=300&width=300'
+        else:
+            image_url = '/assets/img/landing/default_member.png'
         Member.create_or_update(key, name=self['name'], organization=self["organization"],
                                 designation=self["designation"], website=self["website"],
                                 twitter_handle=self["twitter_handle"], facebook_id=self["facebook_id"], bio=self["bio"],
-                                password=self['password'])
+                                password=self['password'], image_url=image_url)
         self.session['member'] = key
         self.redirect(redirect_url)
 
@@ -33,10 +37,11 @@ class MemberUpdateHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHand
         image_key = str(image[0].key()) if image else None
         image_coords = [float(coord) for coord in self['image_coords'].split(',')] if self['image_coords'] else None
         key = email if email else self['email']
+        image_url = '/api/members/'+key+'/image' if image_key else None
         Member.create_or_update(key, name=self['name'], organization=self["organization"],
                                 designation=self["designation"], image=image_key, website=self["website"],
                                 twitter_handle=self["twitter_handle"], facebook_id=self["facebook_id"], bio=self["bio"],
-                                password=self['password'], image_coords=image_coords)
+                                password=self['password'], image_coords=image_coords, image_url=image_url)
         self.redirect("/members/profile")
 
 

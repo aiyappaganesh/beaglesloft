@@ -60,7 +60,7 @@
                 <a class="btn pull-right logout-button" href="/members/logout">LOGOUT</a>
             </div>
             <div style="text-align:center;">
-                <img style="margin:auto;" id="member-image-thumbnail" src="{% if member.image %}/api/members/{{ member.email }}/image{% elif member.facebook_id%}https://graph.facebook.com/{{member.facebook_id}}/picture?type=normal&height=300&width=300{% else %}/assets/img/landing/default-user.gif{% endif %}" class="member-image-thumbnail-holder">
+                <img style="margin:auto;" id="member-image-thumbnail" src="{{ member.image_url }}" class="member-image-thumbnail-holder">
                 <div style="height:10px;margin:auto;"></div>
                 <a href="/members/profile/image" style="margin:auto;color:#c62530;font-size:20px;">Change Picture</a>
             </div>
@@ -84,8 +84,8 @@
                         <td><input class="wide blanks" id="twitter_handle" name="twitter_handle" value='{% if member.twitter_handle %}{{ member.twitter_handle }}{% endif %}'></td>
                     </tr>
                     <tr>
-                        <td><label for="facebook_id">Facebook Id</label></td>
-                        <td><input class="wide blanks" id="facebook_id" name="facebook_id" value='{% if member.facebook_id %}{{ member.facebook_id }}{% endif %}'></td>
+                        <!--<td><label for="facebook_id">Facebook Id</label></td>-->
+                        <td><input class="wide blanks" id="facebook_id" name="facebook_id" value='{% if member.facebook_id %}{{ member.facebook_id }}{% endif %}' type="hidden"></td>
                     </tr>
                     <tr>
                         <td><label for="organization">Organization</label></td>
