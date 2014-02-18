@@ -28,21 +28,19 @@
                 <div style="height:80px;"></div>
                 <div style="height:140px;width:780px;margin:auto;">
                     <div style="width:490px;height:140px;display:inline-block;float:left;text-align:left;padding-right:40px;">
-                        <p style="font-family: 'Oswald', sans-serif;color:#ffffff;text-shadow:2px 2px #000000;font-size: 40px;font-weight:300;height:70px;text-transform:uppercase;">{% if upcoming_events.0 %}{{upcoming_events.0.name}}{% else %}HOW TO BECOME A VC{% endif %}</p>
+                        <p style="font-family: 'Oswald', sans-serif;color:#ffffff;text-shadow:2px 2px #000000;font-size: 40px;font-weight:300;height:70px;text-transform:uppercase;">{% if upcoming_events.0 %}{{upcoming_events.0.name}}{% else %}NEXT EXCITING EVENT SOON!{% endif %}</p>
                         <p style="font-family: 'Merriweather', sans-serif;color:#ffffff;text-shadow:2px 2px #000000;font-size: 15px;height:70px;line-height:25px;">
                             {% if upcoming_events.0 %}
                             {{upcoming_events.0.description}}
                             {% else %}
-                            Maecenas tempor egestas arcu, ac laoreet sem posuere ac.
-                            Sed rhoncus massa et viverra maefladsf. Sed dgd rsffga sf
-                            ojcn awreoio mdbsdfn. Edf hgffd wreo fgfkf.
+                            Watch out this space for the next exciting event at the Loft very soon!
                             {% endif %}
                         </p>
                     </div>
                     <div style="width:290px;height:140px;display:inline-block;float:left;">
-                        <p style="text-align:center;font-family: 'Oswald', sans-serif;color:#ffffff;text-shadow:2px 2px #000000;font-size:22px;font-weight:300;height:70px;padding-top:20px;">{% if upcoming_events.0 %}{{upcoming_events.0.date}},&nbsp{{upcoming_events.0.time}}{% else %}DEC. 18, 2013, 6-9 PM{% endif %}</p>
+                        <p style="text-align:center;font-family: 'Oswald', sans-serif;color:#ffffff;text-shadow:2px 2px #000000;font-size:22px;font-weight:300;height:70px;padding-top:20px;">{% if upcoming_events.0 %}{{upcoming_events.0.date}},&nbsp{{upcoming_events.0.time}}{% else %}COMING SOON{% endif %}</p>
                         <p style="text-align:center;height:70px;padding-top:8px;">
-                            <a target="_blank" href="{% if upcoming_events.0 %}{{upcoming_events.0.link}}{% else %}https://venturewednesdaystestevent1.splashthat.com/{% endif %}" onclick="ga('send', 'event', 'Events Page', 'click', 'Learn More Button - Upcoming ' + '{% if upcoming_events.0 %}{{upcoming_events.0.link}}{% else %}https://venturewednesdaystestevent1.splashthat.com/{% endif %}')">
+                            <a target="_blank" href="{% if upcoming_events.0 %}{{upcoming_events.0.link}}{% else %}http://www.beaglesloft.com/events{% endif %}" onclick="ga('send', 'event', 'Events Page', 'click', 'Learn More Button - Upcoming ' + '{% if upcoming_events.0 %}{{upcoming_events.0.link}}{% else %}http://www.beaglesloft.com/events{% endif %}')">
                                 <button value="LEARN MORE" class="upcoming-learn-more-button">LEARN MORE</button>
                             </a>
                         </p>
