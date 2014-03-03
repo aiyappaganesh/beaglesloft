@@ -15,6 +15,10 @@ handlers:
   script: handlers.rest.members.app
   secure: never
 
+- url: /api/test/.*
+  script: handlers.rest.test.app
+  secure: never
+
 - url: /members/.*
   script: handlers.web.members.app
   secure: never
