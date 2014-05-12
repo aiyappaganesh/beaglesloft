@@ -194,17 +194,6 @@ class ContactPage(WebRequestHandler):
             template_values['ua'] = 'mobile'
         self.write(self.get_rendered_html(path, template_values), 200)
 
-class BlogPage(WebRequestHandler):
-    def get(self):
-        path = 'blog.html'
-        ua = self.request.headers['User-Agent']
-        b = reg_b.search(ua)
-        v = reg_v.search(ua[0:4])
-        template_values = {'ua' : 'non-mobile'}
-        if b or v:
-            template_values['ua'] = 'mobile'
-        self.write(self.get_rendered_html(path, template_values), 200)
-
 app = webapp2.WSGIApplication(
     [
         ('/', IndexPage),
@@ -218,7 +207,6 @@ app = webapp2.WSGIApplication(
         ('/create_event', CreateEventPage),
         ('/community', PeoplePage),
         ('/buzz', BuzzPage),
-        ('/contact', ContactPage),
-        ('/blog', BlogPage)
+        ('/contact', ContactPage)
     ]
 )

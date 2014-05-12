@@ -83,10 +83,6 @@ handlers:
   script: handlers.web.index.app
   secure: never
 
-- url: /blog
-  script: handlers.web.index.app
-  secure: never
-
 ######################### STATIC ENDPOINTS #########################
 
 - url: /assets/css
