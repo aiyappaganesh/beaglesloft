@@ -14,6 +14,10 @@ inbound_services:
 
 handlers:
 
+- url: /_ah/warmup
+  script: warmup_requests.app
+  secure: always
+
 - url: /api/members/.*
   script: handlers.rest.members.app
   secure: never
