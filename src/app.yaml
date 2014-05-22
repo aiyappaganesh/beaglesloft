@@ -9,6 +9,9 @@ builtins:
 - remote_api: on
 - appstats: on
 
+inbound_services:
+- warmup
+
 handlers:
 
 - url: /api/members/.*
