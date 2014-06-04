@@ -48,6 +48,7 @@ class Event(db.Model):
                 past_events_temp.append(event.json())
             elif event.date_time >= datetime.now():
                 upcoming_events.append(event.json())
+        upcoming_events.reverse()
         if past_events_temp:
             counter = 0
             for event in past_events_temp:
