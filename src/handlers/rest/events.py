@@ -12,7 +12,6 @@ from google.appengine.ext.webapp import blobstore_handlers
 
 class CreateEventHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandler):
     def post(self):
-        logging.info('Trying to save event')
         snapshot = self.get_uploads("snapshot")
         snapshot_key = str(snapshot[0].key()) if snapshot else None
         name = self['name']

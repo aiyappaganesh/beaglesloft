@@ -9,7 +9,7 @@ from model import Member
 from auth import login_required
 from handlers.web import WebRequestHandler
 from webapp2_extras.security import generate_password_hash, check_password_hash
-
+from config.config import *
 
 class MemberCreateHandler(RequestHandler):
     def post(self):
@@ -47,7 +47,6 @@ class MemberUpdateHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHand
 
 class MemberFetchHandler(RequestHandler):
     def post(self):
-        logging.info("Trying to fetch member")
         email = self["email"]
         member_json = Member.get_member_json(email)
         #if not 'member' in self.session:
@@ -62,7 +61,6 @@ class MemberFetchHandler(RequestHandler):
 
 class AllMembersFetchHandler(RequestHandler):
     def post(self):
-        logging.info("Trying to fetch all members")
         members_json = Member.get_members_json()
         self.write(
             json.dumps(
@@ -73,11 +71,9 @@ class AllMembersFetchHandler(RequestHandler):
 
 class ValidateAccessCodeHandler(WebRequestHandler):
     def post(self):
-        logging.info("Trying to validate access code")
         result_json = {'url':''}
         access_code = self["accessCode"]
-        logging.info(access_code)
-        if access_code and int(access_code) == 2013:
+        if access_code and access_code == coded_access:
             self.session['access_code'] = access_code
             result_json['url'] = '/member_registration'
         self.write(
@@ -88,27 +84,25 @@ class ValidateAccessCodeHandler(WebRequestHandler):
 
 class ProcessAccessAnswerHandler(RequestHandler):
     def post(self):
-        logging.info("Trying to process access answer")
         result_json = {'url':''}
         access_answer = str(self["access_answer"])
         question_id = str(self["qid"])
-        logging.info(access_answer + ',' + question_id)
         if question_id and access_answer:
             if question_id == 'M1':
                 if access_answer=='1' or access_answer.lower().strip()=='one':
-                    self.session['access_code'] = '2013'
+                    self.session['access_code'] = coded_access
                     result_json['url'] = '/member_registration'
             elif question_id == 'S1':
                 if access_answer.lower().strip().find('higg')!=-1 or access_answer.lower().strip().find('boson')!=-1:
-                    self.session['access_code'] = '2013'
+                    self.session['access_code'] = coded_access
                     result_json['url'] = '/member_registration'
             elif question_id == 'B1':
                 if access_answer.lower().strip().find('whiskey')!=-1 or access_answer.lower().strip().find('whisky')!=-1:
-                    self.session['access_code'] = '2013'
+                    self.session['access_code'] = coded_access
                     result_json['url'] = '/member_registration'
             elif question_id == 'A1':
                 if access_answer.lower().strip().find('acrylic')!=-1:
-                    self.session['access_code'] = '2013'
+                    self.session['access_code'] = coded_access
                     result_json['url'] = '/member_registration'
         self.write(
             json.dumps(
@@ -118,7 +112,6 @@ class ProcessAccessAnswerHandler(RequestHandler):
 
 class FetchAccessQuestionHandler(RequestHandler):
     def post(self):
-        logging.info("Trying to provide access question")
         result_json = {'question':'If 10 men can build 10 houses in 10 days, how many houses can 1 man build in 10 days?','question_id':'O1'}
         category = self['category']
         if category == 'Mathematics':
