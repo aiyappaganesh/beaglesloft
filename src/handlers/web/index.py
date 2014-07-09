@@ -2,7 +2,7 @@ import webapp2
 from auth import access_code_required, login_required
 from handlers.web import WebRequestHandler
 import re
-from model import Member, Event
+from model import Member
 from google.appengine.api import mail
 from google.appengine.api.blobstore import blobstore
 import json
@@ -91,49 +91,6 @@ class MemberAccessPage(WebRequestHandler):
             template_values['member'] = Member.get_member_json(self.session['member'])
         self.write(self.get_rendered_html(path, template_values), 200)
 
-class EventsPage(WebRequestHandler):
-    def get(self):
-        path = 'events.html'
-        ua = self.request.headers['User-Agent']
-        b = reg_b.search(ua)
-        v = reg_v.search(ua[0:4])
-        template_values = {'ua' : 'non-mobile'}
-        if b or v:
-            template_values['ua'] = 'mobile'
-        upcoming_events, past_events = Event.get_paged_events()
-        template_values['past_events'] = past_events
-        template_values['upcoming_events'] = upcoming_events
-        template_values['is_member'] = True if 'member' in self.session else False
-        if 'member' in self.session:
-            template_values['member'] = Member.get_member_json(self.session['member'])
-        #type = self['type']
-        #if not type:
-        #    type = 'VentureWednesdays'
-        #template_values['events'] = Event.get_paged_events(type)
-        #logging.info(template_values['events'])
-        #template_values['type'] = type
-        #table_length = rows*450 + (rows-1)*24
-        #logging.info(table_length)
-        #template_values['table_length'] = table_length
-
-        self.write(self.get_rendered_html(path, template_values), 200)
-
-class CreateEventPage(WebRequestHandler):
-    def get(self):
-        path = 'create_event.html'
-        ua = self.request.headers['User-Agent']
-        b = reg_b.search(ua)
-        v = reg_v.search(ua[0:4])
-        template_values = {'ua' : 'non-mobile'}
-        if b or v:
-            template_values['ua'] = 'mobile'
-        form_url = blobstore.create_upload_url('/api/events/save_event')
-        template_values['form_url'] = form_url
-        template_values['is_member'] = True if 'member' in self.session else False
-        if 'member' in self.session:
-            template_values['member'] = Member.get_member_json(self.session['member'])
-        self.write(self.get_rendered_html(path, template_values), 200)
-
 class AcceptContact(WebRequestHandler):
     def post(self):
         name = self['contact_name']
@@ -203,8 +160,6 @@ app = webapp2.WSGIApplication(
         ('/member_fbregistration', MemberFBRegistrationPage),
         ('/member_access', MemberAccessPage),
         ('/accept_contact', AcceptContact),
-        ('/events', EventsPage),
-        ('/create_event', CreateEventPage),
         ('/community', PeoplePage),
         ('/buzz', BuzzPage),
         ('/contact', ContactPage)

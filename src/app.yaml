@@ -70,8 +70,8 @@ handlers:
   script: handlers.web.index.app
   secure: never
 
-- url: /events
-  script: handlers.web.index.app
+- url: /events.*
+  script: handlers.web.events.app
   secure: never
 
 - url: /create_event

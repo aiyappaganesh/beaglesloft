@@ -1,0 +1,82 @@
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div id="search-event" class="registration-background">
+    <div style="height:100px"></div>
+    <div style="height:820px">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 registration-text" style="background-color:rgba(0,0,0,0.9);padding:80px;">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>EVENT TYPE</p>
+                    <p>
+                        <select id="event-type" name="type">
+                            <option value="">SELECT EVENT TYPE</option>
+                           {% for name, value in event_types.items %}
+                            <option value="{{name}}">{{value}}</option>
+                           {% endfor %}
+                        </select>
+                    </p>
+                    <input id="search-button" type="button" onclick="getEvents()" value="FIND EVENTS" style="color:#c62530;">
+                </div>
+            </div>
+            <div style="height:30px;">
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>RESULTS</p>
+                    <div id="search-results">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block Scripts %}
+<script src="/assets/js/lib/stellar.js"></script>
+<script src="/assets/js/lib/jquery.smooth-scroll.min.js"></script>
+<script src="/assets/js/member-registration.js"></script>
+<script>
+    function getEvents(){
+        $('#search-results').empty();
+        var type = $('#event-type').val();
+        if(type != null && type != '') {
+            $.post('/api/events/search', {'type':type})
+            .done(function(data){
+                var events = data.events;
+                if(events.length > 0){
+                    for(var i=0; i< events.length; i++) {
+                        $('#search-results').append(
+                            "<p>"+
+                            events[i][0]+
+                            "&nbsp;&nbsp;&nbsp;"+
+                            events[i][2]+
+                            "&nbsp;&nbsp;&nbsp;<a style='cursor:pointer;' href='/events/edit_event?id="+
+                            events[i][1]+
+                            "'>EDIT</a>&nbsp;&nbsp;&nbsp;<a style='cursor:pointer;' onclick=$.post('/api/events/delete_event',{'id':'"+
+                            events[i][1]+
+                            "'}).done(function(){window.location.assign('/events/search_event')})>DELETE</a></p>"
+                        );
+                    }
+                } else {
+                    $('#search-results').append("No events of type: "+type);
+                }
+            })
+            .fail(function(data){
+                $('#search-results').append("Error: "+data);
+            });
+        } else {
+            $('#search-results').append("Please select an event type");
+        }
+    }
+</script>
+{% endblock %}

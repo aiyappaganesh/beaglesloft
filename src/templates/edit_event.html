@@ -1,0 +1,155 @@
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div id="edit-event" class="registration-background">
+    <div style="height:100px"></div>
+    <div style="height:820px">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 registration-text" style="background-color:rgba(0,0,0,0.9);padding:80px;">
+            <form action={{ form_url }} method="POST" enctype="multipart/form-data">
+                <input type="hidden" value="{{event.key}}" name="key">
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           NAME:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <input class="blanks" type="text" name="name" placeholder="Event Name" value="{{event.name}}">
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           TYPE:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <input class="blanks" type="text" value="{{event.type}}" disabled>
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           DESCRIPTION:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <textarea class="blanks" name="description" placeholder="Description">{{event.description}}</textarea>
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           TIME (India Time):
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <input class="blanks" name="date_time" type="datetime" value="{{event.date_time}}" disabled>
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           DURATION:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <input class="blanks" id="duration" name="duration" placeholder="Duration" value="{{event.duration}}">
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           ATTENDEES:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <input class="blanks" id="attendees" name="attendees" placeholder="Number of Attendees" value="{{event.attendees}}">
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           LINK:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <input class="blanks" style="width:100%" type="url" name="link" placeholder="http://www.your-event-website.com" value="{{event.link}}">
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           SNAPSHOT:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <img id="snapshot-img" style="max-width:100%;max-height:100px;cursor:pointer;" src="/api/common/download_image/{{event.snapshot}}" onclick="$('#snapshot').click();" alt="Click to add/change event image">
+                           <input id="snapshot" style="width:100%;display:none;" type="file" name="snapshot" placeholder="Snapshot of event">
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                       <input type="submit" value="UPDATE EVENT" style="color:#c62530">&nbsp;&nbsp;&nbsp;<input type="button" value="CANCEL" style="color:#c62530" onclick="window.location.assign('/events/search_event')">
+                   </p>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block Scripts %}
+<script src="/assets/js/lib/stellar.js"></script>
+<script src="/assets/js/lib/jquery.smooth-scroll.min.js"></script>
+<script src="/assets/js/member-registration.js"></script>
+<script>
+    $(document).ready(function(){
+        document.getElementById('snapshot').addEventListener('change', displayImageThumbnail, false);
+    });
+
+    function displayImageThumbnail(e) {
+        var photo_files = e.target.files;
+        var photo_file = photo_files[0];
+
+        if (!photo_file.type.match('image.*')) {
+            alert('Not an image file');
+            $('#snapshot').focus();
+            return;
+        }
+
+        var file_reader = new FileReader();
+        file_reader.onload = (function(photo) {
+          return function(ev) {
+            $('#snapshot-img').attr('src', ev.target.result);
+            $('#snapshot-img').attr('title', photo.name);
+          };
+        })(photo_file);
+
+        file_reader.readAsDataURL(photo_file);
+    }
+</script>
+{% endblock %}
