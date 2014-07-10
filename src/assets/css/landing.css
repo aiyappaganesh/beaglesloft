@@ -432,3 +432,10 @@ footer>a:hover {
     background-color: #ffffff;
     border: 1px solid #c62530;
 }
+
+#upcoming-carousel .carousel-inner > .item {
+    -webkit-transition: 0.2s ease-in-out left;
+    -moz-transition: 0.2s ease-in-out left;
+    -o-transition: 0.2s ease-in-out left;
+    transition: 0.2s ease-in-out left;
+}
