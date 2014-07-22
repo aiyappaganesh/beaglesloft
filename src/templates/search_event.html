@@ -46,6 +46,13 @@
 <script src="/assets/js/lib/jquery.smooth-scroll.min.js"></script>
 <script src="/assets/js/member-registration.js"></script>
 <script>
+    function deleteEvent(name, id) {
+        var doDelete = confirm('Delete '+name+' ?');
+        if(doDelete){
+            $.post('/api/events/delete_event',{'id':id}).done(function(){window.location.assign('/events/search_event')});
+        }
+    }
+
     function getEvents(){
         $('#search-results').empty();
         var type = $('#event-type').val();
@@ -56,15 +63,16 @@
                 if(events.length > 0){
                     for(var i=0; i< events.length; i++) {
                         $('#search-results').append(
-                            "<p>"+
+                            '<p>'+
                             events[i][0]+
-                            "&nbsp;&nbsp;&nbsp;"+
+                            '&nbsp;&nbsp;&nbsp;'+
                             events[i][2]+
-                            "&nbsp;&nbsp;&nbsp;<a style='cursor:pointer;' href='/events/edit_event?id="+
+                            '&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" href="/events/edit_event?id='+
                             events[i][1]+
-                            "'>EDIT</a>&nbsp;&nbsp;&nbsp;<a style='cursor:pointer;' onclick=$.post('/api/events/delete_event',{'id':'"+
-                            events[i][1]+
-                            "'}).done(function(){window.location.assign('/events/search_event')})>DELETE</a></p>"
+                            '">EDIT</a>&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" onclick=deleteEvent('+
+                            '"'+events[i][0]+'",'+
+                            '"'+events[i][1]+'"'+
+                            ')>DELETE</a></p>'
                         );
                     }
                 } else {
