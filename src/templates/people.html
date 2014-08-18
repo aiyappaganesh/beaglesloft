@@ -13,350 +13,174 @@
             <div style="height:135px"></div>
             <div style="height:90px;width:620px;margin:auto;background-color:#c62530;color:#ffffff;padding:20px;"><p class="page_heading">THE PEOPLE THAT MAKE US WHO WE ARE</p></div>
         </div>
-        <div class="full-width" style="height:165px;background-color:#ffffff;">
-            <div style="width:940px;height:165px;margin:auto">
-                <div style="height:35px;"></div>
-                <div style="height:100px;" id="member-carousel" class="carousel slide" data-interval="0">
-                    <div style="height:100px;width:820px;overflow-x:hidden;overflow-y:hidden;display:inline-block;float:left;" class="carousel-inner">
-                        {% for page in paged_member_keys %}
-                        <table style="height:100px;" class="item {% if forloop.first %}active{% endif %}">
-                            <tbody>
-                                <tr>
-                                    {% for v in page %}
-                                        <td style="min-width:120px;padding:0px;">
-                                            <div style="height:100px;width:100px;display:inline-table;float:left;">
-                                                <div style="height:100px;width:100px;position:relative;" onclick="showMemberInfo($(this).parent().find('input').val());">
-                                                    <img style="position:absolute;height:100px;width:100px;z-index:10;" src="{{v.1}}">
-                                                    <div class="people-picture" id="people-{{v.3}}" style="height:100px;width:100px;position:absolute;z-index:20;"></div>
-                                                </div>
-                                                <input type="hidden" value="{{v.0}}">
-                                            </div>
-                                        </td>
-                                    {% endfor %}
-                                </tr>
-                            </tbody>
-                        </table>
-                        {% endfor %}
-                    </div>
-                    <div style="height:100px;width:100px;margin-left:20px;display:inline-block;float:left;text-align:center;">
-                        <div style="height:100px;width:50px;display:inline-block;float:left;background-color:#f2f1ed;">
-                            <div style="height:38px;"></div>
-                            <a class="carousel-arrow" href="#member-carousel" data-slide="prev" style="background-image:none" onclick="ga('send', 'event', 'members-carousel', 'click-arrow', 'Left Arrow')">
-                                <img src="/assets/img/landing/communityarrows/left-red.png">
-                            </a>
-                            <div style="height:38px;"></div>
-                        </div>
-                        <div style="height:100px;width:50px;display:inline-block;float:left;background-color:#f2f1ed;">
-                            <div style="height:38px;"></div>
-                            <a class="carousel-arrow" href="#member-carousel" data-slide="next" style="background-image:none" onclick="ga('send', 'event', 'members-carousel', 'click-arrow', 'Right Arrow')">
-                                <img src="/assets/img/landing/communityarrows/right-red.png">
-                            </a>
-                            <div style="height:38px;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div style="height:30px;"></div>
-            </div>
-        </div>
-        <div class="full-width" style="background-color:#f4f0ed">
-            <div style="width:940px;height:410px;margin:auto;">
-                <div style="height:55px;"></div>
-                <div id="people-detail" style="height:300px;text-align:left;">
-                    <div style="width:300px;height:300px;display:inline-block;float:left;">
-                        <img id="picture" style="max-height:100%;max-width:100%;height:100%;width:100%" src="/assets/img/landing/default_member.png">
-                    </div>
-                    <div style="width:55px;height:300px;display:inline-block;float:left;"></div>
-                    <div style="width:585px;height:300px;display:inline-block;float:left;">
-                        <div style="height:150px">
-                            <div class="people-designation" style="height:25%"><i><p id="designation">Next Big Entrepreneur, Next Big Idea</p></i></div>
-                            <div class="people-name" style="height:50%"><p id="name">This could be you!</p></div>
-                            {% if paged_member_keys.0|length > 0 %}
-                            <div style="height:25%">
-                                {% if is_member %}
-                                <div class="people-website" style="display:inline-block;float:left;"><img src="/assets/img/landing/link-icon.png" style="display:inline-block"><p style="display:inline-block;margin-left:10px;"><i id="website">website</i></p></div>
-                                <div class="people-twitter-handle" style="display:inline-block;float:left;margin-left:30px;"><img src="/assets/img/landing/tw-icon.png" style="display:inline-block"><p style="display:inline-block;margin-left:10px;"><i id="twitter_handle">twitter handle</i></p></div>
-                                {% else %}
-                                <a class="member-access-button" href="" style="display:inline-block;float:left;" onclick="ga('send', 'event', 'member-details', 'click', 'Contact Member Button ' + $(this).parent().parent().find('.people-name p').text())"><button style="background-color:#c0c0c0;">CONTACT</button></a>
-                                {% endif %}
-                            </div>
-                            {% endif %}
-                        </div>
-                        {% if paged_member_keys.0|length > 0 %}
-                        <div class="people-desc" style="height:150px">
-                            <p id="bio">
-                                I've got the coolest idea in town!
-                            </p>
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-                <div style="height:55px;"></div>
-            </div>
-        </div>
-        <div class="full-width" style="background-color:#f4f0ed">
-            <div style="height:115px;border-top:1px solid #cccccc;">
-                <div style="height:115px;width:940px;margin:auto;">
-                    <div style="height:60px">
-                        <div style="width:313.33px;height:100%;display:inline-block;float:left;">
-                            <div class="people-score-name" style="padding-top:25px">INFLUENCE</div>
-                        </div>
-                        <div style="width:313.33px;height:100%;display:inline-block;float:left;">
-                            <div class="people-score-name" style="padding-top:25px">ACTIVITY</div>
-                        </div>
-                        <div style="width:313.33px;height:100%;display:inline-block;float:left;">
-                            <div class="people-score-name" style="padding-top:25px">PROFICIENCY</div>
-                        </div>
-                    </div>
-                    <div style="height:55px">
-                        <div style="width:313.33px;height:100%;display:inline-block;float:left;">
-                            <div class="people-score-value progress" style="width:95%;">
-                                <div class="progress-bar" id="influence" style="width: 80%;height:100%">
-                                </div>
-                            </div>
-                        </div>
-                        <div style="width:313.33px;height:100%;display:inline-block;float:left;">
-                            <div class="people-score-value progress" style="width:95%;">
-                                <div class="progress-bar" id="activity" style="width: 75%;height:100%">
-                                </div>
-                            </div>
-                        </div>
-                        <div style="width:313.33px;height:100%;display:inline-block;float:left;">
-                            <div class="people-score-value progress" style="width:95%;">
-                                <div class="progress-bar" id="proficiency" style="width: 90%;height:100%">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="full-width" style="background-color:#ffffff;">
             <div style="height:100px;margin:auto;border-bottom:1px solid #e5e5e5;text-align:center;">
                 <div style="height:35px;"></div>
                 <div style="height:30px;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:30px;line-height:30px;color:#c62530;">OUR PARTNERS</div>
                 <div style="height:35px;"></div>
             </div>
-            <!--<div style="width:940px;height:553px;margin:auto;">
-                <div style="height:553px;">
-                    <div style="height:109px"></div>
-                    <div style="height:341px;">
-                        <div style="width:35px;height:341px;display:inline-block;float:left;"></div>
-                        <div style="width:460px;height:341px;display:inline-block;float:left;">
-                            <div id="partner-details" style="width:460px;height:217px;text-align:left;">
-                                <div style="height:175px;width:460px;position:relative;">
-                                    <img class="partner-img" id="partner-img-sequoia" src="/assets/img/landing/sequoia_capital.png">
-                                    <img class="partner-img" id="partner-img-sl" src="/assets/img/landing/startupleadership.png">
-                                    <img class="partner-img" id="partner-img-bvp" src="/assets/img/landing/BessemerVenturePartners.gif">
-                                    <img class="partner-img" id="partner-img-jaaga" src="/assets/img/landing/jaaga.jpg">
+            <div id="partners-carousel" style="width:940px;margin:auto;">
+                <div style="width:940px;height:410px;">
+                    <div style="height:410px;width:260px;display:inline-block;float:left;">
+                        <div style="width:260px;height:390px">
+                            <div style="width:260px;height:390px;text-align:left;">
+                                <div style="height:50px;"></div>
+                                <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
+                                    <img class="partner-img" id="partner-img-idiom" src="/assets/img/landing/idiom.png">
                                 </div>
-                                <p style="font-family: 'Merriweather', sans-serif;font-weight: 700;font-size: 17px;"><a style="color:#c62530 !important;" href="http://www.sequoiacap.com" target="_blank"><i id="partner-website">www.sequoiacap.com</i></a></p>
-                                <p style="font-family: 'Merriweather', sans-serif;font-weight: 300;font-size: 17px;line-height:30px;"><i id="partner-desc">Nam placerat vel est in ultricies. Proin congue mi ut lectus venenatis fringilla vitae in libero. Nullam eu consectetur mauris. Cras venenatis velit at felis ultrices, id mollis justo fermentum.</i></p>
-                            </div>
-                            <div style="width:460px;height:55px;"></div>
-                        </div>
-                        <div style="width:105px;height:341px;display:inline-block;float:left;"></div>
-                        <div style="width:340px;height:341px;display:inline-block;float:left;">
-                            <div style="height:170px;">
-                                <div class="partner-square" style="margin-right:20px;margin-bottom:20px;" id="partner-1">
-                                    <div class="partner-icon-box">
-                                        <div style="height:40px;"></div>
-                                        <img src="/assets/img/landing/sequoia_capital.png" class="partner-icon">
-                                        <div style="height:30px;"></div>
-                                        <input type="hidden" value="sequoia;www.sequoiacap.com;Sequoia Capital is one of the leading Venture Capital firms having invested in such seminal companies as Apple and Google. Sequoia India’s investments including some of the leading startups in India like Justdial, Zomato, Druva and Mu Sigma.">
-                                    </div>
-                                    <div class="partner-border-box"></div>
-                                </div>
-                                <div class="partner-square" style="margin-left:20px;margin-bottom:20px;" id="partner-2">
-                                    <div class="partner-icon-box">
-                                        <div style="height:40px;"></div>
-                                        <img src="/assets/img/landing/startupleadership.png" class="partner-icon">
-                                        <div style="height:30px;"></div>
-                                        <input type="hidden" value="sl;www.startupleadership.com;Startup Leadership Program is a highly selective, 80-hour, 6-month world-class training program and lifetime network for outstanding founders and innovators. SLP Fellows have founded 1000 companies that have raised $400 million.">
-                                    </div>
-                                    <div class="partner-border-box"></div>
-                                </div>
-                            </div>
-                            <div style="height:170px;">
-                                <div class="partner-square" style="margin-right:20px;margin-top:20px;" id="partner-3">
-                                    <div class="partner-icon-box">
-                                        <div style="height:40px;"></div>
-                                        <img src="/assets/img/landing/BessemerVenturePartners.gif" class="partner-icon">
-                                        <div style="height:30px;"></div>
-                                        <input type="hidden" value="bvp;www.bvp.com;Bessemer Venture Partners is a top tier Venture Capital firm with marquee investments like Linkedin and Skype. Bessemer’s India team include fast growing startups such as Snapdeal, Matrimony.com and OnMobile.">
-                                    </div>
-                                    <div class="partner-border-box"></div>
-                                </div>
-                                <div class="partner-square" style="margin-left:20px;margin-top:20px;" id="partner-4">
-                                    <div class="partner-icon-box">
-                                        <div style="height:40px;"></div>
-                                        <img src="/assets/img/landing/jaaga.jpg" class="partner-icon">
-                                        <div style="height:30px;"></div>
-                                        <input type="hidden" value="jaaga;www.jaaga.in;Jaaga is a creative community space supporting and connecting creative entrepreneurs and online learners. Jaaga has three programs - Study for training software developers, Startup for supporting entrepreneurs and and DNA to bring together the Jaaga community through design, art and networks.">
-                                    </div>
-                                    <div class="partner-border-box"></div>
-                                </div>
+                                <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.idiom.co.in" target="_blank"><i id="partner-website">idiom.co.in</i></a></p>
+                                <p class="partner-description"><i>Idiom is a design house with a multi-disciplinary & award-winning team of makers and doers!</i></p>
                             </div>
                         </div>
                     </div>
-                    <div style="height:103px"></div>
-                </div>
-            </div>-->
-            <div id="partners-carousel" style="width:940px;height:480px;margin:auto;" class="carousel slide" data-interval="0">
-                <ol class="carousel-indicators" style="top:92%;">
-                    <li data-target="#partners-carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#partners-carousel" data-slide-to="1"></li>
-                    <li data-target="#partners-carousel" data-slide-to="2"></li>
-                    <li data-target="#partners-carousel" data-slide-to="3"></li>
-                </ol>
-                <div style="width:940px;height:410px;" class="carousel-inner">
-                    <div style="width:940px;height:410px;" class=" item active ">
-                        <div style="height:410px;width:260px;display:inline-block;float:left;">
-                            <div style="width:260px;height:390px">
-                                <div style="width:260px;height:390px;text-align:left;">
-                                    <div style="height:50px;"></div>
-                                    <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
-                                        <img class="partner-img" id="partner-img-idiom" src="/assets/img/landing/idiom.png">
-                                    </div>
-                                    <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.idiom.co.in" target="_blank"><i id="partner-website">idiom.co.in</i></a></p>
-                                    <p class="partner-description"><i>Idiom is a design house with a multi-disciplinary & award-winning team of makers and doers!</i></p>
+                    <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
+                    <div style="height:410px;width:260px;display:inline-block;float:left;">
+                        <div style="width:260px;height:390px">
+                            <div style="width:260px;height:390px;text-align:left;">
+                                <div style="height:50px;"></div>
+                                <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
+                                    <img class="partner-img" id="partner-img-mozillahive" src="/assets/img/landing/HiveIndia.png">
                                 </div>
-                            </div>
-                        </div>
-                        <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
-                        <div style="height:410px;width:260px;display:inline-block;float:left;">
-                            <div style="width:260px;height:390px">
-                                <div style="width:260px;height:390px;text-align:left;">
-                                    <div style="height:50px;"></div>
-                                    <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
-                                        <img class="partner-img" id="partner-img-mozillahive" src="/assets/img/landing/HiveIndia.png">
-                                    </div>
-                                    <p class="partner-website"><a style="color:#c62530 !important;" href="http://hive.mozillaindia.org" target="_blank"><i id="partner-website">hive.mozillaindia.org</i></a></p>
-                                    <p class="partner-description"><i>Hive Bangalore promotes the concept of 'learning by making'. It is an attempt to map and empower a community of educators and creative people who share a passion to innovate, evolve and change the learning landscape.</i></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
-                        <div style="height:410px;width:260px;display:inline-block;float:left;">
-                            <div style="width:260px;height:390px">
-                                <div style="width:260px;height:390px;text-align:left;">
-                                    <div style="height:50px;"></div>
-                                    <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
-                                        <img class="partner-img" id="partner-img-sandboxcollective" src="/assets/img/landing/sandboxcollective.jpg">
-                                    </div>
-                                    <p class="partner-website"><a style="color:#c62530 !important;" href="http://sandboxcollective.org" target="_blank"><i id="partner-website">sandboxcollective.org</i></a></p>
-                                    <p class="partner-description"><i>Sandbox is a Bangalore-based artists’ collective comprising a group of artists and art administrators working together to expand the scope of performance arts.</i></p>
-                                </div>
+                                <p class="partner-website"><a style="color:#c62530 !important;" href="http://hive.mozillaindia.org" target="_blank"><i id="partner-website">hive.mozillaindia.org</i></a></p>
+                                <p class="partner-description"><i>Hive Bangalore promotes the concept of 'learning by making'. It is an attempt to map and empower a community of educators and creative people who share a passion to innovate, evolve and change the learning landscape.</i></p>
                             </div>
                         </div>
                     </div>
-                    <div style="width:940px;height:410px;" class=" item ">
-                        <div style="height:410px;width:260px;display:inline-block;float:left;">
-                            <div style="width:260px;height:390px">
-                                <div style="width:260px;height:390px;text-align:left;">
-                                    <div style="height:50px;"></div>
-                                    <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
-                                        <img class="partner-img" id="partner-img-blrmakespace" src="/assets/img/landing/blr-make-space.jpg">
-                                    </div>
-                                    <p class="partner-website"><a style="color:#c62530 !important;" href="https://www.facebook.com/groups/blrmakespace/" target="_blank"><i id="partner-website">facebook.com/groups/blrmakespace</i></a></p>
-                                    <p class="partner-description"><i>Bangalore Make Space is a forum for Makers, Creators, DIY enthusiasts and Hobbyists who identify with the Global Maker Movement, Makerspaces, FabLabs and other avenues of Open Source Creativity.</i></p>
+                    <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
+                    <div style="height:410px;width:260px;display:inline-block;float:left;">
+                        <div style="width:260px;height:390px">
+                            <div style="width:260px;height:390px;text-align:left;">
+                                <div style="height:50px;"></div>
+                                <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
+                                    <img class="partner-img" id="partner-img-sandboxcollective" src="/assets/img/landing/sandboxcollective.jpg">
                                 </div>
-                            </div>
-                        </div>
-                        <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
-                        <div style="height:410px;width:260px;display:inline-block;float:left;">
-                            <div style="width:260px;height:390px">
-                                <div style="width:260px;height:390px;text-align:left;">
-                                    <div style="height:50px;"></div>
-                                    <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
-                                        <img class="partner-img" id="partner-img-essmart" src="/assets/img/landing/essmart.png">
-                                    </div>
-                                    <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.essmart-global.com" target="_blank"><i id="partner-website">essmart-global.com</i></a></p>
-                                    <p class="partner-description"><i>Essmart is a distribution company operating in Tamil Nadu that connects local shops with a catalogue of quality, affordable, essential products, providing marketing, distribution, and after-sales service.</i></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
-                        <div style="height:410px;width:260px;display:inline-block;float:left;">
-                            <div style="width:260px;height:390px">
-                                <div style="width:260px;height:390px;text-align:left;">
-                                    <div style="height:50px;"></div>
-                                    <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
-                                        <img class="partner-img" id="partner-img-hackidemia" src="/assets/img/landing/hackidemia.png">
-                                    </div>
-                                    <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.hackidemia.com" target="_blank"><i id="partner-website">hackidemia.com</i></a></p>
-                                    <p class="partner-description"><i>HacKIDemia designs workshops and kits that help kids use curiosity, empathy, and play to change the world.</i></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="width:940px;height:410px;" class=" item ">
-                        <div style="height:410px;width:260px;display:inline-block;float:left;">
-                            <div style="width:260px;height:390px">
-                                <div style="width:260px;height:390px;text-align:left;">
-                                    <div style="height:50px;"></div>
-                                    <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
-                                        <img class="partner-img" id="partner-img-startupweekend" src="/assets/img/landing/startup-weekend.png">
-                                    </div>
-                                    <p class="partner-website"><a style="color:#c62530 !important;" href="http://startupweekend.org" target="_blank"><i id="partner-website">startupweekend.org</i></a></p>
-                                    <p class="partner-description"><i>Startup Weekend is a global network of passionate leaders and entrepreneurs on a mission to inspire, educate, and empower individuals, teams and communities. Come share ideas, form teams, and launch startups.</i></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
-                        <div style="height:410px;width:260px;display:inline-block;float:left;">
-                            <div style="width:260px;height:390px">
-                                <div style="width:260px;height:390px;text-align:left;">
-                                    <div style="height:50px;"></div>
-                                    <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
-                                        <img class="partner-img" id="partner-img-uber" src="/assets/img/landing/uber.jpg">
-                                    </div>
-                                    <p class="partner-website"><a style="color:#c62530 !important;" href="https://www.uber.com" target="_blank"><i id="partner-website">uber.com</i></a></p>
-                                    <p class="partner-description"><i>Uber is a mobile app that seamlessly connects riders to local, licensed, professional drivers. The Uber app lets you leave your car at home and request a safe, reliable and stylish ride within minutes.</i></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
-                        <div style="height:410px;width:260px;display:inline-block;float:left;">
-                            <div style="width:260px;height:390px">
-                                <div style="width:260px;height:390px;text-align:left;">
-                                    <div style="height:50px;"></div>
-                                    <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
-                                        <img class="partner-img" id="partner-img-startupdash" src="/assets/img/landing/startupdash.png">
-                                    </div>
-                                    <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.startupdash.in" target="_blank"><i id="partner-website">startupdash.in</i></a></p>
-                                    <p class="partner-description"><i>Inc42 Magazine, TLabs and Nasscom 10,000 Startups have teamed up to bring India's first highly curated event for early stage startups, StartupDash, which will act as a catalyst for startups in MVP stage.</i></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="width:940px;height:410px;" class=" item ">
-                        <div style="height:410px;width:260px;display:inline-block;float:left;">
-                            <div style="width:260px;height:390px">
-                                <div style="width:260px;height:390px;text-align:left;">
-                                    <div style="height:50px;"></div>
-                                    <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
-                                        <img class="partner-img" id="partner-img-rhok" src="/assets/img/landing/rhok.png">
-                                    </div>
-                                    <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.rhok.org" target="_blank"><i id="partner-website">rhok.org</i></a></p>
-                                    <p class="partner-description"><i>RHoK is a global initiative encompassing over 5,500 innovators in over 30 countries making the world a better place by developing solutions to respond to some of the most complex challenges facing humanity.</i></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
-                        <div style="height:410px;width:260px;display:inline-block;float:left;">
-                            <div style="width:260px;height:390px">
-                                <div style="width:260px;height:390px;text-align:left;">
-                                    <div style="height:50px;"></div>
-                                    <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
-                                        <img class="partner-img" id="partner-img-haggle" src="/assets/img/landing/haggle.png">
-                                    </div>
-                                    <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.gethaggle.com" target="_blank"><i id="partner-website">gethaggle.com</i></a></p>
-                                    <p class="partner-description"><i>Haggle, a startup headquartered in NY, is changing commerce to make everyone get a personalized price for each transaction by using our inherent value.</i></p>
-                                </div>
+                                <p class="partner-website"><a style="color:#c62530 !important;" href="http://sandboxcollective.org" target="_blank"><i id="partner-website">sandboxcollective.org</i></a></p>
+                                <p class="partner-description"><i>Sandbox is a Bangalore-based artists’ collective comprising a group of artists and art administrators working together to expand the scope of performance arts.</i></p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div style="width:940px;height:410px;">
+                    <div style="height:410px;width:260px;display:inline-block;float:left;">
+                        <div style="width:260px;height:390px">
+                            <div style="width:260px;height:390px;text-align:left;">
+                                <div style="height:50px;"></div>
+                                <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
+                                    <img class="partner-img" id="partner-img-blrmakespace" src="/assets/img/landing/blr-make-space.jpg">
+                                </div>
+                                <p class="partner-website"><a style="color:#c62530 !important;" href="https://www.facebook.com/groups/blrmakespace/" target="_blank"><i id="partner-website">facebook.com/groups/blrmakespace</i></a></p>
+                                <p class="partner-description"><i>Bangalore Make Space is a forum for Makers, Creators, DIY enthusiasts and Hobbyists who identify with the Global Maker Movement, Makerspaces, FabLabs and other avenues of Open Source Creativity.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
+                    <div style="height:410px;width:260px;display:inline-block;float:left;">
+                        <div style="width:260px;height:390px">
+                            <div style="width:260px;height:390px;text-align:left;">
+                                <div style="height:50px;"></div>
+                                <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
+                                    <img class="partner-img" id="partner-img-essmart" src="/assets/img/landing/essmart.png">
+                                </div>
+                                <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.essmart-global.com" target="_blank"><i id="partner-website">essmart-global.com</i></a></p>
+                                <p class="partner-description"><i>Essmart is a distribution company operating in Tamil Nadu that connects local shops with a catalogue of quality, affordable, essential products, providing marketing, distribution, and after-sales service.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
+                    <div style="height:410px;width:260px;display:inline-block;float:left;">
+                        <div style="width:260px;height:390px">
+                            <div style="width:260px;height:390px;text-align:left;">
+                                <div style="height:50px;"></div>
+                                <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
+                                    <img class="partner-img" id="partner-img-hackidemia" src="/assets/img/landing/hackidemia.png">
+                                </div>
+                                <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.hackidemia.com" target="_blank"><i id="partner-website">hackidemia.com</i></a></p>
+                                <p class="partner-description"><i>HacKIDemia designs workshops and kits that help kids use curiosity, empathy, and play to change the world.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width:940px;height:410px;">
+                    <div style="height:410px;width:260px;display:inline-block;float:left;">
+                        <div style="width:260px;height:390px">
+                            <div style="width:260px;height:390px;text-align:left;">
+                                <div style="height:50px;"></div>
+                                <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
+                                    <img class="partner-img" id="partner-img-startupweekend" src="/assets/img/landing/startup-weekend.png">
+                                </div>
+                                <p class="partner-website"><a style="color:#c62530 !important;" href="http://startupweekend.org" target="_blank"><i id="partner-website">startupweekend.org</i></a></p>
+                                <p class="partner-description"><i>Startup Weekend is a global network of passionate leaders and entrepreneurs on a mission to inspire, educate, and empower individuals, teams and communities. Come share ideas, form teams, and launch startups.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
+                    <div style="height:410px;width:260px;display:inline-block;float:left;">
+                        <div style="width:260px;height:390px">
+                            <div style="width:260px;height:390px;text-align:left;">
+                                <div style="height:50px;"></div>
+                                <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
+                                    <img class="partner-img" id="partner-img-uber" src="/assets/img/landing/uber.jpg">
+                                </div>
+                                <p class="partner-website"><a style="color:#c62530 !important;" href="https://www.uber.com" target="_blank"><i id="partner-website">uber.com</i></a></p>
+                                <p class="partner-description"><i>Uber is a mobile app that seamlessly connects riders to local, licensed, professional drivers. The Uber app lets you leave your car at home and request a safe, reliable and stylish ride within minutes.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
+                    <div style="height:410px;width:260px;display:inline-block;float:left;">
+                        <div style="width:260px;height:390px">
+                            <div style="width:260px;height:390px;text-align:left;">
+                                <div style="height:50px;"></div>
+                                <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
+                                    <img class="partner-img" id="partner-img-startupdash" src="/assets/img/landing/startupdash.png">
+                                </div>
+                                <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.startupdash.in" target="_blank"><i id="partner-website">startupdash.in</i></a></p>
+                                <p class="partner-description"><i>Inc42 Magazine, TLabs and Nasscom 10,000 Startups have teamed up to bring India's first highly curated event for early stage startups, StartupDash, which will act as a catalyst for startups in MVP stage.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width:940px;height:410px;">
+                    <div style="height:410px;width:260px;display:inline-block;float:left;">
+                        <div style="width:260px;height:390px">
+                            <div style="width:260px;height:390px;text-align:left;">
+                                <div style="height:50px;"></div>
+                                <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
+                                    <img class="partner-img" id="partner-img-rhok" src="/assets/img/landing/rhok.png">
+                                </div>
+                                <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.rhok.org" target="_blank"><i id="partner-website">rhok.org</i></a></p>
+                                <p class="partner-description"><i>RHoK is a global initiative encompassing over 5,500 innovators in over 30 countries making the world a better place by developing solutions to respond to some of the most complex challenges facing humanity.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
+                    <div style="height:410px;width:260px;display:inline-block;float:left;">
+                        <div style="width:260px;height:390px">
+                            <div style="width:260px;height:390px;text-align:left;">
+                                <div style="height:50px;"></div>
+                                <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
+                                    <img class="partner-img" id="partner-img-angelhack" src="/assets/img/landing/angelhack.png">
+                                </div>
+                                <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.angelhack.com" target="_blank"><i id="partner-website">angelhack.com</i></a></p>
+                                <p class="partner-description"><i>AngelHack is the premier developer relations platform providing aspiring developers, entrepreneurs, start-ups, small and fortune 500 businesses the best developer tools and developer outreach programs.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height:410px;width:80px;display:inline-block;float:left;"></div>
+                    <div style="height:410px;width:260px;display:inline-block;float:left;">
+                        <div style="width:260px;height:390px">
+                            <div style="width:260px;height:390px;text-align:left;">
+                                <div style="height:50px;"></div>
+                                <div style="height:130px;width:260px;max-width:260px;vertical-align:middle;display:table-cell;">
+                                    <img class="partner-img" id="partner-img-haggle" src="/assets/img/landing/haggle.png">
+                                </div>
+                                <p class="partner-website"><a style="color:#c62530 !important;" href="http://www.gethaggle.com" target="_blank"><i id="partner-website">gethaggle.com</i></a></p>
+                                <p class="partner-description"><i>Haggle, a startup headquartered in NY, is changing commerce to make everyone get a personalized price for each transaction by using our inherent value.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="height:35px;"></div>
             </div>
         </div>
     </div>
