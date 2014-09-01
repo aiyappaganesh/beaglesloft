@@ -18,12 +18,10 @@ handlers:
   script: warmup_requests.app
   secure: always
 
+######################### REST ENDPOINTS #########################
+
 - url: /api/members/.*
   script: handlers.rest.members.app
-  secure: never
-
-- url: /members/.*
-  script: handlers.web.members.app
   secure: never
 
 - url: /api/events/.*
@@ -32,62 +30,6 @@ handlers:
 
 - url: /api/common/.*
   script: handlers.rest.common.app
-  secure: never
-
-- url: /
-  script: handlers.web.index.app
-  secure: never
-
-- url: /testspy
-  script: handlers.web.index.app
-  secure: never
-
-- url: /calendar
-  script: handlers.web.index.app
-  secure: never
-
-- url: /member_registration
-  script: handlers.web.index.app
-  secure: never
-
-- url: /member_fbregistration
-  script: handlers.web.index.app
-  secure: never
-
-- url: /member_access
-  script: handlers.web.index.app
-  secure: never
-
-- url: /member_access_question
-  script: handlers.web.index.app
-  secure: never
-
-- url: /accept_contact
-  script: handlers.web.index.app
-  secure: never
-
-- url: /validate_access_code
-  script: handlers.web.index.app
-  secure: never
-
-- url: /events.*
-  script: handlers.web.events.app
-  secure: never
-
-- url: /create_event
-  script: handlers.web.index.app
-  secure: never
-
-- url: /community
-  script: handlers.web.index.app
-  secure: never
-
-- url: /buzz
-  script: handlers.web.index.app
-  secure: never
-
-- url: /contact
-  script: handlers.web.index.app
   secure: never
 
 ######################### STATIC ENDPOINTS #########################
@@ -106,6 +48,16 @@ handlers:
 
 - url: /assets/fonts
   static_dir: assets/fonts
+  secure: never
+
+######################### WEB ENDPOINTS #########################
+
+- url: /members/.*
+  script: handlers.web.members.app
+  secure: never
+
+- url: /.*
+  script: handlers.web.app
   secure: never
 
 libraries:

@@ -9,21 +9,14 @@ reg_v = re.compile(r"1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er
 
 class EventsPage(WebRequestHandler):
     def get(self):
-        path = 'events.html'
-        ua = self.request.headers['User-Agent']
-        b = reg_b.search(ua)
-        v = reg_v.search(ua[0:4])
-        template_values = {'ua' : 'non-mobile'}
-        if b or v:
-            template_values['ua'] = 'mobile'
+        template_values = {}
         upcoming_events, past_events = Event.get_paged_events()
         template_values['past_events'] = past_events
         template_values['upcoming_events'] = upcoming_events
         template_values['is_member'] = True if 'member' in self.session else False
         if 'member' in self.session:
             template_values['member'] = Member.get_member_json(self.session['member'])
-
-        self.write(self.get_rendered_html(path, template_values), 200)
+        self.render_template(template_name=None, template_values=template_values)
 
 class CreateEventPage(WebRequestHandler):
     def get(self):
