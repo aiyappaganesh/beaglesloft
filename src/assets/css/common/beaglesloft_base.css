@@ -34,7 +34,12 @@ x.landing-nav li a:hover{
 
 /* dropdown */
 .dropdown {
-    width: 12%;
+    width: 50px;
+    background-color: #c72430;
+}
+
+.dropdown>a {
+    background-color: #c72430 !important;
 }
 
 .dropdown-menu{
@@ -44,13 +49,20 @@ x.landing-nav li a:hover{
     overflow: auto;
     overflow-y: scroll;
     padding: 0px;
-    border: 1px solid black;
+    background-color: #c72430;
 }
 
 .dropdown-menu>li{
-    border: 1px solid black;
+    border: 1px solid #cc4545;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.dropdown-menu li a {
+    color:#ffffff;
+    background: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
 }
 
 .dropdown-menu li a:hover {
@@ -380,7 +392,7 @@ footer {
         min-height:40px;
     }
     .navbar .nav>li{
-        padding-left:10px;
+        margin-left:10px;
         text-align: center;
     }
     .dropdown>a{
@@ -388,15 +400,17 @@ footer {
     }  
     .nav{
         width:100%;
-        background: url('/assets/img/landing/beagles-grunge-small-wide.png') no-repeat center;
-        background-size: 50px 30px;
+        background: url('/assets/img/landing/beagles-logo-large.png') no-repeat center;
+        background-size: 30px 30px;
+    }
+    .nav>li>a:hover, .nav>li>a:focus {
+        background: none;
     }
     .navbar .nav{
         max-height: 35px;
     }
     .nav>li>a>img {
-        height:20px;
-        padding-top:10px;
+        margin-top:10px;
     }
     .navbar-inner{
         min-height:10px;

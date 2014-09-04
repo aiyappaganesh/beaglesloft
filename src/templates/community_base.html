@@ -74,11 +74,11 @@
                                                 <div style="text-align:center">BLOG</div>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="/member_access" class="nav-link">
-                                                <div style="text-align:center">JOIN</div>
-                                            </a>
-                                        </li>
+                                        <!--<li>-->
+                                            <!--<a href="/member_access" class="nav-link">-->
+                                                <!--<div style="text-align:center">JOIN</div>-->
+                                            <!--</a>-->
+                                        <!--</li>-->
                                     </ul>
                                 </li>
                                 <li class="haggle-logo-small">
@@ -92,6 +92,7 @@
         </div>
         <div class="content-page" style="height:100%;overflow-x:hidden;overflow-y:scroll;">
             {% block Content %}{% endblock %}
+            {% block Footer %}{% endblock %}
         </div>
         <script src="/assets/js/lib/jquery.min.js"></script>
         <script src="/assets/js/lib/jquery-ui.js"></script>
