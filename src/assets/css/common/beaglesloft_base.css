@@ -186,9 +186,14 @@ hr{
 
 .wrap {
     min-height: 100%;
+    height:100%
 }
 
 .content-page {
+    height:100%;
+    overflow-x:hidden;
+    overflow-y:scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 html {
@@ -206,8 +211,6 @@ body {
 
 @media (max-width: 767px) {
     body{
-        padding-left: 2px;
-        padding-right: 2px;
     }
     .wrap {
         min-width: 100%;
@@ -254,6 +257,14 @@ body {
     overflow: auto;
     padding-bottom: 0px;
     padding-top: 0px;
+}
+
+.collapse-820 {
+    padding-top:10px;padding-bottom:10px;padding-left:0px;padding-right:0px;margin:0px;width:940px;margin:auto;
+}
+
+#navbar-inner-row {
+    height:50px;
 }
 
 @media (min-width: 979px) {
@@ -323,6 +334,7 @@ footer {
     background-image: none;
     background-repeat: no-repeat;
     filter: none;
+    text-align:center;
 }
 
 .nav>li>a {
@@ -335,6 +347,10 @@ footer {
     -webkit-transform: translateY(-100%);
     transition: transform 1s;
     transform: translateY(-100%);
+    height:70px;
+    width:100%;
+    background-color:rgba(48,46,46,0.95);
+    position:absolute;
 }
 
 .navbar .nav>li>a{
@@ -417,6 +433,19 @@ footer {
     }
     .navbar-fixed-top .navbar-inner {
         padding: 5px;
+    }
+    #navbar-fluid {
+        -webkit-transform: translateY(0%);
+        -webkit-transition: -webkit-transform 0.5s;
+        transform: translateY(0%);
+        transition: none;
+    }
+    .content-page {
+        -webkit-transform: translateY(50px);
+        -o-transform: translateY(50px);
+        -moz-transform: translateY(50px);
+        -ms-transform: translateY(50px);
+        transform: translateY(50px);
     }
 }
 
