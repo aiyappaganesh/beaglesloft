@@ -55,31 +55,9 @@
                         <div class="col-md-12">
                             <ul class="nav">
                                 <li class="dropdown">
-                                    <a style="padding:0px" href="#" data-toggle="dropdown">
+                                    <a style="padding:0px" href="#" data-toggle="modal" data-target="#mobile-menu-modal">
                                         <img src="/assets/img/Haggle_Mobile_navbar_menu_icon.png" alt="Menu Icon" height="20"/>
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="/events" class="nav-link">
-                                                <div style="text-align:center">EVENTS</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/community" class="nav-link">
-                                                <div style="text-align:center">COMMUNITY</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="http://beaglesblog.tumblr.com" target="_blank" class="">
-                                                <div style="text-align:center">BLOG</div>
-                                            </a>
-                                        </li>
-                                        <!--<li>-->
-                                            <!--<a href="/member_access" class="nav-link">-->
-                                                <!--<div style="text-align:center">JOIN</div>-->
-                                            <!--</a>-->
-                                        <!--</li>-->
-                                    </ul>
                                 </li>
                                 <li class="haggle-logo-small">
                                     <a style="padding:0px;margin-left:75px" id="vendor-header-link" class="brand" href="/#"></a>
@@ -100,5 +78,43 @@
         <script src="/assets/js/community.js"></script>
         {% block Scripts %}{% endblock %}
     </div>
+
+    <div id="mobile-menu-modal" class="modal fade">
+        <div class="bglft-modal-dialog-header modal-header">
+            <a class="pull-left close" data-dismiss="modal" href="#">&times;</a>
+        </div>
+        <div class="bglft-modal-dialog-body modal-body">
+            <ul>
+                <li>
+                    <a href="/#" class="nav-link">
+                        <div style="text-align:center">HOME</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/events" class="nav-link">
+                        <div style="text-align:center">EVENTS</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/community" class="nav-link">
+                        <div style="text-align:center">COMMUNITY</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://beaglesblog.tumblr.com" target="_blank" class="">
+                        <div style="text-align:center">BLOG</div>
+                    </a>
+                </li>
+                <!--<li>-->
+                    <!--<a href="/member_access" class="nav-link">-->
+                        <!--<div style="text-align:center">JOIN</div>-->
+                    <!--</a>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="bglft-modal-dialog-body modal-footer" style="text-align:center">
+        </div>
+    </div>
+
 </body>
 </html>
