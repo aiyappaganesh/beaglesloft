@@ -1,0 +1,65 @@
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div id="create-newsletter" class="registration-background">
+    <div style="height:100px"></div>
+    <div style="height:820px">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 registration-text" style="background-color:rgba(0,0,0,0.9);padding:80px;">
+            <form action={{ form_url }} method="POST" enctype="multipart/form-data">
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           TIME (India Time):
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <input class="blanks" name="date_time" type="datetime-local">
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           LINK:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <input class="blanks" style="width:100%" type="url" name="link" placeholder="http://www.newsletter_url.com">
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-xs-6">
+                       <p>
+                           SNAPSHOT:
+                       </p>
+                    </div>
+                    <div class="col-xs-6">
+                       <p>
+                           <input style="width:100%" type="file" name="snapshot" placeholder="Snapshot of newsletter">
+                       </p>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                       <input type="submit" value="ADD NEWSLETTER" style="color:#c62530">
+                   </p>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block Scripts %}
+<script src="/assets/js/member-registration.js"></script>
+{% endblock %}

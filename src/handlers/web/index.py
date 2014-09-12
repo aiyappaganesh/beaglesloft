@@ -2,7 +2,7 @@ import webapp2
 from auth import access_code_required, login_required
 from handlers.web import WebRequestHandler
 import re
-from model import Member
+from model import Member, Newsletter
 from google.appengine.api import mail
 from google.appengine.api.blobstore import blobstore
 import json
@@ -79,6 +79,27 @@ class ContactPage(WebRequestHandler):
     def get(self):
         path = 'contact.html'
         self.write(self.get_rendered_html(path, {}), 200)
+
+class NewslettersPage(WebRequestHandler):
+    def get(self):
+        template_values = {}
+        newsletters = Newsletter.get_paged_newsletters()
+        template_values['newsletters'] = newsletters
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
+        self.render_template(template_name=None, template_values=template_values)
+
+class CreateNewsletterPage(WebRequestHandler):
+    def get(self):
+        path = 'create_newsletter.html'
+        template_values = {}
+        form_url = blobstore.create_upload_url('/api/common/save_newsletter')
+        template_values['form_url'] = form_url
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
+        self.write(self.get_rendered_html(path, template_values), 200)
 
 app = webapp2.WSGIApplication(
     [

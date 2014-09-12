@@ -1,0 +1,129 @@
+.section1 {
+    height: 400px;
+    background: no-repeat url('/assets/img/landing/events-header.jpg');
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+}
+
+.section1-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 19px;
+    padding:15px;
+    text-align:center;
+    width:auto;
+    background-color:#c62530;
+    color:#ffffff;
+    margin: auto;
+    position: relative;
+    top: 150px;
+}
+
+.section3 {
+    background-color:#f2f2f2;
+}
+
+.section3-title {
+    text-align:left;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size:20px;
+    color:#000000;
+    padding-top:20px;
+    max-width: 255px;
+    margin: auto;
+    margin-bottom:10px;
+}
+
+.section3-learn-more-button {
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+    background-color:#FF0017;
+    width:auto;
+    height:40px;
+    color:#FFFFFF;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size:16px;
+    border:2px solid #FF0017;
+    -webkit-transition: color 0.25s ease-in;
+    -webkit-transition: background-color 0.25s ease-in;
+    transition: color 0.25s ease-in;
+    transition: background-color 0.25s ease-in;
+}
+
+.section3-upcoming-button-container {
+    background-color:#ffffff;
+    text-align:center;
+}
+
+.section3-newsletter-container {
+    padding-right: 10px;
+    padding-left: 10px;
+    max-width: 250px;
+    min-width: 250px;
+    margin: auto;
+    background-color: #FFFFFF;
+}
+
+.section3-newsletter-image {
+    height:175px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.section3-newsletter-date-attendees {
+    height:42px;
+    border-bottom: 1px solid lightgrey;
+    background-color:#ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size:14px;
+    color:#535353;
+    padding:14px;
+    line-height:14px;
+    text-transform:uppercase;
+}
+
+.section3-newsletter-name-desc {
+    height:160px;
+    border-bottom: 1px solid lightgrey;
+    background-color:#ffffff;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 300;
+    font-size:12px;
+    padding:20px;
+}
+
+.section3-newsletter-name {
+    text-align:left;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size:22px;
+    text-transform:uppercase;
+    word-wrap:break-word;
+}
+
+.section3-newsletter-desc {
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.section3-newsletter-table {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 300px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.section3-newsletter-table-container {
+    overflow-x: hidden;
+    max-width: 255px;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 10px;
+}

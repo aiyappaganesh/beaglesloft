@@ -1,0 +1,41 @@
+{% extends "mobile/mobile_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/mobile/newsletters.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+    <div class="section1">
+        <span class="section1-title">NEWSLETTERS</span>
+    </div>
+    <div class="section2"></div>
+    <div class="section3">
+        <p class="section3-title">NEWSLETTERS</p>
+        <div class="section3-newsletter-table-container">
+            <div class="section3-newsletter-table">
+                <table>
+                    <tbody>
+                        <tr>
+                            {% for k, v in newsletters.items %}
+                                {% for newsletter in v %}
+                                    <td class="section3-newsletter-container section3-newsletter-table-item">
+                                        <div><a target="_blank" href="{{newsletter.link}}"><div class="section3-newsletter-image" style="background-image:url('{% if newsletter.snapshot %}/api/common/download_image/{{newsletter.snapshot}}{% else %}/assets/img/landing/loftlaunch.jpg{% endif %}');"></div></a></div>
+                                        <div class="section3-newsletter-date-attendees"><p>{{newsletter.date}}</p></div>
+                                        <div class="section3-upcoming-button-container">
+                                            <a target="_blank" href="{{newsletter.link}}" onclick="ga('send', 'newsletter', 'Newsletters Page', 'click', 'Learn More Button - Past ' + '{{ newsletter.link }}')">
+                                                <button class="section3-learn-more-button" value="LEARN MORE">LEARN MORE</button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                {% endfor %}
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block Scripts %}
+{% endblock %}
