@@ -67,10 +67,10 @@
                             events[i][2]+
                             '&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" href="/events/edit_event?id='+
                             events[i][1]+
-                            '">EDIT</a>&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" onclick=deleteEvent('+
-                            '"'+events[i][0]+'",'+
-                            '"'+events[i][1]+'"'+
-                            ')>DELETE</a></p>'
+                            '">EDIT</a>&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" onclick="deleteEvent(\''+
+                            events[i][0]+'\',\''+
+                            events[i][1]+
+                            '\')">DELETE</a></p>'
                         );
                     }
                 } else {
