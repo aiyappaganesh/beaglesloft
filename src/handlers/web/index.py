@@ -101,6 +101,14 @@ class CreateNewsletterPage(WebRequestHandler):
             template_values['member'] = Member.get_member_json(self.session['member'])
         self.write(self.get_rendered_html(path, template_values), 200)
 
+class SubscribeNewsletterPage(WebRequestHandler):
+    def get(self):
+        template_values = {}
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
+        self.render_template(template_name=None, template_values=template_values)
+
 app = webapp2.WSGIApplication(
     [
     ]

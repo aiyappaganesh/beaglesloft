@@ -10,6 +10,7 @@ from auth import login_required
 from handlers.web import WebRequestHandler
 from webapp2_extras.security import generate_password_hash, check_password_hash
 from config.config import *
+from util import mailchimp
 
 class MemberCreateHandler(RequestHandler):
     def post(self):
@@ -169,6 +170,15 @@ class LoginHandler(RequestHandler):
             ),200,'application/json'
         )
 
+class SubscribeNewsletterHandler(RequestHandler):
+    def post(self):
+        email = self['email']
+        if email:
+            self.write(
+                json.dumps(
+                    mailchimp.subscribe(email).content
+                ),200,'application/json'
+            )
 
 app = RestApplication([ ("/api/members/login", LoginHandler),
                         ("/api/members/([^/]+)/update", MemberUpdateHandler),
@@ -178,4 +188,5 @@ app = RestApplication([ ("/api/members/login", LoginHandler),
                         ("/api/members/get_all_members", AllMembersFetchHandler),
                         ("/api/members/validate_access_code", ValidateAccessCodeHandler),
                         ("/api/members/process_access_answer", ProcessAccessAnswerHandler),
-                        ("/api/members/fetch_access_question", FetchAccessQuestionHandler)])
+                        ("/api/members/fetch_access_question", FetchAccessQuestionHandler),
+                        ("/api/members/subscribe_to_newsletter", SubscribeNewsletterHandler)])

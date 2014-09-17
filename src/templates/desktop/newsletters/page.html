@@ -3,50 +3,46 @@
 {% block Styles %}
 <link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
 <link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/desktop/newsletters.css" type="text/css" rel="stylesheet">
 {% endblock %}
 
 {% block Content %}
-<div id="newsletters" style="background-color:#f2f2f2;margin:0px;" class="full-width">
-    <div class="full-width" style="text-align:center">
-        <div class="full-width landing-carousel-item" style="height:340px;background: url('/assets/img/landing/events-header.jpg') center center no-repeat;">
-            <div style="height:135px"></div>
-            <div style="height:90px;width:460px;margin:auto;background-color:#c62530;color:#ffffff;padding:20px;"><p class="page_heading">NEWSLETTERS</p></div>
+<div id="newsletters" class="full-width newsletters-container">
+    <div class="full-width newsletters-body">
+        <div class="full-width landing-carousel-item newsletters-header">
+            <div class="newsletters-header-title"><p class="page_heading">NEWSLETTERS</p></div>
         </div>
-        <div class="full-width" style="height:60px;background-color:#ffffff;text-align:center;">
-            <div style="height:60px;width:940px;margin:auto;"></div>
+        <div class="full-width newsletters-subscribe-outer-container">
+            <div class="newsletters-subscribe-inner-container">
+                <p class="page-select newsletters-subscribe" onclick="window.location.href='/subscribe_newsletter'">SUBSCRIBE TO NEWSLETTER</p>
+            </div>
         </div>
-        <div class="tab-page" id="newsletters-list" style="width:940px;margin:auto;">
-            <div style="height:35px;"></div>
-            <div>
-                {% for k, v in newsletters.items %}
-                    <div style="height:300px;">
-                        {% for newsletter in v %}
-                            <div style="width:300px;height:300px;display:inline-block;float:left;">
-                                <div style="text-align:center"><a target="_blank" href="{{newsletter.link}}"><div style="height:175px;width:300px;background-image:url('{% if newsletter.snapshot %}/api/common/download_image/{{newsletter.snapshot}}{% else %}/assets/img/landing/xino.jpeg{% endif %}');background-position: center;background-size: cover;background-repeat: no-repeat;"></div></a></div>
-                                <div style="height:42px;border-bottom: 1px solid lightgrey;background-color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 500;font-size:14px;color:#535353;padding:14px;line-height:14px;text-transform:uppercase;"><p>{{newsletter.date}}</p></div>
-                                <div style="height:80px;background-color:#ffffff;text-align:center;">
-                                    <div style="height:20px"></div>
-                                    <div style="height:40px;margin:auto;width:260px;">
-                                        <a target="_blank" href="{{newsletter.link}}" onclick="ga('send', 'newsletter', 'Newsletters Page', 'click', 'Learn More Button - Past ' + '{{ newsletter.link }}')">
-                                            <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
-                                        </a>
-                                    </div>
-                                    <div style="height:20px"></div>
+        <div class="tab-page newsletters-list-container" id="newsletters-list">
+            {% for k, v in newsletters.items %}
+                <div class="newsletters-row">
+                    {% for newsletter in v %}
+                        <div class="newsletter-container">
+                            <div class="newsletter-image-container"><a target="_blank" href="{{newsletter.link}}"><div class="newsletter-image" style="background-image:url('{% if newsletter.snapshot %}/api/common/download_image/{{newsletter.snapshot}}{% else %}/assets/img/landing/xino.jpeg{% endif %}');"></div></a></div>
+                            <div class="newsletter-date"><p>{{newsletter.date}}</p></div>
+                            <div class="learn-more-button-outer">
+                                <div class="learn-more-button-inner">
+                                    <a target="_blank" href="{{newsletter.link}}" onclick="ga('send', 'newsletter', 'Newsletters Page', 'click', 'Learn More Button - Past ' + '{{ newsletter.link }}')">
+                                        <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
+                                    </a>
                                 </div>
                             </div>
-                            {% if not forloop.last %}
-                                <div style="width:20px;height:300px;display:inline-block;float:left;">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    {% if not forloop.last %}
-                        <div style="height:24px;">
                         </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <div style="height:165px;"></div>
+                        {% if not forloop.last %}
+                            <div class="newsletter-container-separator">
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% if not forloop.last %}
+                    <div class="newsletters-row-separator">
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
     <footer class="beaglesloft-footer">

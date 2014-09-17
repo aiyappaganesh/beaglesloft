@@ -1,6 +1,6 @@
 .section1 {
     height: 400px;
-    background: no-repeat url('/assets/img/landing/events-header.jpg');
+    background: no-repeat url('/assets/img/landing/newsletters-header.jpg');
     background-size: cover;
     background-position: center center;
     text-align: center;
@@ -28,8 +28,8 @@
     text-align:left;
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size:20px;
-    color:#000000;
+    font-size:16px;
+    color:#c62530;
     padding-top:20px;
     max-width: 255px;
     margin: auto;

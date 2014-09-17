@@ -1,0 +1,117 @@
+.newsletters-container {
+    background-color:#f2f2f2;
+    margin:0px;
+}
+
+.newsletters-body {
+    text-align:center;
+}
+
+.newsletters-header {
+    height:340px;
+    background: url('/assets/img/landing/newsletters-header.jpg') center center no-repeat;
+    padding-top:135px;
+}
+
+.newsletters-header-title {
+    height:90px;
+    width:460px;
+    margin:auto;
+    background-color:#c62530;
+    color:#ffffff;
+    padding:20px;
+}
+
+.newsletters-subscribe-outer-container {
+    height:60px;
+    background-color:#ffffff;
+    text-align:center;
+}
+
+.newsletters-subscribe-inner-container {
+    height:60px;
+    width:940px;
+    margin:auto;
+}
+
+.newsletters-subscribe {
+    margin-bottom:0px;
+    text-align:left;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size:20px;
+    color:#c62530;
+    padding-top:20px;
+    line-height:20px;
+    display:inline-block;
+    float:left;
+    cursor:pointer;
+}
+
+.newsletters-list-container {
+    width:940px;
+    margin:auto;
+    padding-top: 35px;
+    padding-bottom: 165px;
+}
+
+.newsletters-row {
+    height:300px;
+}
+
+.newsletters-row-separator {
+    height:24px;
+}
+
+.newsletter-container {
+    width:300px;
+    height:300px;
+    display:inline-block;
+    float:left;
+}
+
+.newsletter-container-separator {
+    width:20px;
+    height:300px;
+    display:inline-block;
+    float:left;
+}
+
+.newsletter-image-container {
+    text-align:center
+}
+
+.newsletter-image {
+    height:175px;
+    width:300px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.newsletter-date {
+    height:42px;
+    border-bottom: 1px solid lightgrey;
+    background-color:#ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size:14px;
+    color:#535353;
+    padding:14px;
+    line-height:14px;
+    text-transform:uppercase;
+}
+
+.learn-more-button-outer {
+    height:80px;
+    background-color:#ffffff;
+    text-align:center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.learn-more-button-inner {
+    height:40px;
+    margin:auto;
+    width:260px;
+}

@@ -1,0 +1,49 @@
+{% extends "mobile/mobile_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/common/subscribe_newsletter.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div id="subscribe-newsletter" class="subscribe-newsletter">
+    <img id="dark-gate" src="/assets/img/landing/dark-gate.png" class="bg">
+    <img id="light-gate" src="/assets/img/landing/light-gate.png" class="bg" style="display:none">
+    <div class="main-content">
+        <img class="logo" src="/assets/img/landing/bl-logo-intro.png">
+        <div class="separator"></div>
+        <p id="message" class="message">ENTER YOUR EMAIL TO SUBSCRIBE TO THE NEWSLETTER</p>
+        <div class="separator"></div>
+        <div class="form-container">
+            <form id="subscribe-form" action="/api/members/subscribe_to_newsletter" method="POST">
+                <div>
+                    <input class="form-control subscription-input" id="email" name="email" placeholder="Email">
+                    <div class="subscribe-button" onclick="subscribe()">SUBSCRIBE</div>
+                    <p id="subscription-message" class="subscription-message"></p>
+                </div>
+            </form>
+        </div>
+        <div class="separator"></div>
+        <div class="social">
+            <a href="https://www.facebook.com/beaglesloft" target="_blank">
+                <img style="margin-right:10px;vertical-align:top;" src="/assets/img/landing/fb.png">
+            </a>
+            <a href="https://www.facebook.com/beaglesloft" target="_blank">
+                LIKE US ON FACEBOOK
+            </a>
+            <div class="separator"></div>
+            <a href="https://twitter.com/BeaglesLoft" target="_blank">
+                <img style="margin-right:10px;vertical-align:top;" src="/assets/img/landing/tw.png">
+            </a>
+            <a href="https://twitter.com/BeaglesLoft" target="_blank">
+                FOLLOW US ON TWITTER
+            </a>
+        </div>
+        <div class="separator"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block Scripts %}
+        <script src="/assets/js/common/subscribe_newsletter.js"></script>
+{% endblock %}

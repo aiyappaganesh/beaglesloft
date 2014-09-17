@@ -1,0 +1,149 @@
+.subscribe-newsletter {
+    background-color: #575555;
+    height:120%;
+    position:relative;
+    text-align:center;
+}
+
+.main-content {
+    position:absolute;
+    top:5%;
+    width:100%;
+}
+
+.logo {
+    margin:auto;
+    height:150px;
+    width:150px;
+}
+
+.separator {
+    margin:auto;
+    height:30px;
+}
+
+.message {
+    margin:auto;
+    color:#515151;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size:17px;
+    text-align:center;
+}
+
+.form-container {
+    margin:auto;
+    min-height:160px;
+    width:500px;
+    background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;
+    background-size: cover;
+    text-align:center;
+}
+
+.subscribe-button {
+    margin-top:15px;
+    margin-bottom:18px;
+    height:55px;
+    background:url('/assets/img/landing/access/submit-button.png') no-repeat;
+    margin-left:50px;
+    margin-right:50px;
+    color:#ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size:17px;
+    padding-top:18px;
+    line-height:17px;
+    cursor:pointer;
+}
+
+a:focus{outline:none}
+input:focus{outline:none}
+textarea:focus{outline:none;}
+
+.subscription-input {
+    margin:auto;
+    width:400px;
+    height:60px;
+    text-align:center;
+    background-color:rgba(255,255,255,0.1);
+    border:none;
+    color:#c62530;
+    font-size:26px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: table-cell;
+    border-radius: 0px;
+}
+
+.subscription-message {
+    color:#c62530;
+    font-size:26px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+}
+
+.social {
+    text-align:center;
+    background-color:#e5e5e5;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    padding-top: 21.5px;
+    vertical-align:middle;
+    line-height: 32px;
+    padding-bottom: 21.5px;
+    width: 400px;
+    margin: auto;
+}
+
+.social>a {
+    color:#44433f !important;
+}
+
+.social>a:hover {
+    color:#c62430 !important;
+}
+
+@media (max-width: 979px) {
+    .logo {
+        height:75px;
+        width:75px;
+    }
+
+    .message {
+        font-weight: 600;
+        font-size:12px;
+    }
+
+    .form-container {
+        height:160px;
+        width:250px;
+    }
+
+    .subscription-input {
+        width:200px;
+        height:45px;
+        font-size:16px;
+        font-weight: 300;
+    }
+
+    .subscribe-button {
+        height:45px;
+        margin-left:25px;
+        margin-right:25px;
+        padding-top:14px;
+        font-size: 15px;
+    }
+
+    .subscription-message {
+        font-size:12px;
+        font-weight: 600;
+    }
+
+    .social {
+        width: 200px;
+        font-size: 13px;
+    }
+}
