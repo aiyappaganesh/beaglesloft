@@ -136,30 +136,3 @@
 .carousel-inner {
     height:100%;
 }
-
-.section3-carousel-item {
-    text-align:center;
-    height:100%;
-    -webkit-background-size: cover !important;
-    -moz-background-size: cover !important;
-    -o-background-size: cover !important;
-    background-size: cover !important;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-.section3-carousel-item-title {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 300;
-    font-size: 38px;
-    padding:20px;
-    text-align:left;
-    position:absolute;
-    width:auto;
-    background-color:#c62530;
-    color:#ffffff;
-    top:75%;
-    z-index:20;
-    left:0%;
-    margin: 0px;
-}
