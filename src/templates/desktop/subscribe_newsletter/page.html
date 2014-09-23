@@ -12,12 +12,14 @@
     <div class="main-content">
         <img class="logo" src="/assets/img/landing/bl-logo-intro.png">
         <div class="separator"></div>
-        <p id="message" class="message">ENTER YOUR EMAIL TO SUBSCRIBE TO THE NEWSLETTER</p>
+        <p id="message" class="message">ENTER YOUR DETAILS TO SUBSCRIBE TO THE NEWSLETTER</p>
         <div class="separator"></div>
         <div class="form-container">
             <form id="subscribe-form" action="/api/members/subscribe_to_newsletter" method="POST">
                 <div>
                     <input class="form-control subscription-input" id="email" name="email" placeholder="Email">
+                    <input class="form-control subscription-input" id="fname" name="fname" placeholder="First Name">
+                    <input class="form-control subscription-input" id="lname" name="lname" placeholder="Last Name">
                     <div class="subscribe-button" onclick="subscribe()">SUBSCRIBE</div>
                     <p id="subscription-message" class="subscription-message"></p>
                 </div>

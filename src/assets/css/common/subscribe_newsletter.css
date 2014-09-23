@@ -118,7 +118,7 @@ textarea:focus{outline:none;}
     }
 
     .form-container {
-        height:160px;
+        min-height:160px;
         width:250px;
     }
 

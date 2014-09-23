@@ -173,10 +173,12 @@ class LoginHandler(RequestHandler):
 class SubscribeNewsletterHandler(RequestHandler):
     def post(self):
         email = self['email']
+        fname = self['fname']
+        lname = self['lname']
         if email:
             self.write(
                 json.dumps(
-                    mailchimp.subscribe(email).content
+                    mailchimp.subscribe(email,fname,lname).content
                 ),200,'application/json'
             )
 

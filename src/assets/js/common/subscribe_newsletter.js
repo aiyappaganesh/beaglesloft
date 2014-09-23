@@ -13,7 +13,7 @@ function subscribe() {
         return false;
     }
     ga('send', 'event', 'Newsletter Subscription Page', 'click', 'Subscription Email Submitted');
-    $.post('/api/members/subscribe_to_newsletter',{'email':$('#email').val()})
+    $.post('/api/members/subscribe_to_newsletter',{'email':$('#email').val(),'fname':$('#fname').val(),'lname':$('#lname').val()})
         .done(function(data){
             data = JSON.parse(data);
             console.log(data);
@@ -23,7 +23,7 @@ function subscribe() {
                 $('#subscription-message').text('Error: '+data.name);
             } else {
                 ga('send', 'event', 'Newsletter Subscription Page', 'login-success', 'Subscription Successful');
-                $('#subscription-message').text('Success! A confirmation email has been sent to '+data.email+'. Please confirm your subscription to receive newsletters.');
+                $('#subscription-message').text('Success! A confirmation email has been sent to '+data.email);
                 $('#subscribe-form').find("input").each(function(){
                     $(this).val('');
                     $(this).text('');
