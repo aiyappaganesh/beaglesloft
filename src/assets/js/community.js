@@ -48,11 +48,14 @@ function highlightLink(link) {
     $(".nav-link").each(function(){
         st_ind = this.href.indexOf('#');
         if((st_ind != -1) && (this.href.substring(st_ind) == link.substring(link_st_ind))) {
-            this.style.textDecoration="overline";
+            this.style.textDecoration="none";
+            $(this).children().css({"color":"#fa7900"});
         } else if(accessed_page == this.href.substring(this.href.lastIndexOf('/'))) {
-            this.style.textDecoration="overline";
+            this.style.textDecoration="none";
+            $(this).children().css({"color":"#fa7900"});
         } else {
             this.style.textDecoration="none";
+            $(this).children().css({"color":"#ffffff"});
         }
     });
 }

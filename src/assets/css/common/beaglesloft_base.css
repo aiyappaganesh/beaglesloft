@@ -141,6 +141,11 @@ x.landing-nav li a:hover{
     font-size:22px;
 }
 
+.bglft-modal-dialog-body div:hover, .bglft-modal-dialog-body div:active {
+    color:#fa7900;
+    text-decoration: none;
+}
+
 .bglft-modal-dialog-body ul{
     padding-left: 0px;
     list-style-type: none;
