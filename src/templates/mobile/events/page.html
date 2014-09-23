@@ -11,14 +11,13 @@
     <div class="section2"></div>
     <div class="section3">
         <p class="section3-title">UPCOMING EVENTS</p>
-        {% if upcoming_events.0 %}
-            <div class="section3-event-table-container">
-                <div class="section3-event-table">
-                    <table>
-                        <tbody>
-                            <tr>
-                                {% for event in upcoming_events %}
-                                <td class="section3-event-container section3-event-table-item">
+        <div class="section3-event-table-container">
+            <div class="section3-event-table">
+                <div id="section3-upcoming-carousel" class="carousel slide section3-carousel" data-interval="4000" data-pause="false">
+                    <div class="carousel-inner">
+                        {% if upcoming_events.0 %}
+                            {% for event in upcoming_events %}
+                                <div class="item {% if forloop.first %}active{% endif %} section3-event-container section3-event-table-item">
                                     <div><a target="_blank" href="{{event.link}}"><div class="section3-event-image" style="background-image:url('{% if event.snapshot %}/api/common/download_image/{{event.snapshot}}{% else %}/assets/img/landing/xino.jpeg{% endif %}');"></div></a></div>
                                     <div class="section3-event-date-attendees"><p class="pull-left">{{event.date}}</p><p class="pull-right">{{event.attendees}} PARTICIPANTS</p></div>
                                     <div class="section3-event-name-desc">
@@ -30,49 +29,59 @@
                                             <button class="section3-learn-more-button" value="LEARN MORE">LEARN MORE</button>
                                         </a>
                                     </div>
-                                </td>
-                                {% endfor %}
-                            </tr>
-                        </tbody>
-                    </table>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="item active section3-event-container section3-event-table-item">
+                                <div class="section3-event-image" style="background-image:url('/assets/img/landing/loftlaunch.jpg');"></div>
+                                <div class="section3-event-date-attendees"><p class="pull-left">COMING SOON</p></div>
+                                <div class="section3-event-name-desc">
+                                    <p class="section3-event-name">NEXT EXCITING EVENT SOON!</p>
+                                    <p class="section3-event-desc">Check out this space for the next exciting event at the Loft very soon!</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <a class="left carousel-control" href="#section3-upcoming-carousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#section3-upcoming-carousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
                 </div>
             </div>
-        {% else %}
-        <div class="section3-event-container">
-            <div class="section3-event-image" style="background-image:url('/assets/img/landing/loftlaunch.jpg');"></div>
-            <div class="section3-event-date-attendees"><p class="pull-left">COMING SOON</p></div>
-            <div class="section3-event-name-desc">
-                <p class="section3-event-name">NEXT EXCITING EVENT SOON!</p>
-                <p class="section3-event-desc">Check out this space for the next exciting event at the Loft very soon!</p>
-            </div>
         </div>
-        {% endif %}
+
         <p class="section3-title">PAST EVENTS</p>
         <div class="section3-event-table-container">
             <div class="section3-event-table">
-                <table>
-                    <tbody>
-                        <tr>
-                            {% for k, v in past_events.items %}
-                                {% for event in v %}
-                                    <td class="section3-event-container section3-event-table-item">
-                                        <div><a target="_blank" href="{{event.link}}"><div class="section3-event-image" style="background-image:url('{% if event.snapshot %}/api/common/download_image/{{event.snapshot}}{% else %}/assets/img/landing/loftlaunch.jpg{% endif %}');"></div></a></div>
-                                        <div class="section3-event-date-attendees"><p class="pull-left">{{event.date}}</p><p class="pull-right">{{event.attendees}} PARTICIPANTS</p></div>
-                                        <div class="section3-event-name-desc">
-                                            <p class="section3-event-name">{{event.name}}</p>
-                                            <p class="section3-event-desc">{{event.description}}</p>
-                                        </div>
-                                        <div class="section3-upcoming-button-container">
-                                            <a target="_blank" href="{{event.link}}" onclick="ga('send', 'event', 'Events Page', 'click', 'Learn More Button - Past ' + '{{ event.link }}')">
-                                                <button class="section3-learn-more-button" value="LEARN MORE">LEARN MORE</button>
-                                            </a>
-                                        </div>
-                                    </td>
-                                {% endfor %}
+                <div id="section3-past-carousel" class="carousel slide section3-carousel" data-interval="4000" data-pause="false">
+                    <div class="carousel-inner">
+                        {% for k, v in past_events.items %}
+                            {% for event in v %}
+                                <div class="item {% if forloop.first %}active{% endif %} section3-event-container section3-event-table-item">
+                                    <div><a target="_blank" href="{{event.link}}"><div class="section3-event-image" style="background-image:url('{% if event.snapshot %}/api/common/download_image/{{event.snapshot}}{% else %}/assets/img/landing/loftlaunch.jpg{% endif %}');"></div></a></div>
+                                    <div class="section3-event-date-attendees"><p class="pull-left">{{event.date}}</p><p class="pull-right">{{event.attendees}} PARTICIPANTS</p></div>
+                                    <div class="section3-event-name-desc">
+                                        <p class="section3-event-name">{{event.name}}</p>
+                                        <p class="section3-event-desc">{{event.description}}</p>
+                                    </div>
+                                    <div class="section3-upcoming-button-container">
+                                        <a target="_blank" href="{{event.link}}" onclick="ga('send', 'event', 'Events Page', 'click', 'Learn More Button - Past ' + '{{ event.link }}')">
+                                            <button class="section3-learn-more-button" value="LEARN MORE">LEARN MORE</button>
+                                        </a>
+                                    </div>
+                                </div>
                             {% endfor %}
-                        </tr>
-                    </tbody>
-                </table>
+                        {% endfor %}
+                    </div>
+                    <a class="left carousel-control" href="#section3-past-carousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#section3-past-carousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
