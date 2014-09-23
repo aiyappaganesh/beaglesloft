@@ -98,3 +98,12 @@
     font-size: 12px;
     line-height:18px;
 }
+
+.carousel-inner>.item {
+    -webkit-transition: .6s cubic-bezier(1,1,1,1) left;
+    transition: .6s cubic-bezier(1,1,1,1) left;
+}
+
+.carousel-inner {
+    height:100%;
+}
