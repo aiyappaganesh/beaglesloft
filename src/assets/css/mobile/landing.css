@@ -7,6 +7,8 @@
     height: 400px;
     background: no-repeat url('/assets/img/landing/dark-gate.jpg');
     background-size: cover;
+    padding-top: 118px;
+    text-align: center;
 }
 
 .section1-logo {
@@ -17,25 +19,13 @@
     margin: auto;
 }
 
-.section1-copy {
+.section1-title {
+    margin: auto;
+    color: #c62530;
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size: 30px;
-    padding:15px;
-    text-align:left;
-    width:auto;
-    background-color:#c62530;
-    color:#ffffff;
-    margin: 0px;
-    display: inline-block;
-}
-
-.section1-copy1 {
-    margin-top: 25px;
-}
-
-.section1-copy2, .section1-copy3 {
-    margin-top: 5px;
+    font-size: 23px;
+    line-height: 46px;
 }
 
 .section2 {
