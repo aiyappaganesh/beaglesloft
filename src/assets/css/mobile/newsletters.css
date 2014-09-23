@@ -127,3 +127,12 @@
     margin: auto;
     padding-bottom: 10px;
 }
+
+.carousel-inner>.item {
+    -webkit-transition: .6s cubic-bezier(1,1,1,1) left;
+    transition: .6s cubic-bezier(1,1,1,1) left;
+}
+
+.carousel-inner {
+    height:100%;
+}

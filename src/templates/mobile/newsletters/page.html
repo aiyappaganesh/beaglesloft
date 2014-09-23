@@ -13,25 +13,29 @@
         <p class="section3-title" onclick="window.location.href='/subscribe_newsletter'">SUBSCRIBE TO NEWSLETTER</p>
         <div class="section3-newsletter-table-container">
             <div class="section3-newsletter-table">
-                <table>
-                    <tbody>
-                        <tr>
-                            {% for k, v in newsletters.items %}
-                                {% for newsletter in v %}
-                                    <td class="section3-newsletter-container section3-newsletter-table-item">
-                                        <div><a target="_blank" href="{{newsletter.link}}"><div class="section3-newsletter-image" style="background-image:url('{% if newsletter.snapshot %}/api/common/download_image/{{newsletter.snapshot}}{% else %}/assets/img/landing/loftlaunch.jpg{% endif %}');"></div></a></div>
-                                        <div class="section3-newsletter-date-attendees"><p>{{newsletter.date}}</p></div>
-                                        <div class="section3-upcoming-button-container">
-                                            <a target="_blank" href="{{newsletter.link}}" onclick="ga('send', 'newsletter', 'Newsletters Page', 'click', 'Learn More Button - Past ' + '{{ newsletter.link }}')">
-                                                <button class="section3-learn-more-button" value="LEARN MORE">LEARN MORE</button>
-                                            </a>
-                                        </div>
-                                    </td>
-                                {% endfor %}
+                <div id="section3-newsletters-carousel" class="carousel slide section3-carousel" data-interval="4000" data-pause="false">
+                    <div class="carousel-inner">
+                        {% for k, v in newsletters.items %}
+                            {% for newsletter in v %}
+                                <div class="item {% if forloop.first %}active{% endif %} section3-newsletter-container section3-newsletter-table-item">
+                                    <div><a target="_blank" href="{{newsletter.link}}"><div class="section3-newsletter-image" style="background-image:url('{% if newsletter.snapshot %}/api/common/download_image/{{newsletter.snapshot}}{% else %}/assets/img/landing/loftlaunch.jpg{% endif %}');"></div></a></div>
+                                    <div class="section3-newsletter-date-attendees"><p>{{newsletter.date}}</p></div>
+                                    <div class="section3-upcoming-button-container">
+                                        <a target="_blank" href="{{newsletter.link}}" onclick="ga('send', 'newsletter', 'Newsletters Page', 'click', 'Learn More Button - Past ' + '{{ newsletter.link }}')">
+                                            <button class="section3-learn-more-button" value="LEARN MORE">LEARN MORE</button>
+                                        </a>
+                                    </div>
+                                </div>
                             {% endfor %}
-                        </tr>
-                    </tbody>
-                </table>
+                        {% endfor %}
+                    </div>
+                    <a class="left carousel-control" href="#section3-newsletters-carousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#section3-newsletters-carousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
