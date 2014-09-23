@@ -106,6 +106,17 @@ textarea:focus{outline:none;}
     color:#c62430 !important;
 }
 
+.subscribe-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+}
+
+.bottom-separator {
+    margin:auto;
+    height:100px;
+}
+
 @media (max-width: 979px) {
     .logo {
         height:75px;
@@ -143,7 +154,10 @@ textarea:focus{outline:none;}
     }
 
     .social {
-        width: 200px;
-        font-size: 13px;
+        font-size: 12px;
+    }
+
+    .subscribe-newsletter {
+        height:110%;
     }
 }
