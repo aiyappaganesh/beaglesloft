@@ -50,6 +50,14 @@ handlers:
   static_dir: assets/fonts
   secure: never
 
+- url: /assets/txt
+  static_dir: assets/txt
+  secure: always
+
+- url: /5ab8a7c4fa38692e2fbbee4b1b8c9ddd\.txt
+  static_files: assets/txt/5ab8a7c4fa38692e2fbbee4b1b8c9ddd.txt
+  upload: assets/txt/5ab8a7c4fa38692e2fbbee4b1b8c9ddd\.txt
+
 ######################### WEB ENDPOINTS #########################
 
 - url: /members/.*
