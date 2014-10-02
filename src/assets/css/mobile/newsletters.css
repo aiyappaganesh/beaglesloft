@@ -22,14 +22,15 @@
 
 .section3 {
     background-color:#f2f2f2;
+    text-align: center;
 }
 
 .section3-title {
     text-align:left;
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size:16px;
-    color:#c62530;
+    font-size:20px;
+    color:#000000;
     padding-top:20px;
     max-width: 255px;
     margin: auto;
@@ -77,7 +78,6 @@
 
 .section3-newsletter-date-attendees {
     height:42px;
-    border-bottom: 1px solid lightgrey;
     background-color:#ffffff;
     font-family: 'Oswald', sans-serif;
     font-weight: 500;
@@ -131,6 +131,7 @@
 .carousel-inner>.item {
     -webkit-transition: .6s cubic-bezier(1,1,1,1) left;
     transition: .6s cubic-bezier(1,1,1,1) left;
+    border: none;
 }
 
 .carousel-inner {

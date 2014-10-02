@@ -77,7 +77,6 @@
 
 .section3-event-date-attendees {
     height:42px;
-    border-bottom: 1px solid lightgrey;
     background-color:#ffffff;
     font-family: 'Oswald', sans-serif;
     font-weight: 500;
@@ -90,7 +89,6 @@
 
 .section3-event-name-desc {
     height:160px;
-    border-bottom: 1px solid lightgrey;
     background-color:#ffffff;
     font-family: 'Merriweather', sans-serif;
     font-weight: 300;
@@ -131,6 +129,7 @@
 .carousel-inner>.item {
     -webkit-transition: .6s cubic-bezier(1,1,1,1) left;
     transition: .6s cubic-bezier(1,1,1,1) left;
+    border: none;
 }
 
 .carousel-inner {

@@ -14,10 +14,13 @@
         </div>
         <div class="full-width newsletters-subscribe-outer-container">
             <div class="newsletters-subscribe-inner-container">
-                <p class="page-select newsletters-subscribe" onclick="window.location.href='/subscribe_newsletter'">SUBSCRIBE TO NEWSLETTER</p>
+                <a href="/subscribe_newsletter"><button class="newsletters-subscribe learn-more-button">SUBSCRIBE</button></a>
             </div>
         </div>
         <div class="tab-page newsletters-list-container" id="newsletters-list">
+            <div class="newsletters-list-title-container">
+                <p class="newsletters-list-title">NEWSLETTERS</p>
+            </div>
             {% for k, v in newsletters.items %}
                 <div class="newsletters-row">
                     {% for newsletter in v %}

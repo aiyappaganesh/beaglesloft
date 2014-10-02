@@ -142,8 +142,8 @@ x.landing-nav li a:hover{
 }
 
 .bglft-modal-dialog-body div:hover, .bglft-modal-dialog-body div:active {
-    color:#fa7900;
-    text-decoration: none;
+    color:#fa7900 !important;
+    text-decoration: none !important;
 }
 
 .bglft-modal-dialog-body ul{

@@ -59,7 +59,7 @@
                     <div class="carousel-inner">
                         {% for k, v in past_events.items %}
                             {% for event in v %}
-                                <div class="item {% if forloop.first %}active{% endif %} section3-event-container section3-event-table-item">
+                                <div class="item {% if forloop.parentloop.first and forloop.first %}active{% endif %} section3-event-container section3-event-table-item">
                                     <div><a target="_blank" href="{{event.link}}"><div class="section3-event-image" style="background-image:url('{% if event.snapshot %}/api/common/download_image/{{event.snapshot}}{% else %}/assets/img/landing/loftlaunch.jpg{% endif %}');"></div></a></div>
                                     <div class="section3-event-date-attendees"><p class="pull-left">{{event.date}}</p><p class="pull-right">{{event.attendees}} PARTICIPANTS</p></div>
                                     <div class="section3-event-name-desc">

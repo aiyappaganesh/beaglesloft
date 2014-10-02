@@ -79,7 +79,6 @@
 
 .section2-partner-website {
     height:42px;
-    border-bottom: 1px solid lightgrey;
     background-color:#ffffff;
     padding:14px;
     line-height:14px;
@@ -102,6 +101,7 @@
 .carousel-inner>.item {
     -webkit-transition: .6s cubic-bezier(1,1,1,1) left;
     transition: .6s cubic-bezier(1,1,1,1) left;
+    border: none;
 }
 
 .carousel-inner {
