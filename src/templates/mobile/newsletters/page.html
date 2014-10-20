@@ -22,8 +22,8 @@
                                     <div><a target="_blank" href="{{newsletter.link}}"><div class="section3-newsletter-image" style="background-image:url('{% if newsletter.snapshot %}/api/common/download_image/{{newsletter.snapshot}}{% else %}/assets/img/landing/loftlaunch.jpg{% endif %}');"></div></a></div>
                                     <div class="section3-newsletter-date-attendees"><p>{{newsletter.date}}</p></div>
                                     <div class="section3-upcoming-button-container">
-                                        <a target="_blank" href="{{newsletter.link}}" onclick="ga('send', 'newsletter', 'Newsletters Page', 'click', 'Learn More Button - Past ' + '{{ newsletter.link }}')">
-                                            <button class="section3-learn-more-button" value="LEARN MORE">LEARN MORE</button>
+                                        <a target="_blank" href="{{newsletter.link}}" onclick="ga('send', 'newsletter', 'Newsletters Page', 'click', 'Read Button - ' + '{{ newsletter.link }}')">
+                                            <button class="section3-learn-more-button" value="READ">READ</button>
                                         </a>
                                     </div>
                                 </div>
