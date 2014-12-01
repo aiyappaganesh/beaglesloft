@@ -176,9 +176,12 @@ class SubscribeNewsletterHandler(RequestHandler):
         fname = self['fname']
         lname = self['lname']
         if email:
+            logging.info('Trying to subscribe: '+fname+' '+lname+' with email: '+email)
+            res = mailchimp.subscribe(email,fname,lname).content
+            logging.info('Subscription Result: '+res)
             self.write(
                 json.dumps(
-                    mailchimp.subscribe(email,fname,lname).content
+                    res
                 ),200,'application/json'
             )
 
