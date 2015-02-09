@@ -8,6 +8,7 @@ from google.appengine.ext.webapp import blobstore_handlers
 from google.appengine.api import mail
 from model import Newsletter
 from datetime import datetime
+from util import mailjet
 
 class ImageDownloadHandler(blobstore_handlers.BlobstoreDownloadHandler):
     def get(self, picture_key):
@@ -34,11 +35,14 @@ class SendNewsletterConfirmationEmail(RequestHandler):
 
         if to_email:
             logging.info('Trying to subscribe: '+firstname+' '+lastname+' with email: '+to_email)
-            from_email = "Niranjan Salimath <ranju@b-eagles.com>"
+            from_email = "Niranjan Salimath <ranju@beaglesloft.com>"
             subject = "Confirm your Beaglesloft newsletter subscription"
             body = """Hey %s! \nThank you for signing up to the BeaglesLoft Newsletter. Please access the following link to confirm your subscription. http://www.beaglesloft.com/confirm_subscribe_newsletter?email=%s&firstname=%s&lastname=%s . \nNiranjan Salimath""" % (firstname+' '+lastname, to_email, firstname, lastname)
-            mail.send_mail(from_email, to_email, subject, body)
-            self.write(json.dumps({'status':'success', 'email':to_email}),200,'application/json')
+            result = mailjet.send_mail(from_email, to_email, subject, body)
+            if result['id'] != -1:
+                self.write(json.dumps({'status':'success', 'email':to_email}),200,'application/json')
+            else:
+                self.write(json.dumps({'status':'error', 'email':to_email, 'name':result['error']}),200,'application/json')
 
 app = RestApplication([("/api/common/download_image/([^/]+)",ImageDownloadHandler),
                        ("/api/common/save_newsletter",CreateNewsletterHandler),

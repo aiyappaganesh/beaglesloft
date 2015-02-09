@@ -8,6 +8,7 @@ api_public_key = 'db43ff2f5a3bdde4a5f2a2a391e982bd'
 api_private_key = 'b7d311796b51ea4f7865ccf1807bc044'
 contact_url = 'https://api.mailjet.com/v3/REST/contact'
 add_to_list_url = 'https://api.mailjet.com/v3/REST/listrecipient'
+send_email_url = 'https://api.mailjet.com/v3/send/message'
 list_id = 8  # Use 8 for prod and 4 for testing
 
 def get_contact(email):
@@ -97,3 +98,29 @@ def subscribe(email, fname, lname):
         else:
             subscribe_result = 'Error: '+list_result['error']
     return subscribe_result
+
+def send_mail(from_email, to_email, subject, body):
+    error_msg = ''
+    result = urlfetch.fetch(send_email_url,
+                          urllib.urlencode(
+                              {
+                                  'from': from_email,
+                                  'to': to_email,
+                                  'subject': subject,
+                                  'text': body
+                              }
+                          ),
+                          urlfetch.POST,
+                          headers = {"Authorization": "Basic %s" % base64.b64encode(api_public_key+':'+api_private_key)},
+                          deadline = 60)
+    status_code = result.status_code
+    content = json.loads(result.content)
+    if 200 <= status_code < 300:
+        if 'Data' in content:
+            if 'ID' in content['Data'][0]:
+                email_id = content['Data'][0]['ID']
+                return {'id':email_id, 'error':error_msg}
+    else:
+        if 'ErrorMessage' in content:
+            error_msg = content['ErrorMessage']
+    return {'id':-1, 'error':error_msg}
