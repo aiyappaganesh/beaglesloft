@@ -112,8 +112,8 @@ class ConfirmSubscribeNewsletterPage(WebRequestHandler):
         template_values['is_member'] = True if 'member' in self.session else False
         if 'member' in self.session:
             template_values['member'] = Member.get_member_json(self.session['member'])
-        if not email or not fname or not lname:
-            template_values['subscription_result'] = 'Error: Email, First Name or Last Name not available'
+        if not email:
+            template_values['subscription_result'] = 'Error: Email not available'
         else:
             template_values['subscription_result'] = mailjet.subscribe(email,fname,lname)
         self.write(self.get_rendered_html(path, template_values), 200)
