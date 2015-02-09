@@ -13,9 +13,8 @@ function subscribe() {
         return false;
     }
     ga('send', 'event', 'Newsletter Subscription Page', 'click', 'Subscription Email Submitted');
-    $.post('/api/members/subscribe_to_newsletter',{'email':$('#email').val(),'fname':$('#fname').val(),'lname':$('#lname').val()})
+    $.post('/api/common/subscribe_to_newsletter',{'email':$('#email').val(),'fname':$('#fname').val(),'lname':$('#lname').val()})
         .done(function(data){
-            data = JSON.parse(data);
             console.log(data);
             console.log(data.status);
             if(data.status == 'error') {
@@ -32,5 +31,5 @@ function subscribe() {
         })
         .fail(function(data){
             $('#subscription-message').text('Server Error. Please Try Again Later.');
-        })
+        });
 }

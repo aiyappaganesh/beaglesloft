@@ -1,8 +1,11 @@
 import urllib
+import json
+import logging
 from handlers.rest.rest_application import RestApplication
 from handlers import RequestHandler
 from google.appengine.ext import blobstore
 from google.appengine.ext.webapp import blobstore_handlers
+from google.appengine.api import mail
 from model import Newsletter
 from datetime import datetime
 
@@ -23,5 +26,20 @@ class CreateNewsletterHandler(blobstore_handlers.BlobstoreUploadHandler, Request
         Newsletter.get_or_insert(date_time, link=link, date_time=datetime.strptime(date_time,"%Y-%m-%dT%H:%M"), snapshot=snapshot_key)
         self.redirect("/newsletters")
 
+class SendNewsletterConfirmationEmail(RequestHandler):
+    def post(self):
+        firstname = str(self['fname'])
+        lastname = str(self['lname'])
+        to_email = str(self['email'])
+
+        if to_email:
+            logging.info('Trying to subscribe: '+firstname+' '+lastname+' with email: '+to_email)
+            from_email = "Niranjan Salimath <ranju@beaglesloft.com>"
+            subject = "Confirm your Beaglesloft newsletter subscription"
+            body = """Hey %s! \nThank you for signing up to the BeaglesLoft Newsletter. Please access the following link to confirm your subscription. http://localhost/confirm_subscribe_newsletter?email=%s&firstname=%s&lastname=%s . \nNiranjan Salimath""" % (firstname+' '+lastname, to_email, firstname, lastname)
+            mail.send_mail(from_email, to_email, subject, body)
+            self.write(json.dumps({'status':'success', 'email':to_email}),200,'application/json')
+
 app = RestApplication([("/api/common/download_image/([^/]+)",ImageDownloadHandler),
-                       ("/api/common/save_newsletter",CreateNewsletterHandler)])
+                       ("/api/common/save_newsletter",CreateNewsletterHandler),
+                       ("/api/common/subscribe_to_newsletter",SendNewsletterConfirmationEmail)])

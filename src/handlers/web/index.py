@@ -7,6 +7,7 @@ from google.appengine.api import mail
 from google.appengine.api.blobstore import blobstore
 import json
 import logging
+from util import mailjet
 
 class IndexPage(WebRequestHandler):
     def get(self):
@@ -99,6 +100,22 @@ class CreateNewsletterPage(WebRequestHandler):
         template_values['is_member'] = True if 'member' in self.session else False
         if 'member' in self.session:
             template_values['member'] = Member.get_member_json(self.session['member'])
+        self.write(self.get_rendered_html(path, template_values), 200)
+
+class ConfirmSubscribeNewsletterPage(WebRequestHandler):
+    def get(self):
+        path = 'confirm_newsletter_subscription.html'
+        email = self['email']
+        fname = self['firstname']
+        lname = self['lastname']
+        template_values = {}
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
+        if not email or not fname or not lname:
+            template_values['subscription_result'] = 'Error: Email, First Name or Last Name not available'
+        else:
+            template_values['subscription_result'] = mailjet.subscribe(email,fname,lname)
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class SubscribeNewsletterPage(WebRequestHandler):

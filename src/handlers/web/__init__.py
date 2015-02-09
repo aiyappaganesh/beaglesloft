@@ -1,6 +1,6 @@
 import webapp2
 from .web_request_handler import WebRequestHandler
-from .index import IndexPage, CalendarPage, MemberRegistrationPage, MemberFBRegistrationPage, MemberAccessPage, AcceptContact, PeoplePage, ContactPage, NewslettersPage, CreateNewsletterPage, SubscribeNewsletterPage
+from .index import IndexPage, CalendarPage, MemberRegistrationPage, MemberFBRegistrationPage, MemberAccessPage, AcceptContact, PeoplePage, ContactPage, NewslettersPage, CreateNewsletterPage, SubscribeNewsletterPage, ConfirmSubscribeNewsletterPage
 from .events import CreateEventPage, EditEventPage, SearchEventPage, EventsPage
 
 app = webapp2.WSGIApplication([
@@ -18,5 +18,6 @@ app = webapp2.WSGIApplication([
     ('/newsletters', NewslettersPage),
     ('/create_newsletter', CreateNewsletterPage),
     ('/subscribe_newsletter', SubscribeNewsletterPage),
+    ('/confirm_subscribe_newsletter', ConfirmSubscribeNewsletterPage),
     ('/', IndexPage)
 ])
