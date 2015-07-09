@@ -7,14 +7,85 @@
 {% block Content %}
 <div class="landing-carousel-item" style="height:304px;background: url('/assets/img/landing/tracks.png') center center no-repeat;">
 	<div style="display: table-cell">
-		<p style="margin:auto;background-color:#c62530;color:#ffffff;padding:20px;" class="page_heading">TRACKS AT THE BEAGLES LOFT</p>
+		<p style="margin:auto;background-color:#c62530;color:#ffffff;padding:20px;" class="page_heading">TRACKS AT BEAGLES LOFT</p>
 	</div>
-	<!--
-    <div style="height:135px"></div>
-    <div style="height:90px;width:460px;margin:auto;background-color:#c62530;color:#ffffff;padding:20px;">
-    	
+</div>
+<div class="white-background">
+    <div class="width940 section-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="black-font uppercase align-center">We offer the following tracks</h2>
+            </div>
+        </div>
+        <div class="row">
+            <ul class="nav nav-tabs" style="text-transform: uppercase">
+			    <li class="active"><a data-toggle="tab" href="#mobile_dev">Mobile Development</a></li>
+			    <li><a data-toggle="tab" href="#web_dev">Web Development</a></li>
+			    <li><a data-toggle="tab" href="#design">Design</a></li>
+			    <li><a data-toggle="tab" href="#management">Management</a></li>
+			    <li><a data-toggle="tab" href="#soft_skills">Soft skills</a></li>
+			</ul>
+        </div>
+        <div class="tab-content">
+        	<div id="mobile_dev" class="row tab-pane fade in active">
+        		<div id="accordion" class="panel-group">
+				    <div class="panel panel-default">
+				        <div class="panel-heading">
+				            <h4 class="panel-title">
+				                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. The Language</a>
+				            </h4>
+				        </div>
+				        <div id="collapseOne" class="panel-collapse collapse">
+				            <div class="panel-body">
+				                <p>Objective C (or swift?) fundamentals</p>
+				                <p>Objective C (or swift?) constructs and control flow</p>
+				            </div>
+				        </div>
+				    </div>
+				    <div class="panel panel-default">
+				        <div class="panel-heading">
+				            <h4 class="panel-title">
+				                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. The environment</a>
+				            </h4>
+				        </div>
+				        <div id="collapseTwo" class="panel-collapse collapse in">
+				            <div class="panel-body">
+				                <p>Introduction to IDEs</p>
+				                <p>Xcode as an IDE</p>
+								<p>Compiling and linking in Xcode</p>
+				            </div>
+				        </div>
+				    </div>
+				    <div class="panel panel-default">
+				        <div class="panel-heading">
+				            <h4 class="panel-title">
+				                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. The run time:</a>
+				            </h4>
+				        </div>
+				        <div id="collapseThree" class="panel-collapse collapse">
+				            <div class="panel-body">
+				                <p>Procuring a developer certificate</p>
+								<p>Setting up your team on Apple's member center</p>
+								<p>Preparing your machine with the developer certificate</p>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+        	</div>
+        	<div id="web_dev" class="row tab-pane fade in">
+        		Web Dev
+        	</div>
+        	<div id="design" class="row tab-pane fade in">
+        		Design
+        	</div>
+        	<div id="management" class="row tab-pane fade in">
+        		Management
+        	</div>
+        	<div id="soft_skills" class="row tab-pane fade in">
+        		Soft Skills
+        	</div>
+        </div>
     </div>
-    -->
 </div>
 {% endblock %}
 
