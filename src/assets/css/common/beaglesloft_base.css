@@ -103,6 +103,41 @@ x.landing-nav li a:hover{
     display:block;
 }
 
+h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 33px;
+    line-height: 1.5;
+}
+
+h3 {
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.black-font {
+    color: #000000;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.width940 {
+    max-width: 940px;
+    margin: auto;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.white-background {
+    background-color:#ffffff;
+}
+
 .modal {
     overflow: auto;
     max-height: 100%;

@@ -8,6 +8,17 @@ from google.appengine.api.blobstore import blobstore
 import json
 import logging
 from util import mailjet
+from model.ui_models.factories.services import Services
+
+def get_services_list():
+    services = [
+        ('/assets/img/landing/lofts.png','LOFTS'),
+        ('/assets/img/landing/programs.png','PROGRAMS'),
+        ('/assets/img/landing/startups.png','STARTUPS'),
+        ('/assets/img/landing/community.png','COMMUNITY'),
+        ('/assets/img/landing/events.png','EVENTS')
+    ]
+    return services
 
 class IndexPage(WebRequestHandler):
     def get(self):
@@ -15,6 +26,7 @@ class IndexPage(WebRequestHandler):
         template_values = {'is_member': True if 'member' in self.session else False}
         if 'member' in self.session:
             template_values['member'] = Member.get_member_json(self.session['member'])
+        template_values['services'] = Services.get_services(get_services_list())
         self.render_template(template_name=None, template_values=template_values)
 
 class CalendarPage(WebRequestHandler):

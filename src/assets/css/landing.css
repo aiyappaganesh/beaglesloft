@@ -366,6 +366,12 @@ footer>a:hover {
     width:30%;
 }
 
+.service-icon {
+    height: 100px;
+    width: 100px;
+    margin: auto;
+}
+
 @media (max-width: 740px) {
     .landing-carousel-indicators {
         left:50% !important;
