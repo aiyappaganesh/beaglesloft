@@ -103,18 +103,23 @@ x.landing-nav li a:hover{
     display:block;
 }
 
-h2 {
+h2, .header-2 {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
     font-size: 33px;
     line-height: 1.5;
 }
 
-h3 {
+h3, .header-3 {
     font-family: 'Merriweather', sans-serif;
     font-weight: 600;
     font-size: 15px;
     line-height: 1.5;
+}
+
+.section-content {
+    padding-top: 128px;
+    padding-bottom: 128px;
 }
 
 .black-font {
@@ -136,6 +141,10 @@ h3 {
 
 .white-background {
     background-color:#ffffff;
+}
+
+.light-gray-background {
+    background-color:#e5e5e5;
 }
 
 .modal {
@@ -290,9 +299,7 @@ body {
     /*p{
         font-size:50%;
     }*/
-    .content-page li{
-        font-size:50%;
-    }
+
     .haggle-filler {
         visibility: hidden;
         display: none;
@@ -322,6 +329,19 @@ body {
     }
     .increase-input-width {
         width: 95% !important;
+    }
+
+    h2, .header-2 {
+        font-size: 23px !important;
+    }
+
+    h3, .header-3 {
+        font-size: 12px !important;
+    }
+
+    .section-content {
+        padding-top: 64px;
+        padding-bottom: 64px;
     }
 }
 

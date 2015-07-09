@@ -9,6 +9,7 @@ import json
 import logging
 from util import mailjet
 from model.ui_models.factories.services import Services
+from model.ui_models.centered_contents import CenteredContents, CenteredContent
 
 def get_services_list():
     services = [
@@ -20,6 +21,16 @@ def get_services_list():
     ]
     return services
 
+def get_value_to_services_centered_contents():
+    centered_contents = []
+    contents_arr = [("We help IT Services companies significantly increase the revenue per employee",["header-2","black-font"])]
+    contents = [CenteredContent(s[0], s[1]) for s in contents_arr]
+    centered_contents.append(CenteredContents(360, 0, contents))
+    contents_arr = [("We reduce your attrition by up to 30%",["header-2","black-font"])]
+    contents = [CenteredContent(s[0], s[1]) for s in contents_arr]
+    centered_contents.append(CenteredContents(256, 0, contents))
+    return centered_contents
+
 class IndexPage(WebRequestHandler):
     def get(self):
         path = 'landing.html'
@@ -27,6 +38,7 @@ class IndexPage(WebRequestHandler):
         if 'member' in self.session:
             template_values['member'] = Member.get_member_json(self.session['member'])
         template_values['services'] = Services.get_services(get_services_list())
+        template_values['value_to_services_centered'] = get_value_to_services_centered_contents()
         self.render_template(template_name=None, template_values=template_values)
 
 class CalendarPage(WebRequestHandler):

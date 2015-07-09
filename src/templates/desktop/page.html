@@ -57,21 +57,49 @@
                 </a>-->
             </div>
         </section>
-        <div class="width940 white-background">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2 class="black-font uppercase align-center">We embed your staff into our global startup community so they are trained in new technologies, design, processes and tools</h2>
+        <div class="white-background">
+            <div class="width940 section-content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="black-font uppercase align-center">We embed your staff into our global startup community so they are trained in new technologies, design, processes and tools</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    {% for service in services %}
+                    <div class="col-sm-2 align-center">
+                        <img class="service-icon" src="{{service.icon}}">
+                        <h3 class="black-font uppercase">{{service.name}}</h3>
+                    </div>
+                    {% endfor %}
+                    <div class="col-sm-1"></div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-1"></div>
-                {% for service in services %}
-                <div class="col-sm-2 align-center">
-                    <img class="service-icon" src="{{service.icon}}">
-                    <h3 class="black-font uppercase">{{service.name}}</h3>
+        </div>
+        <div class="light-gray-background">
+            <div class="width940 section-content">
+                <div class="row">
+                    <div class="col-sm-6 align-center">
+                        <h3>$75K</h3>
+                        <img src="/assets/img/landing/up_arrow.png">
+                        <h3>$50K</h3>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-4">
+                        {% include "components/centered_content.html" with centered=value_to_services_centered.0 %}
+                    </div>
+                    <div class="col-sm-1"></div>
                 </div>
-                {% endfor %}
-                <div class="col-sm-1"></div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-4">
+                        {% include "components/centered_content.html" with centered=value_to_services_centered.1 %}
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-6 align-center">
+                        <img src="/assets/img/landing/down_arrow.png">
+                    </div>
+                </div>
             </div>
         </div>
         <div id="values">
@@ -108,28 +136,6 @@
                     <div style="width:940px;height:138px;"></div>
                 </div>
             </div>
-            <div class="full-width" style="text-align:center">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <img src="/assets/img/landing/up_arrow.png">
-                    </div>
-                    <div class="col-sm-6">
-                        <p>
-                            <i>We help IT Services companies significantly increase the revenue per employee</i>
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p>
-                            <i>We reduce your attrition by up to 30%</i>
-                        </p>
-                    </div>
-                    <div class="col-sm-6">
-                        <img src="/assets/img/landing/down_arrow.png">
-                    </div>
-                </div>
-            </div>
         </div>
         <footer class="beaglesloft-footer">
             <a href="https://twitter.com/BeaglesLoft" target="_blank">
@@ -151,5 +157,4 @@
 
 {% block CustomScripts %}
 <script src="/assets/js/landing.js"></script>
-<script src="/assets/js/lib/bootstrap.min.js"></script>
 {% endblock %}
