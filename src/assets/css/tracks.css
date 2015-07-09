@@ -1,3 +1,6 @@
-.tracks_heading{
-	height:304px;
+.tracks-page-title {
+    margin:auto;
+    background-color:#c62530;
+    color:#ffffff;
+    padding:20px;
 }

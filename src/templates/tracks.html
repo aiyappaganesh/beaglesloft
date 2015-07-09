@@ -2,13 +2,16 @@
 
 {% block Styles %}
 <link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/tracks.css" type="text/css" rel="stylesheet">
 {% endblock %}
 
 {% block Content %}
-<div class="landing-carousel-item" style="height:304px;background: url('/assets/img/landing/tracks.png') center center no-repeat;">
-	<div style="display: table-cell">
-		<p style="margin:auto;background-color:#c62530;color:#ffffff;padding:20px;" class="page_heading">TRACKS AT BEAGLES LOFT</p>
-	</div>
+<div class="row centered-full-width-element landing-carousel-item" style="height:304px;background: url('/assets/img/landing/tracks.png') center center no-repeat;">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        {% include "components/centered_content.html" with centered=page_title_centered %}
+    </div>
+    <div class="col-sm-4"></div>
 </div>
 <div class="white-background">
     <div class="width940 section-content">

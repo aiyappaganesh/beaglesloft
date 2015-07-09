@@ -3,6 +3,7 @@ $(document).ready(function(){
     if(url.indexOf('blog')!=-1) {
         $("#navbar-fluid").css({ opacity: 1 });
     }
+    $('.centered-full-width-element').width($(window).width());
 });
 
 $(document).ready(function() {
