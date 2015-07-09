@@ -111,9 +111,9 @@ h2, .header-2 {
 }
 
 h3, .header-3 {
-    font-family: 'Merriweather', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
     line-height: 1.5;
 }
 
@@ -342,6 +342,8 @@ body {
     .section-content {
         padding-top: 64px;
         padding-bottom: 64px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 

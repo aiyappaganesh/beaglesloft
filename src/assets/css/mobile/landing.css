@@ -143,3 +143,29 @@
     text-align: left;
     margin-top: 30px;
 }
+
+#services .row {
+    padding-top: 48px;
+}
+
+#services .row:first-child {
+    padding-top: 0px;
+}
+
+#value-to-services .row {
+    padding-top: 24px;
+}
+
+#value-to-services .row:first-child {
+    padding-top: 0px;
+}
+
+#value-to-services h2, .header-2 {
+    line-height: 1.3;
+}
+
+#value-to-services ul {
+    height: 70px !important;
+    display: block !important;
+    text-align: center;
+}

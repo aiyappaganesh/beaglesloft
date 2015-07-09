@@ -9,11 +9,6 @@
             <img src="/assets/img/landing/beagles-logo-large.png" class="section1-logo">
             <p class="section1-title">KNOCK TWICE FOR REVOLUTION</p>
         </div>
-        <div class="section2 centered">
-            <p class="section2-copy1 section2-copy">
-                WELCOME TO THE BEAGLES LOFT, BANGALORE'S PLAYGROUND FOR STARTUPS, INNOVATORS, ARTISTS AND NERDS IN GENERAL.
-            </p>
-        </div>
         <div class="section3">
             <div id="section3-carousel" class="carousel slide section3-carousel" data-interval="4000" data-pause="false">
                 <ol class="landing-carousel-indicators carousel-indicators">
@@ -41,6 +36,61 @@
                 <a class="right carousel-control" href="#section3-carousel" role="button" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
+            </div>
+        </div>
+        <div id="services" class="white-background">
+            <div class="width940 section-content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="black-font uppercase align-center">We embed your staff into our global startup community so they are trained in new technologies, design, processes and tools</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    {% for service in services %}
+                    <div class="col-sm-2 align-center">
+                        <img class="service-icon" src="{{service.icon}}">
+                        <h3 class="black-font uppercase">{{service.name}}</h3>
+                    </div>
+                    {% endfor %}
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+        </div>
+        <div id="value-to-services" class="light-gray-background">
+            <div class="width940 section-content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="black-font uppercase align-center">Revenue Per Employee</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 align-center">
+                        <h3>$75K</h3>
+                        <img src="/assets/img/landing/up_arrow.png">
+                        <h3>$50K</h3>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-4">
+                        {% include "components/centered_content.html" with centered=value_to_services_centered.0 %}
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="black-font uppercase align-center">Attrition Rates</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-4">
+                        {% include "components/centered_content.html" with centered=value_to_services_centered.1 %}
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-6 align-center">
+                        <img src="/assets/img/landing/down_arrow.png">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="section4 centered">
