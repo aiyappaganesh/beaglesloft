@@ -21,6 +21,11 @@ $(document).ready(function(){
     $('#slide-copy').fadeTo(200,1);
 });*/
 
+$('#section1-carousel').on('slide.bs.carousel', function(e){
+    $(this).find('.section1_heading').fadeOut(500);
+    $('#'+e.relatedTarget.id+'-copy').fadeIn(500);
+});
+
 function highlightSection(section) {
     $(".nav-link").each(function(){
         st_ind = this.href.indexOf('#');

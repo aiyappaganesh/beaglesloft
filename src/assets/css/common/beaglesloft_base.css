@@ -212,8 +212,11 @@ hr{
 }
 
 .hide-element{
-    visibility: hidden;
     display: none;
+}
+
+.show-element{
+    display: block;
 }
 
 /* Global Styling */
