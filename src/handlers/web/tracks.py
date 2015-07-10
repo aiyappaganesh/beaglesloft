@@ -26,7 +26,7 @@ TRACKS = [  {'id': 'web_dev', 'title': 'Web Development', 'subtracks': [
                         {'title': 'Eliminating white space'},
                         {'title': 'Eliminating deep nesting'}
                         ]
-                },              
+                },
                 {'title': 'Back End Development Flavours', 'subtracks': [
                         {'title': 'DEVOPS intensive environments -- AWS'},
                         {'title': 'DEVOPS free environments -- GAE'}
@@ -45,17 +45,17 @@ TRACKS = [  {'id': 'web_dev', 'title': 'Web Development', 'subtracks': [
                         {'title': 'Scaling a backend on GAE'},
                         {'title': 'Implementing map reduce on GAE'}
                         ]
-                }              
+                }
             ]
-            }, 
+            },
             {'id': 'ios', 'title': 'iOS', 'subtracks': [
-                {'title': 'The language', 'subtracks':[
-                        {'title': 'Objective C (or swift?) fundamentals'}, 
-                        {'title': 'Objective C (or swift?) constructs and control flow'}
+                {'title': 'The Language', 'subtracks':[
+                        {'title': 'Objective C fundamentals'},
+                        {'title': 'Objective C constructs and control flow'}
                         ]
                 },
-                {'title': 'The run time', 'subtracks':[
-                        {'title': 'Procuring a developer certificate'}, 
+                {'title': 'The Run Time', 'subtracks':[
+                        {'title': 'Procuring a developer certificate'},
                         {'title': "Setting up your team on Apple's member center"},
                         {'title': 'Preparing your machine with the developer certificate'}
                         ]
@@ -64,22 +64,22 @@ TRACKS = [  {'id': 'web_dev', 'title': 'Web Development', 'subtracks': [
                         {'title': 'Installing a simple app on your phone via Xcode'}
                         ]
                 },
-                {'title': 'Deep dive', 'subtracks':[
-                        {'title': 'View controller modelling for iOS apps'}, 
+                {'title': 'Deep Dive', 'subtracks':[
+                        {'title': 'View controller modelling for iOS apps'},
                         {'title': 'Storyboarding your app'},
                         {'title': 'Gestures and interactions'},
                         {'title': 'Working with some of the often used concepts like UITableViews, UICollectionViews etc...'},
                         {'title': 'Efficient networking for iOS apps'}
                         ]
                 },
-                {'title': 'Instrumenting your app', 'subtracks':[
-                        {'title': 'Measure allocations and catch leaks'}, 
+                {'title': 'Instrumenting your App', 'subtracks':[
+                        {'title': 'Measure allocations and catch leaks'},
                         {'title': 'Measure battery and CPU performance'},
                         {'title': 'Measure network performance'}
                         ]
                 },
-                {'title': 'Distributing and measuring engagement', 'subtracks':[
-                        {'title': 'Distribute your app via iTunes and TestFlight'}, 
+                {'title': 'Distributing and Measuring Engagement', 'subtracks':[
+                        {'title': 'Distribute your app via iTunes and TestFlight'},
                         {'title': 'Measure user engagement using AppBoy and Flurry'}
                         ]
                 }
