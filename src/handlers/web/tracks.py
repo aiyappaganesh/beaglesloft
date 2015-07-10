@@ -5,16 +5,47 @@ from model.ui_models.factories.tracks import Tracks
 
 import logging
 
-TRACKS = [  {'id': 'web_dev', 'title': 'Web development', 'subtracks': [
-                {'title': 'SASS Concepts', 'subtracks': [
-                        {'title': 'Installation and setup'}
-                        ]
-                }, 
-                {'title': 'Current Front End limitations', 'subtracks':[
+TRACKS = [  {'id': 'web_dev', 'title': 'Web Development', 'subtracks': [
+                {'title': 'Current Front End Limitations', 'subtracks':[
                         {'title': 'Limitations of CSS and the need for pre-compilation'},
                         {'title': 'Limitation of HTML and the need for pre-compilation'}
                         ]
-                }
+                },
+                {'title': 'SASS Concepts', 'subtracks': [
+                        {'title': 'Installation and setup'},
+                        {'title': 'Import directive and modularising CSS code'},
+                        {'title': 'Include directive and mixins'},
+                        {'title': 'Extend directive'},
+                        {'title': 'At-root directive'}
+                        ]
+                },
+                {'title': 'HAML Concepts', 'subtracks': [
+                        {'title': 'DRY HTML'},
+                        {'title': 'Installation and setup'},
+                        {'title': 'HAML syntax'},
+                        {'title': 'Eliminating white space'},
+                        {'title': 'Eliminating deep nesting'}
+                        ]
+                },              
+                {'title': 'Back End Development Flavours', 'subtracks': [
+                        {'title': 'DEVOPS intensive environments -- AWS'},
+                        {'title': 'DEVOPS free environments -- GAE'}
+                        ]
+                },
+                {'title': 'Basics of AWS', 'subtracks': [
+                        {'title': 'Procuring instances'},
+                        {'title': 'Setting up a web server'},
+                        {'title': 'Setting up a DB server'},
+                        {'title': 'Tying it together and making a backend work'},
+                        {'title': 'Scaling a backend on AWS'}
+                        ]
+                },
+                {'title': 'Basics of GAE', 'subtracks': [
+                        {'title': 'Setting up a backend on GAE'},
+                        {'title': 'Scaling a backend on GAE'},
+                        {'title': 'Implementing map reduce on GAE'}
+                        ]
+                }              
             ]
             }, 
             {'id': 'ios', 'title': 'iOS', 'subtracks': [
@@ -26,7 +57,8 @@ TRACKS = [  {'id': 'web_dev', 'title': 'Web development', 'subtracks': [
             ]
             }
         ]
-
+        
+                
 def get_page_title_centered_contents():
     contents_arr = [("TRACKS AT BEAGLES LOFT",["page_heading", "tracks-page-title"])]
     contents = [CenteredContent(s[0], s[1]) for s in contents_arr]
