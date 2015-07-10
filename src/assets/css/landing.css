@@ -504,4 +504,17 @@ footer>a:hover {
         height: 100px;
         width: 100px;
     }
+
+    .service-icon-container, .service-icon {
+        height: 50px;
+        width: 50px;
+    }
+
+    .service-container {
+        padding: 0px;
+    }
+
+    .service-name {
+        display: none;
+    }
 }

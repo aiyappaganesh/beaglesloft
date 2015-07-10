@@ -93,17 +93,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-1"></div>
+                    <div class="col-xs-1"></div>
                     {% for service in services %}
-                    <div class="col-sm-2 align-center service-container" onclick="showServiceCarousel('#{{service.carousel.id}}');">
+                    <div class="col-xs-2 align-center service-container" onclick="showServiceCarousel('#{{service.carousel.id}}');">
                         <div onmouseout="hideServiceHighlightIcon(this)" onmouseover="showServiceHighlightIcon(this)" class="service-icon-container">
                             <img class="no-hover service-icon" src="{{service.icon}}">
                             <img class="on-hover service-icon hide-element" src="{{service.highlight_icon}}">
                         </div>
-                        <h3 class="black-font uppercase">{{service.name}}</h3>
+                        <h3 class="black-font uppercase service-name">{{service.name}}</h3>
                     </div>
                     {% endfor %}
-                    <div class="col-sm-1"></div>
+                    <div class="col-xs-1"></div>
                 </div>
             </div>
         </div>
