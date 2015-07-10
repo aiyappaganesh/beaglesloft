@@ -5,7 +5,27 @@ from model.ui_models.factories.tracks import Tracks
 
 import logging
 
-TRACKS = [{'id': 'web_dev', 'title': 'Web development', 'subtracks': [{'title': 'SASS Concepts', 'subtracks': [{'title': 'Installation and setup'}]}, {'title': 'Current Front End limitations', 'subtracks':[{'title': 'Limitations of CSS and the need for pre-compilation'}, {'title': 'Limitation of HTML and the need for pre-compilation'}]}]}, {'id': 'ios', 'title': 'iOS', 'subtracks': [{'title': 'The language', 'subtracks':[{'title': 'Objective C (or swift?) fundamentals'}, {'title': 'Objective C (or swift?) constructs and control flow'}]}]}]
+TRACKS = [  {'id': 'web_dev', 'title': 'Web development', 'subtracks': [
+                {'title': 'SASS Concepts', 'subtracks': [
+                        {'title': 'Installation and setup'}
+                        ]
+                }, 
+                {'title': 'Current Front End limitations', 'subtracks':[
+                        {'title': 'Limitations of CSS and the need for pre-compilation'},
+                        {'title': 'Limitation of HTML and the need for pre-compilation'}
+                        ]
+                }
+            ]
+            }, 
+            {'id': 'ios', 'title': 'iOS', 'subtracks': [
+                {'title': 'The language', 'subtracks':[
+                        {'title': 'Objective C (or swift?) fundamentals'}, 
+                        {'title': 'Objective C (or swift?) constructs and control flow'}
+                        ]
+                }
+            ]
+            }
+        ]
 
 def get_page_title_centered_contents():
     contents_arr = [("TRACKS AT BEAGLES LOFT",["page_heading", "tracks-page-title"])]
