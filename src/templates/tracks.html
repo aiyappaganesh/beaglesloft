@@ -22,71 +22,36 @@
         </div>
         <div class="row">
             <ul class="nav nav-tabs" style="text-transform: uppercase">
-			    <li class="active"><a data-toggle="tab" href="#mobile_dev">Mobile Development</a></li>
-			    <li><a data-toggle="tab" href="#web_dev">Web Development</a></li>
+			    <li class="active"><a data-toggle="tab" href="#web_dev">Web Development</a></li>
+			    <li><a data-toggle="tab" href="#ios">iOS Development</a></li>
 			    <li><a data-toggle="tab" href="#design">Design</a></li>
 			    <li><a data-toggle="tab" href="#management">Management</a></li>
 			    <li><a data-toggle="tab" href="#soft_skills">Soft skills</a></li>
 			</ul>
         </div>
         <div class="tab-content">
-        	<div id="mobile_dev" class="row tab-pane fade in active">
+            {% for track in tracks %}
+        	<div id="{{ track.id }}" class="row tab-pane fade in active">
         		<div id="accordion" class="panel-group">
+                    {% for subtrack in track.subtracks %}
 				    <div class="panel panel-default">
 				        <div class="panel-heading">
 				            <h4 class="panel-title">
-				                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. The Language</a>
+				                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ track.id }}-{{ forloop.counter }}">{{ subtrack.title }}</a>
 				            </h4>
 				        </div>
-				        <div id="collapseOne" class="panel-collapse collapse">
+				        <div id="collapse-{{ track.id }}-{{ forloop.counter }}" class="panel-collapse collapse">
 				            <div class="panel-body">
-				                <p>Objective C (or swift?) fundamentals</p>
-				                <p>Objective C (or swift?) constructs and control flow</p>
+                                {% for another_subtrack in subtrack.subtracks  %}
+				                <p>{{ another_subtrack.title }}</p>
+                                {% endfor %}
 				            </div>
 				        </div>
 				    </div>
-				    <div class="panel panel-default">
-				        <div class="panel-heading">
-				            <h4 class="panel-title">
-				                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. The environment</a>
-				            </h4>
-				        </div>
-				        <div id="collapseTwo" class="panel-collapse collapse in">
-				            <div class="panel-body">
-				                <p>Introduction to IDEs</p>
-				                <p>Xcode as an IDE</p>
-								<p>Compiling and linking in Xcode</p>
-				            </div>
-				        </div>
-				    </div>
-				    <div class="panel panel-default">
-				        <div class="panel-heading">
-				            <h4 class="panel-title">
-				                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. The run time:</a>
-				            </h4>
-				        </div>
-				        <div id="collapseThree" class="panel-collapse collapse">
-				            <div class="panel-body">
-				                <p>Procuring a developer certificate</p>
-								<p>Setting up your team on Apple's member center</p>
-								<p>Preparing your machine with the developer certificate</p>
-				            </div>
-				        </div>
-				    </div>
+                    {% endfor %}
 				</div>
         	</div>
-        	<div id="web_dev" class="row tab-pane fade in">
-        		Web Dev
-        	</div>
-        	<div id="design" class="row tab-pane fade in">
-        		Design
-        	</div>
-        	<div id="management" class="row tab-pane fade in">
-        		Management
-        	</div>
-        	<div id="soft_skills" class="row tab-pane fade in">
-        		Soft Skills
-        	</div>
+            {% endfor %}
         </div>
     </div>
 </div>
