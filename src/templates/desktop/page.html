@@ -67,11 +67,11 @@
                 <div class="row">
                     <div class="col-sm-6 align-center">
                         <img src="/assets/img/landing/value_up_arrow.png">
-                        <h3>INCREASE YOUR REVENUE PER EMPLOYEE FROM $50K to $75K</h3>
+                        <h3>INCREASE YOUR REVENUE PER EMPLOYEE<br>FROM $50K to $75K</h3>
                     </div>
                     <div class="col-sm-6 align-center">
                         <img src="/assets/img/landing/value_down_arrow.png">
-                        <h3>DECREASE YOUR ATTRITION RATES BY UPTO 30%</h3>
+                        <h3>DECREASE YOUR ATTRITION RATES<br>BY UPTO 30%</h3>
                     </div>
                 </div>
             </div>
@@ -81,6 +81,15 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <h2 class="black-font uppercase align-center">WHAT WE OFFER</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="service-carousel-container">
+                            {% for service in services %}
+                                {% include "components/image_carousel.html" with carousel=service.carousel loop_count=forloop.counter %}
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -95,15 +104,6 @@
                     </div>
                     {% endfor %}
                     <div class="col-sm-1"></div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="service-carousel-container">
-                            {% for service in services %}
-                                {% include "components/image_carousel.html" with carousel=service.carousel loop_count=forloop.counter %}
-                            {% endfor %}
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
