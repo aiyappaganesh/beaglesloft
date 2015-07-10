@@ -105,9 +105,10 @@ x.landing-nav li a:hover{
 
 h2, .header-2 {
     font-family: 'Oswald', sans-serif;
-    font-weight: 300;
+    font-weight: 500;
     font-size: 33px;
     line-height: 1.5;
+    margin: 0px;
 }
 
 h3, .header-3 {
@@ -115,6 +116,8 @@ h3, .header-3 {
     font-weight: 500;
     font-size: 18px;
     line-height: 1.5;
+    margin: 0px;
+    padding-top: 24px;
 }
 
 .section-content {

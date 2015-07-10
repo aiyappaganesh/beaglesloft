@@ -455,7 +455,7 @@ footer>a:hover {
 }
 
 #value-to-services .row {
-    padding-top: 24px;
+    padding-top: 48px;
 }
 
 #value-to-services .row:first-child {
@@ -471,5 +471,13 @@ footer>a:hover {
         height: 70px !important;
         display: block !important;
         text-align: center;
+    }
+
+    #value-to-services .row [class*="col-sm-"] {
+        padding-top: 48px;
+    }
+
+    #value-to-services .row [class*="col-sm-"]:first-child {
+        padding-top: 0px;
     }
 }
