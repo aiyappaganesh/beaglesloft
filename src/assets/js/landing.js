@@ -42,8 +42,14 @@ function showServiceCarousel(id) {
     $(id).fadeIn(0);
 }
 
-function showServiceIcon(e, img) {
-    $(e).css('background-image',"url('"+img+"')");
+function showServiceHighlightIcon(e) {
+    $(e).find('.no-hover').fadeOut(0);
+    $(e).find('.on-hover').fadeIn(0);
+}
+
+function hideServiceHighlightIcon(e) {
+    $(e).find('.on-hover').fadeOut(0);
+    $(e).find('.no-hover').fadeIn(0);
 }
 
 $(window).load(function(){

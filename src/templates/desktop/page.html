@@ -87,7 +87,10 @@
                     <div class="col-sm-1"></div>
                     {% for service in services %}
                     <div class="col-sm-2 align-center service-container" onclick="showServiceCarousel('#{{service.carousel.id}}');">
-                        <div onmouseout="showServiceIcon(this, '{{service.icon}}')" onmouseover="showServiceIcon(this, '{{service.highlight_icon}}')" class="service-icon" style="background-image:url('{{service.icon}}');"></div>
+                        <div onmouseout="hideServiceHighlightIcon(this)" onmouseover="showServiceHighlightIcon(this)" class="service-icon-container">
+                            <img class="no-hover service-icon" src="{{service.icon}}">
+                            <img class="on-hover service-icon hide-element" src="{{service.highlight_icon}}">
+                        </div>
                         <h3 class="black-font uppercase">{{service.name}}</h3>
                     </div>
                     {% endfor %}
