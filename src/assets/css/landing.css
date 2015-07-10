@@ -499,4 +499,9 @@ footer>a:hover {
     #value-to-services .row [class*="col-sm-"]:first-child, #services .row [class*="col-sm-"]:first-child {
         padding-top: 0px;
     }
+
+    .value-img {
+        height: 100px;
+        width: 100px;
+    }
 }
