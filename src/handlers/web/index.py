@@ -75,11 +75,11 @@ def get_events_carousel():
 
 def get_services_list():
     services = [
-        ('/assets/img/landing/lofts.png','LOFTS', get_lofts_carousel()),
-        ('/assets/img/landing/programs.png','PROGRAMS', get_programs_carousel()),
-        ('/assets/img/landing/startups.png','STARTUPS', get_startups_carousel()),
-        ('/assets/img/landing/community.png','COMMUNITY', get_community_carousel()),
-        ('/assets/img/landing/events.png','EVENTS', get_events_carousel())
+        ('/assets/img/landing/lofts.png','/assets/img/landing/lofts_dark.png','LOFTS', get_lofts_carousel()),
+        ('/assets/img/landing/programs.png','/assets/img/landing/programs_dark.png','PROGRAMS', get_programs_carousel()),
+        ('/assets/img/landing/startups.png','/assets/img/landing/startups_dark.png','STARTUPS', get_startups_carousel()),
+        ('/assets/img/landing/community.png','/assets/img/landing/community_dark.png','COMMUNITY', get_community_carousel()),
+        ('/assets/img/landing/events.png','/assets/img/landing/events_dark.png','EVENTS', get_events_carousel())
     ]
     return services
 

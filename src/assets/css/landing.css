@@ -369,6 +369,10 @@ footer>a:hover {
 .service-icon {
     height: 100px;
     width: 100px;
+    border-radius: 50%;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
     margin: auto;
 }
 

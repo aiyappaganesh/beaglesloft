@@ -42,6 +42,10 @@ function showServiceCarousel(id) {
     $(id).fadeIn(0);
 }
 
+function showServiceIcon(e, img) {
+    $(e).css('background-image',"url('"+img+"')");
+}
+
 $(window).load(function(){
     var url = document.URL;
     var accessed_page_section = url.substring(url.lastIndexOf('/'));
