@@ -10,5 +10,8 @@ class Tracks():
             if subtracks:
                 subtracks_objs = cls.get_tracks(tracks=track['subtracks'])
                 track_obj.subtracks = subtracks_objs
+            id = track['id'] if 'id' in track else None
+            if id:
+                track_obj.id = id
             track_objs.append(track_obj)
         return track_objs
