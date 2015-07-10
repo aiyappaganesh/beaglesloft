@@ -450,19 +450,11 @@ footer>a:hover {
     transition: 0.2s ease-in-out left;
 }
 
-#services .row {
+#services .row, #value-to-services .row, #signup .row {
     padding-top: 48px;
 }
 
-#services .row:first-child {
-    padding-top: 0px;
-}
-
-#value-to-services .row {
-    padding-top: 48px;
-}
-
-#value-to-services .row:first-child {
+#services .row:first-child, #value-to-services .row:first-child, #signup .row:first-child{
     padding-top: 0px;
 }
 
@@ -476,6 +468,29 @@ footer>a:hover {
 
 .service-container {
     cursor: pointer;
+}
+
+.signup-email-box {
+    background-color: rgba(235, 235, 235, 0.1);
+    width: 260px;
+    height: 34px;
+    border: none;
+    font-family: Oswald;
+    font-size: 12px;
+    font-weight: 600;
+    padding-left: 15px;
+}
+
+.signup-submit {
+    background-color: #ebebeb;
+    width: 100px;
+    height: 34px;
+    font-family: Oswald;
+    color:  #333333;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    border: none;
 }
 
 @media (max-width: 767px) {

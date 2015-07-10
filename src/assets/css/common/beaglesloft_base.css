@@ -129,6 +129,10 @@ h3, .header-3 {
     color: #000000;
 }
 
+.white-font {
+    color: #ffffff;
+}
+
 .uppercase {
     text-transform: uppercase;
 }
@@ -148,6 +152,10 @@ h3, .header-3 {
 
 .light-gray-background {
     background-color:#e5e5e5;
+}
+
+.beaglesloft-red-background {
+    background-color: #c62530;
 }
 
 .centered-full-screen-element, .centered-full-width-element {
