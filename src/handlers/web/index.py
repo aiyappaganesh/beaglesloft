@@ -10,14 +10,76 @@ import logging
 from util import mailjet
 from model.ui_models.factories.services import Services
 from model.ui_models.centered_contents import CenteredContents, CenteredContent
+from model.ui_models.carousel import Carousel
+from model.ui_models.image_carousel_slide import Image_Carousel_Slide
+
+def get_loft_images():
+    return ['/assets/img/landing/easychair.jpg','/assets/img/landing/cornerchair.jpg']
+
+def get_lofts_carousel():
+    id = "services-lofts"
+    classes = "service-carousel"
+    slides = [Image_Carousel_Slide(img) for img in get_loft_images()]
+    slide_classes= "landing-carousel-item"
+    indicator_classes= "landing-carousel-indicators"
+    lofts_carousel = Carousel(id, classes, slides, slide_classes, indicator_classes)
+    return lofts_carousel
+
+def get_program_images():
+    return ['/assets/img/landing/04.jpg','/assets/img/landing/cornerchair.jpg']
+
+def get_programs_carousel():
+    id = "services-programs"
+    classes = "service-carousel"
+    slides = [Image_Carousel_Slide(img) for img in get_program_images()]
+    slide_classes= "landing-carousel-item"
+    indicator_classes= "landing-carousel-indicators"
+    programs_carousel = Carousel(id, classes, slides, slide_classes, indicator_classes)
+    return programs_carousel
+
+def get_startup_images():
+    return ['/assets/img/landing/02.jpg','/assets/img/landing/cornerchair.jpg']
+
+def get_startups_carousel():
+    id = "services-startups"
+    classes = "service-carousel"
+    slides = [Image_Carousel_Slide(img) for img in get_startup_images()]
+    slide_classes= "landing-carousel-item"
+    indicator_classes= "landing-carousel-indicators"
+    startups_carousel = Carousel(id, classes, slides, slide_classes, indicator_classes)
+    return startups_carousel
+
+def get_community_images():
+    return ['/assets/img/landing/03.jpg','/assets/img/landing/cornerchair.jpg']
+
+def get_community_carousel():
+    id = "services-community"
+    classes = "service-carousel"
+    slides = [Image_Carousel_Slide(img) for img in get_community_images()]
+    slide_classes= "landing-carousel-item"
+    indicator_classes= "landing-carousel-indicators"
+    community_carousel = Carousel(id, classes, slides, slide_classes, indicator_classes)
+    return community_carousel
+
+def get_event_images():
+    return ['/assets/img/landing/05.jpg','/assets/img/landing/cornerchair.jpg']
+
+def get_events_carousel():
+    id = "services-events"
+    classes = "service-carousel"
+    slides = [Image_Carousel_Slide(img) for img in get_event_images()]
+    slide_classes= "landing-carousel-item"
+    indicator_classes= "landing-carousel-indicators"
+    events_carousel = Carousel(id, classes, slides, slide_classes, indicator_classes)
+    return events_carousel
 
 def get_services_list():
     services = [
-        ('/assets/img/landing/lofts.png','LOFTS'),
-        ('/assets/img/landing/programs.png','PROGRAMS'),
-        ('/assets/img/landing/startups.png','STARTUPS'),
-        ('/assets/img/landing/community.png','COMMUNITY'),
-        ('/assets/img/landing/events.png','EVENTS')
+        ('/assets/img/landing/lofts.png','LOFTS', get_lofts_carousel()),
+        ('/assets/img/landing/programs.png','PROGRAMS', get_programs_carousel()),
+        ('/assets/img/landing/startups.png','STARTUPS', get_startups_carousel()),
+        ('/assets/img/landing/community.png','COMMUNITY', get_community_carousel()),
+        ('/assets/img/landing/events.png','EVENTS', get_events_carousel())
     ]
     return services
 

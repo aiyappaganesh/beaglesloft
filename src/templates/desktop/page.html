@@ -86,12 +86,21 @@
                 <div class="row">
                     <div class="col-sm-1"></div>
                     {% for service in services %}
-                    <div class="col-sm-2 align-center">
+                    <div class="col-sm-2 align-center service-container" onclick="showServiceCarousel('#{{service.carousel.id}}');">
                         <img class="service-icon" src="{{service.icon}}">
                         <h3 class="black-font uppercase">{{service.name}}</h3>
                     </div>
                     {% endfor %}
                     <div class="col-sm-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="service-carousel-container">
+                            {% for service in services %}
+                                {% include "components/image_carousel.html" with carousel=service.carousel loop_count=forloop.counter %}
+                            {% endfor %}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

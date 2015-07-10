@@ -37,6 +37,11 @@ function highlightSection(section) {
     });
 }
 
+function showServiceCarousel(id) {
+    $('.service-carousel').fadeOut(0);
+    $(id).fadeIn(0);
+}
+
 $(window).load(function(){
     var url = document.URL;
     var accessed_page_section = url.substring(url.lastIndexOf('/'));

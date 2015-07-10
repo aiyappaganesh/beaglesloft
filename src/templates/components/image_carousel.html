@@ -1,0 +1,23 @@
+<div id="{{carousel.id}}" class="{{carousel.classes}}{% if loop_count != 1 %} hide-element {% endif %} carousel slide" style="height:100%;" data-interval="{{carousel.data_interval|default:4000}}" data-pause="{{carousel.data_pause|default:'false'}}">
+    {% if carousel.indicators %}
+    <ol class="{{carousel.indicator_classes}} carousel-indicators">
+        {% for slide in carousel.slides %}
+        <li data-target="#{{carousel.id}}" data-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% endif %}" onclick="ga('send', 'event', '{{carousel.id}}', 'slide-indicator-click', 'Slide {{forloop.counter}} Viewed')"></li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    <div class="carousel-inner" style="height:100%">
+        {% for slide in carousel.slides %}
+        <div id="{{carousel.id}}-slide-{{forloop.counter}}" class="{{carousel.slide_classes}} item {% if forloop.first %}active{% endif %}" style="background:url('{{slide.img}}') no-repeat center center;">
+        </div>
+        {% endfor %}
+    </div>
+    {% if carousel.controls %}
+    <a class="left carousel-control" href="#{{carousel.id}}" data-slide="prev" style="background-image:none">
+        <span class="glyphicon-chevron-left"><img src="/assets/img/landing/left-arrow.png"></span>
+    </a>
+    <a class="right carousel-control" href="#{{carousel.id}}" data-slide="next" style="background-image:none">
+        <span class="glyphicon-chevron-right"><img src="/assets/img/landing/right-arrow.png"></span>
+    </a>
+    {% endif %}
+</div>

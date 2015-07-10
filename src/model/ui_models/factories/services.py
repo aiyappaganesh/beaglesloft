@@ -5,6 +5,6 @@ class Services():
     def get_services(self, services):
         ret_val = []
         for service in services:
-            s = Service(service[0], service[1])
+            s = Service(service[0], service[1], service[2])
             ret_val.append(s)
         return ret_val

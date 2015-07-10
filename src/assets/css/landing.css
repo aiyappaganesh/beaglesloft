@@ -466,6 +466,14 @@ footer>a:hover {
     line-height: 1.3;
 }
 
+.service-carousel-container {
+    height: 480px;
+}
+
+.service-container {
+    cursor: pointer;
+}
+
 @media (max-width: 767px) {
     #value-to-services ul {
         height: 70px !important;
