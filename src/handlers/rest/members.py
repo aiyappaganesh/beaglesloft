@@ -27,6 +27,11 @@ class MemberCreateHandler(RequestHandler):
         self.session['member'] = key
         self.redirect(redirect_url)
 
+class AddMemberEmailHandler(RequestHandler):
+    def post(self):
+        key = self['email']
+        Member.create_or_update(key)
+
 
 class MemberUpdateHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandler):
     @login_required
@@ -188,6 +193,7 @@ class SubscribeNewsletterHandler(RequestHandler):
 app = RestApplication([ ("/api/members/login", LoginHandler),
                         ("/api/members/([^/]+)/update", MemberUpdateHandler),
                         ("/api/members/create", MemberCreateHandler),
+                        ("/api/members/add_email", AddMemberEmailHandler),
                         ("/api/members/get_member", MemberFetchHandler),
                         ("/api/members/([^/]+)/image", ImageHandler),
                         ("/api/members/get_all_members", AllMembersFetchHandler),

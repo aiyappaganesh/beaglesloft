@@ -10,6 +10,19 @@ $(document).ready(function(){
             highlightSection('#section1');
         }
     });
+
+    $('#signup-form').submit(function(e) {
+        e.preventDefault();
+        $('#signup-message').fadeOut();
+        var email = $('#signup-email').val();
+        if(email) {
+            $.post('/api/members/add_email',{'email':email});
+            $('#signup-message').fadeIn();
+        } else {
+            $('#signup-email').focus();
+        }
+        $('#signup-email').val('');
+    });
 });
 
 /*$('#section1-carousel').on('slide.bs.carousel', function () {
