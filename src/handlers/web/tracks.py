@@ -5,7 +5,7 @@ from model.ui_models.factories.tracks import Tracks
 
 import logging
 
-TRACKS = [  {'id': 'web_dev', 'title': 'Web Development', 'subtracks': [
+TRACKS = [  {'id': 'web_dev', 'image': '/assets/img/tracks/mobile_dev.png', 'title': 'Web Development', 'subtracks': [
                 {'title': 'Current Front End Limitations', 'subtracks':[
                         {'title': 'Limitations of CSS and the need for pre-compilation'},
                         {'title': 'Limitation of HTML and the need for pre-compilation'}
@@ -48,7 +48,7 @@ TRACKS = [  {'id': 'web_dev', 'title': 'Web Development', 'subtracks': [
                 }
             ]
             },
-            {'id': 'ios', 'title': 'iOS', 'subtracks': [
+            {'id': 'ios', 'image': '/assets/img/tracks/mobile_dev.png', 'title': 'iOS', 'subtracks': [
                 {'title': 'The Language', 'subtracks':[
                         {'title': 'Objective C fundamentals'},
                         {'title': 'Objective C constructs and control flow'}

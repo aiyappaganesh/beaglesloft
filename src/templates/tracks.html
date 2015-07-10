@@ -22,11 +22,14 @@
         </div>
         <div class="row">
             <ul class="nav nav-tabs" style="text-transform: uppercase">
-			    <li class="active"><a data-toggle="tab" href="#web_dev">Web Development</a></li>
-			    <li><a data-toggle="tab" href="#ios">iOS Development</a></li>
-			    <li><a data-toggle="tab" href="#design">Design</a></li>
-			    <li><a data-toggle="tab" href="#management">Management</a></li>
-			    <li><a data-toggle="tab" href="#soft_skills">Soft skills</a></li>
+            {% for track in tracks %}
+                <li{% if forloop.counter == 1%} class="active"{% endif %}>
+                    <a data-toggle="tab" href="#{{ track.id }}">
+                        <img class="tracks-title-image" src="{{ track.image }}">
+                        {{ track.title }}
+                    </a>
+                </li>
+            {% endfor %}
 			</ul>
         </div>
         <div class="tab-content">
@@ -42,9 +45,11 @@
 				        </div>
 				        <div id="collapse-{{ track.id }}-{{ forloop.counter }}" class="panel-collapse collapse">
 				            <div class="panel-body">
+                                <ul>
                                 {% for another_subtrack in subtrack.subtracks  %}
-				                <p>{{ another_subtrack.title }}</p>
+                                    <li>{{ another_subtrack.title }}</li>
                                 {% endfor %}
+                                </ul>
 				            </div>
 				        </div>
 				    </div>

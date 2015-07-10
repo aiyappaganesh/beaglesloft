@@ -13,5 +13,8 @@ class Tracks():
             id = track['id'] if 'id' in track else None
             if id:
                 track_obj.id = id
+            image = track['image'] if 'image' in track else None
+            if image:
+                track_obj.image = image
             track_objs.append(track_obj)
         return track_objs
