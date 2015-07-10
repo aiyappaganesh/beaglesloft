@@ -53,12 +53,40 @@ TRACKS = [  {'id': 'web_dev', 'title': 'Web Development', 'subtracks': [
                         {'title': 'Objective C (or swift?) fundamentals'}, 
                         {'title': 'Objective C (or swift?) constructs and control flow'}
                         ]
+                },
+                {'title': 'The run time', 'subtracks':[
+                        {'title': 'Procuring a developer certificate'}, 
+                        {'title': "Setting up your team on Apple's member center"},
+                        {'title': 'Preparing your machine with the developer certificate'}
+                        ]
+                },
+                {'title': 'Installation', 'subtracks':[
+                        {'title': 'Installing a simple app on your phone via Xcode'}
+                        ]
+                },
+                {'title': 'Deep dive', 'subtracks':[
+                        {'title': 'View controller modelling for iOS apps'}, 
+                        {'title': 'Storyboarding your app'},
+                        {'title': 'Gestures and interactions'},
+                        {'title': 'Working with some of the often used concepts like UITableViews, UICollectionViews etc...'},
+                        {'title': 'Efficient networking for iOS apps'}
+                        ]
+                },
+                {'title': 'Instrumenting your app', 'subtracks':[
+                        {'title': 'Measure allocations and catch leaks'}, 
+                        {'title': 'Measure battery and CPU performance'},
+                        {'title': 'Measure network performance'}
+                        ]
+                },
+                {'title': 'Distributing and measuring engagement', 'subtracks':[
+                        {'title': 'Distribute your app via iTunes and TestFlight'}, 
+                        {'title': 'Measure user engagement using AppBoy and Flurry'}
+                        ]
                 }
             ]
             }
         ]
-        
-                
+
 def get_page_title_centered_contents():
     contents_arr = [("TRACKS AT BEAGLES LOFT",["page_heading", "tracks-page-title"])]
     contents = [CenteredContent(s[0], s[1]) for s in contents_arr]
