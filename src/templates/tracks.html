@@ -17,45 +17,25 @@
     <div class="width940 section-content">
         <div class="row">
             <div class="col-sm-12">
-                <h2 class="black-font uppercase align-center">We offer the following tracks</h2>
+                <h2 class="black-font uppercase align-center">We offer the following program tracks</h2>
             </div>
         </div>
-        <div class="row">
-            <ul class="nav nav-tabs" style="text-transform: uppercase">
-            {% for track in tracks %}
-                <li{% if forloop.counter == 1%} class="active"{% endif %}>
-                    <a data-toggle="tab" href="#{{ track.id }}">
-                        <img class="tracks-title-image" src="{{ track.image }}">
-                        {{ track.title }}
-                    </a>
-                </li>
+        <div class="row" style="padding-top:20px">
+            <div class="col-xs-1"></div>
+            {% for key, track in tracks.items %}
+            <div class="col-xs-2 align-center service-container" onclick="showTrackPrograms('#{{track.id}}');">
+                <div onmouseout="hideServiceHighlightIcon(this)" onmouseover="showServiceHighlightIcon(this)" class="service-icon-container">
+                    <img class="no-hover service-icon" src="{{track.icon}}">
+                    <img class="on-hover service-icon hide-element" src="{{track.highlight_icon}}">
+                </div>
+                <h3 class="black-font uppercase service-name">{{track.title}}</h3>
+            </div>
             {% endfor %}
-			</ul>
+            <div class="col-xs-1"></div>
         </div>
-        <div class="tab-content">
-            {% for track in tracks %}
-        	<div id="{{ track.id }}" class="row tab-pane fade in{% if forloop.counter == 1%} active{% endif %}">
-        		<div id="accordion" class="panel-group">
-                    {% for subtrack in track.subtracks %}
-				    <div class="panel panel-default">
-				        <div class="panel-heading">
-				            <h4 class="panel-title">
-				                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ track.id }}-{{ forloop.counter }}">{{ subtrack.title }}</a>
-				            </h4>
-				        </div>
-				        <div id="collapse-{{ track.id }}-{{ forloop.counter }}" class="panel-collapse collapse">
-				            <div class="panel-body">
-                                <ul>
-                                {% for another_subtrack in subtrack.subtracks  %}
-                                    <li>{{ another_subtrack.title }}</li>
-                                {% endfor %}
-                                </ul>
-				            </div>
-				        </div>
-				    </div>
-                    {% endfor %}
-				</div>
-        	</div>
+        <div class="track_content" style="padding-top:20px">
+            {% for key, track in tracks.items %}
+                {% include "components/track_programs.html" with track=track counter=forloop.counter %}
             {% endfor %}
         </div>
     </div>
@@ -63,5 +43,5 @@
 {% endblock %}
 
 {% block Scripts %}
-    <script src="/assets/js/desktop/desktop_base.js"></script>
+    <script src="/assets/js/tracks.js"></script>
 {% endblock %}

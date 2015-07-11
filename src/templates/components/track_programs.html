@@ -1,0 +1,37 @@
+<div id='{{track.id}}' class="track-program-listing" style="{% if counter != 1 %}display:none{% endif %}">
+	{% for program in track.programs %}
+        <div style="width:300px;height:450px;display:inline-block;float:left;">
+            <div style="text-align:center">
+            	<a target="_blank" href="{{program.link}}">
+            		<div style="height:175px;width:300px;background-image:url('{% if event.snapshot %}/api/common/download_image/{{event.snapshot}}{% else %}/assets/img/landing/xino.jpeg{% endif %}');background-position: center;background-size: cover;background-repeat: no-repeat;">
+            		</div>
+            	</a>
+            </div>
+            <div style="height:42px;border-bottom: 1px solid lightgrey;background-color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 500;font-size:14px;color:#535353;padding:14px;line-height:14px;text-transform:uppercase;">
+            	<p class="pull-left">{{program.start_date}}</p>
+            	<p class="pull-right">{{program.num_spots}} SPOTS</p>
+            </div>
+            <div style="height:151px;border-bottom: 1px solid lightgrey;background-color:#ffffff;font-family: 'Merriweather', sans-serif;font-weight: 300;font-size:14px;padding:20px;">
+                <p style="text-align:left;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:22px;text-transform:uppercase;">{{program.title}}</p>
+                <p style="text-align:left;">{{event.description}}</p>
+            </div>
+            <div style="height:80px;background-color:#ffffff;text-align:center;">
+                <div style="height:20px"></div>
+                <div style="height:40px;margin:auto;width:260px;">
+                    <a target="_blank" href="{{program.link}}" onclick="ga('send', 'event', 'Events Page', 'click', 'Learn More Button - Past ' + '{{ program.link }}')">
+                        <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
+                    </a>
+                </div>
+                <div style="height:20px"></div>
+            </div>
+        </div>
+        {% if not forloop.last %}
+            <div style="width:20px;height:450px;display:inline-block;float:left;">
+            </div>
+        {% endif %}
+	    {% if not forloop.last %}
+	        <div style="height:24px;">
+	        </div>
+	    {% endif %}
+	{% endfor %}
+</div>
