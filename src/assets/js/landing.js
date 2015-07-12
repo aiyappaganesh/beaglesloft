@@ -23,6 +23,17 @@ $(document).ready(function(){
         }
         $('#signup-email').val('');
     });
+
+    $('.service-container li').hover(
+                                        function(){
+                                            var highlight_icon = $(this).children('input[name="highlight_icon"]').first().val();
+                                            $(this).children('a').css("background-image", "url(" + highlight_icon + ")");
+                                        },
+                                        function(){
+                                            var icon = $(this).children('input[name="icon"]').first().val();
+                                            $(this).children('a').css("background-image", "url(" + icon + ")");
+                                        }
+                                    );
 });
 
 /*$('#section1-carousel').on('slide.bs.carousel', function () {
@@ -53,6 +64,7 @@ function highlightSection(section) {
 function showServiceCarousel(id) {
     $('.service-carousel').fadeOut(0);
     $(id).fadeIn(0);
+    $('')
 }
 
 function showServiceHighlightIcon(e) {

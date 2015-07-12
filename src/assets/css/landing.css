@@ -460,6 +460,22 @@ footer>a:hover {
 
 .service-container {
     cursor: pointer;
+    list-style: none;
+    margin: 0px auto;
+    padding: 0;
+    text-align: center;
+    display: table;
+}
+
+.service-container li {
+    display: inline;
+    float: left;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.service-container li h3 {
+    padding-top: 0px !important;
 }
 
 .signup-email-box {
@@ -483,6 +499,15 @@ footer>a:hover {
     font-weight: 400;
     text-align: center;
     border: none;
+}
+
+.service-logo {
+    background-size: contain !important;
+    width: 100px;
+    height: 100px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: block;
 }
 
 @media (max-width: 767px) {
