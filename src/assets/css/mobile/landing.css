@@ -186,8 +186,16 @@
 }
 
 .service-container {
-    padding: 0px;
     cursor: pointer;
+    list-style: none;
+    margin: 0px auto;
+    padding: 0px;
+    text-align: center;
+    display: table;
+}
+
+.service-container li h3 {
+    padding-top: 0px !important;
 }
 
 .service-name {
@@ -196,6 +204,13 @@
 
 .service-carousel-container {
     height: 480px;
+}
+
+.service-container li {
+    display: inline;
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .signup-email-box {
@@ -219,4 +234,17 @@
     font-weight: 400;
     text-align: center;
     border: none;
+}
+
+.service-logo {
+    background-size: contain !important;
+    width: 50px;
+    height: 50px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.service-carousel-container .glyphicon-chevron-right:before, .service-carousel-container .glyphicon-chevron-left:before {
+    content: none;
 }

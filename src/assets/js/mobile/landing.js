@@ -18,7 +18,40 @@ $(document).ready(function() {
         }
         $('#signup-email').val('');
     });
+
+    $('.service-container li').hover(
+        function(){
+            switchLinkIcon($(this), 'highlight_icon')
+        },
+        function(){
+            if ($(this).hasClass("active")) {
+                return;
+            };
+            switchLinkIcon($(this), 'icon');
+        }
+    );
+
+    $('.service-container li').click(
+        function(){
+            var carousel_id = $(this).children('input[name="carousel_id"]').first().val();
+            $('.service-carousel').fadeOut(0);
+            $(carousel_id).fadeIn(0);
+            $('.service-container li').each(
+                function(){
+                    $(this).removeClass('active');
+                    switchLinkIcon($(this), 'icon');
+                }
+               );
+            $(this).addClass('active');
+            switchLinkIcon($(this), 'highlight_icon');
+        }
+    );
 });
+
+function switchLinkIcon(ele, icon){
+    var highlight_icon = ele.children('input[name="' + icon + '"]').first().val();
+    ele.children('a').css("background-image", "url(" + highlight_icon + ")");
+}
 
 function showServiceCarousel(id) {
     $('.service-carousel').fadeOut(0);
