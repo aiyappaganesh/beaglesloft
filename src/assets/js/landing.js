@@ -26,15 +26,36 @@ $(document).ready(function(){
 
     $('.service-container li').hover(
                                         function(){
-                                            var highlight_icon = $(this).children('input[name="highlight_icon"]').first().val();
-                                            $(this).children('a').css("background-image", "url(" + highlight_icon + ")");
+                                            switchLinkIcon($(this), 'highlight_icon')
                                         },
                                         function(){
-                                            var icon = $(this).children('input[name="icon"]').first().val();
-                                            $(this).children('a').css("background-image", "url(" + icon + ")");
+                                            if ($(this).hasClass("active")) {
+                                                return
+                                            };
+                                            switchLinkIcon($(this), 'icon')
+                                        }
+                                    );
+    $('.service-container li').click(
+                                        function(){
+                                            var carousel_id = $(this).children('input[name="carousel_id"]').first().val();
+                                            $('.service-carousel').fadeOut(0);
+                                            $(carousel_id).fadeIn(0);
+                                            $('.service-container li').each(
+                                                                            function(){
+                                                                                $(this).removeClass('active');
+                                                                                switchLinkIcon($(this), 'icon');
+                                                                            }
+                                                                           );
+                                            $(this).addClass('active');
+                                            switchLinkIcon($(this), 'highlight_icon');
                                         }
                                     );
 });
+
+function switchLinkIcon(ele, icon){
+    var highlight_icon = ele.children('input[name="' + icon + '"]').first().val();
+    ele.children('a').css("background-image", "url(" + highlight_icon + ")");
+}
 
 /*$('#section1-carousel').on('slide.bs.carousel', function () {
     $('#slide-copy').fadeTo(200,0);
@@ -59,12 +80,6 @@ function highlightSection(section) {
             this.style.textDecoration="none";
         }
     });
-}
-
-function showServiceCarousel(id) {
-    $('.service-carousel').fadeOut(0);
-    $(id).fadeIn(0);
-    $('')
 }
 
 function showServiceHighlightIcon(e) {
