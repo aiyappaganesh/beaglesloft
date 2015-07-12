@@ -14,7 +14,7 @@ from model.ui_models.carousel import Carousel
 from model.ui_models.image_carousel_slide import Image_Carousel_Slide
 
 def get_loft_images():
-    return ['/assets/img/landing/easychair.jpg','/assets/img/landing/cornerchair.jpg']
+    return ['/assets/img/landing/service_imgs/easychair.jpg','/assets/img/landing/service_imgs/terrace.jpg','/assets/img/landing/service_imgs/sunlight.jpg']
 
 def get_lofts_carousel():
     id = "services-lofts"
@@ -26,7 +26,7 @@ def get_lofts_carousel():
     return lofts_carousel
 
 def get_program_images():
-    return ['/assets/img/landing/04.jpg','/assets/img/landing/cornerchair.jpg']
+    return ['/assets/img/landing/service_imgs/tb1.jpg','/assets/img/landing/service_imgs/tb2.jpg']
 
 def get_programs_carousel():
     id = "services-programs"
@@ -38,7 +38,7 @@ def get_programs_carousel():
     return programs_carousel
 
 def get_startup_images():
-    return ['/assets/img/landing/02.jpg','/assets/img/landing/cornerchair.jpg']
+    return ['/assets/img/landing/service_imgs/st1.jpg','/assets/img/landing/service_imgs/st2.jpg', '/assets/img/landing/service_imgs/st3.jpg']
 
 def get_startups_carousel():
     id = "services-startups"
@@ -50,7 +50,7 @@ def get_startups_carousel():
     return startups_carousel
 
 def get_community_images():
-    return ['/assets/img/landing/03.jpg','/assets/img/landing/cornerchair.jpg']
+    return ['/assets/img/landing/service_imgs/cm1.jpg','/assets/img/landing/service_imgs/cm2.jpg']
 
 def get_community_carousel():
     id = "services-community"
@@ -62,7 +62,7 @@ def get_community_carousel():
     return community_carousel
 
 def get_event_images():
-    return ['/assets/img/landing/05.jpg','/assets/img/landing/cornerchair.jpg']
+    return ['/assets/img/landing/service_imgs/ev2.jpg','/assets/img/landing/service_imgs/ev3.jpg', '/assets/img/landing/service_imgs/ev1.jpg']
 
 def get_events_carousel():
     id = "services-events"
