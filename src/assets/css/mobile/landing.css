@@ -248,3 +248,24 @@
 .service-carousel-container .glyphicon-chevron-right:before, .service-carousel-container .glyphicon-chevron-left:before {
     content: none;
 }
+
+.why-beaglesloft {
+    background-color:#444444;
+    background:url('/assets/img/landing/basketball-court.png') center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.why-beaglesloft-copy {
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #e5edec;
+    text-align: left;
+    line-height: 28px;
+    font-style: italic;
+}
+
+.why-beaglesloft ul:first-of-type {
+    height: 82px !important;
+}

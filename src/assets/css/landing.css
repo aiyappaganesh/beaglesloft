@@ -112,13 +112,14 @@
     text-align:right;
 }
 
-.section6_right_text {
+.why-beaglesloft-copy {
     font-family: 'Merriweather', sans-serif;
     font-weight: 300;
     font-size: 16px;
     color: #e5edec;
     text-align: left;
     line-height: 28px;
+    font-style: italic;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
@@ -510,6 +511,13 @@ footer>a:hover {
     display: block;
 }
 
+.why-beaglesloft {
+    background-color:#444444;
+    background:url('/assets/img/landing/basketball-court.png') center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 @media (max-width: 767px) {
     #value-to-services ul {
         height: 70px !important;
@@ -551,5 +559,9 @@ footer>a:hover {
     .service-container li {
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    .why-beaglesloft ul:first-of-type {
+        height: 82px !important;
     }
 }

@@ -93,6 +93,22 @@ def get_value_to_services_centered_contents():
     centered_contents.append(CenteredContents(256, 0, contents))
     return centered_contents
 
+def get_why_beaglesloft_centered_contents():
+    centered_contents = []
+    contents_arr = [("WHY BEAGLES LOFT?",["header-2","white-font"])]
+    contents = [CenteredContent(s[0], s[1]) for s in contents_arr]
+    centered_contents.append(CenteredContents(300, 0, contents))
+    contents_arr = [("The name is inspired by an old basketball playground in Bangalore. In this playground, we built "
+                     "friendships that have lasted the length of our current lives, we discussed how we'd disrupt the "
+                     "status quo and we tinkered with technology and music. We often underestimate the value of these "
+                     "playgrounds in our lives, but these little playgrounds offer the three key tools that are "
+                     "sufficient to work on the really big ideas that can push life forward - community, disruptive "
+                     "ideas and a framework for tinkering.",["why-beaglesloft-copy","white-font"])]
+    contents = [CenteredContent(s[0], s[1]) for s in contents_arr]
+    centered_contents.append(CenteredContents(308, 0, contents))
+    return centered_contents
+
+
 class IndexPage(WebRequestHandler):
     def get(self):
         path = 'landing.html'
@@ -101,6 +117,7 @@ class IndexPage(WebRequestHandler):
             template_values['member'] = Member.get_member_json(self.session['member'])
         template_values['services'] = Services.get_services(get_services_list())
         template_values['value_to_services_centered'] = get_value_to_services_centered_contents()
+        template_values['why_beaglesloft_centered'] = get_why_beaglesloft_centered_contents()
         self.render_template(template_name=None, template_values=template_values)
 
 class CalendarPage(WebRequestHandler):
