@@ -39,10 +39,12 @@
 
 .tracks-program-title {
     text-align:left;
-    font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size:22px;
     text-transform:uppercase;
+}
+
+h3.tracks-program-title {
+    padding-top: 0px;
 }
 
 .tracks-program-desc {
@@ -50,6 +52,7 @@
     font-family: 'Merriweather', sans-serif;
     font-weight: 300;
     font-size:14px;
+    padding-top: 10px;
 }
 
 .tracks-program-button-container {
@@ -70,4 +73,10 @@
 
 .track-program-listing>.row:first-child {
     margin-top: 48px;
+}
+
+@media (max-width: 767px) {
+    .tracks-program-desc {
+        font-size:12px;
+    }
 }

@@ -16,15 +16,13 @@
                         <p class="pull-right">{{program.num_spots}} SPOTS</p>
                     </div>
                     <div class="tracks-program-copy-container">
-                        <p class="tracks-program-title">{{program.title}}</p>
+                        <h3 class="tracks-program-title">{{program.title}}</h3>
                         <p class="tracks-program-desc">{{program.description}}</p>
                     </div>
-                    <div class="white-background align-center">
-                        <div class="tracks-program-button-container">
-                            <a target="_blank" href="{{program.link}}" onclick="ga('send', 'event', 'Tracks Page', 'click', 'Learn More Button - Past ' + '{{ program.link }}')">
-                                <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
-                            </a>
-                        </div>
+                    <div class="tracks-program-button-container white-background align-center">
+                        <a target="_blank" href="{{program.link}}" onclick="ga('send', 'event', 'Tracks Page', 'click', 'Learn More Button - Past ' + '{{ program.link }}')">
+                            <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
+                        </a>
                     </div>
                 </div>
                 <div class="col-sm-1 col-xs-3"></div>
