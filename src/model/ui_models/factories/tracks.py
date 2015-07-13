@@ -30,7 +30,7 @@ def get_programs(track):
                 Program('User acquisition', 'Aug 28 2015', 20, mobile_track, 'Learn how to go from zero to the first thousand users to prove product market fit', 'useracquisition', get_modules_for(mobile_track)),
                 Program('Android Programming 101', 'Sept 5 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'android_programming', get_modules_for(mobile_track)),
                 Program('Building an Android App', 'Sept 12 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'building_an_android_app', get_modules_for(mobile_track)),
-                Program('High quality Android code', 'Sept 19 2015', 25, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'xcode', get_modules_for(mobile_track)),
+                Program('High quality Android code', 'Sept 19 2015', 25, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'android_coding', get_modules_for(mobile_track)),
                 Program('Android App Analytics and Audience Engagement', 'Sept 26 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'analytics', get_modules_for(mobile_track)),
                 Program('Google Play Store Optimization', 'Oct 1 2015', 25, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'google_play', get_modules_for(mobile_track)),
                 Program('Android user acquisition', 'Oct 8 2015', 10, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'useracquisition', get_modules_for(mobile_track))
