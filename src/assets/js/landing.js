@@ -26,13 +26,13 @@ $(document).ready(function(){
 
     $('.service-container li').hover(
                                         function(){
-                                            switchLinkIcon($(this), 'highlight_icon')
+                                            switchLinkIcon($(this), 'highlight_icon', 'black-font')
                                         },
                                         function(){
                                             if ($(this).hasClass("active")) {
                                                 return
                                             };
-                                            switchLinkIcon($(this), 'icon')
+                                            switchLinkIcon($(this), 'icon', 'red-font')
                                         }
                                     );
     $('.service-container li').click(
@@ -43,18 +43,22 @@ $(document).ready(function(){
                                             $('.service-container li').each(
                                                                             function(){
                                                                                 $(this).removeClass('active');
-                                                                                switchLinkIcon($(this), 'icon');
+                                                                                switchLinkIcon($(this), 'icon', 'red-font');
                                                                             }
                                                                            );
                                             $(this).addClass('active');
-                                            switchLinkIcon($(this), 'highlight_icon');
+                                            switchLinkIcon($(this), 'highlight_icon', 'black-font');
                                         }
                                     );
 });
 
-function switchLinkIcon(ele, icon){
+function switchLinkIcon(ele, icon, text_color){
     var highlight_icon = ele.children('input[name="' + icon + '"]').first().val();
     ele.children('a').css("background-image", "url(" + highlight_icon + ")");
+    ele.children('h3').removeClass();
+    ele.children('h3').addClass(text_color);
+    ele.children('h3').addClass('uppercase');
+    ele.children('h3').addClass('service-name');
 }
 
 /*$('#section1-carousel').on('slide.bs.carousel', function () {

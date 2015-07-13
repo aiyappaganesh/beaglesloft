@@ -125,6 +125,10 @@ h3, .header-3 {
     padding-bottom: 128px;
 }
 
+.red-font {
+    color: #c62530;
+}
+
 .black-font {
     color: #000000;
 }
