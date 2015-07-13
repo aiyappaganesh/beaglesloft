@@ -36,14 +36,14 @@ def get_programs(track):
                 Program('Android user acquisition', 'Aug 1 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'ios', get_modules_for(mobile_track))
             ],
         web_track:[Program('Building a Web App 101', 'Aug 1 2015', 20, web_track, 'A beginner course to understand all the skills required to be a good web developer', 'full_stack', None),
-                   Program('Going beyond HTML and CSS', 'Aug 1 2015', 20, web_track, 'Learn how to write D.R.Y code and the frameworks and libraries to achieve that', 'full_stack', None),
-                   Program('Discrete Mathematics 101', 'Aug 1 2015', 20, web_track, 'Basics of Combinatorics, Graph Theory, Probablity and number theory. Indispensible for any hacker', 'full_stack', None),
-                   Program('Continuous Mathematics 101', 'Aug 1 2015', 20, web_track, 'The Calculus, Algebra and Statistics every data scientist should know.', 'full_stack', None),
-                   Program('Algorithms and Datastructures revisited', 'Aug 1 2015', 20, web_track, 'Computer science fundamentals which separates a good programmer from the best', 'full_stack', None),
-                   Program('Distributed computing', 'Aug 1 2015', 20, web_track, 'Basic concepts of distributed computing and how to execute it on the cloud', 'full_stack', None),
-                   Program('Non-relational Databases', 'Aug 1 2015', 20, web_track, 'The new Non-relational mathematics and how commercial databases implement them', 'full_stack', None),
-                   Program('NLP 101', 'Aug 1 2015', 20, web_track, 'Tools and frameworks for processing and mining data from natural language text', 'full_stack', None),
-                   Program('Big Data 101', 'Aug 1 2015', 20, web_track, 'Learn how to store massive amounts of data in distributed databases and process them using MapReduce', 'full_stack', None)],
+                   Program('Going beyond HTML and CSS', 'Aug 1 2015', 20, web_track, 'Learn how to write D.R.Y code and the frameworks and libraries to achieve that', 'less', None),
+                   Program('Discrete Mathematics 101', 'Aug 1 2015', 20, web_track, 'Basics of Combinatorics, Graph Theory, Probablity and number theory. Indispensible for any hacker', 'disc_math', None),
+                   Program('Continuous Mathematics 101', 'Aug 1 2015', 20, web_track, 'The Calculus, Algebra and Statistics every data scientist should know.', 'cont_math', None),
+                   Program('Algorithms and Datastructures revisited', 'Aug 1 2015', 20, web_track, 'Computer science fundamentals which separates a good programmer from the best', 'algo', None),
+                   Program('Distributed computing', 'Aug 1 2015', 20, web_track, 'Basic concepts of distributed computing and how to execute it on the cloud', 'dist', None),
+                   Program('Non-relational Databases', 'Aug 1 2015', 20, web_track, 'The new Non-relational mathematics and how commercial databases implement them', 'no_sql', None),
+                   Program('NLP 101', 'Aug 1 2015', 20, web_track, 'Tools and frameworks for processing and mining data from natural language text', 'nlp', None),
+                   Program('Big Data 101', 'Aug 1 2015', 20, web_track, 'Learn how to store massive amounts of data in distributed databases and process them using MapReduce', 'big_data', None)],
         designer:[Program('Designing 101', 'Aug 1 2015', 20, designer, '', 'designer', None)],
         product_manager:[Program('Product Management 101', 'Aug 1 2015', 20, product_manager, '', 'product', None)]}
     return programs[track]
