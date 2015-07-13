@@ -6,8 +6,18 @@
 h3.panel-title {
     font-size: 18px;
     padding: 10px 15px;
+    -webkit-transition: all 0.25s linear;
+    transition: all 0.25s linear;
 }
 
 .panel-heading a, .panel-heading a:hover {
     text-decoration: none;
+}
+
+.panel-body ul {
+    margin-bottom: 0px;
+}
+
+h3.panel-title:hover {
+    padding-left: 35px;
 }
