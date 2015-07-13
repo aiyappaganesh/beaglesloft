@@ -1,6 +1,7 @@
 class Program():
-    def __init__(self, title, start_date, num_spots, track):
+    def __init__(self, title, start_date, num_spots, track, description):
         self.title = title
+        self.description = description
         self.start_date = start_date
         self.num_spots = num_spots
         self.track = track

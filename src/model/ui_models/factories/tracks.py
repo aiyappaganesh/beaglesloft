@@ -7,10 +7,10 @@ designer = 'Designer'
 product_manager = 'Product Manager'
 
 def get_programs(track):
-    programs = {mobile_track:[Program('iOS Programming 101', 'Aug 1 2015', 20, mobile_track)],
-                web_track:[Program('Web Development 101', 'Aug 1 2015', 20, web_track)],
-                designer:[Program('Designing 101', 'Aug 1 2015', 20, designer)],
-                product_manager:[Program('Product Management 101', 'Aug 1 2015', 20, product_manager)]}
+    programs = {mobile_track:[Program('iOS Programming 101', 'Aug 1 2015', 20, mobile_track, 'Build, distribute and measure the performance of your first iOS app!')],
+                web_track:[Program('Web Development 101', 'Aug 1 2015', 20, web_track, 'Go beyond plain HTML and CSS and be cloud ready')],
+                designer:[Program('Designing 101', 'Aug 1 2015', 20, designer, '')],
+                product_manager:[Program('Product Management 101', 'Aug 1 2015', 20, product_manager, '')]}
     return programs[track]
 
 tracks = [Track(mobile_track, '/assets/img/tracks/mobile_dev', get_programs(mobile_track)),
