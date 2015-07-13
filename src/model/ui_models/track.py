@@ -9,7 +9,8 @@ class Program():
 
 class Track():
     def __init__(self, title, icon, programs):
-        self.icon = icon
-        self.title = title
+        self.icon = icon + '.png'
+        self.highlight_icon = icon + '_dark.png'
+        self.name = title
         self.programs = programs
         self.id = title.lower().replace(' ', '_')

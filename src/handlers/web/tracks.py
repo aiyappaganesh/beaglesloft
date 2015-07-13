@@ -14,7 +14,7 @@ class TracksPage(WebRequestHandler):
     def get(self):
         template_values = {}
         template_values['page_title_centered'] = get_page_title_centered_contents()
-        template_values['tracks'] = Tracks.get_tracks()
+        template_values['tracks'] = Tracks.get_tracks().values()
         self.render_template(template_name='tracks.html', template_values=template_values)
 
 class ListingPage(WebRequestHandler):

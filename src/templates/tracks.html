@@ -21,21 +21,10 @@
             </div>
         </div>
         <div class="row" style="padding-top:20px">
-            <ul class="service-container">
-            {% for key, track in tracks.items %}
-                <li>
-                    <a class="service-logo" href="#" style="background-image:url('{% if forloop.counter == 1 %}{{track.highlight_icon}}{% else %}{{track.icon}}{% endif %}');">
-                    </a>
-                    <h3 class="black-font uppercase service-name">{{track.title}}</h3>
-                    <input type="hidden" name="highlight_icon" value="{{track.highlight_icon}}"></input>
-                    <input type="hidden" name="icon" value="{{track.icon}}"></input>
-                    <input type="hidden" name="carousel_id" value="#{{track.id}}"></input>
-                </li>
-                {% endfor %}
-            </ul>
+            {% include "components/service_icons.html" with services=tracks carousel=0 %}
         </div>
         <div class="track_content" style="padding-top:20px">
-            {% for key, track in tracks.items %}
+            {% for track in tracks %}
                 {% include "components/track_programs.html" with track=track counter=forloop.counter %}
             {% endfor %}
         </div>
@@ -45,5 +34,6 @@
 
 {% block Scripts %}
     <script src="/assets/js/tracks.js"></script>
+    <script src="/assets/js/landing.js"></script>
     <script src="/assets/js/desktop/desktop_base.js"></script>
 {% endblock %}

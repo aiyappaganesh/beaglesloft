@@ -9,8 +9,8 @@ def get_programs(track):
                 web_track:[Program('Web Development 101', 'Aug 1 2015', 20, web_track)]}
     return programs[track]
 
-tracks = {mobile_track:Track(mobile_track, '/assets/img/tracks/mobile_dev.png', get_programs(mobile_track)),
-             web_track:Track(web_track, '/assets/img/tracks/mobile_dev.png', get_programs(web_track))}
+tracks = {mobile_track:Track(mobile_track, '/assets/img/tracks/mobile_dev', get_programs(mobile_track)),
+             web_track:Track(web_track, '/assets/img/tracks/full_stack', get_programs(web_track))}
 
 class Tracks():
     @classmethod
