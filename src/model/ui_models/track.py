@@ -1,5 +1,10 @@
+class Module():
+    def __init__(self, title, units):
+        self.title = title
+        self.units = units
+
 class Program():
-    def __init__(self, title, start_date, num_spots, track, description, snapshot):
+    def __init__(self, title, start_date, num_spots, track, description, snapshot, modules):
         self.title = title
         self.description = description
         self.start_date = start_date
@@ -8,6 +13,7 @@ class Program():
         self.id = title.lower().replace(' ', '_')
         self.snapshot = '/assets/img/tracks/snapshots/' + snapshot + '.png'
         self.link = '/tracks/program_listing?id=' + self.id
+        self.modules = modules
 
 class Track():
     def __init__(self, title, icon, programs):

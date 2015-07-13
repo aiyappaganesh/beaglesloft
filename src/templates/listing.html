@@ -13,7 +13,26 @@
     </div>
     <div class="col-sm-4"></div>
 </div>
-
+<div id="accordion" class="panel-group">
+    {% for module in program.modules %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ track.id }}-{{ forloop.counter }}">{{ module.title }}</a>
+            </h4>
+        </div>
+        <div id="collapse-{{ track.id }}-{{ forloop.counter }}" class="panel-collapse collapse">
+            <div class="panel-body">
+                <ul>
+                {% for unit in module.units  %}
+                    <li>{{ unit }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
 
 {% block Scripts %}
