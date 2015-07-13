@@ -13,7 +13,22 @@ def get_modules_for(track):
     return modules[track]
 
 def get_programs(track):
-    programs = {mobile_track:[Program('iOS Programming 101', 'Aug 1 2015', 20, mobile_track, 'Build, distribute and measure the performance of your first iOS app!', 'ios', get_modules_for(mobile_track))],
+    programs = {
+        mobile_track:
+            [
+                Program('iOS Programming 101', 'Aug 1 2015', 20, mobile_track, 'Learn the basics of programming in Objective C and setting up the fundamentals of iOS Dev Environment', 'ios', get_modules_for(mobile_track)),
+                Program('Building an iOS App', 'Aug 1 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'ios', get_modules_for(mobile_track)),
+                Program('High quality iOS code', 'Aug 1 2015', 20, mobile_track, 'Learn what differentiates a high quality app from a mediocre one and how to code for excellence', 'ios', get_modules_for(mobile_track)),
+                Program('App Analytics and Audience Engagement', 'Aug 1 2015', 20, mobile_track, 'Deep dive into analytics, data monitoring, audience segmentation and engagement', 'ios', get_modules_for(mobile_track)),
+                Program('App Store Optimization', 'Aug 1 2015', 20, mobile_track, 'How to launch your app effectively and optimize for success in the app store', 'ios', get_modules_for(mobile_track)),
+                Program('User acquisition', 'Aug 1 2015', 20, mobile_track, 'Learn how to go from zero to the first thousand users to prove product market fit', 'ios', get_modules_for(mobile_track)),
+                Program('Android Programming 101', 'Aug 1 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'ios', get_modules_for(mobile_track)),
+                Program('Building an Android App', 'Aug 1 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'ios', get_modules_for(mobile_track)),
+                Program('High quality Android code', 'Aug 1 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'ios', get_modules_for(mobile_track)),
+                Program('Android App Analytics and Audience Engagement', 'Aug 1 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'ios', get_modules_for(mobile_track)),
+                Program('Google Play Store Optimization', 'Aug 1 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'ios', get_modules_for(mobile_track)),
+                Program('Android user acquisition', 'Aug 1 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'ios', get_modules_for(mobile_track))
+            ],
                 web_track:[Program('Web Development 101', 'Aug 1 2015', 20, web_track, 'Go beyond plain HTML and CSS and be cloud ready', 'full_stack', None)],
                 designer:[Program('Designing 101', 'Aug 1 2015', 20, designer, '', 'designer', None)],
                 product_manager:[Program('Product Management 101', 'Aug 1 2015', 20, product_manager, '', 'product', None)]}
