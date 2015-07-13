@@ -21,17 +21,18 @@
             </div>
         </div>
         <div class="row" style="padding-top:20px">
-            <div class="col-xs-1"></div>
+            <ul class="service-container">
             {% for key, track in tracks.items %}
-            <div class="col-xs-2 align-center service-container" onclick="showTrackPrograms('#{{track.id}}');">
-                <div onmouseout="hideServiceHighlightIcon(this)" onmouseover="showServiceHighlightIcon(this)" class="service-icon-container">
-                    <img class="no-hover service-icon" src="{{track.icon}}">
-                    <img class="on-hover service-icon hide-element" src="{{track.highlight_icon}}">
-                </div>
-                <h3 class="black-font uppercase service-name">{{track.title}}</h3>
-            </div>
-            {% endfor %}
-            <div class="col-xs-1"></div>
+                <li>
+                    <a class="service-logo" href="#" style="background-image:url('{% if forloop.counter == 1 %}{{track.highlight_icon}}{% else %}{{track.icon}}{% endif %}');">
+                    </a>
+                    <h3 class="black-font uppercase service-name">{{track.title}}</h3>
+                    <input type="hidden" name="highlight_icon" value="{{track.highlight_icon}}"></input>
+                    <input type="hidden" name="icon" value="{{track.icon}}"></input>
+                    <input type="hidden" name="carousel_id" value="#{{track.id}}"></input>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
         <div class="track_content" style="padding-top:20px">
             {% for key, track in tracks.items %}
