@@ -9,3 +9,65 @@
 	height: 20px;
 	width: 20px;
 }
+
+.tracks-program-img {
+    height:175px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.tracks-program-date {
+    height:42px;
+    border-bottom: 1px solid lightgrey;
+    background-color:#ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size:14px;
+    color:#535353;
+    padding:14px;
+    line-height:14px;
+    text-transform:uppercase;
+}
+
+.tracks-program-copy-container {
+    height:151px;
+    border-bottom: 1px solid lightgrey;
+    background-color:#ffffff;
+    padding:20px;
+}
+
+.tracks-program-title {
+    text-align:left;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size:22px;
+    text-transform:uppercase;
+}
+
+.tracks-program-desc {
+    text-align:left;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 300;
+    font-size:14px;
+}
+
+.tracks-program-button-container {
+    height:40px;
+    margin:auto;
+    max-width:260px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.tracks-program-container {
+    height:450px;
+}
+
+.track-program-listing .row {
+    margin-top: 24px;
+}
+
+.track-program-listing>.row:first-child {
+    margin-top: 48px;
+}
