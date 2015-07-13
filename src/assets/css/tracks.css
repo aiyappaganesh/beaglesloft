@@ -75,8 +75,20 @@ h3.tracks-program-title {
     margin-top: 48px;
 }
 
+.service-container li {
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 180px;
+}
+
 @media (max-width: 767px) {
     .tracks-program-desc {
         font-size:12px;
+    }
+
+    .service-container li {
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 80px;
     }
 }
