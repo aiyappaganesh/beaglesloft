@@ -25,7 +25,7 @@ class Tracks():
 
     @classmethod
     def get_listing(cls, pg_id):
-        for name, track in tracks.iteritems():
+        for track in tracks:
             for program in track.programs:
                 if program.id == pg_id:
                     return program
