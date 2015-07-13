@@ -53,7 +53,12 @@ def get_programs(track):
                 Program('Branding Concepts', 'Aug 1 2015', 20, designer, '', 'branding', None)
             ],
         product_manager:[
-            Program('Product Management 101', 'Aug 1 2015', 20, product_manager, '', 'product', None)
+            Program('The new age Product Manager', 'Aug 1 2015', 20, product_manager, '', 'product', None),
+            Program('Tools for Product Management', 'Aug 1 2015', 20, product_manager, '', 'tools', None),
+            Program('Design Thinking for Product Management', 'Aug 1 2015', 20, product_manager, '', 'design_thinking', None),
+            Program('Agile based Product Management', 'Aug 1 2015', 20, product_manager, '', 'agile', None),
+            Program('Client Management', 'Aug 1 2015', 20, product_manager, '', 'client_managament', None),
+            Program('Lean Product Management', 'Aug 1 2015', 20, product_manager, '', 'product_management', None)
             ]}
     return programs[track]
 
