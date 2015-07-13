@@ -1,0 +1,7 @@
+.panel-heading h3 {
+    padding-top: 0px;
+}
+
+.panel-default>.panel-heading {
+    background-color: #c62530;
+}

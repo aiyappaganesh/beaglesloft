@@ -24,12 +24,12 @@ class TracksPage(WebRequestHandler):
         template_values['tracks'] = Tracks.get_tracks()
         self.render_template(template_name='tracks.html', template_values=template_values)
 
-class ListingPage(WebRequestHandler):
+class ProgramListingPage(WebRequestHandler):
     def get(self):
-    	program = Tracks.get_listing(self['id'])
+        program = Tracks.get_listing(self['id'])
         template_values = {'program':program,
                            'listing_heading':get_listing_centered_contents(program)}
-    	self.render_template(template_name='listing.html', template_values=template_values)
+        self.render_template(template_name='program_listing.html', template_values=template_values)
 
 app = RestApplication([('/tracks', TracksPage),
-					   ('/tracks/program_listing', ListingPage)])
+                       ('/tracks/program_listing', ProgramListingPage)])
