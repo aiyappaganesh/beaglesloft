@@ -20,9 +20,11 @@
             {% for module in program.modules %}
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title white-font">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ track.id }}-{{ forloop.counter }}">{{ module.title }}</a>
-                    </h3>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ track.id }}-{{ forloop.counter }}">
+                        <h3 class="panel-title white-font">
+                            {{ module.title }}<span class="glyphicon glyphicon-chevron-down" style="float: right; padding: 5px 20px 0px 0px"></span>
+                        </h3>
+                    </a>
                 </div>
                 <div id="collapse-{{ track.id }}-{{ forloop.counter }}" class="panel-collapse collapse">
                     <div class="panel-body">

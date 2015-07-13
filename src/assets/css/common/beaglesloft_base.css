@@ -623,3 +623,7 @@ img.bg {
 .beaglesloft-footer:hover {
     color:#c62430;
 }
+
+.rotate-180 {
+    -webkit-transform: rotate(180deg);
+}

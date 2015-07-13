@@ -1,7 +1,13 @@
-.panel-heading h3 {
-    padding-top: 0px;
-}
-
 .panel-default>.panel-heading {
     background-color: #c62530;
+    padding: 0px;
+}
+
+h3.panel-title {
+    font-size: 18px;
+    padding: 10px 15px;
+}
+
+.panel-heading a, .panel-heading a:hover {
+    text-decoration: none;
 }
