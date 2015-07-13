@@ -50,7 +50,7 @@ def get_programs(track):
                 Program('Android App Design', 'Aug 17 2015', 10, designer, """An in-depth look at Android's implementation of "material design" and how you can use it make elegant Android Apps.""", 'android_design', None),
                 Program('Web Design', 'Aug 24 2015', 15, designer, "Parallax, Single Scroll pages, Sticky menus and other new age design paradigms which is shaping today's web pages.", 'web_design', None),
                 Program('Responsive Design', 'Sept 3 2015', 20, designer, 'Learn how to make your website render seamlessly across a multitude of devices and resolutions.', 'responsive_design', None),
-                Program('Branding Concepts', 'Sept 10 2015', 20, designer, '', 'branding', None)
+                Program('Branding Concepts', 'Sept 10 2015', 20, designer, 'How to turn an idea into a product and brand that people love.', 'branding', None)
             ],
         product_manager:[
             Program('The new age Product Manager', 'Aug 4 2015', 10, product_manager, 'Learn to handle challenges in software development with ever changing requirements and faster iterations.', 'product', None),
