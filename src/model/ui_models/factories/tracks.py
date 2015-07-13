@@ -44,8 +44,17 @@ def get_programs(track):
                    Program('Non-relational Databases', 'Aug 1 2015', 20, web_track, 'The new Non-relational mathematics and how commercial databases implement them', 'no_sql', None),
                    Program('NLP 101', 'Aug 1 2015', 20, web_track, 'Tools and frameworks for processing and mining data from natural language text', 'nlp', None),
                    Program('Big Data 101', 'Aug 1 2015', 20, web_track, 'Learn how to store massive amounts of data in distributed databases and process them using MapReduce', 'big_data', None)],
-        designer:[Program('Designing 101', 'Aug 1 2015', 20, designer, '', 'designer', None)],
-        product_manager:[Program('Product Management 101', 'Aug 1 2015', 20, product_manager, '', 'product', None)]}
+        designer:[
+                Program('Design Thinking', 'Aug 1 2015', 20, designer, '', 'design_thinking', None),
+                Program('iOS App Design', 'Aug 1 2015', 20, designer, '', 'ios_design', None),
+                Program('Android App Design', 'Aug 1 2015', 20, designer, '', 'android_design', None),
+                Program('Web Design', 'Aug 1 2015', 20, designer, '', 'web_design', None),
+                Program('Responsive Design', 'Aug 1 2015', 20, designer, '', 'responsive_design', None),
+                Program('Branding Concepts', 'Aug 1 2015', 20, designer, '', 'branding', None)
+            ],
+        product_manager:[
+            Program('Product Management 101', 'Aug 1 2015', 20, product_manager, '', 'product', None)
+            ]}
     return programs[track]
 
 tracks = [Track(mobile_track, '/assets/img/tracks/mobile_dev', get_programs(mobile_track)),
