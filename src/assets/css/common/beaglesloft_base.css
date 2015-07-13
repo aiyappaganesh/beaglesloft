@@ -120,6 +120,12 @@ h3, .header-3 {
     padding-top: 24px;
 }
 
+.normal-copy {
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
 .section-content {
     padding-top: 128px;
     padding-bottom: 128px;
@@ -357,6 +363,10 @@ body {
 
     h3, .header-3 {
         font-size: 14px !important;
+    }
+
+    .normal-copy {
+        font-size: 12px !important;
     }
 
     .section-content {
