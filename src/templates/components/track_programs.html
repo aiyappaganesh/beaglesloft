@@ -6,7 +6,7 @@
                 <div class="col-sm-1 col-xs-3"></div>
                 <div class="col-sm-10 col-xs-6" style="padding:0px;">
                     <div style="text-align:center">
-                        <a target="_blank" href="{{program.link}}">
+                        <a>
                             <div class="tracks-program-img" style="background-image:url('{{program.snapshot}}');">
                             </div>
                         </a>
@@ -20,7 +20,7 @@
                         <p class="tracks-program-desc">{{program.description}}</p>
                     </div>
                     <div class="tracks-program-button-container white-background align-center">
-                        <a target="_blank" href="{{program.link}}" onclick="ga('send', 'event', 'Tracks Page', 'click', 'Learn More Button - Past ' + '{{ program.link }}')">
+                        <a onclick="ga('send', 'event', 'Tracks Page', 'click', 'Learn More Button - Past ' + '{{ program.link }}')">
                             <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
                         </a>
                     </div>
