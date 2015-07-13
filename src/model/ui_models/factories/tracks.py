@@ -45,11 +45,11 @@ def get_programs(track):
                    Program('NLP 101', 'Sept 21 2015', 25, web_track, 'Tools and frameworks for processing and mining data from natural language text', 'nlp', None),
                    Program('Big Data 101', 'Sept 28 2015', 20, web_track, 'Learn how to store massive amounts of data in distributed databases and process them using MapReduce', 'big_data', None)],
         designer:[
-                Program('Design Thinking', 'Aug 3 2015', 15, designer, '', 'design_thinking', None),
-                Program('iOS App Design', 'Aug 10 2015', 20, designer, '', 'ios_design', None),
-                Program('Android App Design', 'Aug 17 2015', 10, designer, '', 'android_design', None),
-                Program('Web Design', 'Aug 24 2015', 15, designer, '', 'web_design', None),
-                Program('Responsive Design', 'Sept 3 2015', 20, designer, '', 'responsive_design', None),
+                Program('Design Thinking', 'Aug 3 2015', 15, designer, 'Learn the methods and approaches to use design as a "way of thinking" for creative action.', 'design_thinking', None),
+                Program('iOS App Design', 'Aug 10 2015', 20, designer, 'From using 3D depth to layered design. Learn the design concepts required to make world class iOS Apps.', 'ios_design', None),
+                Program('Android App Design', 'Aug 17 2015', 10, designer, """An in-depth look at Android's implementation of "material design" and how you can use it make elegant Android Apps.""", 'android_design', None),
+                Program('Web Design', 'Aug 24 2015', 15, designer, "Parallax, Single Scroll pages, Sticky menus and other new age design paradigms which is shaping today's web pages.", 'web_design', None),
+                Program('Responsive Design', 'Sept 3 2015', 20, designer, 'Learn how to make your website render seamlessly across a multitude of devices and resolutions.', 'responsive_design', None),
                 Program('Branding Concepts', 'Sept 10 2015', 20, designer, '', 'branding', None)
             ],
         product_manager:[
