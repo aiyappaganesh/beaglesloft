@@ -13,7 +13,7 @@
 .tracks-program-img {
     height:175px;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 
