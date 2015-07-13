@@ -466,6 +466,10 @@ footer {
     transition: color 1s;
 }
 
+.nav>li>a:focus, .nav>li:focus {
+    background-color: transparent !important;
+}
+
 .nav-bg {
     -webkit-transition: -webkit-transform 1s;
     -webkit-transform: translateY(-100%);
