@@ -22,43 +22,43 @@ def get_programs(track):
     programs = {
         mobile_track:
             [
-                Program('iOS Programming 101', 'Aug 1 2015', 20, mobile_track, 'Learn the basics of programming in Objective C and setting up the fundamentals of iOS Dev Environment', 'xcode', get_modules_for(mobile_track)),
+                Program('iOS Programming 101', 'Aug 1 2015', 15, mobile_track, 'Learn the basics of programming in Objective C and setting up the fundamentals of iOS Dev Environment', 'xcode', get_modules_for(mobile_track)),
                 Program('Building an iOS App', 'Aug 8 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'dev_ios', get_modules_for(mobile_track)),
-                Program('High quality iOS code', 'Aug 14 2015', 20, mobile_track, 'Learn what differentiates a high quality app from a mediocre one and how to code for excellence', 'high_quality_ios_code', get_modules_for(mobile_track)),
-                Program('App Analytics and Audience Engagement', 'Aug 1 2015', 20, mobile_track, 'Deep dive into analytics, data monitoring, audience segmentation and engagement', 'analytics', get_modules_for(mobile_track)),
-                Program('App Store Optimization', 'Aug 21 2015', 20, mobile_track, 'How to launch your app effectively and optimize for success in the app store', 'appstore_opt', get_modules_for(mobile_track)),
+                Program('High quality iOS code', 'Aug 14 2015', 15, mobile_track, 'Learn what differentiates a high quality app from a mediocre one and how to code for excellence', 'high_quality_ios_code', get_modules_for(mobile_track)),
+                Program('App Analytics and Audience Engagement', 'Aug 1 2015', 25, mobile_track, 'Deep dive into analytics, data monitoring, audience segmentation and engagement', 'analytics', get_modules_for(mobile_track)),
+                Program('App Store Optimization', 'Aug 21 2015', 15, mobile_track, 'How to launch your app effectively and optimize for success in the app store', 'appstore_opt', get_modules_for(mobile_track)),
                 Program('User acquisition', 'Aug 28 2015', 20, mobile_track, 'Learn how to go from zero to the first thousand users to prove product market fit', 'useracquisition', get_modules_for(mobile_track)),
                 Program('Android Programming 101', 'Sept 5 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'android_programming', get_modules_for(mobile_track)),
                 Program('Building an Android App', 'Sept 12 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'building_an_android_app', get_modules_for(mobile_track)),
-                Program('High quality Android code', 'Sept 19 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'xcode', get_modules_for(mobile_track)),
+                Program('High quality Android code', 'Sept 19 2015', 25, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'xcode', get_modules_for(mobile_track)),
                 Program('Android App Analytics and Audience Engagement', 'Sept 26 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'analytics', get_modules_for(mobile_track)),
-                Program('Google Play Store Optimization', 'Oct 1 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'google_play', get_modules_for(mobile_track)),
-                Program('Android user acquisition', 'Oct 8 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'useracquisition', get_modules_for(mobile_track))
+                Program('Google Play Store Optimization', 'Oct 1 2015', 25, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'google_play', get_modules_for(mobile_track)),
+                Program('Android user acquisition', 'Oct 8 2015', 10, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'useracquisition', get_modules_for(mobile_track))
             ],
-        web_track:[Program('Building a Web App 101', 'Aug 1 2015', 20, web_track, 'A beginner course to understand all the skills required to be a good web developer', 'full_stack', None),
-                   Program('Going beyond HTML and CSS', 'Aug 1 2015', 20, web_track, 'Learn how to write D.R.Y code and the frameworks and libraries to achieve that', 'less', None),
-                   Program('Discrete Mathematics 101', 'Aug 1 2015', 20, web_track, 'Basics of Combinatorics, Graph Theory, Probablity and number theory. Indispensible for any hacker', 'disc_math', None),
-                   Program('Continuous Mathematics 101', 'Aug 1 2015', 20, web_track, 'The Calculus, Algebra and Statistics every data scientist should know.', 'cont_math', None),
-                   Program('Algorithms and Datastructures revisited', 'Aug 1 2015', 20, web_track, 'Computer science fundamentals which separates a good programmer from the best', 'algo', None),
-                   Program('Distributed computing', 'Aug 1 2015', 20, web_track, 'Basic concepts of distributed computing and how to execute it on the cloud', 'dist', None),
-                   Program('Non-relational Databases', 'Aug 1 2015', 20, web_track, 'The new Non-relational mathematics and how commercial databases implement them', 'no_sql', None),
-                   Program('NLP 101', 'Aug 1 2015', 20, web_track, 'Tools and frameworks for processing and mining data from natural language text', 'nlp', None),
-                   Program('Big Data 101', 'Aug 1 2015', 20, web_track, 'Learn how to store massive amounts of data in distributed databases and process them using MapReduce', 'big_data', None)],
+        web_track:[Program('Building a Web App 101', 'Aug 2 2015', 20, web_track, 'A beginner course to understand all the skills required to be a good web developer', 'full_stack', None),
+                   Program('Going beyond HTML and CSS', 'Aug 9 2015', 20, web_track, 'Learn how to write D.R.Y code and the frameworks and libraries to achieve that', 'less', None),
+                   Program('Discrete Mathematics 101', 'Aug 16 2015', 25, web_track, 'Basics of Combinatorics, Graph Theory, Probablity and number theory. Indispensible for any hacker', 'disc_math', None),
+                   Program('Continuous Mathematics 101', 'Aug 23 2015', 30, web_track, 'The Calculus, Algebra and Statistics every data scientist should know.', 'cont_math', None),
+                   Program('Algorithms and Datastructures revisited', 'Aug 30 2015', 20, web_track, 'Computer science fundamentals which separates a good programmer from the best', 'algo', None),
+                   Program('Distributed computing', 'Sept 7 2015', 25, web_track, 'Basic concepts of distributed computing and how to execute it on the cloud', 'dist', None),
+                   Program('Non-relational Databases', 'Sept 14 2015', 30, web_track, 'The new Non-relational mathematics and how commercial databases implement them', 'no_sql', None),
+                   Program('NLP 101', 'Sept 21 2015', 25, web_track, 'Tools and frameworks for processing and mining data from natural language text', 'nlp', None),
+                   Program('Big Data 101', 'Sept 28 2015', 20, web_track, 'Learn how to store massive amounts of data in distributed databases and process them using MapReduce', 'big_data', None)],
         designer:[
-                Program('Design Thinking', 'Aug 1 2015', 20, designer, '', 'design_thinking', None),
-                Program('iOS App Design', 'Aug 1 2015', 20, designer, '', 'ios_design', None),
-                Program('Android App Design', 'Aug 1 2015', 20, designer, '', 'android_design', None),
-                Program('Web Design', 'Aug 1 2015', 20, designer, '', 'web_design', None),
-                Program('Responsive Design', 'Aug 1 2015', 20, designer, '', 'responsive_design', None),
-                Program('Branding Concepts', 'Aug 1 2015', 20, designer, '', 'branding', None)
+                Program('Design Thinking', 'Aug 3 2015', 15, designer, '', 'design_thinking', None),
+                Program('iOS App Design', 'Aug 10 2015', 20, designer, '', 'ios_design', None),
+                Program('Android App Design', 'Aug 17 2015', 10, designer, '', 'android_design', None),
+                Program('Web Design', 'Aug 24 2015', 15, designer, '', 'web_design', None),
+                Program('Responsive Design', 'Sept 3 2015', 20, designer, '', 'responsive_design', None),
+                Program('Branding Concepts', 'Sept 10 2015', 20, designer, '', 'branding', None)
             ],
         product_manager:[
-            Program('The new age Product Manager', 'Aug 1 2015', 20, product_manager, '', 'product', None),
-            Program('Tools for Product Management', 'Aug 1 2015', 20, product_manager, '', 'tools', None),
-            Program('Design Thinking for Product Management', 'Aug 1 2015', 20, product_manager, '', 'design_thinking', None),
-            Program('Agile based Product Management', 'Aug 1 2015', 20, product_manager, '', 'agile', None),
-            Program('Client Management', 'Aug 1 2015', 20, product_manager, '', 'client_managament', None),
-            Program('Lean Product Management', 'Aug 1 2015', 20, product_manager, '', 'product_management', None)
+            Program('The new age Product Manager', 'Aug 4 2015', 10, product_manager, '', 'product', None),
+            Program('Tools for Product Management', 'Aug 11 2015', 15, product_manager, '', 'tools', None),
+            Program('Design Thinking for Product Management', 'Aug 18 2015', 10, product_manager, '', 'design_thinking', None),
+            Program('Agile based Product Management', 'Aug 25 2015', 20, product_manager, '', 'agile', None),
+            Program('Client Management', 'Sept 1 2015', 20, product_manager, '', 'client_managament', None),
+            Program('Lean Product Management', 'Sept 8 2015', 15, product_manager, '', 'product_management', None)
             ]}
     return programs[track]
 
