@@ -35,10 +35,15 @@ def get_programs(track):
                 Program('Google Play Store Optimization', 'Aug 1 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'ios', get_modules_for(mobile_track)),
                 Program('Android user acquisition', 'Aug 1 2015', 20, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming', 'ios', get_modules_for(mobile_track))
             ],
-        web_track:[Program('Web Development Limitations', 'Aug 1 2015', 20, web_track, 'Learn about writing D.R.Y web code and the limitations of HTML and CSS in achieving that', 'full_stack', None),
-                   Program('SASS', 'Aug 1 2015', 20, web_track, 'Why is CSS pre-compilation necessary and how does it help make CSS modular and D.R.Y', 'full_stack', None),
-                   Program('HAML', 'Aug 1 2015', 20, web_track, 'Eliminate deep nested HTML and learn to cut down the HTML code you write by half through pre-compilation', 'full_stack', None),
-                   Program('Backend infrastructure for web apps', 'Aug 1 2015', 20, web_track, 'Explore 2 different types of backend infrastructure. One DEVOPS intensive and one without DEVOPS.', 'full_stack', None)],
+        web_track:[Program('Building a Web App 101', 'Aug 1 2015', 20, web_track, 'Learn about writing D.R.Y web code and the limitations of HTML and CSS in achieving that', 'full_stack', None),
+                   Program('Going beyond HTML and CSS', 'Aug 1 2015', 20, web_track, 'Learn about writing D.R.Y web code and the limitations of HTML and CSS in achieving that', 'full_stack', None),
+                   Program('Discrete Mathematics for hackers', 'Aug 1 2015', 20, web_track, 'Learn about writing D.R.Y web code and the limitations of HTML and CSS in achieving that', 'full_stack', None),
+                   Program('Continuous Mathematics for hackers', 'Aug 1 2015', 20, web_track, 'Learn about writing D.R.Y web code and the limitations of HTML and CSS in achieving that', 'full_stack', None),
+                   Program('Algorithms and Datastructures revisited', 'Aug 1 2015', 20, web_track, 'Learn about writing D.R.Y web code and the limitations of HTML and CSS in achieving that', 'full_stack', None),
+                   Program('Distributed computing', 'Aug 1 2015', 20, web_track, 'Why is CSS pre-compilation necessary and how does it help make CSS modular and D.R.Y', 'full_stack', None),
+                   Program('Non-relational Databases', 'Aug 1 2015', 20, web_track, 'Eliminate deep nested HTML and learn to cut down the HTML code you write by half through pre-compilation', 'full_stack', None),
+                   Program('NLP 101', 'Aug 1 2015', 20, web_track, 'Explore 2 different types of backend infrastructure. One DEVOPS intensive and one without DEVOPS.', 'full_stack', None),
+                   Program('Big Data 101', 'Aug 1 2015', 20, web_track, 'Explore 2 different types of backend infrastructure. One DEVOPS intensive and one without DEVOPS.', 'full_stack', None)],
         designer:[Program('Designing 101', 'Aug 1 2015', 20, designer, '', 'designer', None)],
         product_manager:[Program('Product Management 101', 'Aug 1 2015', 20, product_manager, '', 'product', None)]}
     return programs[track]
