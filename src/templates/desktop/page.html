@@ -137,19 +137,34 @@
         </div>
     </div>
 </div>
+<input type="hidden" id="current_user" value="{{ member.email }}">
 {% endblock %}
 
 {% block CustomScripts %}
 <script src="/assets/js/landing.js"></script>
 <script>
-mixpanel.init("0a8e3088d183ad2aa1cb75202eea5438", {
+var current_user = $('#current_user').val();
+if (current_user == "") {
+    mixpanel.init("0a8e3088d183ad2aa1cb75202eea5438", {
+        loaded: function() {
+            distinct_id = mixpanel.get_distinct_id();
+            mixpanel.identify(distinct_id);
+            mixpanel.people.set({'$name': 'guest-'+distinct_id});
+            mixpanel.track('guest_visit');
+        }
+    });
+}
+</script>
+<script>
+$('#signup-form').submit(function(){
+    mixpanel.init("0a8e3088d183ad2aa1cb75202eea5438", {
     loaded: function() {
+        var email = $('#signup-email').val();
         distinct_id = mixpanel.get_distinct_id();
         mixpanel.identify(distinct_id);
-        mixpanel.people.set({'$name': 'guest-'+distinct_id});
-        mixpanel.track('guest_visit');
-    }
-});
+        mixpanel.people.set({'$email': email});
+        mixpanel.track("newsletter_signup");
+        }
+})});
 </script>
-
 {% endblock %}

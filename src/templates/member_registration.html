@@ -20,7 +20,7 @@
             <img style="margin:auto;max-height:150px;max-width:150px;" src="/assets/img/landing/bl-logo-intro.png">
         </div>
         <div class="registration-text" style="width:620px;height:1260px;padding:80px;">
-            <form action="/api/members/create" method="POST" onsubmit="return validateMemberRegistrationForm()">
+            <form id="signup-form" action="/api/members/create" method="POST" onsubmit="return validateMemberRegistrationForm()">
                 <input type="hidden" name="redirect_url" value="{{ redirect_url }}">
                 <div id="facebook-login">
                     <p><fb:login-button show-faces="false" width="200" max-rows="1" scope="email,user_work_history"></fb:login-button> to fill information from Facebook<br><br></p>
@@ -67,4 +67,14 @@
 
 {% block Scripts %}
 <script src="/assets/js/member-registration.js"></script>
+<script>
+$('#signup-form').submit(function(){
+    var email = $('#email').val();
+    var name = $('#name').val();
+    mixpanel.identify(email);
+    mixpanel.people.set({'$email': email, '$name': name});
+    mixpanel.alias(email);
+    mixpanel.track("signup");
+});
+</script>
 {% endblock %}
