@@ -72,8 +72,8 @@
         </div>
         <div class="content-page">
             {% block Content %}{% endblock %}
-            {% block Footer %}{% endblock %}
         </div>
+        {% block Footer %}{% include "components/footer.html" %}{% endblock %}
         <script src="/assets/js/lib/jquery.min.js"></script>
         <script src="/assets/js/lib/jquery-ui.js"></script>
         <script src="/assets/js/lib/bootstrap.min.js"></script>
