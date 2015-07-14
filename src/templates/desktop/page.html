@@ -141,4 +141,15 @@
 
 {% block CustomScripts %}
 <script src="/assets/js/landing.js"></script>
+<script>
+mixpanel.init("0a8e3088d183ad2aa1cb75202eea5438", {
+    loaded: function() {
+        distinct_id = mixpanel.get_distinct_id();
+        mixpanel.identify(distinct_id);
+        mixpanel.people.set({'$name': 'guest-'+distinct_id});
+        mixpanel.track('guest_visit');
+    }
+});
+</script>
+
 {% endblock %}
