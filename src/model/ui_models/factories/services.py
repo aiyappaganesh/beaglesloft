@@ -13,10 +13,10 @@ services_list = [lofts, programs, startups, community, events]
 def get_images(service):
     images = {
         lofts: ['/assets/img/landing/service_imgs/easychair.jpg','/assets/img/landing/service_imgs/terrace.jpg','/assets/img/landing/service_imgs/sunlight.jpg'],
-        programs: ['/assets/img/landing/service_imgs/tb1.jpg','/assets/img/landing/service_imgs/tb2.jpg'],
-        startups: ['/assets/img/landing/service_imgs/st1.jpg','/assets/img/landing/service_imgs/st2.jpg', '/assets/img/landing/service_imgs/st3.jpg'],
-        community: ['/assets/img/landing/service_imgs/cm1.jpg','/assets/img/landing/service_imgs/cm2.jpg'],
-        events: ['/assets/img/landing/service_imgs/ev2.jpg','/assets/img/landing/service_imgs/ev3.jpg', '/assets/img/landing/service_imgs/ev1.jpg']
+        programs: ['/assets/img/landing/service_imgs/tb1.jpg','/assets/img/landing/service_imgs/tb2.jpg','/assets/img/landing/service_imgs/tb3.jpg','/assets/img/landing/service_imgs/tb4.jpg','/assets/img/landing/service_imgs/tb5.jpg'],
+        startups: ['/assets/img/landing/service_imgs/st1.jpg','/assets/img/landing/service_imgs/st2.jpg', '/assets/img/landing/service_imgs/st3.jpg', '/assets/img/landing/service_imgs/st4.jpg'],
+        community: ['/assets/img/landing/service_imgs/cm1.jpg','/assets/img/landing/service_imgs/cm2.jpg','/assets/img/landing/service_imgs/cm3.jpg','/assets/img/landing/service_imgs/cm4.jpg','/assets/img/landing/service_imgs/cm5.jpg'],
+        events: ['/assets/img/landing/service_imgs/ev2.jpg','/assets/img/landing/service_imgs/ev3.jpg', '/assets/img/landing/service_imgs/ev1.jpg', '/assets/img/landing/service_imgs/ev4.jpg', '/assets/img/landing/service_imgs/ev5.jpg']
     }
     return images[service]
 
