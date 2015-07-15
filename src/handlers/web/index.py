@@ -34,7 +34,7 @@ class IndexPage(WebRequestHandler):
             template_values['member'] = Member.get_member_json(self.session['member'])
         template_values['services'] = Services.get_services()
         template_values['why_beaglesloft_centered'] = get_why_beaglesloft_centered_contents()
-        self.render_template(template_name=None, template_values=template_values)
+        self.render_template(template_name=path, template_values=template_values)
 
 class CalendarPage(WebRequestHandler):
     def get(self):

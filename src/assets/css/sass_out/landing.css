@@ -1,0 +1,28 @@
+.background-image, #starting-animation-bg {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw; }
+
+.centered-fullscreen {
+  display: table-cell;
+  height: 100vh;
+  width: 100vw;
+  vertical-align: middle;
+  text-align: center; }
+
+#starting-animation-bg {
+  background: url("/assets/img/landing/dark-gate.jpg"); }
+  #starting-animation-bg p {
+    color: #c62530;
+    padding-top: 15px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 300;
+    font-size: 30px; }
+
+/*# sourceMappingURL=landing.css.map */

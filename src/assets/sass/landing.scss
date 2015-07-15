@@ -1,0 +1,17 @@
+@import "partials/_images.scss";
+@import "partials/_standards.scss";
+@import "partials/_constants.scss";
+
+#starting-animation-bg {
+	@extend .background-image;
+	background:url('/assets/img/landing/dark-gate.jpg');
+	& p {
+		color: $red_color;
+		padding-top: $normal_padding;
+		font: {
+			family: $header_font;
+			weight: 300;
+			size: $h2_font_size;
+		}
+	}
+}
