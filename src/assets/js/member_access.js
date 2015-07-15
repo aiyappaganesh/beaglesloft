@@ -171,6 +171,9 @@ function submitAuthentication() {
                 $('#authentication-message').text(data.errormsg);
             } else {
                 ga('send', 'event', 'Member Access Page', 'login-success', 'Member Login Successful');
+                distinct_id = mixpanel.get_distinct_id();
+                mixpanel.identify(distinct_id);
+                mixpanel.track("login");
                 window.location.href = data.redirect_url;
             }
         })
