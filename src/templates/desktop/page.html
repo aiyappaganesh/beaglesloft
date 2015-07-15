@@ -127,9 +127,13 @@
             <div class="width940 section-content">
                 <div class="row">
                     <div class="col-sm-6">
-                        {% include "components/centered_content.html" with centered=why_beaglesloft_centered.0 %}
+                        <div class="row centered-full-width-element landing-carousel-item why-beaglesloft-title">
+                            <div class="col-sm-12">
+                                {% include "components/centered_content.html" with centered=why_beaglesloft_centered.0 %}
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 why-beaglesloft-copy">
                         {% include "components/centered_content.html" with centered=why_beaglesloft_centered.1 %}
                     </div>
                 </div>

@@ -15,7 +15,7 @@ def get_why_beaglesloft_centered_contents():
     centered_contents = []
     contents_arr = [("WHY BEAGLES LOFT?",["header-2","white-font"])]
     contents = [CenteredContent(s[0], s[1]) for s in contents_arr]
-    centered_contents.append(CenteredContents(300, 0, contents))
+    centered_contents.append(CenteredContents(None, 0, contents, False))
     contents_arr = [("The name is inspired by an old basketball playground in Bangalore. In this playground, we built "
                      "friendships that have lasted the length of our current lives, we discussed how we'd disrupt the "
                      "status quo and we tinkered with technology and music. We often underestimate the value of these "

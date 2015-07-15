@@ -164,6 +164,10 @@ h3, .header-3 {
     text-align: left;
 }
 
+.margin-auto {
+    margin: auto;
+}
+
 .white-background {
     background-color:#ffffff;
 }
@@ -688,5 +692,9 @@ footer>a:hover, footer a:hover {
     .beaglesloft-footer [class*="col-sm-"] {
         padding-right: 5px;
         padding-left: 5px;
+    }
+
+    .why-beaglesloft-copy ul {
+        height: auto !important;
     }
 }
