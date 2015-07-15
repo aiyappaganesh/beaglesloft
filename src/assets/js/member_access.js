@@ -173,6 +173,7 @@ function submitAuthentication() {
                 ga('send', 'event', 'Member Access Page', 'login-success', 'Member Login Successful');
                 distinct_id = mixpanel.get_distinct_id();
                 mixpanel.identify(distinct_id);
+                mixpanel.people.set();
                 mixpanel.track("login");
                 window.location.href = data.redirect_url;
             }
