@@ -15,6 +15,7 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    margin: 15px;
 }
 
 .tracks-program-date {
@@ -31,7 +32,7 @@
 }
 
 .tracks-program-copy-container {
-    height:151px;
+    height:220px;
     border-bottom: 1px solid lightgrey;
     background-color:#ffffff;
     padding:20px;
@@ -64,10 +65,10 @@ h3.tracks-program-title {
 }
 
 .tracks-program-container {
-    height:450px;
+    height:550px;
 }
 
-.track-program-listing .row {
+.track-program-listing>.row {
     margin-top: 24px;
 }
 
@@ -90,5 +91,17 @@ h3.tracks-program-title {
         padding-left: 15px;
         padding-right: 15px;
         width: 80px;
+    }
+
+    .track-program-listing>.row>[class*=col-sm] {
+        margin-top: 24px;
+    }
+
+    .track-program-listing>.row>[class*=col-sm]:first-child {
+        margin-top: 0px;
+    }
+
+    .tracks-program-button-container {
+        max-width: 160px;
     }
 }
