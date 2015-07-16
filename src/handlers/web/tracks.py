@@ -10,7 +10,7 @@ def get_centered_contents_for(contents_arr):
     return CenteredContents(None, 0, contents, False)
 
 def get_page_title_centered_contents():
-    contents_arr = [("PROGRAM TRACKS",["page_heading", "tracks-page-title"])]
+    contents_arr = [("LEARNING TRACKS",["page_heading", "tracks-page-title"])]
     return get_centered_contents_for(contents_arr)
 
 def get_listing_centered_contents(program):
