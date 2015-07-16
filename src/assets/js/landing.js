@@ -24,6 +24,13 @@ $(document).ready(function(){
         }
         $('#signup-email').val('');
     });
+
+    $('#starting-animation-bg').delay(4000).queue(
+        function(){
+            $(this).remove();
+            $('#landing-carousel').append();
+        }
+    );
 });
 
 /*$('#section1-carousel').on('slide.bs.carousel', function () {
