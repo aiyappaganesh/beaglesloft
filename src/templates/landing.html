@@ -2,6 +2,7 @@
 
 {% block Styles %}
 <link href="/assets/css/sass_out/landing.css" type="text/css" rel="stylesheet">
+
 {% endblock %}
 
 {% block Content %}
@@ -13,7 +14,25 @@
     	</div>
     </div>
 </div>
-<div id="landing-page" style="background-color: #000000;height:100%">
+<div id="landing-page">
+	<div id="section1-carousel" class="carousel slide" data-interval="4000" data-pause="false">
+        <ol class="carousel-indicators">
+        	{% for i in headings %}
+        		<li data-target="#section1-carousel" data-slide-to="{{forloop.counter0}}" {% if forloop.counter0 == 0 %}class="active"{% endif %}>
+        		</li>	
+        	{% endfor %}
+        </ol>
+        {% for i in headings %}
+        	<p id="landing-carousel-slide-{{forloop.counter}}-copy"></p>
+        {% endfor %}
+        <div class="carousel-inner">
+        	{% for sub_heading in sub_headings %}
+        		<div id="landing-carousel-slide-{{forloop.counter}}" class="item {% if forloop.counter == 1 %}active {% endif %}" style="background:url('/assets/img/landing/landing_carousel/{{forloop.counter}}.png') no-repeat center center fixed;">
+                	<p>{{sub_heading}}</p>
+            	</div>
+        	{% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}
 
