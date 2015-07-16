@@ -16,8 +16,15 @@
   vertical-align: middle;
   text-align: center; }
 
+@keyframes disappear {
+  from {
+    display: block; }
+  to {
+    display: none !important; } }
 #starting-animation-bg {
-  background: url("/assets/img/landing/dark-gate.jpg"); }
+  background: url("/assets/img/landing/dark-gate.jpg");
+  animation-name: disappe;
+  animation-duration: 4s; }
   #starting-animation-bg p {
     color: #c62530;
     padding-top: 15px;

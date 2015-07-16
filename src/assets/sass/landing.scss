@@ -2,9 +2,18 @@
 @import "partials/_standards.scss";
 @import "partials/_constants.scss";
 
+@keyframes disappear {
+    from {display: block;}
+    to {display: none !important;}
+}
+
 #starting-animation-bg {
 	@extend .background-image;
 	background:url('/assets/img/landing/dark-gate.jpg');
+	animation: {
+		name: disappe;
+		duration: 4s;
+	}
 	& p {
 		color: $red_color;
 		padding-top: $normal_padding;
