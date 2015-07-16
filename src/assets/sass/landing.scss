@@ -7,6 +7,10 @@
     to {display: none !important;}
 }
 
+.logo-container {
+	display: none;
+}
+
 #starting-animation-bg {
 	@extend .background-image;
 	background:url('/assets/img/landing/dark-gate.jpg');
