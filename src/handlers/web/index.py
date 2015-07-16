@@ -34,7 +34,9 @@ def get_why_beaglesloft_centered_contents():
 class IndexPage(WebRequestHandler):
     def get(self):
         path = 'landing.html'
-        template_values = {'is_member': True if 'member' in self.session else False}
+        template_values = {'is_member': True if 'member' in self.session else False,
+                           'headings':['BEAGLES LOFT', 'BEAUTIFUL LOFTS', 'A GLOBAL COMMUNITY', 'RENOWNED EXPERTS', 'FUN EVENTS'],
+                           'sub_headings':['DISCOVER YOUR INNER STARTUP', 'TO ELEVATE YOUR WORK', 'TO TAKE PRIDE IN', 'WHO BELIEVE IN SHARING', 'THAT MAKE WORK A BREEZE']}
         if 'member' in self.session:
             template_values['member'] = Member.get_member_json(self.session['member'])
         template_values['services'] = Services.get_services()
