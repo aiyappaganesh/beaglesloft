@@ -21,6 +21,9 @@
     display: block; }
   to {
     display: none !important; } }
+.logo-container {
+  display: none; }
+
 #starting-animation-bg {
   background: url("/assets/img/landing/dark-gate.jpg");
   animation-name: disappe;
