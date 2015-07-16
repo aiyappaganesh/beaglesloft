@@ -120,10 +120,24 @@ h3, .header-3 {
     padding-top: 24px;
 }
 
+h4, .header-4 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0px;
+}
+
 .normal-copy {
     font-family: 'Merriweather', sans-serif;
     font-weight: 300;
     font-size: 14px;
+}
+
+.small-copy {
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
 }
 
 .section-content {
@@ -141,6 +155,14 @@ h3, .header-3 {
 
 .white-font {
     color: #ffffff;
+}
+
+.light-gray-font {
+    color: #f2f2f2;
+}
+
+.dark-gray-font {
+    color: #777777;
 }
 
 .uppercase {
@@ -172,12 +194,16 @@ h3, .header-3 {
     background-color:#ffffff;
 }
 
-.light-gray-background {
+.gray-background {
     background-color:#e5e5e5;
 }
 
-.gray-background {
+.light-gray-background {
     background-color:#f2f2f2;
+}
+
+.dark-gray-background {
+    background-color: #777777;
 }
 
 .beaglesloft-red-background {
@@ -665,8 +691,16 @@ footer>a:hover, footer a:hover {
         font-size: 14px !important;
     }
 
+    h4, .header-4 {
+        font-size: 12px !important;
+    }
+
     .normal-copy {
         font-size: 12px !important;
+    }
+
+    .small-copy {
+        font-size: 11px !important;
     }
 
     .section-content {

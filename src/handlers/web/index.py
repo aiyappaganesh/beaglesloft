@@ -9,6 +9,7 @@ import json
 import logging
 from util import mailjet
 from model.ui_models.factories.services import Services
+from model.ui_models.factories.memberships import Memberships
 from model.ui_models.centered_contents import CenteredContents, CenteredContent
 
 def get_why_beaglesloft_centered_contents():
@@ -33,6 +34,7 @@ class IndexPage(WebRequestHandler):
         if 'member' in self.session:
             template_values['member'] = Member.get_member_json(self.session['member'])
         template_values['services'] = Services.get_services()
+        template_values['memberships'] = Memberships.get_memberships()
         template_values['why_beaglesloft_centered'] = get_why_beaglesloft_centered_contents()
         self.render_template(template_name=None, template_values=template_values)
 
