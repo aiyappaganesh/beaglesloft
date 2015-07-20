@@ -28,7 +28,9 @@
 
 .navbar-content {
   display: inline-block;
-  width: 940px; }
+  height: 70px;
+  display: table-cell;
+  vertical-align: middle; }
   .navbar-content #logo {
     float: left !important;
     height: 50px;
