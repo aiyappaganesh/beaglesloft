@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/png">
     <link href="/assets/css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="/assets/css/common/beaglesloft_base.css" type="text/css" rel="stylesheet">
+    <link href="/assets/css/sass_out/base.css" type="text/css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oswald:100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Gudea:100,200,300,400,500,600,700,800,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic' rel='stylesheet' type='text/css'>
@@ -29,44 +30,13 @@
 </head>
 <body>
     <div id="wrap-div" class="wrap">
-        <div id={% block Navbar_Type %}navbar-fluid{% endblock %} class="navbar navbar-fixed-top" style={% block Navbar_DisplayType %}{% endblock %}>
-            <div class="nav-bg"></div>
-            <div class="navbar-inner">
-                <div id="c820" class="collapse-820">
-                    <div id="navbar-inner-row">
-                        <ul class="nav pull-left">
-                            <li>
-                                <a href="/#" class="hover-enabled" style="padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;">
-                                    <img id="navbar-logo" style="height:50px;width:50px;" src="/assets/img/landing/beagles-logo-nav.png">
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav pull-right">
-                            <li><a href="/tracks" class="nav-link hover-enabled">TRACKS</a></li>
-                            <li><a href="/events" class="nav-link hover-enabled">EVENTS</a></li>
-                            <li><a href="/community" class="nav-link hover-enabled">COMMUNITY</a></li>
-                            <li><a href="/newsletters" class="nav-link hover-enabled">NEWSLETTERS</a></li>
-                            <li><a href="http://beaglesblog.tumblr.com" target="_blank" class="hover-enabled">BLOG</a></li>
-                            <li><a href="{% if is_member %}/members/profile{% else %}/member_access{% endif %}" class="nav-link hover-enabled" {% if is_member %}style="padding-top:0px;padding-bottom:0px;"{% endif %}>{% if is_member %}<img style="height:50px;width:50px;" src="{{member.image_url}}">{% else %}JOIN{% endif %}</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="s820" class="show-820" style="display:none">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ul class="nav">
-                                <li class="dropdown">
-                                    <a style="padding:0px" href="#" data-toggle="modal" data-target="#mobile-menu-modal">
-                                        <img src="/assets/img/Haggle_Mobile_navbar_menu_icon.png" alt="Menu Icon" height="20"/>
-                                    </a>
-                                </li>
-                                <li class="haggle-logo-small">
-                                    <a style="padding:0px;margin-left:75px" id="vendor-header-link" class="brand" href="/#"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <div id={% block Navbar_Type %}navbar-fluid{% endblock %} class="new-navbar" style={% block Navbar_DisplayType %}{% endblock %}>
+            <div class="navbar-content">
+                <ul>
+                    <li>
+                        <img id="logo" src="/assets/img/landing/beagles-logo-nav.png">
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="content-page">
