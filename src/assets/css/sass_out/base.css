@@ -1,0 +1,39 @@
+.background-image {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw; }
+
+.centered-fullscreen {
+  display: table-cell;
+  height: 100vh;
+  width: 100vw;
+  vertical-align: middle;
+  text-align: center; }
+
+.new-navbar {
+  width: 100%;
+  position: fixed;
+  background-color: rgba(48, 46, 46, 0.95);
+  background-image: none;
+  background-repeat: no-repeat;
+  z-index: 100;
+  height: 70px;
+  text-align: center; }
+
+.navbar-content {
+  display: inline-block;
+  width: 940px; }
+  .navbar-content #logo {
+    float: left !important;
+    height: 50px;
+    width: 50px; }
+  .navbar-content #tabs {
+    float: right !important; }
+
+/*# sourceMappingURL=base.css.map */
