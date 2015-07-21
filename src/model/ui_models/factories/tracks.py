@@ -4,6 +4,7 @@ mobile_track = 'Mobile Development'
 web_track = 'Full Stack Developer'
 designer = 'Designer'
 product_manager = 'Product Manager'
+founder = 'Founder'
 
 def get_modules_for(track):
     modules = {mobile_track: [Module('Current Front End Limitations', ['Limitations of CSS and the need for pre-compilation', 'Limitation of HTML and the need for pre-compilation']),
@@ -59,13 +60,22 @@ def get_programs(track):
             Program('Agile based Product Management', 'Aug 25 2015', 20, product_manager, 'Embrace changes and make it work to your favor through agile based product management.', 'agile', None),
             Program('Client Management', 'Sept 1 2015', 20, product_manager, 'Learn all the tricks of the trade to develop a long lasting and happy relationship with your clients.', 'client_managament', None),
             Program('Lean Product Management', 'Sept 8 2015', 15, product_manager, 'Learn to work in iterations to build, measure and learn only what is required and save valuable resources.', 'product_management', None)
-            ]}
+            ],
+        founder: [
+            Program('Bootstrapping your startup', 'Aug 5 2015', 10, founder, 'Bootstrapping your startup', 'bootstrap', None),
+            Program('Raising the seed round', 'Aug 12 2015', 15, founder, 'Raising the seed round', 'seed', None),
+            Program('Raising the Series A round', 'Aug 19 2015', 10, founder, 'Raising the Series A round', 'series-a', None),
+            Program('MVP and Product Market Fit', 'Aug 26 2015', 25, founder, 'MVP and Product Market Fit', 'mvp', None),
+            Program('Investor Management', 'Sept 2 2015', 20, founder, 'Investor Management', 'investor', None  )
+            ]
+    }
     return programs[track]
 
 tracks = [Track(mobile_track, '/assets/img/tracks/mobile_dev', get_programs(mobile_track)),
           Track(web_track, '/assets/img/tracks/full_stack', get_programs(web_track)),
           Track(designer, '/assets/img/tracks/designer', get_programs(designer)),
-          Track(product_manager, '/assets/img/tracks/product_manager', get_programs(product_manager))]
+          Track(product_manager, '/assets/img/tracks/product_manager', get_programs(product_manager)),
+          Track(founder, '/assets/img/tracks/founder', get_programs(founder))]
 
 class Tracks():
     @classmethod
