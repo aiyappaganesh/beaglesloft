@@ -17,18 +17,19 @@
 }
 
 .navbar-content {
-	display: inline-block;
+	margin: auto;
+	width: 940px;
 	height: $navbar_height;
-	display: table-cell;
-	vertical-align: middle;
-
-	#logo {
-		float: left !important;
-		height: 50px;
-		width: 50px;
-	}
-
-	#tabs {
-		float: right !important;
+	display: inline-block;
+		
+	.logo {
+		height: $navbar_height;
+		display: table-cell;
+		vertical-align: middle;
+		
+		img {
+			height: 50px;
+			width: 50px;
+		}
 	}
 }
