@@ -27,15 +27,16 @@
   text-align: center; }
 
 .navbar-content {
-  display: inline-block;
+  margin: auto;
+  width: 940px;
   height: 70px;
-  display: table-cell;
-  vertical-align: middle; }
-  .navbar-content #logo {
-    float: left !important;
-    height: 50px;
-    width: 50px; }
-  .navbar-content #tabs {
-    float: right !important; }
+  display: inline-block; }
+  .navbar-content .logo {
+    height: 70px;
+    display: table-cell;
+    vertical-align: middle; }
+    .navbar-content .logo img {
+      height: 50px;
+      width: 50px; }
 
 /*# sourceMappingURL=base.css.map */
