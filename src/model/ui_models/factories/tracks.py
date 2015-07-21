@@ -93,7 +93,7 @@ def get_programs(track):
             Program('Raising the seed round', 'Aug 12 2015', 15, founder, 'Learn the nuances of acquiring a seed round investment to shape up your idea', 'seed', None),
             Program('Raising the Series A round', 'Aug 19 2015', 10, founder, 'Obtain the skills it takes to get the best term sheet from an investor at the most crucial stage of your startup', 'series-a', None),
             Program('MVP and Product Market Fit', 'Aug 26 2015', 25, founder, 'Decide the right features that goes into your MVP to produce highest return on investment', 'mvp', None),
-            Program('Investor Management', 'Sep 2 2015', 20, founder, 'Understand how to choose investors and strategize accepting funds', 'investor', None)
+            Program('Investor Management', 'Sept 2 2015', 20, founder, 'Understand how to choose investors and strategize accepting funds', 'investor', None)
             ]
     }
     return programs[track]
