@@ -14,22 +14,35 @@
     z-index: 100;
     height: $navbar_height;
     text-align: center;
-}
 
-.navbar-content {
-	margin: auto;
-	width: 940px;
-	height: $navbar_height;
-	display: inline-block;
-		
-	.logo {
+	.navbar-content {
+		margin: auto;
+		width: 940px;
 		height: $navbar_height;
-		display: table-cell;
-		vertical-align: middle;
-		
-		img {
-			height: 50px;
-			width: 50px;
+		display: inline-block;
+			
+		.logo {
+			height: $navbar_height;
+			display: table-cell;
+			vertical-align: middle;
+						
+			img {
+				float: left !important;
+				height: 50px;
+				width: 50px;
+			}
+		}
+
+		.tabs {
+			height: $navbar_height;
+			display: table-cell;
+			vertical-align: middle;
+
+			a {
+				float: right !important;
+			}			
 		}
 	}
+
 }
+

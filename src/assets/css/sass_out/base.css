@@ -25,18 +25,24 @@
   z-index: 100;
   height: 70px;
   text-align: center; }
-
-.navbar-content {
-  margin: auto;
-  width: 940px;
-  height: 70px;
-  display: inline-block; }
-  .navbar-content .logo {
+  .new-navbar .navbar-content {
+    margin: auto;
+    width: 940px;
     height: 70px;
-    display: table-cell;
-    vertical-align: middle; }
-    .navbar-content .logo img {
-      height: 50px;
-      width: 50px; }
+    display: inline-block; }
+    .new-navbar .navbar-content .logo {
+      height: 70px;
+      display: table-cell;
+      vertical-align: middle; }
+      .new-navbar .navbar-content .logo img {
+        float: left !important;
+        height: 50px;
+        width: 50px; }
+    .new-navbar .navbar-content .tabs {
+      height: 70px;
+      display: table-cell;
+      vertical-align: middle; }
+      .new-navbar .navbar-content .tabs a {
+        float: right !important; }
 
 /*# sourceMappingURL=base.css.map */
