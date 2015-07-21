@@ -62,11 +62,11 @@ def get_programs(track):
             Program('Lean Product Management', 'Sept 8 2015', 15, product_manager, 'Learn to work in iterations to build, measure and learn only what is required and save valuable resources.', 'product_management', None)
             ],
         founder: [
-            Program('Bootstrapping your startup', 'Aug 5 2015', 10, founder, 'Bootstrapping your startup', 'bootstrap', None),
-            Program('Raising the seed round', 'Aug 12 2015', 15, founder, 'Raising the seed round', 'seed', None),
-            Program('Raising the Series A round', 'Aug 19 2015', 10, founder, 'Raising the Series A round', 'series-a', None),
-            Program('MVP and Product Market Fit', 'Aug 26 2015', 25, founder, 'MVP and Product Market Fit', 'mvp', None),
-            Program('Investor Management', 'Sept 2 2015', 20, founder, 'Investor Management', 'investor', None  )
+            Program('Bootstrapping your startup', 'Aug 5 2015', 10, founder, 'Make the most of your own resources to build a startup without an outside investor', 'bootstrap', None),
+            Program('Raising the seed round', 'Aug 12 2015', 15, founder, 'Learn the nuances of acquiring a seed round investment to shape up your idea', 'seed', None),
+            Program('Raising the Series A round', 'Aug 19 2015', 10, founder, 'Obtain the skills it takes to get the best term sheet from an investor at the most crucial stage of your startup', 'series-a', None),
+            Program('MVP and Product Market Fit', 'Aug 26 2015', 25, founder, 'Decide the right features that goes into your MVP to produce highest return on investment', 'mvp', None),
+            Program('Investor Management', 'Sept 2 2015', 20, founder, 'Understand how to choose investors and strategize accepting funds', 'investor', None)
             ]
     }
     return programs[track]
