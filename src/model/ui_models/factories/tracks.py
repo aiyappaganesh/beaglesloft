@@ -1,6 +1,6 @@
 from model.ui_models.track import Track, Program, Module
 
-mobile_track = 'Mobile Development'
+mobile_track = 'Mobile Developer'
 web_track = 'Full Stack Developer'
 designer = 'Designer'
 product_manager = 'Product Manager'
