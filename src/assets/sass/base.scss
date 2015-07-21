@@ -15,34 +15,36 @@
     height: $navbar_height;
     text-align: center;
 
-	.navbar-content {
-		margin: auto;
-		width: 940px;
+    .navbar-centered {
+    	margin: auto;
+    	width: 940px;
 		height: $navbar_height;
-		display: inline-block;
-			
-		.logo {
-			height: $navbar_height;
-			display: table-cell;
-			vertical-align: middle;
-						
-			img {
-				float: left !important;
-				height: 50px;
-				width: 50px;
+    	
+    	.logo {
+			float: left !important;
+
+			.logo-container {
+				height: $navbar_height;
+				display: table-cell;
+				vertical-align: middle;
+
+				img {
+					height: 50px;
+					width: 50px;
+				}
 			}
 		}
 
-		.tabs {
-			height: $navbar_height;
-			display: table-cell;
-			vertical-align: middle;
+    	.tabs {
+			float: right !important;
 
-			a {
-				float: right !important;
-			}			
+			.tabs-container {
+				height: $navbar_height;
+				display: table-cell;
+				vertical-align: middle;
+
+			}
 		}
 	}
-
 }
 
