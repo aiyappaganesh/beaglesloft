@@ -1,3 +1,10 @@
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: 30px; }
+
 .cover-image, .background-image, .hero {
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -19,12 +26,12 @@
   text-align: center;
   background-image: url("/assets/img/landing/tracks.png"); }
   .hero p {
-    color: #ffffff;
-    background-color: #c62530;
-    margin: 0px;
     font-family: "Oswald", sans-serif;
     font-weight: 300;
     font-size: 38px;
+    color: #ffffff;
+    background-color: #c62530;
+    margin: 0px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 30px;

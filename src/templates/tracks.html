@@ -10,6 +10,7 @@
         <p>LEARNING TRACKS</p>
     </div>
 </div>
+<h2>We offer the following learning tracks</h2>
 {% for track in tracks %}
     {% with track_donuts|dict_lookup:track.id as donuts %}
         {% include "components/track_programs.html" with track=track counter=forloop.counter donuts=donuts onclick="recordProgramClick" enrolled_tracks=enrolled_tracks is_member=is_member is_manager=is_manager %}
