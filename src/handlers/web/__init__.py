@@ -16,7 +16,6 @@ app = webapp2.WSGIApplication([
     ('/events/edit_event', EditEventPage),
     ('/events/search_event', SearchEventPage),
     ('/events', EventsPage),
-    ('/tracks', TracksPage),
     ('/tracks/program_listing', ProgramListingPage),
     ('/newsletters', NewslettersPage),
     ('/create_newsletter', CreateNewsletterPage),

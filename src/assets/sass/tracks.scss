@@ -1,0 +1,31 @@
+@import "partials/_text.scss";
+@import "partials/_constants.scss";
+@import "partials/_images.scss";
+
+.hero {
+	@extend .cover-image;
+	height: 40vh;
+	width: 100vw;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	background: {
+		image: url('/assets/img/landing/tracks.png');
+	}
+	p {
+		color: $white_color;
+		background-color: $red_color;
+		margin: 0px;
+		font: {
+			family: $hero_font;
+			weight: $hero_font_weight;
+			size: $hero_font_size;
+		}
+		padding: {
+			top: 10px;
+			bottom: 10px;
+			left: 30px;
+			right: 30px;
+		}
+	}	
+}

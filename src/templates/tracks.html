@@ -1,33 +1,13 @@
 {% extends "community_base.html" %}
 
 {% block Styles %}
-<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
-<link href="/assets/css/tracks.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/sass_out/tracks.css" type="text/css" rel="stylesheet">
 {% endblock %}
 
 {% block Content %}
-<div class="row centered-full-width-element landing-carousel-item" style="height:304px;background: url('/assets/img/landing/tracks.png') center center no-repeat;">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4">
-        {% include "components/centered_content.html" with centered=page_title_centered %}
-    </div>
-    <div class="col-sm-4"></div>
-</div>
-<div class="gray-background">
-    <div class="width940 section-content">
-        <div class="row">
-            <div class="col-sm-12">
-                <h2 class="black-font uppercase align-center">We offer the following learning tracks</h2>
-            </div>
-        </div>
-        <div class="row" style="padding-top:20px">
-            {% include "components/service_icons.html" with services=tracks carousel=0 %}
-        </div>
-        <div class="track_content row">
-            {% for track in tracks %}
-                {% include "components/track_programs.html" with track=track counter=forloop.counter %}
-            {% endfor %}
-        </div>
+<div class="hero row">
+    <div class="col-sm-4 col-sm-offset-4">
+        <p>LEARNING TRACKS</p>
     </div>
 </div>
 {% endblock %}

@@ -64,6 +64,10 @@ handlers:
   script: handlers.web.members.app
   secure: never
 
+- url: /tracks
+  script: handlers.web.tracks.app
+  secure: never
+
 - url: /.*
   script: handlers.web.app
   secure: never
