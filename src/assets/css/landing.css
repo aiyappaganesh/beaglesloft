@@ -273,8 +273,8 @@ button {border:none}
 
 .learn-more-button {
     background-color:transparent;
-    width:100%;
-    height:100%;
+    width:260px;
+    height:40px;
     color:#FF0017;
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
