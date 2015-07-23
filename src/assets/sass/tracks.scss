@@ -13,14 +13,10 @@
 		image: url('/assets/img/landing/tracks.png');
 	}
 	p {
+		@include font_definition($oswald_font,$hero_font_size,$hero_font_weight);
 		color: $white_color;
 		background-color: $red_color;
 		margin: 0px;
-		font: {
-			family: $hero_font;
-			weight: $hero_font_weight;
-			size: $hero_font_size;
-		}
 		padding: {
 			top: 10px;
 			bottom: 10px;
@@ -29,3 +25,7 @@
 		}
 	}	
 }
+
+
+
+

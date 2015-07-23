@@ -1,3 +1,23 @@
 $hero_font: 'Oswald', sans-serif;
 $hero_font_size: 38px;
 $hero_font_weight: 300;
+
+$oswald_font: 'Oswald', sans-serif;
+
+$h2_font_size: 30px;
+$h2_font_weight: 400;
+
+@mixin font_definition($font,$font_size,$font_weight)
+{
+	font:{
+		family: $font;
+		weight: $font_weight;
+		size: $font_size;
+	}
+}
+
+h2{
+	text-align: center;
+	text-transform: uppercase;
+	@include font_definition($oswald_font,$h2_font_size,$h2_font_weight);
+}
