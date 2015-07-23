@@ -70,6 +70,10 @@ handlers:
 - url: /candidate/.*
   script: handlers.web.candidates.app
 
+- url: /tracks
+  script: handlers.web.tracks.app
+  secure: never
+
 - url: /.*
   script: handlers.web.app
   secure: never
