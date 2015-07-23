@@ -521,12 +521,13 @@ button {border:none}
 }
 
 .membership-title {
-    padding-bottom: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     border-bottom: 1px solid #ccc;
 }
 
 .membership-plan>.small-copy, .membership-plan>h2,  .membership-plan .learn-more-button {
-    margin-top: 24px;
+    margin-top: 12px;
 }
 
 .membership-plan .learn-more-button {
@@ -534,7 +535,7 @@ button {border:none}
 }
 
 #membership>.section-content>.row {
-    padding-top: 48px;
+    padding-top: 24px;
 }
 
 #membership>.section-content>.row:first-child {
