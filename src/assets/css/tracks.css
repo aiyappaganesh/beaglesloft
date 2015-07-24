@@ -10,12 +10,16 @@
 	width: 20px;
 }
 
+.tracks-program-img-container {
+    text-align:center;
+    padding-top: 10px;
+}
+
 .tracks-program-img {
-    height:175px;
+    height:165px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    margin: 15px;
 }
 
 .tracks-program-date {
@@ -32,7 +36,7 @@
 }
 
 .tracks-program-copy-container {
-    height:220px;
+    height:150px;
     border-bottom: 1px solid lightgrey;
     background-color:#ffffff;
     padding:20px;
@@ -52,27 +56,37 @@ h3.tracks-program-title {
     text-align:left;
     font-family: 'Merriweather', sans-serif;
     font-weight: 300;
-    font-size:14px;
+    font-size:12px;
     padding-top: 10px;
 }
 
 .tracks-program-button-container {
-    height:40px;
+    height:80px;
     margin:auto;
-    max-width:260px;
-    margin-top:20px;
-    margin-bottom:20px;
+    width:260px;
+    padding-top:20px;
+    padding-bottom:20px;
 }
 
 .tracks-program-container {
-    height:550px;
+    height:450px;
+    width: 320px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.track-program-listing>.row {
+.tracks-program-spacer {
+    width: 0px;
+    height: 450px;
+    display: inline-block;
+    float: left;
+}
+
+.track-program-listing .row {
     margin-top: 24px;
 }
 
-.track-program-listing>.row:first-child {
+.track-program-listing .row:first-of-type {
     margin-top: 48px;
 }
 
@@ -93,15 +107,19 @@ h3.tracks-program-title {
         width: 80px;
     }
 
-    .track-program-listing>.row>[class*=col-sm] {
+    .track-program-listing .row>[class*=col-sm] {
         margin-top: 24px;
     }
 
-    .track-program-listing>.row>[class*=col-sm]:first-child {
+    .track-program-listing .row>[class*=col-sm]:first-child {
         margin-top: 0px;
     }
 
     .tracks-program-button-container {
         max-width: 160px;
+    }
+
+    .tracks-program-container {
+        margin: auto;
     }
 }
