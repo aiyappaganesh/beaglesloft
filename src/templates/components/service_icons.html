@@ -1,16 +1,10 @@
-<ul class="service-container">
+<ul>
     {% for service in services %}
-    <li {% if forloop.counter == 1 %}class="active"{% endif %}>
-        <a class="service-logo" href="#" style="background-image:url('{% if forloop.counter == 1 %}{{service.highlight_icon}}{% else %}{{service.icon}}{% endif %}');">
+    <li>
+        <a href="#" >
+            <img src="{{service.icon}}">
         </a>
-        <h3 class="{% if forloop.counter == 1 %}black-font{% else %}red-font{% endif %} uppercase service-name">{{service.name}}</h3>
-        <input type="hidden" name="highlight_icon" value="{{service.highlight_icon}}"></input>
-        <input type="hidden" name="icon" value="{{service.icon}}"></input>
-        {% if carousel == 1 %}
-        <input type="hidden" name="carousel_id" value="#{{service.carousel.id}}"></input>
-        {% else %}
-        <input type="hidden" name="carousel_id" value="#{{service.id}}"></input>
-        {% endif %}
+        <h3>{{service.name}}</h3>
     </li>
     {% endfor %}
 </ul>
