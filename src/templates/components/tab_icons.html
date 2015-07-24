@@ -3,7 +3,8 @@
 	{% for tab in tabs %}
 		<div class="col-xs-2">
 			<a href="#" >
-	            <img src="{{tab.icon}}">
+	            <img src="{{tab.icon}}" class="normal">
+	            <img src="{{tab.highlight_icon}}" class="hover">
 	        </a>
 	        <h3>{{tab.name}}</h3>
 		</div> 

@@ -1,7 +1,26 @@
+@import "partials/_constants.scss";
+
 .tab_icons {
 	text-align: center;
+	h3 {
+		color: $red_color;
+	}
 	img {
 		width: 100px;
 		height: 100px;
+	}
+	& .hover {
+		display: none;
+	}
+	div:hover {
+		h3 {
+			color: $black_color;
+		}
+		& .hover {
+			display: inline;
+		}
+		& .normal {
+			display: none;
+		}
 	}
 }
