@@ -17,7 +17,8 @@ $h2_font_weight: 400;
 }
 
 h2{
+	@include font_definition($oswald_font,$h2_font_size,$h2_font_weight);
 	text-align: center;
 	text-transform: uppercase;
-	@include font_definition($oswald_font,$h2_font_size,$h2_font_weight);
+	padding-top:50px;
 }
