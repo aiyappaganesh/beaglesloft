@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,UAAW;EACV,UAAU,EAAE,MAAM;EAClB,cAAI;IACH,KAAK,EAAE,KAAK;IACZ,MAAM,EAAE,KAAK",
+"sources": ["../../sass/tab_icons.scss"],
+"names": [],
+"file": "tab_icons.css"
+}

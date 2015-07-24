@@ -1,0 +1,12 @@
+<div class="row tab_icons width960">
+	<div class="col-xs-1"></div>
+	{% for tab in tabs %}
+		<div class="col-xs-2">
+			<a href="#" >
+	            <img src="{{tab.icon}}">
+	        </a>
+	        <h3>{{tab.name}}</h3>
+		</div> 
+	{% endfor %}
+	<div class="col-xs-1"></div>
+</div>

@@ -28,6 +28,10 @@ h2 {
 .separator {
   padding-top: 50px; }
 
+.width960 {
+  width: 960px;
+  margin: auto; }
+
 .hero {
   height: 40vh;
   width: 100vw;

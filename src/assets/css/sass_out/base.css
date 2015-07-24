@@ -21,6 +21,10 @@
 .separator {
   padding-top: 50px; }
 
+.width960 {
+  width: 960px;
+  margin: auto; }
+
 .new-navbar {
   width: 100%;
   position: fixed;
