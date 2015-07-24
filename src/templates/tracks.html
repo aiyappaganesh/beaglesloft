@@ -1,7 +1,8 @@
 {% extends "community_base.html" %}
 
 {% block Styles %}
-<link href="/assets/css/sass_out/tracks.css" type="text/css" rel="stylesheet">
+    <link href="/assets/css/sass_out/tracks.css" type="text/css" rel="stylesheet">
+    <link href="/assets/css/sass_out/tab_icons.css" type="text/css" rel="stylesheet">
 {% endblock %}
 
 {% block Content %}
@@ -13,9 +14,7 @@
 </div>
 <div class="separator"></div>
 <h2>We offer the following learning tracks</h2>
-<div class="row">
-    {% include "components/service_icons.html" with services=tracks carousel=0 %}
-</div>
+{% include "components/tab_icons.html" with tabs=tracks carousel=0 %}
 {% for track in tracks %}
     {% with track_donuts|dict_lookup:track.id as donuts %}
         {% include "components/track_programs.html" with track=track counter=forloop.counter donuts=donuts onclick="recordProgramClick" enrolled_tracks=enrolled_tracks is_member=is_member is_manager=is_manager %}
