@@ -1,0 +1,50 @@
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/tracks.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/membership.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div class="row centered-full-width-element landing-carousel-item" style="height:304px;background: url('/assets/img/landing/tracks.png') center center no-repeat;">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        {% include "components/centered_content.html" with centered=page_title_centered %}
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+<div class="light-gray-background">
+    <div class="width940 section-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table membership-table">
+                    {% for row in table_rows %}
+                    <tr>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <td><h3>{{ row.0 }}</h3></td>
+                            </div>
+                            <div class="col-sm-4">
+                                {% if forloop.counter == 1 %}
+                                    <td><h3>{{ row.1 }}</h3></td>
+                                {% else %}
+                                    <td><h4>{{ row.1 }}</h4></td>
+                                {% endif %}
+                            </div>
+                            <div class="col-sm-4">
+                                {% if forloop.counter == 1 %}
+                                    <td><h3>{{ row.2 }}</h3></td>
+                                {% else %}
+                                    <td><h4>{{ row.2 }}</h4></td>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -147,6 +147,26 @@ class SubscribeNewsletterPage(WebRequestHandler):
             template_values['member'] = Member.get_member_json(self.session['member'])
         self.render_template(template_name=None, template_values=template_values)
 
+table_rows = [
+                    ('', 'FULL TIME', 'FLEX'),
+                    ('NUMBER OF MEMBERS', '20', '80'),
+                    ('LOFT ACCESS', 'Work full time out of a Beagles Loft', 'Flexible access to a Loft'),
+                    ('TRACKS', 'Preferred access to learning tracks by experts', 'Access to open learning tracks by experts'),
+                    ('COMMUNITY', 'Experts and community members help in improving daily work', 'Flexible access to experts and community members'),
+                    ('EVENTS', 'Access to all events at a Beagles Loft', 'Flexible access to open  events at a Loft'),
+                    ('MEMBERSHIP FEES', '$395/mo', '$145/mo')
+
+]
+
+class MembershipPage(WebRequestHandler):
+    def get(self):
+        template_values = {}
+        contents_arr = [("MEMBERSHIPS",["page_heading", "tracks-page-title"])]
+        contents = [CenteredContent(s[0], s[1]) for s in contents_arr]
+        template_values['page_title_centered'] = CenteredContents(None, 0, contents, False)
+        template_values['table_rows'] = table_rows
+        self.render_template(template_name='membership.html', template_values=template_values)
+
 app = webapp2.WSGIApplication(
     [
     ]
