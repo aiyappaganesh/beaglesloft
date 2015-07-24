@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block Content %}
-
 <div class="hero row">
     <div class="col-sm-4 col-sm-offset-4">
         <p>LEARNING TRACKS</p>
@@ -14,6 +13,7 @@
 </div>
 <div class="separator"></div>
 <h2>We offer the following learning tracks</h2>
+<div class="separator"></div>
 {% include "components/tab_icons.html" with tabs=tracks carousel=0 %}
 {% for track in tracks %}
     {% with track_donuts|dict_lookup:track.id as donuts %}
