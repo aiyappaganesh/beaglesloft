@@ -18,6 +18,9 @@
   vertical-align: middle;
   text-align: center; }
 
+.separator {
+  padding-top: 50px; }
+
 .new-navbar {
   width: 100%;
   position: fixed;

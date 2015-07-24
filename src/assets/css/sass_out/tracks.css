@@ -3,8 +3,7 @@ h2 {
   font-weight: 400;
   font-size: 30px;
   text-align: center;
-  text-transform: uppercase;
-  padding-top: 50px; }
+  text-transform: uppercase; }
 
 .cover-image, .background-image, .hero {
   -webkit-background-size: cover;
@@ -25,6 +24,9 @@ h2 {
   width: 100vw;
   vertical-align: middle;
   text-align: center; }
+
+.separator {
+  padding-top: 50px; }
 
 .hero {
   height: 40vh;
