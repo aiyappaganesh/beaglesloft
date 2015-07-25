@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEA,UAAW;EACV,UAAU,EAAE,MAAM;EAClB,aAAG;IACF,KAAK,ECLK,OAAO;EDOlB,cAAI;IACH,KAAK,EAAE,KAAK;IACZ,MAAM,EAAE,KAAK;EAEd,iBAAS;IACR,OAAO,EAAE,IAAI;EAGb,uBAAG;IACF,KAAK,ECdM,OAAO;EDgBnB,2BAAS;IACR,OAAO,EAAE,MAAM;EAEhB,4BAAU;IACT,OAAO,EAAE,IAAI",
-"sources": ["../../sass/tab_icons.scss","../../sass/partials/_constants.scss"],
-"names": [],
-"file": "tab_icons.css"
-}
