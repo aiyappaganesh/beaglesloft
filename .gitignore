@@ -9,3 +9,5 @@ nohup.out
 .DS_Store
 .coverage
 robots.txt
+src/assets/.sass-cache/**/
+src/assets/css/sass_out/*
