@@ -24,3 +24,15 @@
 		}
 	}
 }
+
+.first_icon{
+	& .normal{
+		display: none;
+	}
+	& .hover{
+		display: inline;
+	}
+	& h3{
+		color: $black_color;
+	}
+}
