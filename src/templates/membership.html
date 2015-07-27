@@ -15,7 +15,7 @@
     <div class="col-sm-4"></div>
 </div>
 <div class="light-gray-background">
-    <div class="width940 section-content">
+    <div class="width940 section-content align-center">
         <div class="row">
             <div class="col-sm-12">
                 <table class="table membership-table">
@@ -44,6 +44,19 @@
                     {% endfor %}
                 </table>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div class="membership-signup">
+                    <h2 class="black-font title">SIGN UP TO UPGRADE YOUR WORKFORCE</h2>
+                    <form id="membership-signup-form" class="form" action="/api/members/add_email" method="POST">
+                        {% include "components/form_input.html" with id="signup-email" name="signup-email" type="email" placeholder="EMAIL" classes="membership-signup-email-box" %}
+                        {% include "components/form_submit.html" with id="signup-submit" name="signup-submit" value="SIGN UP" classes="signup-submit" %}
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
         </div>
     </div>
 </div>

@@ -6,3 +6,24 @@
 	padding-top: 12px;
 	padding-bottom: 12px;
 }
+
+.membership-signup {
+	margin-top: 48px;
+    border-top: 1px solid #ccc;
+}
+
+.membership-signup>.title {
+	padding-top: 48px;
+	padding-bottom: 24px;
+}
+
+.membership-signup-email-box {
+    background-color: #ebebeb;
+    width: 260px;
+    height: 34px;
+    border: none;
+    font-family: Oswald;
+    font-size: 12px;
+    font-weight: 600;
+    padding-left: 15px;
+}
