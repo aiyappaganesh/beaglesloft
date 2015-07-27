@@ -7,13 +7,13 @@ product_manager = 'Product Manager'
 founder = 'Founder'
 
 def get_modules_for(track):
-    modules = {mobile_track: [Module('Current Front End Limitations', ['Limitations of CSS and the need for pre-compilation', 'Limitation of HTML and the need for pre-compilation']),
+    modules = {web_track: [Module('Current Front End Limitations', ['Limitations of CSS and the need for pre-compilation', 'Limitation of HTML and the need for pre-compilation']),
                               Module('SASS Concepts', ['Installation and setup', 'Import directive and modularising CSS code', 'Include directive and mixins', 'Extend directive', 'At-root directive']),
                               Module('HAML Concepts', ['DRY HTML', 'Installation and setup', 'HAML syntax', 'Eliminating white space', 'Eliminating deep nesting']),
                               Module('Back End Development Flavours', ['DEVOPS intensive environments -- AWS', 'DEVOPS free environments -- GAE']),
                               Module('Basics of AWS', ['Procuring instances', 'Setting up a web server', 'Setting up a DB server', 'Tying it together and making a backend work', 'Scaling a backend on AWS']),
                               Module('Basics of GAE', ['Setting up a backend on GAE', 'Scaling a backend on GAE', 'Implementing map reduce on GAE'])],
-                web_track: [Module('The Language', ['Objective C fundamentals', 'Objective C constructs and control flow']),
+                mobile_track: [Module('The Language', ['Objective C fundamentals', 'Objective C constructs and control flow']),
                             Module('The Run Time', ['Procuring a developer certificate', "Setting up your team on Apple's member center", 'Preparing your machine with the developer certificate']),
                             Module('Installation', ['Installing a simple app on your phone via Xcode']),
                             Module('Deep Dive', ['View controller modelling for iOS apps', 'Storyboarding your app', 'Gestures and interactions'])]}
@@ -36,15 +36,15 @@ def get_programs(track):
                 Program('Google Play Store Optimization', 'Oct 1 2015', 25, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming.', 'google_play', get_modules_for(mobile_track)),
                 Program('Android user acquisition', 'Oct 8 2015', 10, mobile_track, 'Build an iOS App from scratch with a deep dive into iOS Programming.', 'useracquisition', get_modules_for(mobile_track))
             ],
-        web_track:[Program('Building a Web App 101', 'Aug 2 2015', 20, web_track, 'A beginner course to understand all the skills required to be a good web developer.', 'full_stack', None),
-                   Program('Going beyond HTML and CSS', 'Aug 9 2015', 20, web_track, 'Learn how to write D.R.Y code and the frameworks and libraries to achieve that.', 'less', None),
-                   Program('Discrete Mathematics 101', 'Aug 16 2015', 25, web_track, 'Basics of Combinatorics, Graph Theory, Probablity and number theory. Indispensible for any hacker.', 'disc_math', None),
-                   Program('Continuous Mathematics 101', 'Aug 23 2015', 30, web_track, 'The Calculus, Algebra and Statistics every data scientist should know.', 'cont_math', None),
-                   Program('Algorithms and Datastructures revisited', 'Aug 30 2015', 20, web_track, 'Computer science fundamentals which separates a good programmer from the best.', 'algo', None),
-                   Program('Distributed computing', 'Sept 7 2015', 25, web_track, 'Basic concepts of distributed computing and how to execute it on the cloud.', 'dist', None),
-                   Program('Non-relational Databases', 'Sept 14 2015', 30, web_track, 'The new Non-relational mathematics and how commercial databases implement them.', 'no_sql', None),
-                   Program('NLP 101', 'Sept 21 2015', 25, web_track, 'Tools and frameworks for processing and mining data from natural language text.', 'nlp', None),
-                   Program('Big Data 101', 'Sept 28 2015', 20, web_track, 'Learn how to store massive amounts of data in distributed databases and process them using MapReduce.', 'big_data', None)],
+        web_track:[Program('Building a Web App 101', 'Aug 2 2015', 20, web_track, 'A beginner course to understand all the skills required to be a good web developer.', 'full_stack', get_modules_for(web_track)),
+                   Program('Going beyond HTML and CSS', 'Aug 9 2015', 20, web_track, 'Learn how to write D.R.Y code and the frameworks and libraries to achieve that.', 'less', get_modules_for(web_track)),
+                   Program('Discrete Mathematics 101', 'Aug 16 2015', 25, web_track, 'Basics of Combinatorics, Graph Theory, Probablity and number theory. Indispensible for any hacker.', 'disc_math', get_modules_for(web_track)),
+                   Program('Continuous Mathematics 101', 'Aug 23 2015', 30, web_track, 'The Calculus, Algebra and Statistics every data scientist should know.', 'cont_math', get_modules_for(web_track)),
+                   Program('Algorithms and Datastructures revisited', 'Aug 30 2015', 20, web_track, 'Computer science fundamentals which separates a good programmer from the best.', 'algo', get_modules_for(web_track)),
+                   Program('Distributed computing', 'Sept 7 2015', 25, web_track, 'Basic concepts of distributed computing and how to execute it on the cloud.', 'dist', get_modules_for(web_track)),
+                   Program('Non-relational Databases', 'Sept 14 2015', 30, web_track, 'The new Non-relational mathematics and how commercial databases implement them.', 'no_sql', get_modules_for(web_track)),
+                   Program('NLP 101', 'Sept 21 2015', 25, web_track, 'Tools and frameworks for processing and mining data from natural language text.', 'nlp', get_modules_for(web_track)),
+                   Program('Big Data 101', 'Sept 28 2015', 20, web_track, 'Learn how to store massive amounts of data in distributed databases and process them using MapReduce.', 'big_data', get_modules_for(web_track))],
         designer:[
                 Program('Design Thinking', 'Aug 3 2015', 15, designer, 'Learn the methods and approaches to use design as a "way of thinking" for creative action.', 'design_thinking', None),
                 Program('iOS App Design', 'Aug 10 2015', 20, designer, 'From using 3D depth to layered design. Learn the design concepts required to make world class iOS Apps.', 'ios_design', None),
