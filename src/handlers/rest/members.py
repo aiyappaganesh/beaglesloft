@@ -11,6 +11,7 @@ from handlers.web import WebRequestHandler
 from webapp2_extras.security import generate_password_hash, check_password_hash
 from config.config import *
 from util import mailchimp
+from util.util import MEMBER_ROLE, MANAGER, ENGINEER
 
 class MemberCreateHandler(RequestHandler):
     def post(self):
@@ -20,11 +21,16 @@ class MemberCreateHandler(RequestHandler):
             image_url = 'https://graph.facebook.com/'+self["facebook_id"]+'/picture?type=normal&height=300&width=300'
         else:
             image_url = '/assets/img/landing/default_member.png'
+        role = int(self['role']) if self['role'] else MEMBER_ROLE[ENGINEER]
         Member.create_or_update(key, name=self['name'], organization=self["organization"],
                                 designation=self["designation"], website=self["website"],
                                 twitter_handle=self["twitter_handle"], facebook_id=self["facebook_id"], bio=self["bio"],
-                                password=self['password'], image_url=image_url)
+                                password=self['password'], image_url=image_url, role=role)
         self.session['member'] = key
+        if role == MEMBER_ROLE[MANAGER]:
+            redirect_url = '/manager/track'
+        else:
+            redirect_url = '/candidate/profile'
         self.redirect(redirect_url)
 
 class AddMemberEmailHandler(RequestHandler):
@@ -169,6 +175,11 @@ class LoginHandler(RequestHandler):
             result_json['errormsg'] = 'Incorrect password'
         else:
             self.session['member'] = email
+        if member.role == MEMBER_ROLE[MANAGER]:
+            redirect_url = '/manager/track'
+        else:
+            redirect_url = '/candidate/profile'
+        result_json['redirect_url'] = redirect_url
         self.write(
             json.dumps(
                 result_json

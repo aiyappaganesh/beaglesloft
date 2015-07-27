@@ -64,6 +64,12 @@ handlers:
   script: handlers.web.members.app
   secure: never
 
+- url: /manager/.*
+  script: handlers.web.managers.app
+
+- url: /candidate/.*
+  script: handlers.web.candidates.app
+
 - url: /.*
   script: handlers.web.app
   secure: never

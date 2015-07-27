@@ -50,7 +50,6 @@ class CalendarPage(WebRequestHandler):
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class MemberRegistrationPage(WebRequestHandler):
-    @access_code_required
     def get(self):
         redirect_url = self['redirect_url'] if self['redirect_url'] else '/community'
         path = 'member_registration.html'

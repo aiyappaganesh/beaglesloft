@@ -21,6 +21,7 @@ class Member(db.Model):
     password = db.StringProperty(indexed=False)
     image_coords = db.ListProperty(float, indexed=False)
     image_url = db.StringProperty(indexed=False)
+    role = db.IntegerProperty(indexed=False)
 
     @classmethod
     def get_or_insert(cls, key_name, **kwds):
@@ -29,7 +30,7 @@ class Member(db.Model):
 
     @classmethod
     def create_or_update(cls, email, name=None, organization=None, designation=None, website=None,
-                      twitter_handle=None, facebook_id=None, bio=None, image=None, password=None, image_coords=None, image_url=None):
+                      twitter_handle=None, facebook_id=None, bio=None, image=None, password=None, image_coords=None, image_url=None, role=None):
         member = Member.get_by_email(email)
         if not member:
             member = Member(key_name=email)
@@ -65,6 +66,8 @@ class Member(db.Model):
             member.proficiency_score = random.randint(0, 100)
         if image_url is not None:
             member.image_url = image_url
+        if role is not None:
+            member.role = role
         member.put()
 
     @staticmethod
@@ -102,6 +105,8 @@ class Member(db.Model):
                     member_json['activity_score'] = member.activity_score
                 if member.proficiency_score:
                     member_json['proficiency_score'] = member.proficiency_score
+                if member.role:
+                    member_json['role'] = member.role
         return member_json
 
     @staticmethod
