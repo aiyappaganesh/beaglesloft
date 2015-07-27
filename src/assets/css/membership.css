@@ -27,3 +27,15 @@
     font-weight: 600;
     padding-left: 15px;
 }
+
+.membership-signup-submit {
+    background-color: #c62530;
+    width: 100px;
+    height: 34px;
+    font-family: Oswald;
+    color:  #ffffff;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    border: none;
+}

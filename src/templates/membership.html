@@ -49,10 +49,10 @@
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
                 <div class="membership-signup">
-                    <h2 class="black-font title">SIGN UP TO UPGRADE YOUR WORKFORCE</h2>
+                    <h2 class="black-font title">SIGN UP TO BE A MEMBER</h2>
                     <form id="membership-signup-form" class="form" action="/api/members/add_email" method="POST">
                         {% include "components/form_input.html" with id="signup-email" name="signup-email" type="email" placeholder="EMAIL" classes="membership-signup-email-box" %}
-                        {% include "components/form_submit.html" with id="signup-submit" name="signup-submit" value="SIGN UP" classes="signup-submit" %}
+                        {% include "components/form_submit.html" with id="signup-submit" name="signup-submit" value="SIGN UP" classes="membership-signup-submit" %}
                     </form>
                 </div>
             </div>
