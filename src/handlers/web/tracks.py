@@ -1,7 +1,10 @@
 from handlers.web import WebRequestHandler
+from model import Member
 from handlers.rest.rest_application import RestApplication
 from model.ui_models.centered_contents import CenteredContents, CenteredContent
 from model.ui_models.factories.tracks import Tracks
+from util.util import MEMBER_ROLE, MANAGER
+from model.ui_models.factories.donut_factory import DonutFactory
 
 import logging
 
@@ -22,6 +25,11 @@ class TracksPage(WebRequestHandler):
         template_values = {}
         template_values['page_title_centered'] = get_page_title_centered_contents()
         template_values['tracks'] = Tracks.get_tracks()
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            email = self.session['member']
+            member = Member.get_by_email(email)
+            template_values['member'] = member
         self.render_template(template_name='tracks.html', template_values=template_values)
 
 class ProgramListingPage(WebRequestHandler):
@@ -29,6 +37,15 @@ class ProgramListingPage(WebRequestHandler):
         program = Tracks.get_listing(self['id'])
         template_values = {'program':program,
                            'listing_heading':get_listing_centered_contents(program)}
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            email = self.session['member']
+            member = Member.get_by_email(email)
+            template_values['member'] = member
+            if member.role == MEMBER_ROLE[MANAGER]:
+                template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('Engineer1', 0.58), ('Engineer2', 0.75), ('Engineer3', 0.28)], 'transparent', '#139fe1', '#333333')
+            else:
+                template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('Course1', 0.58), ('Course2', 0.75)], 'transparent', '#139fe1', '#333333')
         self.render_template(template_name='program_listing.html', template_values=template_values)
 
 app = RestApplication([('/tracks', TracksPage),

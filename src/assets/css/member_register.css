@@ -10,10 +10,10 @@
     border-bottom: dotted #c62530 1px !important;
 }
 
-input{color:#ffffff;font-family: 'Oswald', sans-serif;font-weight:100;font-size:20px;padding:5px;padding-left:10px;}
+input, select{color:#ffffff;font-family: 'Oswald', sans-serif;font-weight:100;font-size:20px;padding:5px;padding-left:10px;}
 textarea{color:#ffffff;font-family: 'Oswald', sans-serif;font-weight:100;font-size:20px;padding:5px;padding-left:10px;border:none;background-color: rgba(198, 37, 48, 0.2);overflow-y:scroll;border-bottom: solid #c62530 1px;min-height:145px;max-height:145px;}
 
-input:focus{outline:none;}
+input:focus, select:focus{outline:none;}
 textarea:focus{outline:none;}
 
 .registration-text {

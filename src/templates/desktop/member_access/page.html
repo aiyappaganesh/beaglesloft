@@ -13,36 +13,36 @@
     <div id="logo" style="position:absolute;top:5%;width:100%;">
         <img style="margin:auto;height:150px;width:150px;" src="/assets/img/landing/bl-logo-intro.png">
         <div style="margin:auto;height:30px;"></div>
-        <p id="message" style="margin:auto;color:#515151;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;width:500px;text-align:center;">ENTER PASS CODE TO ACCESS</p>
-        <div style="margin:auto;height:27px;"></div>
-        <div id="access-code" style="margin:auto;height:171px;width:500px;background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;background-size: cover;">
-            <input type="text" class="access-code-input" style="margin-left:100px;background:url('/assets/img/landing/access/1.png') no-repeat;" pattern="\d" maxlength="1" name="access-code-a">
-            <input type="text" class="access-code-input" style="background:url('/assets/img/landing/access/2.png') no-repeat;" pattern="\d" maxlength="1" name="access-code-b">
-            <input type="text" class="access-code-input" style="background:url('/assets/img/landing/access/3.png') no-repeat;" pattern="\d" maxlength="1" name="access-code-c">
-            <input type="text" class="access-code-input" style="margin-right:100px;background:url('/assets/img/landing/access/4.png') no-repeat;" pattern="\d" maxlength="1" name="access-code-d">
-        </div>
-        <div id="question-pick" style="margin:auto;height:171px;width:500px;background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;background-size: cover;display:none">
-            <div class="dropdown questions-dropdown" style="width:380px;height:66px;float:left;margin-top:53px;margin-left:60px;padding-top:24px;">
-                <a data-toggle="dropdown" href="#" style="min-width:60%;height:20px;float:left;">PLEASE CHOOSE A CATEGORY</a>
-                <a data-toggle="dropdown" href="#" style="min-width:10%;height:20px;float:right;"><span><img src="/assets/img/landing/access/down-arrow.png"></span></a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 100%; max-width: 100%;top: 100%;cursor:pointer;">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" onclick="showAccessQuestion('Mathematics')">Mathematics</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" onclick="showAccessQuestion('Science')">Science</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" onclick="showAccessQuestion('Business')">Business</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" onclick="showAccessQuestion('Art')">Art & Creative</a></li>
-                </ul>
-            </div>
-        </div>
-        <div id="access-answer" style="margin:auto;height:291px;width:502px;background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;background-size: cover;display:none;">
-            <div style="height:21px;"></div>
-            <div style="height:182px;margin-left:20px;margin-right:20px;">
-                <input type="hidden" value="O1" id="question-id" name="qid">
-                <textarea id="access-answer-text" name="access_answer" class="access access-answer" tabindex="1" style="height:100%;width:100%;background:url('/assets/img/landing/access/answer-box.png') no-repeat;background-size: cover;"></textarea>
-            </div>
-            <div style="height:15px;"></div>
-            <div style="height:55px;background:url('/assets/img/landing/access/submit-button.png') no-repeat;margin-left:20px;margin-right:20px;color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;padding-top:18px;line-height:17px;cursor:pointer;" onclick="submitAccessAnswer()">SUBMIT ANSWER</div>
-            <div style="height:18px;"></div>
-        </div>
+        <!--<p id="message" style="margin:auto;color:#515151;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;width:500px;text-align:center;">ENTER PASS CODE TO ACCESS</p>-->
+        <!--<div style="margin:auto;height:27px;"></div>-->
+        <!--<div id="access-code" style="margin:auto;height:171px;width:500px;background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;background-size: cover;">-->
+            <!--<input type="text" class="access-code-input" style="margin-left:100px;background:url('/assets/img/landing/access/1.png') no-repeat;" pattern="\d" maxlength="1" name="access-code-a">-->
+            <!--<input type="text" class="access-code-input" style="background:url('/assets/img/landing/access/2.png') no-repeat;" pattern="\d" maxlength="1" name="access-code-b">-->
+            <!--<input type="text" class="access-code-input" style="background:url('/assets/img/landing/access/3.png') no-repeat;" pattern="\d" maxlength="1" name="access-code-c">-->
+            <!--<input type="text" class="access-code-input" style="margin-right:100px;background:url('/assets/img/landing/access/4.png') no-repeat;" pattern="\d" maxlength="1" name="access-code-d">-->
+        <!--</div>-->
+        <!--<div id="question-pick" style="margin:auto;height:171px;width:500px;background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;background-size: cover;display:none">-->
+            <!--<div class="dropdown questions-dropdown" style="width:380px;height:66px;float:left;margin-top:53px;margin-left:60px;padding-top:24px;">-->
+                <!--<a data-toggle="dropdown" href="#" style="min-width:60%;height:20px;float:left;">PLEASE CHOOSE A CATEGORY</a>-->
+                <!--<a data-toggle="dropdown" href="#" style="min-width:10%;height:20px;float:right;"><span><img src="/assets/img/landing/access/down-arrow.png"></span></a>-->
+                <!--<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 100%; max-width: 100%;top: 100%;cursor:pointer;">-->
+                    <!--<li role="presentation"><a role="menuitem" tabindex="-1" onclick="showAccessQuestion('Mathematics')">Mathematics</a></li>-->
+                    <!--<li role="presentation"><a role="menuitem" tabindex="-1" onclick="showAccessQuestion('Science')">Science</a></li>-->
+                    <!--<li role="presentation"><a role="menuitem" tabindex="-1" onclick="showAccessQuestion('Business')">Business</a></li>-->
+                    <!--<li role="presentation"><a role="menuitem" tabindex="-1" onclick="showAccessQuestion('Art')">Art & Creative</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div id="access-answer" style="margin:auto;height:291px;width:502px;background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;background-size: cover;display:none;">-->
+            <!--<div style="height:21px;"></div>-->
+            <!--<div style="height:182px;margin-left:20px;margin-right:20px;">-->
+                <!--<input type="hidden" value="O1" id="question-id" name="qid">-->
+                <!--<textarea id="access-answer-text" name="access_answer" class="access access-answer" tabindex="1" style="height:100%;width:100%;background:url('/assets/img/landing/access/answer-box.png') no-repeat;background-size: cover;"></textarea>-->
+            <!--</div>-->
+            <!--<div style="height:15px;"></div>-->
+            <!--<div style="height:55px;background:url('/assets/img/landing/access/submit-button.png') no-repeat;margin-left:20px;margin-right:20px;color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;padding-top:18px;line-height:17px;cursor:pointer;" onclick="submitAccessAnswer()">SUBMIT ANSWER</div>-->
+            <!--<div style="height:18px;"></div>-->
+        <!--</div>-->
         <div id="login-dialog" style="margin:auto;height:281px;width:500px;background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;background-size: cover;display:none;text-align:center;">
             <form id="login-form" action="/members/login?redirect_url={{ redirect_url }}" method="POST">
                 <div>
@@ -55,7 +55,14 @@
                 </div>
             </form>
         </div>
-        <div style="margin:auto;height:25px;"></div>
+        <div id="signup-button" style="margin:auto;height:81px;width:500px;background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;background-size: cover;text-align:center;">
+            <div>
+                <div style="height:15px;"></div>
+                <a href="/member_registration"><div style="height:55px;background:url('/assets/img/landing/access/submit-button.png') no-repeat;margin-left:50px;margin-right:50px;color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;padding-top:18px;line-height:17px;cursor:pointer;">SIGN UP</div></a>
+                <div style="height:18px;"></div>
+                <p id="authentication-message" class="authentication-message"></p>
+            </div>
+        </div>
         <!--<p id="message-bottom" style="margin:auto;color:#515151;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;width:190px;cursor:pointer;" onclick="showQuestionPick()">DON'T HAVE A CODE? <a style="color:#c62530;text-decoration:none;">GET ONE</a></p>-->
         <!--<br>-->
         {% if not is_member %}<p id="message-login" style="margin:auto;color:#515151;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;width:190px;cursor:pointer;" onclick="showLoginDialog()">ALREADY MEMBER <a style="color:#c62530;text-decoration:none;">LOGIN</a></p>{% endif %}

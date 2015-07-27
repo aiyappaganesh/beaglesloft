@@ -40,7 +40,7 @@ function showLoginDialog() {
     $("#message-bottom").fadeOut();
     $("#message-login").fadeOut();
     $("#message").fadeOut();
-    $("#access-code").fadeOut(function(){
+    $("#signup-button").fadeOut(function(){
         $("#message").text('MEMBER LOGIN');
         $("#message").fadeIn();
         $("#login-dialog").fadeIn();

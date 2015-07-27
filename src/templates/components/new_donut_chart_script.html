@@ -1,0 +1,37 @@
+<script>
+function drawDonutChart(e) {
+    var score = e.getElementsByClassName("score_value")[0].value;
+    drawDonutChartForScore(e, score);
+}
+
+function drawDonutChartForScore(e, score) {
+    if(score != 'no_load') {
+        e.getElementsByClassName("score_text")[0].innerHTML = parseInt(score*100)+'<sup>%</sup>';
+        var full_color = e.getElementsByClassName("full_color")[0].value;
+        var empty_color = e.getElementsByClassName("empty_color")[0].value;
+        var cutout = e.getElementsByClassName("donut_cutout")[0].value;
+        var doughnutData = [
+            {
+                value: parseInt(score*100),
+                color: full_color
+            },
+            {
+                value: 100-parseInt(score*100),
+                color: empty_color
+            }
+        ];
+        var scoreDonut = new Chart(e.getElementsByClassName("donut_canvas")[0].getContext("2d")).Doughnut(doughnutData, {segmentShowStroke : false, percentageInnerCutout : cutout*100, segmentStrokeWidth : 1, animationEasing : "ease", animationSteps : 50, animateScale : false, showTooltips: false});
+    }
+}
+
+$(document).ready(function(){
+    $('.donut_td').each(function(){
+        drawDonutChart(this);
+    });
+    $('.expertise-select').change(function() {
+        var score = $($($(this).parents('.expertise_td')[0]).find('.selected')[0]).attr('data-value');
+        var e = $($(this).parents('.expertise_td')[0]).find('.donut_td')[0];
+        drawDonutChartForScore(e, score);
+    });
+});
+</script>
