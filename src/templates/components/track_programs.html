@@ -1,5 +1,6 @@
-<div id='{{track.id}}' class="track-program-listing row" style="{% if counter != 1 %}display:none{% endif %}">
-    <div class="col-sm-12">
+<div id='{{track.id}}' class="service-carousel row" style="{% if counter != 1 %}display:none{% endif %}">
+    {% include "components/track_progress.html" with track=track counter=counter donuts=donuts %}
+    <div class="col-sm-12 track-program-listing">
         {% for program in track.programs %}
             {% if forloop.first %}<div class="row">{% endif %}
             <div class="col-sm-4 tracks-program-container">

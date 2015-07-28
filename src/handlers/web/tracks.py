@@ -30,6 +30,10 @@ class TracksPage(WebRequestHandler):
             email = self.session['member']
             member = Member.get_by_email(email)
             template_values['member'] = member
+            if member.role == MEMBER_ROLE[MANAGER]:
+                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', 0.38, '/assets/img/tracks/mobile_dev.png'), ('Engineer2', 0.15, '/assets/img/tracks/mobile_dev.png'), ('Engineer3', 0.28, '/assets/img/tracks/mobile_dev.png')], 'transparent', '#1c758a', '#ddd')
+            else:
+                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Mobile Developer', 0.58, '/assets/img/tracks/mobile_dev.png')], 'transparent', '#1c758a', '#ddd')
         self.render_template(template_name='tracks.html', template_values=template_values)
 
 class ProgramListingPage(WebRequestHandler):
