@@ -1,0 +1,76 @@
+@import "partials/_constants.scss";
+@import "partials/_standards.scss";
+@import "partials/_text.scss";
+
+$program-container-padding: 148%;
+$img-container-padding: 58.22%;
+$date-container-padding: 13.66%;
+$copy-container-padding: 49.56%;
+$button-container-padding: 26.56%;
+$button_font: 'Oswald', sans-serif;
+$button_font_size: 16px;
+$button_font_weight: 300;
+
+.outer-track-program-container{
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	.inner-track-program-container{
+		@include track_program_outer($program-container-padding);
+		background-color: $white-color;
+
+		.position-track-program-container{
+			@include track_program_inner(0px, 0px);
+
+			.track-program-img-container{
+				@include track_program_outer($img-container-padding);
+			
+				.position-track-program-img-container{
+					@include track_program_inner(5px, 0px);	
+				
+					.track-program-img{
+						height: 100%;
+						width: auto;
+						display: block;
+						margin: 0 auto;
+					}
+				}
+			}
+
+			.track-program-date-container{
+				@include track_program_outer($date-container-padding);
+				border-bottom: 1px solid lightgrey;
+			
+				.position-track-program-date-container{
+					@include track_program_inner(14px, 14px);	
+				}
+			}
+
+			.track-program-copy-container{
+				@include track_program_outer($copy-container-padding);
+				border-bottom: 1px solid lightgrey;
+			
+				.position-track-program-copy-container{
+					@include track_program_inner(20px, 20px);
+					h3{
+						padding-top: 0px;
+					}
+				}
+			}
+
+			.track-program-button-container{
+				@include track_program_outer($button-container-padding);
+				border-bottom: 1px solid lightgrey;
+			
+				.position-track-program-button-container{
+					@include track_program_inner(20px, 20px);	
+				
+					.learn-more-button {
+						@include font_definition($button_font,$button_font_size,$button_font_weight);
+						@extend .red_and_white_button;
+					}
+				}
+			}
+		}
+	}
+}
