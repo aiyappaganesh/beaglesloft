@@ -23,31 +23,11 @@ $(document).ready(function(){
         }
         $('#signup-email').val('');
     });
-
-    $('.service-container li').hover(
-                                        function(){
-                                            switchLinkIcon($(this), 'highlight_icon', 'black-font')
-                                        },
-                                        function(){
-                                            if ($(this).hasClass("active")) {
-                                                return
-                                            };
-                                            switchLinkIcon($(this), 'icon', 'red-font')
-                                        }
-                                    );
-    $('.service-container li').click(
+    $('.tab_icons .tab').click(
                                         function(){
                                             var carousel_id = $(this).children('input[name="carousel_id"]').first().val();
                                             $('.service-carousel').fadeOut(0);
                                             $(carousel_id).fadeIn(0);
-                                            $('.service-container li').each(
-                                                                            function(){
-                                                                                $(this).removeClass('active');
-                                                                                switchLinkIcon($(this), 'icon', 'red-font');
-                                                                            }
-                                                                           );
-                                            $(this).addClass('active');
-                                            switchLinkIcon($(this), 'highlight_icon', 'black-font');
                                         }
                                     );
 });

@@ -1,16 +1,20 @@
-<ul class="service-container">
-    {% for service in services %}
-    <li {% if forloop.counter == 1 %}class="active"{% endif %}>
-        <a class="service-logo" href="#" style="background-image:url('{% if forloop.counter == 1 %}{{service.highlight_icon}}{% else %}{{service.icon}}{% endif %}');">
-        </a>
-        <h3 class="{% if forloop.counter == 1 %}black-font{% else %}red-font{% endif %} uppercase service-name">{{service.name}}</h3>
-        <input type="hidden" name="highlight_icon" value="{{service.highlight_icon}}"></input>
-        <input type="hidden" name="icon" value="{{service.icon}}"></input>
-        {% if carousel == 1 %}
-        <input type="hidden" name="carousel_id" value="#{{service.carousel.id}}"></input>
-        {% else %}
-        <input type="hidden" name="carousel_id" value="#{{service.id}}"></input>
-        {% endif %}
-    </li>
+<div class="row tab_icons width960">
+    <div class="col-xs-1"></div>
+    {% for tab in tabs %}
+        <div class="col-xs-2 tab {% if forloop.counter == 1 %}active first_icon{% endif %}">
+            <a href="#" >
+                <img src="{{tab.icon}}" class="normal">
+                <img src="{{tab.highlight_icon}}" class="hover">
+            </a>
+            <h3 class="uppercase">{{tab.name}}</h3>
+            {% if carousel == 1 %}
+            <input type="hidden" name="highlight_icon" value="{{tab.highlight_icon}}"></input>
+            <input type="hidden" name="icon" value="{{tab.icon}}"></input>
+            <input type="hidden" name="carousel_id" value="#{{tab.carousel.id}}"></input>
+            {% else %}
+            <input type="hidden" name="carousel_id" value="#{{tab.id}}"></input>
+            {% endif %}
+        </div>
     {% endfor %}
-</ul>
+    <div class="col-xs-1"></div>
+</div>

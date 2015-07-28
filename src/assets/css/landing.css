@@ -1,3 +1,26 @@
+.tab_icons {
+    text-align: center; }
+.tab_icons h3 {
+    color: #c62530; }
+.tab_icons img {
+    width: 100px;
+    height: 100px; }
+.tab_icons .hover {
+    display: none; }
+.tab_icons div:hover h3 {
+    color: #000000; }
+.tab_icons div:hover .hover {
+    display: inline; }
+.tab_icons div:hover .normal {
+    display: none; }
+
+.first_icon .normal {
+    display: none; }
+.first_icon .hover {
+    display: inline; }
+.first_icon h3 {
+    color: #000000; }
+
 .page_heading {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
