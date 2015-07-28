@@ -1,0 +1,84 @@
+<div class="col-sm-12 track-progress">
+    <div id="accordion" class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ track.id }}">
+                    <h3 class="panel-title white-font">
+                        Track Progress<span class="glyphicon glyphicon-chevron-down" style="float: right; padding: 5px 20px 0px 0px"></span>
+                    </h3>
+                </a>
+            </div>
+            <div id="collapse-{{ track.id }}" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                            {% if donuts %}
+                                {% if donuts|length > 1 %}
+                                    {% for donut in donuts %}
+                                        {% if forloop.counter0|divisibleby:2 %}
+                                                <div class="row">
+                                                    <div class="col-sm-5 progress-box">
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                <div class="centered">
+                                                                    {% include "components/new_donut_chart.html" with donut=donut %}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <div class="track-progress-breadcrumb">Math</div>
+                                                                <h3>{{donut.title}}</h3>
+                                                                <div class="track-progress-mastery">{{donut.score}} mastered</div>
+                                                                <div class="track-skills">8/97 courses completed</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-2"></div>{% if forloop.last %}</div>{% endif %}{% else %}
+                                                    <div class="col-sm-5 progress-box">
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                <div class="centered">
+                                                                    {% include "components/new_donut_chart.html" with donut=donut %}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <div class="track-progress-breadcrumb">Math</div>
+                                                                <h3>{{donut.title}}</h3>
+                                                                <div class="track-progress-mastery">{{donut.score}} mastered</div>
+                                                                <div class="track-skills">8/97 courses completed</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="row">
+                                        <div class="col-sm-4"></div>
+                                        <div class="col-sm-4 progress-box">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="centered">
+                                                        {% include "components/new_donut_chart.html" with donut=donuts.0 %}
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="track-progress-breadcrumb">Math</div>
+                                                    <h3>{{donuts.0.title}}</h3>
+                                                    <div class="track-progress-mastery">{{donuts.0.score}} mastered</div>
+                                                    <div class="track-skills">8/97 courses completed</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4"></div>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

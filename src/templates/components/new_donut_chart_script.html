@@ -6,7 +6,9 @@ function drawDonutChart(e) {
 
 function drawDonutChartForScore(e, score) {
     if(score != 'no_load') {
-        e.getElementsByClassName("score_text")[0].innerHTML = parseInt(score*100)+'<sup>%</sup>';
+        if(!$(e.getElementsByClassName("score_text")[0]).children().length) {
+            e.getElementsByClassName("score_text")[0].innerHTML = parseInt(score*100)+'<sup>%</sup>';
+        }
         var full_color = e.getElementsByClassName("full_color")[0].value;
         var empty_color = e.getElementsByClassName("empty_color")[0].value;
         var cutout = e.getElementsByClassName("donut_cutout")[0].value;
