@@ -1,38 +1,36 @@
-<div id='{{track.id}}' class="service-carousel track-program-listing" style="{% if counter != 1 %}display:none{% endif %}">
-	{% for program in track.programs %}
-        {% if forloop.first %}<div class="row">{% endif %}
-        <div class="col-sm-4 tracks-program-container">
-            <div class="row">
-                <div class="col-sm-1 col-xs-3"></div>
-                <div class="col-sm-10 col-xs-6 white-background" style="padding:0px;">
-                    <div style="text-align:center">
-                        <a>
-                            <div class="tracks-program-img" style="background-image:url('{{program.snapshot}}');">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="tracks-program-date">
+<div class="row width960 track-container">
+{% for program in track.programs %}
+    <div class="outer-track-program-container col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
+        <div class="inner-track-program-container">
+            <div class="position-track-program-container">
+                <div class="track-program-img-container">
+                    <div class="position-track-program-img-container">
+                        <img class="img-responsive track-program-img"src="{{program.snapshot}}">
+                    </div>                
+                </div>
+                <div class="track-program-date-container">
+                    <div class="position-track-program-date-container">
                         <p class="pull-left">{{program.start_date}}</p>
                         <p class="pull-right">{{program.num_spots}} SPOTS</p>
                     </div>
-                    <div class="tracks-program-copy-container">
+                </div>
+                <div class="track-program-copy-container">
+                    <div class="position-track-program-copy-container">
                         <h3 class="tracks-program-title">{{program.title}}</h3>
                         <p class="tracks-program-desc">{{program.description}}</p>
                     </div>
-                    <div class="tracks-program-button-container white-background align-center">
+                </div>
+                <div class="track-program-button-container white-background align-center">
+                    <div class="position-track-program-button-container">
                         <a onclick="ga('send', 'event', 'Tracks Page', 'click', 'Learn More Button - Past ' + '{{ program.link }}');distinct_id = mixpanel.get_distinct_id();mixpanel.identify(distinct_id);mixpanel.people.set();mixpanel.track('track_click', {'program': '{{ program.title }}' })">
                             <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
                         </a>
                     </div>
                 </div>
-                <div class="col-sm-1 col-xs-3"></div>
+
             </div>
         </div>
-	    {% if not forloop.last and forloop.counter|divisibleby:"3" %}
-            </div>
-            <div class="row">
-        {% elif forloop.last %}
-            </div>
-	    {% endif %}
-	{% endfor %}
+    </div>
+
+{% endfor %}
 </div>

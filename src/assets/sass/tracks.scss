@@ -3,6 +3,9 @@
 @import "partials/_images.scss";
 @import "partials/_standards.scss";
 
+body{
+	background-color: $grey_color;
+}
 .hero {
 	@extend .cover-image;
 	height: 40vh;
