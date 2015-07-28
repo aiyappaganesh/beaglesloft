@@ -39,10 +39,6 @@ $(document).ready(function(){
                                         function(){
                                             var carousel_id = $(this).children('input[name="carousel_id"]').first().val();
                                             $('.service-carousel').fadeOut(0);
-                                            $('#tracks-list').find('.track-program-listing').each(
-                                                function(){
-                                                    $(this).fadeOut(0);
-                                            });
                                             $(carousel_id).fadeIn(0);
                                             $('.service-container li').each(
                                                                             function(){
