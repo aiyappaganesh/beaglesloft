@@ -3,10 +3,12 @@
     {% for tab in tabs %}
         <div id="{% if carousel == 1 %}{{tab.carousel.id}}{% else %}{{tab.id}}{% endif %}_tab" class="col-xs-2 tab {% if forloop.counter == 1 %}active_tab first_icon{% endif %}">
             <a href="#" >
-                <img src="{{tab.icon}}" class="normal">
-                <img src="{{tab.highlight_icon}}" class="hover">
+                <img id="icon" src="{{tab.icon}}" class="normal">
+                <img id="highlight_icon" src="{{tab.highlight_icon}}" class="hover">
             </a>
             <h3 class="uppercase">{{tab.name}}</h3>
+            <input type="hidden" id="highlight_icon_url" name="highlight_icon" value="{{tab.highlight_icon}}"></input>
+            <input type="hidden" id="icon_url" name="icon" value="{{tab.icon}}"></input>
             {% if carousel == 1 %}
             <input type="hidden" id="carousel_id" name="carousel_id" value="#{{tab.carousel.id}}"></input>
             {% else %}
