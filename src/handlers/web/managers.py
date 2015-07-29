@@ -23,7 +23,7 @@ class ManagerTrackHandler(WebRequestHandler):
         template_values['member'] = member
         template_values['is_member'] = True if 'member' in self.session else False
         template_values['page_title_centered'] = get_page_title_centered_contents()
-        template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('Engineer1', 0.58), ('Engineer2', 0.75), ('Engineer3', 0.28)], 'transparent', '#139fe1', '#333333')
+        template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('James', 38), ('David', 15), ('Chang', 63), ('Abdul', 28), ('Raj', 71)], 'transparent', '#139fe1', '#333333')
         self.write(self.get_rendered_html(path, template_values), 200)
 
 app = RestApplication([("/manager/track", ManagerTrackHandler)])

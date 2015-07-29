@@ -589,6 +589,11 @@ footer>a:hover, footer a:hover {
     height: 100%;
     width: 100%;
     vertical-align: baseline;
+    transition: transform 1s ease;
+}
+
+.donut-img:hover {
+    transform: rotateZ(360deg);
 }
 
 .centered {
