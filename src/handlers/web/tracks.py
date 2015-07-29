@@ -31,9 +31,9 @@ class TracksPage(WebRequestHandler):
             member = Member.get_by_email(email)
             template_values['member'] = member
             if member.role == MEMBER_ROLE[MANAGER]:
-                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', 0.38, '/assets/img/tracks/mobile_dev.png'), ('Engineer2', 0.15, '/assets/img/tracks/mobile_dev.png'), ('Engineer3', 0.28, '/assets/img/tracks/mobile_dev.png')], 'transparent', '#1c758a', '#ddd')
+                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('James', 38, '/assets/img/tracks/mobile_dev.png'), ('David', 15, '/assets/img/tracks/mobile_dev.png'), ('Chang', 63, '/assets/img/tracks/mobile_dev.png'), ('Abdul', 28, '/assets/img/tracks/mobile_dev.png'), ('Raj', 71, '/assets/img/tracks/mobile_dev.png')], 'transparent', '#1c758a', '#ddd')
             else:
-                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', 0.58, '/assets/img/tracks/mobile_dev.png')], 'transparent', '#1c758a', '#ddd')
+                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', 58, '/assets/img/tracks/mobile_dev.png')], 'transparent', '#1c758a', '#ddd')
         self.render_template(template_name='tracks.html', template_values=template_values)
 
 class ProgramListingPage(WebRequestHandler):
@@ -47,9 +47,9 @@ class ProgramListingPage(WebRequestHandler):
             member = Member.get_by_email(email)
             template_values['member'] = member
             if member.role == MEMBER_ROLE[MANAGER]:
-                template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('Engineer1', 0.58), ('Engineer2', 0.75), ('Engineer3', 0.28)], 'transparent', '#139fe1', '#333333')
+                template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('James', 38), ('David', 15), ('Chang', 63), ('Abdul', 28), ('Raj', 71)], 'transparent', '#139fe1', '#333333')
             else:
-                template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('Course1', 0.58), ('Course2', 0.75)], 'transparent', '#139fe1', '#333333')
+                template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('Course1', 58), ('Course2', 75)], 'transparent', '#139fe1', '#333333')
         self.render_template(template_name='program_listing.html', template_values=template_values)
 
 app = RestApplication([('/tracks', TracksPage),
