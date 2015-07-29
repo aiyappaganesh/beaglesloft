@@ -24,12 +24,18 @@ $(document).ready(function(){
         $('#signup-email').val('');
     });
     $('.tab_icons .tab').click(
-                                        function(){
-                                            var carousel_id = $(this).children('input[name="carousel_id"]').first().val();
-                                            $('.service-carousel').fadeOut(0);
-                                            $(carousel_id).fadeIn(0);
-                                        }
-                                    );
+                function(){
+                    var carousel_id = $(this).children('input[name="carousel_id"]').first().val();
+                    $('.active_tab h3').css('color', '#c62530');
+                    $('.active_tab a img').attr('src', '/assets/img/tracks/'+ $('.active_tab #carousel_id').val().replace('#','') +'.png')
+                    $('.active_tab').removeClass('active_tab');
+                    $(carousel_id + '_tab').addClass('active_tab');
+                    $(carousel_id + '_tab a img').attr('src', '/assets/img/tracks/'+ carousel_id.replace('#','') +'_dark.png')
+                    $(carousel_id + '_tab h3').css('color', '#000000');
+                    $('.service-carousel').fadeOut(0);
+                    $(carousel_id).fadeIn(0);
+                }
+            );
 });
 
 function switchLinkIcon(ele, icon, text_color){
