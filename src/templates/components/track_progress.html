@@ -22,11 +22,11 @@
                                                         <div class="row">
                                                             <div class="col-xs-6">
                                                                 <div class="centered">
-                                                                    {% include "components/new_donut_chart.html" with donut=donut %}
+                                                                    {% include "components/new_donut_chart.html" with donut=donut img=track.icon %}
                                                                 </div>
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                <div class="track-progress-breadcrumb">Math</div>
+                                                                <div class="track-progress-breadcrumb">{{track.name}}</div>
                                                                 <h3>{{donut.title}}</h3>
                                                                 <div class="track-progress-mastery">{{donut.score}} mastered</div>
                                                                 <div class="track-skills">8/97 courses completed</div>
@@ -38,11 +38,11 @@
                                                         <div class="row">
                                                             <div class="col-xs-6">
                                                                 <div class="centered">
-                                                                    {% include "components/new_donut_chart.html" with donut=donut %}
+                                                                    {% include "components/new_donut_chart.html" with donut=donut img=track.icon %}
                                                                 </div>
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                <div class="track-progress-breadcrumb">Math</div>
+                                                                <div class="track-progress-breadcrumb">{{track.name}}</div>
                                                                 <h3>{{donut.title}}</h3>
                                                                 <div class="track-progress-mastery">{{donut.score}} mastered</div>
                                                                 <div class="track-skills">8/97 courses completed</div>
@@ -59,12 +59,12 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="centered">
-                                                        {% include "components/new_donut_chart.html" with donut=donuts.0 %}
+                                                        {% include "components/new_donut_chart.html" with donut=donuts.0 img=track.icon %}
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <div class="track-progress-breadcrumb">Math</div>
-                                                    <h3>{{donuts.0.title}}</h3>
+                                                    <div class="track-progress-breadcrumb">{{member.name}}</div>
+                                                    <h3>{{track.name}}</h3>
                                                     <div class="track-progress-mastery">{{donuts.0.score}} mastered</div>
                                                     <div class="track-skills">8/97 courses completed</div>
                                                 </div>
