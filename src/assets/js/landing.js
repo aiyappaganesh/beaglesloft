@@ -26,6 +26,7 @@ $(document).ready(function(){
     $('.tab_icons .tab').click(
                 function(){
                     var carousel_id = $(this).children('input[name="carousel_id"]').first().val();
+                    $('.active_tab').removeClass('first_icon');
                     $('.active_tab h3').css('color', '');
                     var icon_url = $('.active_tab #icon_url').val()
                     $('.active_tab a #icon').attr('src', icon_url);
