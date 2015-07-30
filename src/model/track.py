@@ -1,6 +1,6 @@
 from google.appengine.ext import db
 
-class Track(db.model):
+class Track(db.Model):
     id = db.StringProperty()
 
     @classmethod
