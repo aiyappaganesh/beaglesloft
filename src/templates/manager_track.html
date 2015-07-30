@@ -17,7 +17,7 @@
     <div class="width940 section-content">
         <div class="row">
             {% for donut in donuts %}
-            <div class="col-sm-4">
+            <div class="col-sm-4" style="padding: 24px;">
                 {% include "components/new_donut_chart.html" with donut=donut%}
                 <p class="header-3 align-center">{{donut.title}}</p>
             </div>

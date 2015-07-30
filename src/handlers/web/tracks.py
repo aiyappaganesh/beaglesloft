@@ -5,6 +5,8 @@ from model.ui_models.centered_contents import CenteredContents, CenteredContent
 from model.ui_models.factories.tracks import Tracks
 from util.util import MEMBER_ROLE, MANAGER
 from model.ui_models.factories.donut_factory import DonutFactory
+from model.ui_models.donut import DonutSegment
+from random import randint
 
 import logging
 
@@ -31,9 +33,20 @@ class TracksPage(WebRequestHandler):
             member = Member.get_by_email(email)
             template_values['member'] = member
             if member.role == MEMBER_ROLE[MANAGER]:
-                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('James', 38, '/assets/img/tracks/mobile_dev.png'), ('David', 15, '/assets/img/tracks/mobile_dev.png'), ('Chang', 63, '/assets/img/tracks/mobile_dev.png'), ('Abdul', 28, '/assets/img/tracks/mobile_dev.png'), ('Raj', 71, '/assets/img/tracks/mobile_dev.png')], 'transparent', '#1c758a', '#ddd')
+                template_values['donuts'] = \
+                    DonutFactory.get_donuts\
+                        (100, 0.875,
+                         [
+                             ('James', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
+                             ('Abdul', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
+                             ('Raj', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
+                             ('David', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
+                             ('Chang', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png')
+                         ],
+                         'transparent', '#ddd'
+                        )
             else:
-                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', 58, '/assets/img/tracks/mobile_dev.png')], 'transparent', '#1c758a', '#ddd')
+                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png')], 'transparent', '#ddd')
         self.render_template(template_name='tracks.html', template_values=template_values)
 
 class ProgramListingPage(WebRequestHandler):
@@ -49,7 +62,7 @@ class ProgramListingPage(WebRequestHandler):
             if member.role == MEMBER_ROLE[MANAGER]:
                 template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('James', 38), ('David', 15), ('Chang', 63), ('Abdul', 28), ('Raj', 71)], 'transparent', '#139fe1', '#333333')
             else:
-                template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('Course1', 58), ('Course2', 75)], 'transparent', '#139fe1', '#333333')
+                template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('Course1', [DonutSegment(58, '#1c758a'), DonutSegment(33, '#29abca')]), ('Course2', [DonutSegment(58, '#1c758a'), DonutSegment(33, '#29abca')])], 'transparent', '#333333')
         self.render_template(template_name='program_listing.html', template_values=template_values)
 
 app = RestApplication([('/tracks', TracksPage),
