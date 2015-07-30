@@ -2,6 +2,8 @@ from handlers.rest.rest_application import RestApplication
 from auth import login_required
 from model import Member
 from handlers.web import WebRequestHandler
+from model.ui_models.donut import DonutSegment
+from random import randint
 from model.ui_models.factories.donut_factory import DonutFactory
 from model.ui_models.centered_contents import CenteredContents, CenteredContent
 
@@ -23,7 +25,7 @@ class ManagerTrackHandler(WebRequestHandler):
         template_values['member'] = member
         template_values['is_member'] = True if 'member' in self.session else False
         template_values['page_title_centered'] = get_page_title_centered_contents()
-        template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('Mobile Development', 58)], 'transparent', '#139fe1', '#333333')
+        template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('Engineer1', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png')], 'transparent', '#ddd')
         self.write(self.get_rendered_html(path, template_values), 200)
 
 app = RestApplication([("/candidate/profile", ManagerTrackHandler)])
