@@ -4,5 +4,5 @@ class Manager(db.Model):
 	user = db.ReferenceProperty(indexed=False)
 
 	@classmethod
-	def create(cls, email):
-		cls(key_name=email).put()
+	def create(cls, user):
+		cls(key_name=user.email, user=user).put()
