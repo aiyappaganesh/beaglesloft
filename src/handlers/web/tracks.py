@@ -60,9 +60,19 @@ class ProgramListingPage(WebRequestHandler):
             member = Member.get_by_email(email)
             template_values['member'] = member
             if member.role == MEMBER_ROLE[MANAGER]:
-                template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('James', 38), ('David', 15), ('Chang', 63), ('Abdul', 28), ('Raj', 71)], 'transparent', '#139fe1', '#333333')
+                template_values['donuts'] = DonutFactory.get_donuts\
+                        (100, 0.875,
+                         [
+                             ('James', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
+                             ('Abdul', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
+                             ('Raj', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
+                             ('David', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
+                             ('Chang', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png')
+                         ],
+                         'transparent', '#ddd'
+                        )
             else:
-                template_values['donuts'] = DonutFactory.get_donuts(128, 0.8, [('Course1', [DonutSegment(58, '#1c758a'), DonutSegment(33, '#29abca')]), ('Course2', [DonutSegment(58, '#1c758a'), DonutSegment(33, '#29abca')])], 'transparent', '#333333')
+                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png')], 'transparent', '#ddd')
         self.render_template(template_name='program_listing.html', template_values=template_values)
 
 app = RestApplication([('/tracks', TracksPage),
