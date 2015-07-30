@@ -6,8 +6,8 @@ $program-container-padding: 148%;
 $img-container-padding: 58.22%;
 $date-container-padding: 13.66%;
 $copy-container-padding: 49.56%;
-$copy-bigger-container-padding: 59.56%;
-$button-bigger-container-padding: 16.56%;
+$copy-bigger-container-padding: 56.56%;
+$button-bigger-container-padding: 19.56%;
 $button-container-padding: 26.56%;
 $oswald_font: 'Oswald', sans-serif;
 $button_font_size: 16px;
@@ -67,6 +67,11 @@ $merriweather_font: Merriweather, sans-serif;
 			
 				.position-track-program-copy-container{
 					@include track_program_inner(20px, 20px, 20px, 20px);
+					@media (max-width: 940px) and (min-width: 768px), (max-width: 580px) and (min-width: 501px), (max-width: 350px)
+					{
+						@include track_program_inner(10px, 20px, 10px, 20px);
+					}
+
 					h3{
 						padding-top: 0px;
 					}
@@ -102,10 +107,8 @@ $merriweather_font: Merriweather, sans-serif;
 					@include track_program_inner(20px, 20px, 20px, 20px);	
 					@media (max-width: 940px) and (min-width: 768px), (max-width: 580px) and (min-width: 501px), (max-width: 350px)
 					{
-						@include track_program_inner(5px, 20px, 5px, 20px);
+						@include track_program_inner(8px, 20px, 8px, 20px);
 					}	
-
-				
 					.learn-more-button {
 						@include font_definition($oswald_font,$button_font_size,$button_font_weight);
 						@extend .red_and_white_button;
