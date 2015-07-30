@@ -98,13 +98,13 @@
 	position: relative;
 }
 
-@mixin track_program_inner($vertical,$horizontal)
+@mixin track_program_inner($top, $right, $bottom, $left)
 {
 	position: absolute;
-	top: $vertical;
-	left: $horizontal;
-	bottom: $vertical;
-	right: $horizontal;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
 }
 
 .red_and_white_button{
