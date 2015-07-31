@@ -19,7 +19,7 @@
                         <p class="tracks-program-desc">{{program.description}}</p>
                     </div>
                     <div class="tracks-program-button-container white-background align-center">
-                        <a onclick="{{ onclick }}('{{ program.title }}')">
+                        <a {% if track.id == "full_stack_developer" %}href="{{program.link}}"{% endif %} onclick="{{ onclick }}('{{ program.title }}')">
                             <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
                         </a>
                     </div>
