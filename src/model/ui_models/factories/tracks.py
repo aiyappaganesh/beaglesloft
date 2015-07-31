@@ -21,8 +21,8 @@ def get_modules_for(track):
                                 Module('Unit 2: Data structures', ['Stacks and queues', 'Binary search trees', 'Priority queues', 'Hashing and strings', 'Graph traversals', 'Weighted graphs'])],
                 web_track: [  Module('Unit 1: Frontend development', ['HTML basics', 'CSS basics', 'Javascript basics', 'Intro to jQuery', 'Arrays and traversing the DOM']),
                               Module('Unit 2: Back end development', ['DEVOPS intensive environments like AWS', 'DEVOPS free environments like GAE']),
-                              Module('Unit 3: Basics of AWS', ['Procuring instances', 'Setting up a web server', 'Setting up a DB server', 'Tying it together and making a backend work', 'Scaling a backend on AWS']),
-                              Module('Unit 4: Basics of GAE', ['Setting up a backend on GAE', 'Scaling a backend on GAE', 'Implementing map reduce on GAE'])],
+                              Module('Unit 3: Basics of Amazon Web Services', ['Procuring instances', 'Setting up a web server', 'Setting up a DB server', 'Tying it together and making a backend work', 'Scaling a backend on AWS']),
+                              Module('Unit 4: Basics of Google AppEngine', ['Setting up a backend on GAE', 'Scaling a backend on GAE', 'Implementing map reduce on GAE'])],
                 mobile_track: [ Module('Unit 1: The Language', ['Objective C fundamentals', 'Objective C constructs and control flow']),
                                 Module('Unit 2: The Run Time', ['Procuring a developer certificate', "Setting up your team on Apple's member center", 'Preparing your machine with the developer certificate']),
                                 Module('Unit 3: Installation', ['Installing a simple app on your phone via Xcode']),
@@ -51,7 +51,6 @@ def get_programs(track):
                    Program('Mathematics for Computer Science', 'Aug 23 2015', 30, web_track, 'The Calculus, Statistics, Combinatorics, Graph Theory, Probablity and number theory every data scientist should know.', 'cont_math', get_modules_for(math_for_cs)),
                    Program('Algorithms and Datastructures revisited', 'Aug 30 2015', 20, web_track, 'Computer science fundamentals which separates a good programmer from the best.', 'algo', get_modules_for(algs_and_ds)),
                    Program('Distributed computing', 'Sept 7 2015', 25, web_track, 'Basic concepts of distributed computing and how to execute it on the cloud.', 'dist', get_modules_for(web_track)),
-                   Program('Non-relational Databases', 'Sept 14 2015', 30, web_track, 'The new Non-relational mathematics and how commercial databases implement them.', 'no_sql', get_modules_for(web_track)),
                    Program('NLP 101', 'Sept 21 2015', 25, web_track, 'Tools and frameworks for processing and mining data from natural language text.', 'nlp', get_modules_for(web_track)),
                    Program('Big Data 101', 'Sept 28 2015', 20, web_track, 'Learn how to store massive amounts of data in distributed databases and process them using MapReduce.', 'big_data', get_modules_for(web_track))],
         designer:[
