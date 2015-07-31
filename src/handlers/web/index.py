@@ -11,6 +11,7 @@ from util import mailjet
 from model.ui_models.factories.services import Services
 from model.ui_models.factories.memberships import Memberships
 from model.ui_models.centered_contents import CenteredContents, CenteredContent
+from model.manager import Manager
 
 def get_why_beaglesloft_centered_contents():
     centered_contents = []
@@ -58,6 +59,7 @@ class MemberRegistrationPage(WebRequestHandler):
         template_values['is_member'] = True if 'member' in self.session else False
         if 'member' in self.session:
             template_values['member'] = Member.get_member_json(self.session['member'])
+        template_values['managers'] = Manager.get_managers()
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class MemberFBRegistrationPage(WebRequestHandler):
