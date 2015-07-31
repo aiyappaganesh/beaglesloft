@@ -69,6 +69,7 @@ class Member(db.Model):
         if role is not None:
             member.role = role
         member.put()
+        return member
 
     @staticmethod
     def get_by_email(email):

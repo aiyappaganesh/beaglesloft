@@ -12,6 +12,8 @@ from webapp2_extras.security import generate_password_hash, check_password_hash
 from config.config import *
 from util import mailchimp
 from util.util import MEMBER_ROLE, MANAGER, ENGINEER
+from model.manager import Manager
+from model.managed_user import ManagedUser
 
 class MemberCreateHandler(RequestHandler):
     def post(self):
@@ -22,14 +24,17 @@ class MemberCreateHandler(RequestHandler):
         else:
             image_url = '/assets/img/landing/default_member.png'
         role = int(self['role']) if self['role'] else MEMBER_ROLE[ENGINEER]
-        Member.create_or_update(key, name=self['name'], organization=self["organization"],
+        member = Member.create_or_update(key, name=self['name'], organization=self["organization"],
                                 designation=self["designation"], website=self["website"],
                                 twitter_handle=self["twitter_handle"], facebook_id=self["facebook_id"], bio=self["bio"],
                                 password=self['password'], image_url=image_url, role=role)
         self.session['member'] = key
         if role == MEMBER_ROLE[MANAGER]:
+            Manager.create(member)
             redirect_url = '/manager/track'
         else:
+            managed_by = self['manager']
+            ManagedUser.create(member, Manager._for(managed_by))
             redirect_url = '/candidate/profile'
         self.redirect(redirect_url)
 

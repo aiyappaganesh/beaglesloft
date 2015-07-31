@@ -173,3 +173,12 @@ function showPicture() {
         $('#profile-image').hide();
     }
 }
+
+function showManagers(e) {
+    if($(e).val()!=1) {
+        $('#manager').show();
+    }
+    else {
+        $('#manager').hide();
+    }
+}
