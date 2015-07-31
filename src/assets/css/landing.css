@@ -284,6 +284,7 @@ button {border:none}
     -webkit-transition: background-color 0.25s ease-in;
     transition: color 0.25s ease-in;
     transition: background-color 0.25s ease-in;
+    text-transform: uppercase;
 }
 
 .learn-more-button:hover {

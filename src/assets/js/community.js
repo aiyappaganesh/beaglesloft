@@ -4,7 +4,43 @@ $(document).ready(function(){
         $("#navbar-fluid").css({ opacity: 1 });
     }
     $('.centered-full-width-element').width($(window).width());
+
+    $('.service-container li').hover(
+        function(){
+            switchLinkIcon($(this), 'highlight_icon', 'black-font')
+        },
+        function(){
+            if ($(this).hasClass("active")) {
+                return
+            };
+            switchLinkIcon($(this), 'icon', 'red-font')
+        }
+    );
+    $('.service-container li').click(
+        function(){
+            var carousel_id = $(this).children('input[name="carousel_id"]').first().val();
+            $('.service-carousel').fadeOut(0);
+            $(carousel_id).fadeIn(0);
+            $('.service-container li').each(
+                                            function(){
+                                                $(this).removeClass('active');
+                                                switchLinkIcon($(this), 'icon', 'red-font');
+                                            }
+                                           );
+            $(this).addClass('active');
+            switchLinkIcon($(this), 'highlight_icon', 'black-font');
+        }
+    );
 });
+
+function switchLinkIcon(ele, icon, text_color){
+    var highlight_icon = ele.children('input[name="' + icon + '"]').first().val();
+    ele.children('a').css("background-image", "url(" + highlight_icon + ")");
+    ele.children('h3').removeClass();
+    ele.children('h3').addClass(text_color);
+    ele.children('h3').addClass('uppercase');
+    ele.children('h3').addClass('service-name');
+}
 
 $(document).ready(function() {
     $(".nav-link").click( function(event){

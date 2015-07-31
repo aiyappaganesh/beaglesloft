@@ -14,6 +14,8 @@ from util import mailchimp
 from util.util import MEMBER_ROLE, MANAGER, ENGINEER
 from model.manager import Manager
 from model.managed_user import ManagedUser
+from model.enroll_track import EnrollTrack
+from model.track import Track
 
 class MemberCreateHandler(RequestHandler):
     def post(self):
@@ -180,11 +182,11 @@ class LoginHandler(RequestHandler):
             result_json['errormsg'] = 'Incorrect password'
         else:
             self.session['member'] = email
-        if member.role == MEMBER_ROLE[MANAGER]:
-            redirect_url = '/manager/track'
-        else:
-            redirect_url = '/candidate/profile'
-        result_json['redirect_url'] = redirect_url
+            if member.role == MEMBER_ROLE[MANAGER]:
+                redirect_url = '/manager/track'
+            else:
+                redirect_url = '/candidate/profile'
+            result_json['redirect_url'] = redirect_url
         self.write(
             json.dumps(
                 result_json
@@ -206,6 +208,14 @@ class SubscribeNewsletterHandler(RequestHandler):
                 ),200,'application/json'
             )
 
+class EnrollTrackHandler(RequestHandler):
+    @login_required
+    def post(self):
+        email = self.session['member']
+        track_id = self['track_id']
+        EnrollTrack.create(Member.get_by_email(email), Track.get_by_key_name(track_id))
+        self.redirect("/tracks")
+
 app = RestApplication([ ("/api/members/login", LoginHandler),
                         ("/api/members/([^/]+)/update", MemberUpdateHandler),
                         ("/api/members/create", MemberCreateHandler),
@@ -216,4 +226,5 @@ app = RestApplication([ ("/api/members/login", LoginHandler),
                         ("/api/members/validate_access_code", ValidateAccessCodeHandler),
                         ("/api/members/process_access_answer", ProcessAccessAnswerHandler),
                         ("/api/members/fetch_access_question", FetchAccessQuestionHandler),
-                        ("/api/members/subscribe_to_newsletter", SubscribeNewsletterHandler)])
+                        ("/api/members/subscribe_to_newsletter", SubscribeNewsletterHandler),
+                        ("/api/members/enroll", EnrollTrackHandler)])

@@ -1,5 +1,6 @@
 from handlers.web import WebRequestHandler
 from model import Member
+from model.enroll_track import EnrollTrack
 from handlers.rest.rest_application import RestApplication
 from model.ui_models.centered_contents import CenteredContents, CenteredContent
 from model.ui_models.factories.tracks import Tracks
@@ -32,7 +33,11 @@ class TracksPage(WebRequestHandler):
             email = self.session['member']
             member = Member.get_by_email(email)
             template_values['member'] = member
+            template_values['enrolled_tracks'] = {}
+            for track in Tracks.get_tracks():
+                template_values['enrolled_tracks'][track.id] =EnrollTrack.is_enrolled(email, track.id)
             if member.role == MEMBER_ROLE[MANAGER]:
+                template_values['is_manager'] = True
                 template_values['donuts'] = \
                     DonutFactory.get_donuts\
                         (100, 0.875,
