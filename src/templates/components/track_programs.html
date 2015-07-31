@@ -19,7 +19,7 @@
                         <p class="tracks-program-desc">{{program.description}}</p>
                     </div>
                     <div class="tracks-program-button-container white-background align-center">
-                        <a onclick="ga('send', 'event', 'Tracks Page', 'click', 'Learn More Button - Past ' + '{{ program.link }}');distinct_id = mixpanel.get_distinct_id();mixpanel.identify(distinct_id);mixpanel.people.set();mixpanel.track('track_click', {'program': '{{ program.title }}' })">
+                        <a onclick="{{ onclick }}('{{ program.title }}')">
                             <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
                         </a>
                     </div>

@@ -21,12 +21,12 @@
             </div>
         </div>
         <div class="row" style="padding-top:20px">
-            {% include "components/service_icons.html" with tabs=tracks carousel=0 %}
+            {% include "components/service_icons.html" with tabs=tracks carousel=0 onclick="recordTrackClick" %}
         </div>
         <div class="track_content row">
             <div class="col-sm-12">
                 {% for track in tracks %}
-                    {% include "components/track_programs.html" with track=track counter=forloop.counter %}
+                    {% include "components/track_programs.html" with track=track counter=forloop.counter onclick="recordProgramClick" %}
                 {% endfor %}
             </div>
         </div>
