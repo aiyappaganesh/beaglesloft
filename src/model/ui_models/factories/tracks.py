@@ -8,6 +8,7 @@ founder = 'Founder'
 
 math_for_cs = 'Mathematics for Computer Science'
 beyond_html = 'Going beyond HTML and CSS'
+algs_and_ds = 'Algorithms and Datastructures revisited'
 
 def get_modules_for(track):
     modules = { math_for_cs: [  Module('Unit 1: Counting numbers', ['Fundamental counting principle', 'Permutations and combinations', 'Sums and recurrences', 'Manipulation of sums', 'Infinite sums', 'Asymptotes']),
@@ -16,6 +17,8 @@ def get_modules_for(track):
                 beyond_html: [  Module('Unit 1: Current Front End limitations', ['Writing DRY code', 'Limitations of CSS and the need for pre-compilation', 'Limitation of HTML and the need for pre-compilation']),
                                 Module('Unit 2: SASS Concepts', ['Installation and setup', '@import directive and modularising CSS code', '@include directive and mixins', '@extend directive', '@at-root directive']),
                                 Module('Unit 3: HAML concepts', ['Installation and setup', 'HAML syntax', 'Eliminating white space', 'Eliminating deep nesting'])  ],
+                algs_and_ds: [  Module('Unit 1: Algorithms', ['Algorithm analysis', 'Sorting and searching', 'Combinatorial search and hueristics', 'Dynamic programming', 'P vs. NP']),
+                                Module('Unit 2: Data structures', ['Stacks and queues', 'Binary search trees', 'Priority queues', 'Hashing and strings', 'Graph traversals', 'Weighted graphs'])],
                 web_track: [  Module('Unit 1: Frontend development', ['HTML basics', 'CSS basics', 'Javascript basics', 'Intro to jQuery', 'Arrays and traversing the DOM']),
                               Module('Unit 2: Back end development', ['DEVOPS intensive environments like AWS', 'DEVOPS free environments like GAE']),
                               Module('Unit 3: Basics of AWS', ['Procuring instances', 'Setting up a web server', 'Setting up a DB server', 'Tying it together and making a backend work', 'Scaling a backend on AWS']),
@@ -46,7 +49,7 @@ def get_programs(track):
         web_track:[Program('Building a Web App 101', 'Aug 2 2015', 20, web_track, 'A beginner course to understand all the skills required to be a good web developer.', 'full_stack', get_modules_for(web_track)),
                    Program('Going beyond HTML and CSS', 'Aug 9 2015', 20, web_track, 'Learn how to write D.R.Y code and the frameworks and libraries to achieve that.', 'less', get_modules_for(beyond_html)),
                    Program('Mathematics for Computer Science', 'Aug 23 2015', 30, web_track, 'The Calculus, Statistics, Combinatorics, Graph Theory, Probablity and number theory every data scientist should know.', 'cont_math', get_modules_for(math_for_cs)),
-                   Program('Algorithms and Datastructures revisited', 'Aug 30 2015', 20, web_track, 'Computer science fundamentals which separates a good programmer from the best.', 'algo', get_modules_for(web_track)),
+                   Program('Algorithms and Datastructures revisited', 'Aug 30 2015', 20, web_track, 'Computer science fundamentals which separates a good programmer from the best.', 'algo', get_modules_for(algs_and_ds)),
                    Program('Distributed computing', 'Sept 7 2015', 25, web_track, 'Basic concepts of distributed computing and how to execute it on the cloud.', 'dist', get_modules_for(web_track)),
                    Program('Non-relational Databases', 'Sept 14 2015', 30, web_track, 'The new Non-relational mathematics and how commercial databases implement them.', 'no_sql', get_modules_for(web_track)),
                    Program('NLP 101', 'Sept 21 2015', 25, web_track, 'Tools and frameworks for processing and mining data from natural language text.', 'nlp', get_modules_for(web_track)),
