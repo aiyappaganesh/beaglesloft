@@ -3,6 +3,9 @@ from .web_request_handler import WebRequestHandler
 from .index import IndexPage, CalendarPage, MemberRegistrationPage, MemberFBRegistrationPage, MemberAccessPage, AcceptContact, PeoplePage, ContactPage, NewslettersPage, CreateNewsletterPage, SubscribeNewsletterPage, ConfirmSubscribeNewsletterPage, MembershipPage
 from .events import CreateEventPage, EditEventPage, SearchEventPage, EventsPage
 from .tracks import TracksPage, ProgramListingPage
+from django import template
+
+template.add_to_builtins('handlers.web.filters')
 
 app = webapp2.WSGIApplication([
     ('/calendar', CalendarPage),
