@@ -6,7 +6,7 @@ $(document).ready(function(){
 		});	
 	});
 
-	$('.tab_icon').click(function(){	
+	$('.tab_icon').on('touchend click', function(){	
         var carousel_id = $(this).children('input[name="carousel_id"]').first().val();
         $('.active_tab').removeClass('first_icon');
         $('.active_tab h3').css('color', '');
