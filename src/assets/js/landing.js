@@ -1,5 +1,12 @@
 
 $(document).ready(function(){
+    $('.tab_icon').click(function(){    
+        console.log();
+        var carousel_id = $(this).children('input[name="carousel_id"]').first().val();
+        $('.service-carousel').fadeOut(0);
+        $(carousel_id).fadeIn(0);
+    });
+
     $(window).scroll(function(){
         var section1_top = $('#section1').offset().top;
 

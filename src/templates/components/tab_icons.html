@@ -7,7 +7,12 @@
 	            <img src="{{tab.highlight_icon}}" class="hover">
 	        </a>
 	        <h3 class="hide1">{{tab.name}}</h3>
-		</div> 
+	        {% if carousel == 1 %}
+	        <input type="hidden" name="carousel_id" value="#{{tab.carousel.id}}"></input>
+	        {% else %}
+	        <input type="hidden" name="carousel_id" value="#{{tab.id}}"></input>
+	        {% endif %}
+    	</div>
 	{% endfor %}
 	<div class="col-xs-1"></div>
 </div>
