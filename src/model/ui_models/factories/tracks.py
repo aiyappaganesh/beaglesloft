@@ -10,6 +10,7 @@ math_for_cs = 'Mathematics for Computer Science'
 beyond_html = 'Going beyond HTML and CSS'
 algs_and_ds = 'Algorithms and Datastructures revisited'
 distributed_computing = 'Distributed Computing'
+nlp = 'NLP'
 
 def get_modules_for(track):
     modules = { math_for_cs: [  Module('Unit 1: Counting numbers', ['Fundamental counting principle', 'Permutations and combinations', 'Sums and recurrences', 'Manipulation of sums', 'Infinite sums', 'Asymptotes']),
@@ -24,6 +25,10 @@ def get_modules_for(track):
                               Module('Unit 2: Back end development', ['DEVOPS intensive environments like AWS', 'DEVOPS free environments like GAE']),
                               Module('Unit 3: Basics of Amazon Web Services', ['Procuring instances', 'Setting up a web server', 'Setting up a DB server', 'Tying it together and making a backend work', 'Scaling a backend on AWS']),
                               Module('Unit 4: Basics of Google AppEngine', ['Setting up a backend on GAE', 'Scaling a backend on GAE', 'Implementing map reduce on GAE'])],
+                nlp: [  Module('Unit 1: Processing raw text', ['Text processing with unicode', 'Regular expressions for detecting word patterns', 'Normalizing text', 'Segmentation', 'Regular expressions for tokenizing text']),
+                        Module('Unit 2: Categorizing and tagging words', ['Automatic tagging', 'N-Gram tagging', 'Transformation-Based tagging', 'Using a tagger']),
+                        Module('Unit 3: Classifying text', ['Naive Bayes classifiers', 'Decision trees', 'Maximum entropy classifiers', 'Supervised classification']),
+                        Module('Unit 4: Extracting information from text', ['Developing and evaluating chunkers', 'Recursion in linguistic structure', 'Named entity recognition', 'Relation extraction'])],
                 distributed_computing: [  Module('Unit 1: Theory', ['Required properties of a distributed system', 'Putting everything together: CAP theorem', 'Distributed transactions', 'Data replication and consistency', 'Networking infrastructures']),
                                           Module('Unit 2: Practise', ["MapReduce and Google's implementation", "A look at Google's BigTable", "Horizontally scaling webservers"])],
                 mobile_track: [ Module('Unit 1: The Language', ['Objective C fundamentals', 'Objective C constructs and control flow']),
@@ -54,7 +59,7 @@ def get_programs(track):
                    Program('Mathematics for Computer Science', 'Aug 23 2015', 30, web_track, 'The Calculus, Statistics, Combinatorics, Graph Theory, Probablity and number theory every data scientist should know.', 'cont_math', get_modules_for(math_for_cs)),
                    Program('Algorithms and Datastructures revisited', 'Aug 30 2015', 20, web_track, 'Computer science fundamentals which separates a good programmer from the best.', 'algo', get_modules_for(algs_and_ds)),
                    Program('Distributed computing', 'Sept 7 2015', 25, web_track, 'Basic concepts of distributed computing and how to execute it on the cloud.', 'dist', get_modules_for(distributed_computing)),
-                   Program('NLP 101', 'Sept 21 2015', 25, web_track, 'Tools and frameworks for processing and mining data from natural language text.', 'nlp', get_modules_for(web_track)),
+                   Program('NLP 101', 'Sept 21 2015', 25, web_track, 'Tools and frameworks for processing and mining data from natural language text.', 'nlp', get_modules_for(nlp)),
                    Program('Big Data 101', 'Sept 28 2015', 20, web_track, 'Learn how to store massive amounts of data in distributed databases and process them using MapReduce.', 'big_data', get_modules_for(web_track))],
         designer:[
                 Program('Design Thinking', 'Aug 3 2015', 15, designer, 'Learn the methods and approaches to use design as a "way of thinking" for creative action.', 'design_thinking', None),
