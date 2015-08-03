@@ -8,6 +8,7 @@ from util.util import MEMBER_ROLE, MANAGER
 from model.ui_models.factories.donut_factory import DonutFactory
 from model.ui_models.donut import DonutSegment
 from random import randint
+from model.managed_user import ManagedUser
 
 import logging
 
@@ -38,18 +39,20 @@ class TracksPage(WebRequestHandler):
                 template_values['enrolled_tracks'][track.id] =EnrollTrack.is_enrolled(email, track.id)
             if member.role == MEMBER_ROLE[MANAGER]:
                 template_values['is_manager'] = True
-                template_values['donuts'] = \
-                    DonutFactory.get_donuts\
-                        (100, 0.875,
-                         [
-                             ('James', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
-                             ('Abdul', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
-                             ('Raj', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
-                             ('David', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
-                             ('Chang', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png')
-                         ],
-                         'transparent', '#ddd'
-                        )
+                managed_users = ManagedUser.get_managed_users(member.email)
+                donut_vals = []
+                if managed_users and len(managed_users)>0:
+                    for managed_user in managed_users:
+                        donut_vals.append((managed_user.user.name,[DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')]))
+                else:
+                    donut_vals = [
+                        ('James', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
+                        ('Abdul', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
+                        ('Raj', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
+                        ('David', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
+                        ('Chang', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png')
+                        ]
+                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, donut_vals, 'transparent', '#ddd')
             else:
                 template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png')], 'transparent', '#ddd')
         self.render_template(template_name='tracks.html', template_values=template_values)
