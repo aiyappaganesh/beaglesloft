@@ -3,7 +3,7 @@
         {% if enrolled_tracks|is_enrolled:track.id or is_manager %}
             {% include "components/track_progress.html" with track=track counter=counter donuts=donuts %}
         {% elif not enrolled_tracks|is_enrolled:track.id %}
-            <div class="col-sm-12 align-center">
+            <div class="col-sm-12 tracks-program-button-container align-center">
                 <button class="learn-more-button margin-auto" value="ENROLL" onclick="$.post('/api/members/enroll',{'track_id':'{{track.id}}'});">ENROLL @ {{track.name}}</button>
             </div>
         {% endif %}
