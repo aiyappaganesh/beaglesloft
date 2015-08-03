@@ -1,7 +1,7 @@
 <div id='{{track.id}}' class="service-carousel row" style="{% if counter != 1 %}display:none{% endif %}">
     {% if is_member %}
         {% if enrolled_tracks|is_enrolled:track.id or is_manager %}
-            {% include "components/track_progress.html" with track=track counter=counter donuts=donuts %}
+            {% include "components/track_progress.html" with track=track counter=counter donuts=donuts is_manager=is_manager %}
         {% elif not enrolled_tracks|is_enrolled:track.id %}
             <div class="col-sm-12 tracks-program-button-container align-center">
                 <button class="learn-more-button margin-auto" value="ENROLL" onclick="$.post('/api/members/enroll',{'track_id':'{{track.id}}'});">ENROLL @ {{track.name}}</button>
