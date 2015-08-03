@@ -598,6 +598,10 @@ footer>a:hover, footer a:hover {
     height: 128px;
 }
 
+.tab {
+    cursor: pointer;
+}
+
 @media (min-width: 979px) {
     .main {
         overflow: auto;
