@@ -7,6 +7,9 @@ body{
 	background-color: $grey_color;
 }
 .hero {
+	@include hero('/assets/img/landing/tracks.png');
+}
+/*
 	@extend .cover-image;
 	height: 40vh;
 	width: 100vw;
@@ -29,7 +32,4 @@ body{
 		}
 	}	
 }
-
-
-
-
+*/

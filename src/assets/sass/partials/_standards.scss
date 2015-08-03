@@ -1,3 +1,32 @@
+@import "partials/_images.scss";
+@import "partials/_text.scss";
+
+@mixin hero($hero_img_url)
+{
+	@extend .cover-image;
+	height: 45vh;
+	width: 100vw;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	background: {
+		image: url($hero_img_url);
+	}
+	p {
+		@include font_definition($oswald_font,$hero_font_size,$hero_font_weight);
+		color: $white_color;
+		background-color: $red_color;
+		margin: 0px;
+		padding: {
+			top: 10px;
+			bottom: 10px;
+			left: 30px;
+			right: 30px;
+		}
+	}	
+}
+
+
 .centered-fullscreen {
 	display: table-cell;
 	height: 100vh;

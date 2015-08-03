@@ -1,0 +1,11 @@
+@import "partials/_text.scss";
+@import "partials/_constants.scss";
+@import "partials/_images.scss";
+@import "partials/_standards.scss";
+
+body{
+	background-color: $grey_color;
+}
+.hero {
+	@include hero('/assets/img/landing/events-header.jpg');
+}
