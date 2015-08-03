@@ -3,9 +3,23 @@
 @import "partials/_images.scss";
 @import "partials/_standards.scss";
 
+$option_font_size: 20px;
+$option_font_weight: 300;
 body{
 	background-color: $grey_color;
 }
 .hero {
 	@include hero('/assets/img/landing/events-header.jpg');
+}
+.white_bg{
+	background-color: $white_color;
+}
+.view_option{
+	height: 60px;
+	padding: 20px 0;
+	p{
+	@include font_definition($oswald_font,$option_font_size,$option_font_weight);		
+	display: inline;
+	padding: 0px 10px;
+	}
 }
