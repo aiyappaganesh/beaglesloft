@@ -5,6 +5,8 @@
 
 $font_size_20: 20px;
 $font_weight_300: 300;
+$next_text_font_size: 38px;
+$checkout_text_font_size: 15px;
 
 body{
 	background-color: $grey_color;
@@ -41,4 +43,15 @@ body{
 	background-repeat: no-repeat;
 	background-position: center;
     background-size: cover;
+    .next-text p{
+    	@include font_definition($oswald_font,$next_text_font_size,$font_weight_300);
+    	color: $white_color;
+    	text-shadow:2px 2px #000000;		
+    }
+    .checkout-text p{
+    	@include font_definition($merriweather_font,$checkout_text_font_size,$font_weight_300);		
+    	color: $white_color;
+    	padding: 10px;
+    	text-shadow:2px 2px #000000;
+    }
 }
