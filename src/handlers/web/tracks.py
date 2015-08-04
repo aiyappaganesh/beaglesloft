@@ -40,7 +40,7 @@ class TracksPage(WebRequestHandler):
     def get(self):
         template_values = {}
         template_values['page_title_centered'] = get_page_title_centered_contents()
-        template_values['tracks'] = [self._make_json(track) for track in Tracks.get_tracks()]
+        template_values['tracks'] = [self._make_json(track) for track in Track.all()]
         template_values['is_member'] = True if 'member' in self.session else False
         if 'member' in self.session:
             email = self.session['member']

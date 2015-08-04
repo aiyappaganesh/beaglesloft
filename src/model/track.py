@@ -1,6 +1,16 @@
 from google.appengine.ext import db
 
 class Track(db.Model):
+    name = db.StringProperty(indexed=False)
+    image = db.StringProperty(indexed=False)
+
+    @property
+    def icon(self):
+        return '/assets/img/tracks/' + self.image + '.png'
+    
+    @property
+    def highlight_icon(self):
+        return '/assets/img/tracks/' + self.image + '_dark.png'
 
     @property
     def id(self):
