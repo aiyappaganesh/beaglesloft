@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-xs-6">
+        <div class="centered">
+            {% include "components/new_donut_chart.html" with donut=donut img=track.icon %}
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="track-progress-breadcrumb">{{track.name}}</div>
+        <h3>{{donut.title}}</h3>
+        <div class="track-progress-mastery">{{donut.segments.0.score}}% engagement</div>
+        <div class="track-skills">{{donut.total}}% courses completed</div>
+    </div>
+</div>
