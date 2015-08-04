@@ -14,7 +14,7 @@ class Program(db.Model):
 
     @property
     def url(self):
-        return '/tracks/program_listing?id=' + self.id
+        return '/tracks/program_listing?program_id=%s&track_id=%s'%(self.id, self.parent().id)
 
     @property
     def formatted_start_date(self):

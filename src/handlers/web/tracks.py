@@ -11,6 +11,7 @@ from random import randint
 from model.managed_user import ManagedUser
 from model.program import Program
 from model.track import Track
+from model.program_module import ProgramModule
 
 import logging
 
@@ -23,7 +24,7 @@ def get_page_title_centered_contents():
     return get_centered_contents_for(contents_arr)
 
 def get_listing_centered_contents(program):
-    contents_arr = [(program.title,["page_heading", "tracks-page-title"])]
+    contents_arr = [(program.name,["page_heading", "tracks-page-title"])]
     return get_centered_contents_for(contents_arr)
 
 class TracksPage(WebRequestHandler):
@@ -56,8 +57,10 @@ class TracksPage(WebRequestHandler):
 
 class ProgramListingPage(WebRequestHandler):
     def get(self):
-        program = Tracks.get_listing(self['id'])
-        template_values = {'program':program,
+        track = Track.get_by_key_name(self['track_id'])
+        program = Program.get_by_key_name(self['program_id'], parent=track)
+        modules = ProgramModule.all().ancestor(program)
+        template_values = {'modules': modules,
                            'listing_heading':get_listing_centered_contents(program)}
         template_values['is_member'] = True if 'member' in self.session else False
         if 'member' in self.session:

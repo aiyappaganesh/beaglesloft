@@ -17,12 +17,12 @@
 <div class="white-background">
     <div class="width940 section-content">
         <div id="accordion" class="panel-group">
-            {% for module in program.modules %}
+            {% for module in modules %}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ track.id }}-{{ forloop.counter }}">
                         <h3 class="panel-title white-font">
-                            {{ module.title }}<span class="glyphicon glyphicon-chevron-down" style="float: right; padding: 5px 20px 0px 0px"></span>
+                            {{ module.name }}<span class="glyphicon glyphicon-chevron-down" style="float: right; padding: 5px 20px 0px 0px"></span>
                         </h3>
                     </a>
                 </div>
