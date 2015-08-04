@@ -15,20 +15,20 @@
                 <div class="white-background" style="padding:0px;">
                     <div class="tracks-program-img-container">
                         <a>
-                            <div class="tracks-program-img" style="background-image:url('{{program.snapshot}}');">
+                            <div class="tracks-program-img" style="background-image:url('{{program.image}}');">
                             </div>
                         </a>
                     </div>
                     <div class="tracks-program-date">
-                        <p class="pull-left">{{program.start_date}}</p>
-                        <p class="pull-right">{{program.num_spots}} SPOTS</p>
+                        <p class="pull-left">{{program.formatted_start_date}}</p>
+                        <p class="pull-right">{{program.slots}} SPOTS</p>
                     </div>
                     <div class="tracks-program-copy-container">
-                        <h3 class="tracks-program-title">{{program.title}}</h3>
+                        <h3 class="tracks-program-title">{{program.name}}</h3>
                         <p class="tracks-program-desc">{{program.description}}</p>
                     </div>
                     <div class="tracks-program-button-container white-background align-center">
-                        <a {% if track.id == "full_stack_developer" %}href="{{program.link}}"{% endif %} onclick="{{ onclick }}('{{ program.title }}')">
+                        <a {% if track.id == "full_stack_developer" %}href="{{program.url}}"{% endif %} onclick="{{ onclick }}('{{ program.name }}')">
                             <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
                         </a>
                     </div>

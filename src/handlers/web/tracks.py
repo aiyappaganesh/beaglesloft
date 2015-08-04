@@ -9,6 +9,8 @@ from model.ui_models.factories.donut_factory import DonutFactory
 from model.ui_models.donut import DonutSegment
 from random import randint
 from model.managed_user import ManagedUser
+from model.program import Program
+from model.track import Track
 
 import logging
 
@@ -25,10 +27,19 @@ def get_listing_centered_contents(program):
     return get_centered_contents_for(contents_arr)
 
 class TracksPage(WebRequestHandler):
+    def _make_json(self, track):
+        response = {}
+        response['icon'] = track.icon
+        response['highlight_icon'] = track.highlight_icon
+        response['name'] = track.name
+        response['id'] = track.id
+        response['programs'] = Program.all().ancestor(Track.get_by_key_name(track.id))
+        return response
+
     def get(self):
         template_values = {}
         template_values['page_title_centered'] = get_page_title_centered_contents()
-        template_values['tracks'] = Tracks.get_tracks()
+        template_values['tracks'] = [self._make_json(track) for track in Tracks.get_tracks()]
         template_values['is_member'] = True if 'member' in self.session else False
         if 'member' in self.session:
             email = self.session['member']
