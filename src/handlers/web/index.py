@@ -98,6 +98,15 @@ class PeoplePage(WebRequestHandler):
             template_values['member'] = Member.get_member_json(self.session['member'])
         self.render_template(template_name=None, template_values=template_values)
 
+class ExpertsPage(WebRequestHandler):
+    def get(self):
+        template_values = {}
+        template_values['paged_member_keys'] = Member.get_paged_member_keys()
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
+        self.render_template(template_name='experts.html', template_values=template_values)
+
 class ContactPage(WebRequestHandler):
     def get(self):
         path = 'contact.html'

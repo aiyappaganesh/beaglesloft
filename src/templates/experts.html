@@ -1,0 +1,140 @@
+ {% extends "community_base.html" %}
+
+ {% block Styles %}
+ <link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+ {% endblock %}
+
+ {% block Content %}
+ <div id="people">
+     <div class="full-width">
+         <input type="hidden" name="member_keys" id="member_keys"
+ 									value="{% for page in paged_member_keys %}{% for v in page %}{{v.0}}{% if forloop.counter != page|length %},{% endif %}{% endfor %}{% if forloop.counter != paged_member_keys|length %},{% endif %}{% endfor %}">
+         <div class="full-width landing-carousel-item" style="height:340px;background: url('/assets/img/landing/community-header.jpg') center center no-repeat;">
+             <div style="height:135px"></div>
+             <div style="height:90px;width:620px;margin:auto;background-color:#c62530;color:#ffffff;padding:20px;"><p class="page_heading">THE PEOPLE THAT MAKE US WHO WE ARE</p></div>
+         </div>
+         <div class="full-width" style="height:165px;background-color:#ffffff;">
+             <div style="width:940px;height:165px;margin:auto">
+                 <div style="height:35px;"></div>
+                 <div style="height:100px;" id="member-carousel" class="carousel slide" data-interval="0">
+                     <div style="height:100px;width:820px;overflow-x:hidden;overflow-y:hidden;display:inline-block;float:left;" class="carousel-inner">
+                         {% for page in paged_member_keys %}
+                         <table style="height:100px;" class="item {% if forloop.first %}active{% endif %}">
+                             <tbody>
+                                 <tr>
+                                     {% for v in page %}
+                                         <td style="min-width:120px;padding:0px;">
+                                             <div style="height:100px;width:100px;display:inline-table;float:left;">
+                                                 <div style="height:100px;width:100px;position:relative;" onclick="showMemberInfo($(this).parent().find('input').val());">
+                                                     <img style="position:absolute;height:100px;width:100px;z-index:10;" src="{{v.1}}">
+                                                     <div class="people-picture" id="people-{{v.3}}" style="height:100px;width:100px;position:absolute;z-index:20;"></div>
+                                                 </div>
+                                                 <input type="hidden" value="{{v.0}}">
+                                             </div>
+                                         </td>
+                                     {% endfor %}
+                                 </tr>
+                             </tbody>
+                         </table>
+                         {% endfor %}
+                     </div>
+                     <div style="height:100px;width:100px;margin-left:20px;display:inline-block;float:left;text-align:center;">
+                         <div style="height:100px;width:50px;display:inline-block;float:left;background-color:#f2f1ed;">
+                             <div style="height:38px;"></div>
+                             <a class="carousel-arrow" href="#member-carousel" data-slide="prev" style="background-image:none" onclick="ga('send', 'event', 'members-carousel', 'click-arrow', 'Left Arrow')">
+                                 <img src="/assets/img/landing/communityarrows/left-red.png">
+                             </a>
+                             <div style="height:38px;"></div>
+                         </div>
+                         <div style="height:100px;width:50px;display:inline-block;float:left;background-color:#f2f1ed;">
+                             <div style="height:38px;"></div>
+                             <a class="carousel-arrow" href="#member-carousel" data-slide="next" style="background-image:none" onclick="ga('send', 'event', 'members-carousel', 'click-arrow', 'Right Arrow')">
+                                 <img src="/assets/img/landing/communityarrows/right-red.png">
+                             </a>
+                             <div style="height:38px;"></div>
+                         </div>
+                     </div>
+                 </div>
+                 <div style="height:30px;"></div>
+             </div>
+         </div>
+         <div class="full-width" style="background-color:#f4f0ed">
+             <div style="width:940px;height:410px;margin:auto;">
+                 <div style="height:55px;"></div>
+                 <div id="people-detail" style="height:300px;text-align:left;">
+                     <div style="width:300px;height:300px;display:inline-block;float:left;">
+                         <img id="picture" style="max-height:100%;max-width:100%;height:100%;width:100%" src="/assets/img/landing/default_member.png">
+                     </div>
+                     <div style="width:55px;height:300px;display:inline-block;float:left;"></div>
+                     <div style="width:585px;height:300px;display:inline-block;float:left;">
+                         <div style="height:150px">
+                             <div class="people-designation" style="height:25%"><i><p id="designation">Next Big Entrepreneur, Next Big Idea</p></i></div>
+                             <div class="people-name" style="height:50%"><p id="name">This could be you!</p></div>
+                             {% if paged_member_keys.0|length > 0 %}
+                             <div style="height:25%">
+                                 {% if is_member %}
+                                 <div class="people-website" style="display:inline-block;float:left;"><img src="/assets/img/landing/link-icon.png" style="display:inline-block"><p style="display:inline-block;margin-left:10px;"><i id="website">website</i></p></div>
+                                 <div class="people-twitter-handle" style="display:inline-block;float:left;margin-left:30px;"><img src="/assets/img/landing/tw-icon.png" style="display:inline-block"><p style="display:inline-block;margin-left:10px;"><i id="twitter_handle">twitter handle</i></p></div>
+                                 {% else %}
+                                 <a class="member-access-button" href="" style="display:inline-block;float:left;" onclick="ga('send', 'event', 'member-details', 'click', 'Contact Member Button ' + $(this).parent().parent().find('.people-name p').text())"><button style="background-color:#c0c0c0;">CONTACT</button></a>
+                                 {% endif %}
+                             </div>
+                             {% endif %}
+                         </div>
+                         {% if paged_member_keys.0|length > 0 %}
+                         <div class="people-desc" style="height:150px">
+                             <p id="bio">
+                                 I've got the coolest idea in town!
+                             </p>
+                         </div>
+                         {% endif %}
+                     </div>
+                 </div>
+                 <div style="height:55px;"></div>
+             </div>
+         </div>
+         <div class="full-width" style="background-color:#f4f0ed">
+             <div style="height:115px;border-top:1px solid #cccccc;">
+                 <div style="height:115px;width:940px;margin:auto;">
+                     <div style="height:60px">
+                         <div style="width:313.33px;height:100%;display:inline-block;float:left;">
+                             <div class="people-score-name" style="padding-top:25px">INFLUENCE</div>
+                         </div>
+                         <div style="width:313.33px;height:100%;display:inline-block;float:left;">
+                             <div class="people-score-name" style="padding-top:25px">ACTIVITY</div>
+                         </div>
+                         <div style="width:313.33px;height:100%;display:inline-block;float:left;">
+                             <div class="people-score-name" style="padding-top:25px">PROFICIENCY</div>
+                         </div>
+                     </div>
+                     <div style="height:55px">
+                         <div style="width:313.33px;height:100%;display:inline-block;float:left;">
+                             <div class="people-score-value progress" style="width:95%;">
+                                 <div class="progress-bar" id="influence" style="width: 80%;height:100%">
+                                 </div>
+                             </div>
+                         </div>
+                         <div style="width:313.33px;height:100%;display:inline-block;float:left;">
+                             <div class="people-score-value progress" style="width:95%;">
+                                 <div class="progress-bar" id="activity" style="width: 75%;height:100%">
+                                 </div>
+                             </div>
+                         </div>
+                         <div style="width:313.33px;height:100%;display:inline-block;float:left;">
+                             <div class="people-score-value progress" style="width:95%;">
+                                 <div class="progress-bar" id="proficiency" style="width: 90%;height:100%">
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ {% endblock %}
+
+ {% block Scripts %}
+ <script src="/assets/js/people.js"></script>
+ <script src="/assets/js/desktop/desktop_base.js"></script>
+ {% endblock %}
