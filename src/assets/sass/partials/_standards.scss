@@ -39,6 +39,11 @@
 	padding-top:50px;
 }
 
+@mixin padding_div($padding)
+{
+	padding-top: $padding;;
+}
+
 .width960 {
 	max-width: 960px;
 	margin: auto;
