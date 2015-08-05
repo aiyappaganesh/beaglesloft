@@ -1,12 +1,12 @@
 from google.appengine.ext.webapp import template
 import logging
 from model.managed_user import ManagedUser
-from model.enroll_track import EnrollTrack
+from model.enroll_program import EnrollProgram
 from model.ui_models.factories.donut_factory import DonutFactory
 from model.ui_models.donut import DonutSegment
 from random import randint
 
-register =  template.create_template_register()
+register = template.create_template_register()
 
 @register.filter(name='is_enrolled')
 def is_enrolled(value, arg):
@@ -18,7 +18,7 @@ def get_managed(value, arg):
     donut_vals = []
     if managed_users and len(managed_users) > 0:
         for managed_user in managed_users:
-            if EnrollTrack.is_enrolled(managed_user.user.email, arg):
+            if EnrollProgram.is_enrolled_track(managed_user.user.email, arg):
                 donut_vals.append((managed_user.user.name,[DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')]))
     else:
         donut_vals = [

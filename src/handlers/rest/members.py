@@ -14,8 +14,8 @@ from util import mailchimp
 from util.util import MEMBER_ROLE, MANAGER, ENGINEER
 from model.manager import Manager
 from model.managed_user import ManagedUser
-from model.enroll_track import EnrollTrack
-from model.track import Track
+from model.enroll_program import EnrollProgram
+from model.program import Program
 
 class MemberCreateHandler(RequestHandler):
     def post(self):
@@ -213,8 +213,9 @@ class EnrollTrackHandler(RequestHandler):
     def post(self):
         email = self.session['member']
         track_id = self['track_id']
-        EnrollTrack.create(Member.get_by_email(email), Track.get_by_key_name(track_id))
-        self.redirect("/tracks")
+        program_id = self['program_id']
+        EnrollProgram.create(Member.get_by_email(email), Program.get_by_key_name(program_id))
+        self.redirect("/tracks/program_listing?program_id=%s&track_id=%s"%(program_id, track_id))
 
 app = RestApplication([ ("/api/members/login", LoginHandler),
                         ("/api/members/([^/]+)/update", MemberUpdateHandler),
