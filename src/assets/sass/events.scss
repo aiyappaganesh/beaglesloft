@@ -16,6 +16,18 @@ $screen-sm-min: 768px;
     bottom: 0;
 }
 //End Extends//
+
+
+//Mixins//
+@mixin carousel_text($height)
+{
+    color: $white_color;
+    text-shadow:2px 2px #000000;
+    padding: 0px;
+    height: $height;
+}
+//End Mixins//
+
 body{
 	background-color: $grey_color;
 }
@@ -46,11 +58,13 @@ body{
 }
 
 .launch-image{
-	background-image: url('/assets/img/landing/loftlaunch.jpg');
-	height: 300px;
-	background-repeat: no-repeat;
-	background-position: center;
-    background-size: cover;
+    height: 300px;
+	background:{
+        image: url('/assets/img/landing/loftlaunch.jpg');
+	    repeat: no-repeat;
+	    position: center;
+        size: cover;
+    }
     .separator1{
         @include padding_div(40px);
         @media (min-width: $screen-sm-min){
@@ -64,10 +78,7 @@ body{
     }
     .event-name {
     	@include font_definition($oswald_font,26px,$font_weight_300);
-    	color: $white_color;
-    	text-shadow:2px 2px #000000;
-    	padding: 0px;
-        height: 40px;
+        @include carousel_text(40px);
         text-transform: uppercase;
         div{
             @extend .position-bottom;
@@ -79,10 +90,7 @@ body{
     }
     .event-date {
     	@include font_definition($oswald_font,18px,$font_weight_300);
-    	color: $white_color;
-    	padding: 0px;
-        text-shadow:2px 2px #000000;
-        height: 40px;
+    	@include carousel_text(40px);
         div{
             @extend .position-bottom;
         }
@@ -93,10 +101,7 @@ body{
     }
     .event-desc{
         @include font_definition($merriweather_font,12px,$font_weight_300);     
-        color: $white_color;
-        text-shadow:2px 2px #000000;
-        padding: 0px;
-        height: 70px;
+        @include carousel_text(70px);
         div{
             @extend .position-bottom;
         }           
