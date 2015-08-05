@@ -43,15 +43,85 @@ body{
 	background-repeat: no-repeat;
 	background-position: center;
     background-size: cover;
-    .next-text p{
+    .event-name {
     	@include font_definition($oswald_font,$next_text_font_size,$font_weight_300);
     	color: $white_color;
-    	text-shadow:2px 2px #000000;		
-    }
-    .checkout-text p{
-    	@include font_definition($merriweather_font,$checkout_text_font_size,$font_weight_300);		
-    	color: $white_color;
-    	padding: 10px;
     	text-shadow:2px 2px #000000;
+    	padding: 0px;
+        height: 60px;
+        text-transform: uppercase;
+        div{
+            bottom: 0;
+            position: absolute;
+        }		
     }
+    .event-date {
+    	@include font_definition($oswald_font,22px,$font_weight_300);
+    	color: $white_color;
+    	text-shadow:2px 2px #000000;
+        height: 55px;
+        div{
+            bottom: 0;
+            position: absolute;
+        }		    
+    }
+    .event-desc {
+        @include font_definition($merriweather_font,$checkout_text_font_size,$font_weight_300);     
+        color: $white_color;
+        padding: 10px;
+        text-shadow:2px 2px #000000;
+        padding: 0px;
+        height: 80px;
+        div{
+            bottom: 0;
+            position: absolute;
+        }           
+    }
+    .event-button{
+        height: 80px;
+        div{
+            bottom: 0;
+            position: absolute;
+        }           
+    
+    }    
+}
+
+button {border:none}
+
+.learn-more-button {
+    background-color:transparent;
+    width:100%;
+    height:100%;
+    color:#FF0017;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size:16px;
+    border:2px solid #FF0017;
+    -webkit-transition: color 0.25s ease-in;
+    -webkit-transition: background-color 0.25s ease-in;
+    transition: color 0.25s ease-in;
+    transition: background-color 0.25s ease-in;
+}
+
+.learn-more-button:hover {
+    background-color:#FF0017;
+    color:#FFFFFF;
+}
+
+.upcoming-learn-more-button {
+    width:270px;
+    height:56px;
+    background-color:#FF0017 !important;
+    color:#ffffff !important;
+    width:100%;
+    height:100%;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size:16px;
+    border:2px solid #FF0017;
+}
+
+.par{
+vertical-align: bottom;
 }
