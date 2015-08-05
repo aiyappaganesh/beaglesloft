@@ -16,6 +16,7 @@ from model.manager import Manager
 from model.managed_user import ManagedUser
 from model.enroll_program import EnrollProgram
 from model.program import Program
+from model.track import Track
 
 class MemberCreateHandler(RequestHandler):
     def post(self):
@@ -214,7 +215,8 @@ class EnrollTrackHandler(RequestHandler):
         email = self.session['member']
         track_id = self['track_id']
         program_id = self['program_id']
-        EnrollProgram.create(Member.get_by_email(email), Program.get_by_key_name(program_id))
+        program = Program.get_by_key_name(program_id, parent=Track.get_by_key_name(track_id))
+        EnrollProgram.create(Member.get_by_email(email), program)
         self.redirect("/tracks/program_listing?program_id=%s&track_id=%s"%(program_id, track_id))
 
 app = RestApplication([ ("/api/members/login", LoginHandler),

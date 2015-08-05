@@ -60,7 +60,9 @@ class ProgramListingPage(WebRequestHandler):
         track = Track.get_by_key_name(self['track_id'])
         program = Program.get_by_key_name(self['program_id'], parent=track)
         modules = ProgramModule.all().ancestor(program)
-        template_values = {'modules': modules,
+        template_values = {'program':program,
+                           'track':track,
+                           'modules':modules,
                            'listing_heading':get_listing_centered_contents(program)}
         template_values['is_member'] = True if 'member' in self.session else False
         if 'member' in self.session:

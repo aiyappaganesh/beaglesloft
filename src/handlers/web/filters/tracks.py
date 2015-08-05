@@ -12,6 +12,11 @@ register = template.create_template_register()
 def is_enrolled(value, arg):
     return value.get(arg)
 
+@register.filter(name='is_enrolled_program')
+def is_enrolled_program(value, arg):
+    ids = arg.split(' ')
+    return EnrollProgram.is_enrolled_program(value, ids[0], ids[1])
+
 @register.filter(name='get_managed')
 def get_managed(value, arg):
     managed_users = ManagedUser.get_managed_users(value)

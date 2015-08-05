@@ -2,30 +2,30 @@
     <div id="accordion" class="panel-group">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ track.id }}">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ obj.id }}">
                     <h3 class="panel-title white-font">
                         Track Progress<span class="glyphicon glyphicon-chevron-down" style="float: right; padding: 5px 20px 0px 0px"></span>
                     </h3>
                 </a>
             </div>
-            <div id="collapse-{{ track.id }}" class="panel-collapse collapse">
+            <div id="collapse-{{ obj.id }}" class="panel-collapse collapse">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-1"></div>
                         <div class="col-sm-10">
                             {% if is_manager %}
-                                {% with member.email|get_managed:track.id as donuts %}
+                                {% with member.email|get_managed:obj.id as donuts %}
                                     {% if donuts %}
                                         {% if donuts|length > 1 %}
                                             {% for donut in donuts %}
                                                 {% if forloop.counter0|divisibleby:2 %}
                                                     <div class="row">
                                                         <div class="col-sm-5 progress-box">
-                                                            {% include "components/progress_donut_multiple.html" with donut=donut track=track %}
+                                                            {% include "components/progress_donut_multiple.html" with donut=donut obj=obj %}
                                                         </div>
                                                         <div class="col-sm-2"></div>{% if forloop.last %}</div>{% endif %}{% else %}
                                                         <div class="col-sm-5 progress-box">
-                                                            {% include "components/progress_donut_multiple.html" with donut=donut track=track %}
+                                                            {% include "components/progress_donut_multiple.html" with donut=donut obj=obj %}
                                                         </div>
                                                     </div>
                                                 {% endif %}
@@ -34,7 +34,7 @@
                                             <div class="row">
                                                 <div class="col-sm-3"></div>
                                                 <div class="col-sm-6 progress-box">
-                                                    {% include "components/progress_donut_single.html" with donut=donuts.0 track=track member=member is_manager=is_manager %}
+                                                    {% include "components/progress_donut_single.html" with donut=donuts.0 obj=obj member=member is_manager=is_manager %}
                                                 </div>
                                                 <div class="col-sm-3"></div>
                                             </div>
@@ -45,7 +45,7 @@
                                 <div class="row">
                                     <div class="col-sm-3"></div>
                                     <div class="col-sm-6 progress-box">
-                                        {% include "components/progress_donut_single.html" with donut=donuts.0 track=track member=member is_manager=is_manager %}
+                                        {% include "components/progress_donut_single.html" with donut=donuts.0 obj=obj member=member is_manager=is_manager %}
                                     </div>
                                     <div class="col-sm-3"></div>
                                 </div>

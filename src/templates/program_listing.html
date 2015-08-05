@@ -16,6 +16,21 @@
 </div>
 <div class="white-background">
     <div class="width940 section-content">
+        {% if is_member %}
+            {% with program.id|add:" "|add:track.id as arg %}
+                {% if is_manager or member.email|is_enrolled_program:arg %}
+                    <div class="row">
+                        {% include "components/track_progress.html" with obj=program donuts=donuts is_manager=is_manager member=member %}
+                    </div>
+                {% elif not member.email|is_enrolled_program:arg %}
+                    <div class="row">
+                        <div class="col-sm-12 program-enroll-button-container align-center">
+                            <button class="learn-more-button margin-auto" value="ENROLL" onclick="$.post('/api/members/enroll',{'program_id':'{{program.id}}', 'track_id':'{{track.id}}'}).success(function(){window.location.assign('{{program.url}}');});">ENROLL @ {{program.name}}</button>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endwith %}
+        {% endif %}
         <div id="accordion" class="panel-group">
             {% for module in modules %}
             <div class="panel panel-default">

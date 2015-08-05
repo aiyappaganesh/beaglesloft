@@ -12,8 +12,8 @@ class EnrollProgram(db.Model):
         cls(key_name=member.email, parent=program).put()
 
     @classmethod
-    def is_enrolled_program(cls, email, program_id):
-        return EnrollProgram.get_by_key_name(email, parent=Program.get_by_key_name(program_id))
+    def is_enrolled_program(cls, email, program_id, track_id):
+        return EnrollProgram.get_by_key_name(email, parent=Program.get_by_key_name(program_id, parent=Track.get_by_key_name(track_id)))
 
     @classmethod
     def is_enrolled_track(cls, email, track_id):
@@ -28,5 +28,4 @@ class EnrollProgram(db.Model):
             enrolled_program = EnrollProgram.get_by_key_name(email, parent=program)
             if enrolled_program:
                 enrolled_programs.append(enrolled_program)
-        logging.info(enrolled_programs)
         return enrolled_programs

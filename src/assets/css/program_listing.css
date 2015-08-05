@@ -21,3 +21,16 @@ h3.panel-title {
 h3.panel-title:hover {
     padding-left: 35px;
 }
+
+.program-enroll-button-container {
+    height:80px;
+    margin:auto;
+    min-width:260px;
+    max-width: 45%;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.panel-group {
+    margin-top: 48px;
+}

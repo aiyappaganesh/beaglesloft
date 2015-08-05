@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="centered">
-            {% include "components/new_donut_chart.html" with donut=donut img=track.icon %}
+            {% include "components/new_donut_chart.html" with donut=donut img=obj.icon %}
         </div>
     </div>
     <div class="col-sm-6">
-        <div class="track-progress-breadcrumb">{% if is_manager %}{{track.name}}{% else %}{{member.name}}{% endif %}</div>
-        <h3>{% if is_manager %}{{donut.title}}{% else %}{{track.name}}{% endif %}</h3>
+        <div class="track-progress-breadcrumb">{% if is_manager %}{{obj.name}}{% else %}{{member.name}}{% endif %}</div>
+        <h3>{% if is_manager %}{{donut.title}}{% else %}{{obj.name}}{% endif %}</h3>
         <div class="track-progress-mastery">{{donut.segments.0.score}}% engagement</div>
         <div class="track-skills">{{donut.total}}% courses completed</div>
     </div>
