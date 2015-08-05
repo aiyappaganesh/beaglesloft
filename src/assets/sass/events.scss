@@ -8,6 +8,14 @@ $font_weight_300: 300;
 $next_text_font_size: 38px;
 $checkout_text_font_size: 15px;
 
+$screen-sm-min: 768px;
+
+//Extends//
+.position-bottom{
+    position:absolute;
+    bottom: 0;
+}
+//End Extends//
 body{
 	background-color: $grey_color;
 }
@@ -44,56 +52,83 @@ body{
 	background-position: center;
     background-size: cover;
     .separator1{
-        @include padding_div(50px);        
+        @include padding_div(40px);
+        @media (min-width: $screen-sm-min){
+            @include padding_div(50px);
+        }       
     }
     .separator2{
-        @include padding_div(30px);        
+        @media (min-width: $screen-sm-min){
+            @include padding_div(30px);
+        }       
     }
     .event-name {
-    	@include font_definition($oswald_font,$next_text_font_size,$font_weight_300);
+    	@include font_definition($oswald_font,30px,$font_weight_300);
     	color: $white_color;
     	text-shadow:2px 2px #000000;
     	padding: 0px;
-        height: 60px;
+        height: 40px;
         text-transform: uppercase;
         div{
-            bottom: 0;
-            position: absolute;
+            @extend .position-bottom;
+        }
+        @media (min-width: $screen-sm-min){
+            height: 60px;
+            @include font_definition($oswald_font,$next_text_font_size,$font_weight_300);    
         }		
     }
     .event-date {
-    	@include font_definition($oswald_font,22px,$font_weight_300);
+    	@include font_definition($oswald_font,18px,$font_weight_300);
     	color: $white_color;
-    	text-shadow:2px 2px #000000;
-        height: 55px;
+    	padding: 0px;
+        text-shadow:2px 2px #000000;
+        height: 40px;
         div{
-            bottom: 0;
-            position: absolute;
-        }		    
+            @extend .position-bottom;
+        }
+        @media (min-width: $screen-sm-min){
+            height: 55px;
+            @include font_definition($oswald_font,22px,$font_weight_300);    
+        }       
     }
-    .event-desc {
-        @include font_definition($merriweather_font,$checkout_text_font_size,$font_weight_300);     
+    .event-desc{
+        @include font_definition($merriweather_font,12px,$font_weight_300);     
         color: $white_color;
-        padding: 10px;
         text-shadow:2px 2px #000000;
         padding: 0px;
-        height: 80px;
+        height: 70px;
         div{
-            bottom: 0;
-            position: absolute;
+            @extend .position-bottom;
         }           
+        @media (min-width: $screen-sm-min){
+            @include font_definition($merriweather_font,$checkout_text_font_size,$font_weight_300);     
+            height: 80px;
+        }       
     }
     .event-button{
-        height: 80px;
-
+        height: 60px;
+        padding: 0px;
         div{
-            bottom: 0;
-            position: absolute;
-            a>p{
-                @include font_definition($oswald_font,14px,$font_weight_300);
-                color: $white_color;
-                background-color: #FF0017;
-                margin: 0px;
+            @extend .position-bottom;
+            a{
+                text-decoration: none;
+                p{
+                    @include font_definition($oswald_font,14px,$font_weight_300);
+                    color: $white_color;
+                    background-color: #FF0017;
+                    margin: 0px;
+                    padding: {
+                        top: 10px;
+                        bottom: 10px;
+                        left: 50px;
+                        right: 50px;
+                    }
+                }
+            }
+        }
+        @media (min-width: $screen-sm-min){
+            height: 80px;
+            div>a>p{
                 padding: {
                     top: 20px;
                     bottom: 20px;
@@ -101,7 +136,7 @@ body{
                     right: 70px;
                 }
             }
-        }           
-    
+        }       
+               
     }    
 }
