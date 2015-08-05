@@ -3,10 +3,7 @@
 {% block Styles %}
 <link href="/assets/css/sass_out/events.css" type="text/css" rel="stylesheet">
 <link href="/assets/css/sass_out/past_events.css" type="text/css" rel="stylesheet">
-
-<!-- <link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
-<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
- -->{% endblock %}
+{% endblock %}
 
 {% block Content %}
 <div class="hero row">
@@ -16,8 +13,8 @@
 </div>
 <div class="white-bg">
     <div class="width960 view-option">
-        <p class="page-select" onclick="showPage('eventlist')">VIEW LIST</p>
-        <p class="page-select" onclick="showPage('calendar')">VIEW CALENDER</p>
+        <p class="page-select" id="eventlist-select" onclick="showPage('eventlist')">VIEW LIST</p>
+        <p class="page-select" id="calendar-select" onclick="showPage('calendar')">VIEW CALENDER</p>
     </div>
 </div>
 
