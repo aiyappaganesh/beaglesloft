@@ -22,11 +22,11 @@
                                                     {% if forloop.counter0|divisibleby:2 %}
                                                         <div class="row">
                                                             <div class="col-sm-5 progress-box">
-                                                                {% include "components/progress_donut_multiple.html" with donut=donut obj=obj %}
+                                                                {% include "components/progress_donut_multiple.html" with donut=donut obj=obj img=img %}
                                                             </div>
                                                             <div class="col-sm-2"></div>{% if forloop.last %}</div>{% endif %}{% else %}
                                                             <div class="col-sm-5 progress-box">
-                                                                {% include "components/progress_donut_multiple.html" with donut=donut obj=obj %}
+                                                                {% include "components/progress_donut_multiple.html" with donut=donut obj=obj img=img %}
                                                             </div>
                                                         </div>
                                                     {% endif %}
@@ -35,7 +35,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-3"></div>
                                                     <div class="col-sm-6 progress-box">
-                                                        {% include "components/progress_donut_single.html" with donut=donuts.0 obj=obj member=member is_manager=is_manager %}
+                                                        {% include "components/progress_donut_single.html" with donut=donuts.0 obj=obj member=member is_manager=is_manager img=img %}
                                                     </div>
                                                     <div class="col-sm-3"></div>
                                                 </div>

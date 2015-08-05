@@ -1,7 +1,7 @@
 <div id='{{track.id}}' class="service-carousel row" style="{% if counter != 1 %}display:none{% endif %}">
     {% if is_member %}
         {% if is_manager or enrolled_tracks|is_enrolled:track.id %}
-            {% include "components/track_progress.html" with obj=track donuts=donuts is_manager=is_manager member=member type="track" %}
+            {% include "components/track_progress.html" with obj=track donuts=donuts is_manager=is_manager member=member type="track" img=track.icon %}
         {% endif %}
     {% endif %}
     <div class="col-sm-12 track-program-listing">
