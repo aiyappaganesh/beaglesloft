@@ -2,6 +2,8 @@
 
 {% block Styles %}
 <link href="/assets/css/sass_out/events.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/sass_out/past_events.css" type="text/css" rel="stylesheet">
+
 <!-- <link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
 <link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
  -->{% endblock %}
@@ -20,83 +22,76 @@
 </div>
 
 <div class="tab-page width960" id="eventlist-page">
-    <p>UPCOMING EVENTS</p>
-        {% if upcoming_events.0 %}
-            <div id="upcoming-carousel" class="launch-image carousel slide" data-interval="5000" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    {% for upcoming_event in upcoming_events %}
-                        <li data-target="#upcoming-carousel" data-slide-to="{{forloop.counter0}}" {% if forloop.first %}class="active"{% endif %}></li>
-                    {% endfor %}
-                </ol>
-                <div class="carousel-inner">
-                    {% for upcoming_event in upcoming_events %}
-                        <div class="item {% if forloop.first %} active {% endif %}">
-                            <div class="separator1"></div>
-                            <div class="row">
-                                <div class="col-xs-11 col-xs-offset-1 col-sm-5 col-sm-offset-1 event-name">
-                                    <div>
-                                        {% if upcoming_event %}
-                                        {{upcoming_event.name}}
-                                        {% else %}
-                                        NEXT EXCITING EVENT SOON!
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <div class="col-xs-11 col-xs-offset-1 col-sm-4 col-sm-offset-1 event-date">
-                                    <div>
-                                        {% if upcoming_event %}
-                                        {{upcoming_event.date}},&nbsp{{upcoming_event.time}}
-                                        {% else %}
-                                        COMING SOON
-                                        {% endif %}
-                                    </div>                                
+    <p class="event-div-title">UPCOMING EVENTS</p>
+    {% if upcoming_events.0 %}
+        <div id="upcoming-carousel" class="launch-image carousel slide" data-interval="5000" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for upcoming_event in upcoming_events %}
+                    <li data-target="#upcoming-carousel" data-slide-to="{{forloop.counter0}}" {% if forloop.first %}class="active"{% endif %}></li>
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for upcoming_event in upcoming_events %}
+                    <div class="item {% if forloop.first %} active {% endif %}">
+                        <div class="separator1"></div>
+                        <div class="row">
+                            <div class="col-xs-11 col-xs-offset-1 col-sm-5 col-sm-offset-1 event-name">
+                                <div>
+                                    {% if upcoming_event %}
+                                    {{upcoming_event.name}}
+                                    {% else %}
+                                    NEXT EXCITING EVENT SOON!
+                                    {% endif %}
                                 </div>
                             </div>
-                            <div class="separator2"></div>
-                            <div class="row">
-                                <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 event-desc">
-                                    <div>                                    
-                                        {% if upcoming_event %}
-                                        {{upcoming_event.description}}
-                                        {% else %}
-                                        Check out this space for the next exciting event at the Loft very soon!
-                                        {% endif %}
-                                    </div>
+                            <div class="col-xs-11 col-xs-offset-1 col-sm-4 col-sm-offset-1 event-date">
+                                <div>
+                                    {% if upcoming_event %}
+                                    {{upcoming_event.date}},&nbsp{{upcoming_event.time}}
+                                    {% else %}
+                                    COMING SOON
+                                    {% endif %}
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="separator2"></div>
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 event-desc">
+                                <div>                                    
+                                    {% if upcoming_event %}
+                                    {{upcoming_event.description}}
+                                    {% else %}
+                                    Check out this space for the next exciting event at the Loft very soon!
+                                    {% endif %}
                                 </div>
-                                <div class="col-xs-11 col-xs-offset-1  col-sm-4 col-sm-offset-1 event-button">
-                                    <div>
-                                        <a target="_blank" href="{% if upcoming_event %}{{upcoming_event.link}}{% else %}http://www.beaglesloft.com/events{% endif %}" onclick="ga('send', 'event', 'Events Page', 'click', 'Learn More Button - Upcoming ' + '{% if upcoming_event %}{{upcoming_event.link}}{% else %}http://www.beaglesloft.com/events{% endif %}')">
-                                            <p>LEARN MORE</p>
-                                        </a>
-                                    </div>
+                            </div>
+                            <div class="col-xs-11 col-xs-offset-1  col-sm-4 col-sm-offset-1 event-button">
+                                <div>
+                                    <a target="_blank" href="{% if upcoming_event %}{{upcoming_event.link}}{% else %}http://www.beaglesloft.com/events{% endif %}" onclick="ga('send', 'event', 'Events Page', 'click', 'Learn More Button - Upcoming ' + '{% if upcoming_event %}{{upcoming_event.link}}{% else %}http://www.beaglesloft.com/events{% endif %}')">
+                                        <p>LEARN MORE</p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    {% endfor %}
-                </div>                
-            </div>
-                <div class="separator"></div>
-        {% else %}
-            <div class="launch-image">
-                <div class="separator"></div>
-                <div class="col-xs-11 col-xs-offset-1 event-name"><div>NEXT EXCITING EVENT SOON!</div></div>
-                <div class="separator2"></div>
-                <div class="col-xs-10 col-xs-offset-1 event-desc"><div>Check out this space for the next exciting event at the Loft very soon!</div></div>
-            </div>
-        {% endif %}
-                </div>
+                    </div>
+                {% endfor %}
+            </div>                
+        </div>
+    {% else %}
+        <div class="launch-image">
+            <div class="separator"></div>
+            <div class="col-xs-11 col-xs-offset-1 event-name"><div>NEXT EXCITING EVENT SOON!</div></div>
+            <div class="separator2"></div>
+            <div class="col-xs-10 col-xs-offset-1 event-desc"><div>Check out this space for the next exciting event at the Loft very soon!</div></div>
+        </div>
+    {% endif %}
 
-        <div class="separator"></div>
-        <div class="separator"></div>
-        <div class="separator"></div>
-        <div class="separator"></div>
-        <div class="separator"></div>
-        <div class="separator"></div>
-        <div class="separator"></div>
-        <div class="separator"></div>
-        <div class="separator"></div>
-        <div class="separator"></div>
-
+    <p class="event-div-title">PAST EVENTS</p>
+    {% for key, value in past_events.items %}
+        {% include "components/past_events.html" with events=value counter=forloop.counter %}
+    {% endfor %}
+    
+</div>
 
 {% endblock %}
 
