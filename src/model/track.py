@@ -3,6 +3,7 @@ from google.appengine.ext import db
 class Track(db.Model):
     name = db.StringProperty(indexed=False)
     image = db.StringProperty(indexed=False)
+    order = db.IntegerProperty(indexed=True)
 
     @property
     def icon(self):
