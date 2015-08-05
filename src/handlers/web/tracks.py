@@ -34,7 +34,7 @@ class TracksPage(WebRequestHandler):
         response['highlight_icon'] = track.highlight_icon
         response['name'] = track.name
         response['id'] = track.id
-        response['programs'] = Program.all().ancestor(Track.get_by_key_name(track.id))
+        response['programs'] = Program.all().ancestor(track)
         return response
 
     def get(self):
