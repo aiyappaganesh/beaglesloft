@@ -46,7 +46,11 @@ body{
 		@include font_definition($oswald_font,$font_size_20,$font_weight_300);		
 		display: inline;
 		padding: 0px 10px;
+        cursor: pointer;
 	}
+    #calendar-select{
+        color: $red_color;
+    }
 }
 
 .tab-page{
