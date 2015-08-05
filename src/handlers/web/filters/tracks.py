@@ -23,8 +23,13 @@ def get_managed(value, arg):
     donut_vals = []
     if managed_users and len(managed_users) > 0:
         for managed_user in managed_users:
-            if EnrollProgram.is_enrolled_track(managed_user.user.email, arg):
-                donut_vals.append((managed_user.user.name,[DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')]))
+            args = arg.split(" ")
+            if args[0] == "track":
+                if EnrollProgram.is_enrolled_track(managed_user.user.email, args[1]):
+                    donut_vals.append((managed_user.user.name,[DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')]))
+            elif args[0] == "program":
+                if EnrollProgram.is_enrolled_program(managed_user.user.email, args[1], args[2]):
+                    donut_vals.append((managed_user.user.name,[DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')]))
     else:
         donut_vals = [
             ('James', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),

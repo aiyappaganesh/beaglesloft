@@ -70,6 +70,7 @@ class ProgramListingPage(WebRequestHandler):
             member = Member.get_by_email(email)
             template_values['member'] = member
             if member.role == MEMBER_ROLE[MANAGER]:
+                template_values['is_manager'] = True
                 template_values['donuts'] = DonutFactory.get_donuts\
                         (100, 0.875,
                          [
