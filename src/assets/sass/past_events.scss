@@ -1,0 +1,144 @@
+@import "partials/_constants.scss";
+@import "partials/_standards.scss";
+@import "partials/_text.scss";
+
+$program-container-padding: 148%;
+$img-container-padding: 58.22%;
+$date-container-padding: 13.66%;
+$copy-container-padding: 49.56%;
+$copy-bigger-container-padding: 56.56%;
+$button-bigger-container-padding: 19.56%;
+$button-container-padding: 26.56%;
+$oswald_font: 'Oswald', sans-serif;
+$button_font_size: 16px;
+$button_font_weight: 300;
+$date_font-size: 14px;
+$date_font_weight: 500;
+$title_font-size: 18px;
+$title_font_weight: 300;
+$desc_font-size: 12px;
+$desc_font_weight: 300;
+$merriweather_font: Merriweather, sans-serif;
+
+
+.outer-track-program-container{
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	.inner-track-program-container{
+		@include track_program_outer($program-container-padding);
+		background-color: $white-color;
+
+		.position-track-program-container{
+			@include track_program_inner(0px, 0px, 0px, 0px);
+
+			.track-program-img-container{
+				@include track_program_outer($img-container-padding);
+			
+				.position-track-program-img-container{
+					@include track_program_inner(0px, 0px, 0px, 0px);	
+				
+					.track-program-img{
+						height: 100%;
+						width: auto;
+						display: block;
+						margin: 0 auto;
+					}
+				}
+			}
+
+			.track-program-date-container{
+				@include track_program_outer($date-container-padding);
+				border-bottom: 1px solid lightgrey;
+			
+				.position-track-program-date-container{
+					@include track_program_inner(7px, 14px, 7px, 14px);
+					@include font_definition($oswald_font,$button_font_size,$button_font_weight);
+	
+				}
+			}
+
+			.track-program-copy-container{
+				@include track_program_outer($copy-container-padding);
+				@media (max-width: 940px) and (min-width: 768px), (max-width: 580px) and (min-width: 501px), (max-width: 350px)
+				{
+					@include track_program_outer($copy-bigger-container-padding);
+				}
+				border-bottom: 1px solid lightgrey;
+			
+				.position-track-program-copy-container{
+					@include track_program_inner(20px, 20px, 20px, 20px);
+					@media (max-width: 940px) and (min-width: 768px), (max-width: 580px) and (min-width: 501px), (max-width: 350px)
+					{
+						@include track_program_inner(10px, 20px, 10px, 20px);
+					}
+
+					h3{
+						padding-top: 0px;
+					}
+					.tracks-program-title{
+						@include font_definition($oswald_font,$title_font_size,$title_font_weight);
+						@media (max-width: 940px) and (min-width: 768px), (max-width: 580px) and (min-width: 501px), (max-width: 350px)
+						{
+							@include font_definition($oswald_font,16px,$title_font_weight);
+						}
+					}
+					.tracks-program-desc{
+						@include font_definition($merriweather_font,$desc_font_size,$desc_font_weight);
+						@media (max-width: 940px) and (min-width: 768px), (max-width: 580px) and (min-width: 501px), (max-width: 350px)
+						{
+							@include font_definition($merriweather_font,11px,$desc_font_weight);
+						}
+
+						padding-top: 10px;
+					}
+				}
+			}
+
+			.track-program-button-container{
+				@include track_program_outer($button-container-padding);
+				@media (max-width: 940px) and (min-width: 768px), (max-width: 580px) and (min-width: 501px), (max-width: 350px)
+				{
+					@include track_program_outer($button-bigger-container-padding);
+				}	
+
+				border-bottom: 1px solid lightgrey;
+			
+				.position-track-program-button-container{
+					@include track_program_inner(20px, 20px, 20px, 20px);	
+					@media (max-width: 940px) and (min-width: 768px), (max-width: 580px) and (min-width: 501px), (max-width: 350px)
+					{
+						@include track_program_inner(8px, 20px, 8px, 20px);
+					}	
+					.learn-more-button {
+						@include font_definition($oswald_font,$button_font_size,$button_font_weight);
+						@extend .red_and_white_button;
+					}
+				}
+			}
+		}
+	}
+}
+.width630{
+	@media screen and (max-width: 767px) and (min-width: 630px){
+		max-width: 630px;
+	}
+}
+
+@media screen and (max-width: 500px){
+	.outer-track-program-container{
+		width: 100%;
+		padding: 10px 80px;
+	}
+}
+@media screen and (max-width: 420px){
+	.outer-track-program-container{
+		padding: 10px 50px;
+	}
+}
+@media screen and (max-width: 330px){
+	.outer-track-program-container{
+		padding: 10px 20px;
+	}
+
+}

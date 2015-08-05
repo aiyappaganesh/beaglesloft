@@ -1,5 +1,6 @@
 @import "partials/_images.scss";
 @import "partials/_text.scss";
+@import "partials/_constants.scss";
 
 @mixin hero($hero_img_url)
 {
@@ -68,7 +69,7 @@
     background-color:transparent;
     width:100%;
     height:100%;
-    color:#FF0017;
+    color: $bright_red_color;
     -webkit-transition: color 0.25s ease-in;
     -webkit-transition: background-color 0.25s ease-in;
     transition: color 0.25s ease-in;

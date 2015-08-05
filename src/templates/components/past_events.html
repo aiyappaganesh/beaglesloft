@@ -1,28 +1,28 @@
-<div id='{{track.id}}' class="service-carousel row width960 width630 track-container" style="{% if counter != 1 %}display:none{% endif %}">
-{% for program in track.programs %}
+<div class="row width960 width630 track-container">
+{% for program in events %}
     <div class="outer-track-program-container col-xs-6 col-xs-offset-0 col-sm-4 col-sm-offset-0">
         <div class="inner-track-program-container">
             <div class="position-track-program-container">
                 <div class="track-program-img-container">
                     <div class="position-track-program-img-container">
-                        <img class="img-responsive track-program-img"src="{{program.snapshot}}">
+                        <img class="img-responsive track-program-img" src="{% if program.snapshot %}/api/common/download_image/{{program.snapshot}}{% else %}/assets/img/landing/xino.jpeg{% endif %}">
                     </div>                
                 </div>
                 <div class="track-program-date-container">
                     <div class="position-track-program-date-container">
-                        <p class="pull-left">{{program.start_date}}</p>
-                        <p class="pull-right">{{program.num_spots}} SPOTS</p>
+                        <p class="pull-left">{{program.date}}</p>
+                        <p class="pull-right">{{program.attendees}} SPOTS</p>
                     </div>
                 </div>
                 <div class="track-program-copy-container">
                     <div class="position-track-program-copy-container">
-                        <h3 class="tracks-program-title">{{program.title}}</h3>
+                        <h3 class="tracks-program-title">{{program.name}}</h3>
                         <p class="tracks-program-desc">{{program.description}}</p>
                     </div>
                 </div>
                 <div class="track-program-button-container white-background align-center">
                     <div class="position-track-program-button-container">
-                        <a onclick="ga('send', 'event', 'Tracks Page', 'click', 'Learn More Button - Past ' + '{{ program.link }}');distinct_id = mixpanel.get_distinct_id();mixpanel.identify(distinct_id);mixpanel.people.set();mixpanel.track('track_click', {'program': '{{ program.title }}' })">
+                        <a target="_blank" href="{{program.link}}" onclick="ga('send', 'event', 'Events Page', 'click', 'Learn More Button - Past ' + '{{ program.link }}')" >
                             <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
                         </a>
                     </div>
