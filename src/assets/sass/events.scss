@@ -63,7 +63,7 @@ body{
         }       
     }
     .event-name {
-    	@include font_definition($oswald_font,30px,$font_weight_300);
+    	@include font_definition($oswald_font,26px,$font_weight_300);
     	color: $white_color;
     	text-shadow:2px 2px #000000;
     	padding: 0px;
