@@ -8,6 +8,11 @@ class Program(db.Model):
     slots = db.IntegerProperty(indexed=False)
     start_date = db.DateTimeProperty(indexed=False)
 
+    @db.transactional
+    def block_slot(self):
+        self.slots = self.slots - 1
+        self.put()
+
     @property
     def id(self):
         return self.key().name()

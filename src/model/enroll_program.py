@@ -10,6 +10,7 @@ class EnrollProgram(db.Model):
     @classmethod
     def create(cls, member, program):
         cls(key_name=member.email, parent=program).put()
+        program.block_slot()
 
     @classmethod
     def is_enrolled_program(cls, email, program_id, track_id):
