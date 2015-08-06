@@ -1,10 +1,10 @@
 <div class="col-sm-12 track-progress">
     <div id="accordion" class="panel-group">
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading" {% if progress_bg %}style="background-color: {{progress_bg}}"{% endif %}>
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ obj.id }}">
                     <h3 class="panel-title white-font">
-                        Track Progress<span class="glyphicon glyphicon-chevron-down" style="float: right; padding: 5px 20px 0px 0px"></span>
+                        Progress<span class="glyphicon glyphicon-chevron-down" style="float: right; padding: 5px 20px 0px 0px"></span>
                     </h3>
                 </a>
             </div>
