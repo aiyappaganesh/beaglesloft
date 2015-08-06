@@ -7,7 +7,7 @@ from model.ui_models.factories.tracks import Tracks
 from util.util import MEMBER_ROLE, MANAGER
 from model.ui_models.factories.donut_factory import DonutFactory
 from model.ui_models.donut import Donut, DonutSegment
-from random import randint, random
+from random import random, uniform
 from model.managed_user import ManagedUser
 from model.program import Program
 from model.track import Track
@@ -77,7 +77,8 @@ class ProgramListingPage(WebRequestHandler):
             if member.role == MEMBER_ROLE[MANAGER]:
                 template_values['is_manager'] = True
             else:
-                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png')], 'transparent', '#ddd')
+                score = round(uniform(1,100),2)
+                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', [DonutSegment(round(score*random(),2), '#1c758a'), DonutSegment(score, '#58c4dd')], '/assets/img/tracks/mobile_dev.png')], 'transparent', '#ddd')
         self.render_template(template_name='program_listing.html', template_values=template_values)
 
 app = RestApplication([('/tracks', TracksPage),

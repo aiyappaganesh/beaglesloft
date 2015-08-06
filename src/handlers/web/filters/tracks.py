@@ -3,7 +3,7 @@ from model.managed_user import ManagedUser
 from model.enroll_program import EnrollProgram
 from model.ui_models.factories.donut_factory import DonutFactory
 from model.ui_models.donut import DonutSegment
-from random import randint, random
+from random import randint, random, uniform
 from handlers.web.web_request_handler import register
 from model.program import Program
 from model.track import Track
@@ -32,7 +32,8 @@ def get_managed(value, arg):
                     donut_vals.append((managed_user.user.name,[DonutSegment(round(random()*score,2), '#1c758a'), DonutSegment(score, '#58c4dd')]))
             elif args[0] == "program":
                 if EnrollProgram.is_enrolled_program(managed_user.user.email, args[1], args[2]):
-                    donut_vals.append((managed_user.user.name,[DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')]))
+                    score = round(uniform(1,100),2)
+                    donut_vals.append((managed_user.user.name,[DonutSegment(round(score*random(),2), '#1c758a'), DonutSegment(score, '#58c4dd')]))
     else:
         donut_vals = [
             ('James', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
