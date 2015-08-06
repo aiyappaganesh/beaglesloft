@@ -1,6 +1,14 @@
 <div id='{{track.id}}' class="service-carousel row" style="{% if counter != 1 %}display:none{% endif %}">
     {% if is_member %}
-        {% if is_manager or enrolled_tracks|is_enrolled:track.id %}
+        {% if is_manager %}
+            {% with "track"|add:" "|add:track.id as mgr_id %}
+                {% with member.email|get_managed:mgr_id as donuts %}
+                    {% if donuts and donuts|length > 0 %}
+                        {% include "components/track_progress.html" with obj=track donuts=donuts is_manager=is_manager member=member type="track" img=track.icon %}
+                    {% endif %}
+                {% endwith %}
+            {% endwith %}
+        {% elif enrolled_tracks|is_enrolled:track.id %}
             {% include "components/track_progress.html" with obj=track donuts=donuts is_manager=is_manager member=member type="track" img=track.icon %}
         {% endif %}
     {% endif %}

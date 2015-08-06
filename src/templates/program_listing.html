@@ -18,7 +18,17 @@
     <div class="width940 section-content">
         {% if is_member %}
             {% with program.id|add:" "|add:track.id as arg %}
-                {% if is_manager or member.email|is_enrolled_program:arg %}
+                {% if is_manager %}
+                    {% with "program"|add:" "|add:program.id|add:" "|add:track.id as mgr_arg %}
+                        {% with member.email|get_managed:mgr_arg as donuts %}
+                            {% if donuts and donuts|length > 0 %}
+                                <div class="row">
+                                    {% include "components/track_progress.html" with obj=program donuts=donuts is_manager=is_manager member=member type="program" track=track img=program.image %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                    {% endwith %}
+                {% elif member.email|is_enrolled_program:arg %}
                     <div class="row">
                         {% include "components/track_progress.html" with obj=program donuts=donuts is_manager=is_manager member=member type="program" track=track img=program.image %}
                     </div>
