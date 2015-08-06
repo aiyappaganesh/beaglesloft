@@ -64,7 +64,7 @@ class ProgramListingPage(WebRequestHandler):
     def get(self):
         track = Track.get_by_key_name(self['track_id'])
         program = Program.get_by_key_name(self['program_id'], parent=track)
-        modules = ProgramModule.all().ancestor(program)
+        modules = ProgramModule.all().ancestor(program).order('name')
         template_values = {'program':program,
                            'track':track,
                            'modules':modules,

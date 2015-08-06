@@ -1,7 +1,7 @@
 from google.appengine.ext import db
 
 class ProgramModule(db.Model):
-    name = db.StringProperty(indexed=False)
+    name = db.StringProperty(indexed=True)
     units = db.StringListProperty(indexed=False)
 
 

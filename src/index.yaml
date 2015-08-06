@@ -24,3 +24,8 @@ indexes:
     direction: desc
   - name: proficiency_score
     direction: desc
+
+- kind: ProgramModule
+  ancestor: yes
+  properties:
+  - name: name
