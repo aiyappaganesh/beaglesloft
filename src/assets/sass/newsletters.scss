@@ -16,7 +16,7 @@ body{
 	text-align: center;
 	background-color: $white-color;
 	.subscribe-button {
-		@include font_definition($oswald_font,16px,300);
+		@include font_definition($oswald_font,16px,$font_weight_300);
 	    background-color:transparent;
 	    width: 244px;
 	    height: 40px;
@@ -26,10 +26,15 @@ body{
 	    transition: color 0.25s ease-in;
 	    transition: background-color 0.25s ease-in;
 	    border: 2px solid $red_color;
-
 	    &:hover{
 	        background-color: $red_color;
 		    color: $white_color;
 	    }
 	}
+}
+
+.event-div-title{
+	@include font_definition($oswald_font,$font_size_20,$font_weight_300);		
+	padding: 20px 10px;
+	margin: 0;
 }
