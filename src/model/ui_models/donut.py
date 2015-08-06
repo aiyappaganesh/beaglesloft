@@ -6,7 +6,7 @@ class Donut():
         self.container_pos = (size / 2.0) - (self.container_side / 2.0)
         self.title = title
         self.segments = segments
-        self.total = sum([segment.score for segment in segments])
+        self.diff = segments[1].score - segments[0].score
         self.max = max([segment.score for segment in segments])
         self.font_size = self.container_side * 0.4
         self.container_color = container_color

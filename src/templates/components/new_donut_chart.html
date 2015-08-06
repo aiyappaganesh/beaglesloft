@@ -6,7 +6,7 @@
        {% endif %}
     </div>
     {% for segment in donut.segments %}
-        <input class="score_value" type="hidden" value="{% if segment.score %}{{segment.score}}{% else %}0.0{% endif %}" name="{% if segment.color %}{{segment.color}}{% else %}#68dff0{% endif %}">
+        <input class="score_value" type="hidden" value="{% if forloop.last %}{{donut.diff}}{% elif segment.score %}{{segment.score}}{% else %}0.0{% endif %}" name="{% if segment.color %}{{segment.color}}{% else %}#68dff0{% endif %}">
     {% endfor %}
     <input class="empty_color" type="hidden" value="{% if donut.empty_color %}{{donut.empty_color}}{% else %}#bdfdfd{% endif %}">
     <input class="donut_cutout" type="hidden" value="{{ donut.cutout }}">

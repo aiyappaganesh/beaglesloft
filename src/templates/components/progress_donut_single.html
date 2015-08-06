@@ -7,7 +7,7 @@
     <div class="col-sm-6">
         <div class="track-progress-breadcrumb">{% if is_manager %}{{obj.name}}{% else %}{{member.name}}{% endif %}</div>
         <h3>{% if is_manager %}{{donut.title}}{% else %}{{obj.name}}{% endif %}</h3>
-        <div class="track-progress-mastery">{{donut.segments.0.score}}% engagement</div>
-        <div class="track-skills">{{donut.total}}% courses completed</div>
+        <div class="track-progress-mastery" style="color:{{donut.segments.0.color}}">{{donut.segments.0.score}}% engagement</div>
+        <div class="track-skills" style="color:{{donut.segments.1.color}}">{{donut.segments.1.score}}% courses completed</div>
     </div>
 </div>
