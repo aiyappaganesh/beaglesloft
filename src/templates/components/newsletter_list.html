@@ -1,0 +1,28 @@
+<div class="row width960 width630 track-container">
+{% for program in events %}
+    <div class="outer-track-program-container col-xs-6 col-xs-offset-0 col-sm-4 col-sm-offset-0">
+        <div class="inner-track-program-container">
+            <div class="position-track-program-container">
+                <div class="track-program-img-container">
+                    <div class="position-track-program-img-container">
+                        <img class="img-responsive track-program-img" src="{% if program.snapshot %}/api/common/download_image/{{program.snapshot}}{% else %}/assets/img/landing/xino.jpeg{% endif %}">
+                    </div>                
+                </div>
+                <div class="track-program-date-container">
+                    <div class="position-track-program-date-container">
+                        <p class="date">{{program.date}}</p>
+                    </div>
+                </div>
+                <div class="track-program-button-container white-background align-center">
+                    <div class="position-track-program-button-container">
+                        <a target="_blank" href="{{program.link}}" onclick="ga('send', 'event', 'Events Page', 'click', 'Learn More Button - Past ' + '{{ program.link }}')" >
+                            <button class="learn-more-button" value="LEARN MORE">READ</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
