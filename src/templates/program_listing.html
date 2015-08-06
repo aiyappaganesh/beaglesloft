@@ -53,16 +53,6 @@
             </div>
             {% endfor %}
         </div>
-        {% if donuts %}
-        <div class="row" style="padding-top: 96px;">
-            {% for donut in donuts %}
-            <div class="col-sm-4">
-                {% include "components/new_donut_chart.html" with donut=donut%}
-                <p class="header-3 align-center">{{donut.title}}</p>
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
     </div>
 </div>
 {% endblock %}
