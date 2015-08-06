@@ -20,6 +20,9 @@ $(document).ready(function(){
             $(carousel_id).fadeIn(0);
         }
     );
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    });
 });
 
 $(document).ready(function() {

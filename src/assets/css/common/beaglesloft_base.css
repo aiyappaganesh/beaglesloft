@@ -603,6 +603,10 @@ footer>a:hover, footer a:hover {
     cursor: pointer;
 }
 
+.popover {
+    color: rgb(173, 172, 172);
+}
+
 @media (min-width: 979px) {
     .main {
         overflow: auto;
