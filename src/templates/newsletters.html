@@ -2,6 +2,7 @@
 
 {% block Styles %}
 <link href="/assets/css/sass_out/newsletters.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/sass_out/newsletter_list.css" type="text/css" rel="stylesheet">
 {% endblock %}
 
 {% block Content %}
@@ -20,5 +21,12 @@
 <div class="width960">
     <p class="event-div-title">NEWSLETTERS</p>
 </div>
+
+{% for key, value in newsletters.items %}
+        {% include "components/newsletter_list.html" with events=value counter=forloop.counter %}
+{% endfor %}
+        
+</div>
+
 {% endblock %}
 
