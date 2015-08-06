@@ -10,8 +10,9 @@ class Program(db.Model):
 
     @db.transactional
     def block_slot(self):
-        self.slots = self.slots - 1
-        self.put()
+        if self.slots > 0:
+            self.slots = self.slots - 1
+            self.put()
 
     @property
     def id(self):
