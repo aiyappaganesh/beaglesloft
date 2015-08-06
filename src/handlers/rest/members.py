@@ -32,13 +32,12 @@ class MemberCreateHandler(RequestHandler):
                                 twitter_handle=self["twitter_handle"], facebook_id=self["facebook_id"], bio=self["bio"],
                                 password=self['password'], image_url=image_url, role=role)
         self.session['member'] = key
+        redirect_url = '/tracks'
         if role == MEMBER_ROLE[MANAGER]:
             Manager.create(member)
-            redirect_url = '/manager/track'
         else:
             managed_by = self['manager']
             ManagedUser.create(member, Manager._for(managed_by))
-            redirect_url = '/candidate/profile'
         self.redirect(redirect_url)
 
 class AddMemberEmailHandler(RequestHandler):
@@ -183,10 +182,7 @@ class LoginHandler(RequestHandler):
             result_json['errormsg'] = 'Incorrect password'
         else:
             self.session['member'] = email
-            if member.role == MEMBER_ROLE[MANAGER]:
-                redirect_url = '/manager/track'
-            else:
-                redirect_url = '/candidate/profile'
+            redirect_url = '/tracks'
             result_json['redirect_url'] = redirect_url
         self.write(
             json.dumps(
