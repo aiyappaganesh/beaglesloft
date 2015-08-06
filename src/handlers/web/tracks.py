@@ -57,7 +57,9 @@ class TracksPage(WebRequestHandler):
                     enrolled_programs_count = float(len(EnrollProgram.get_enrolled_programs(email, track.id)))
                     programs_count = float(Program.all().ancestor(Track.get_by_key_name(track.id)).count())
                     score = round((enrolled_programs_count/programs_count)*100,2)
-                    template_values['track_donuts'][track.id] = [Donut(100, 0.875, member.name, [DonutSegment(round(random()*score,2), '#1c758a'), DonutSegment(score, '#58c4dd')], 'transparent', '#ddd')]
+                    engage_score = round(random()*score,0)
+                    engage_score = int(engage_score) if engage_score > 1 else 1
+                    template_values['track_donuts'][track.id] = [Donut(100, 0.875, member.name, [DonutSegment(engage_score, '#1c758a'), DonutSegment(score, '#58c4dd')], 'transparent', '#ddd')]
         self.render_template(template_name='tracks.html', template_values=template_values)
 
 class ProgramListingPage(WebRequestHandler):
@@ -77,8 +79,10 @@ class ProgramListingPage(WebRequestHandler):
             if member.role == MEMBER_ROLE[MANAGER]:
                 template_values['is_manager'] = True
             else:
-                score = round(uniform(1,100),2)
-                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', [DonutSegment(round(score*random(),2), '#1c758a'), DonutSegment(score, '#58c4dd')], '/assets/img/tracks/mobile_dev.png')], 'transparent', '#ddd')
+                score = round(uniform(1,100),0)
+                engage_score = round(score*random(),0)
+                engage_score = int(engage_score) if engage_score > 1 else 1
+                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', [DonutSegment(engage_score, '#1c758a'), DonutSegment(score, '#58c4dd')], '/assets/img/tracks/mobile_dev.png')], 'transparent', '#ddd')
         self.render_template(template_name='program_listing.html', template_values=template_values)
 
 app = RestApplication([('/tracks', TracksPage),

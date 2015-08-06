@@ -29,11 +29,15 @@ def get_managed(value, arg):
                     enrolled_programs_count = float(len(EnrollProgram.get_enrolled_programs(managed_user.user.email, args[1])))
                     programs_count = float(Program.all().ancestor(Track.get_by_key_name(args[1])).count())
                     score = round((enrolled_programs_count/programs_count)*100,2)
-                    donut_vals.append((managed_user.user.name,[DonutSegment(round(random()*score,2), '#1c758a'), DonutSegment(score, '#58c4dd')]))
+                    engage_score = round(random()*score,0)
+                    engage_score = int(engage_score) if engage_score > 1 else 1
+                    donut_vals.append((managed_user.user.name,[DonutSegment(engage_score, '#1c758a'), DonutSegment(score, '#58c4dd')]))
             elif args[0] == "program":
                 if EnrollProgram.is_enrolled_program(managed_user.user.email, args[1], args[2]):
-                    score = round(uniform(1,100),2)
-                    donut_vals.append((managed_user.user.name,[DonutSegment(round(score*random(),2), '#1c758a'), DonutSegment(score, '#58c4dd')]))
+                    score = round(uniform(1,100),0)
+                    engage_score = round(score*random(),0)
+                    engage_score = int(engage_score) if engage_score > 1 else 1
+                    donut_vals.append((managed_user.user.name,[DonutSegment(engage_score, '#1c758a'), DonutSegment(score, '#58c4dd')]))
     else:
         donut_vals = [
             ('James', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
