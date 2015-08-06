@@ -3,6 +3,33 @@
 @import "partials/_images.scss";
 @import "partials/_standards.scss";
 
+body{
+	background-color: $grey_color;
+}
 .hero {
 	@include hero('/assets/img/landing/newsletters-header.jpg');
+}
+
+	
+.subscribe{
+	padding: 20px 0px;
+	text-align: center;
+	background-color: $white-color;
+	.subscribe-button {
+		@include font_definition($oswald_font,16px,300);
+	    background-color:transparent;
+	    width: 244px;
+	    height: 40px;
+	    color: $red_color;
+	    -webkit-transition: color 0.25s ease-in;
+	    -webkit-transition: background-color 0.25s ease-in;
+	    transition: color 0.25s ease-in;
+	    transition: background-color 0.25s ease-in;
+	    border: 2px solid $red_color;
+
+	    &:hover{
+	        background-color: $red_color;
+		    color: $white_color;
+	    }
+	}
 }
