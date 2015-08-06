@@ -6,8 +6,8 @@ from model.ui_models.centered_contents import CenteredContents, CenteredContent
 from model.ui_models.factories.tracks import Tracks
 from util.util import MEMBER_ROLE, MANAGER
 from model.ui_models.factories.donut_factory import DonutFactory
-from model.ui_models.donut import DonutSegment
-from random import randint
+from model.ui_models.donut import Donut, DonutSegment
+from random import randint, random
 from model.managed_user import ManagedUser
 from model.program import Program
 from model.track import Track
@@ -49,10 +49,15 @@ class TracksPage(WebRequestHandler):
             template_values['enrolled_tracks'] = {}
             for track in Tracks.get_tracks():
                 template_values['enrolled_tracks'][track.id] = EnrollProgram.is_enrolled_track(email, track.id)
+            template_values['track_donuts'] = {}
             if member.role == MEMBER_ROLE[MANAGER]:
                 template_values['is_manager'] = True
             else:
-                template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png')], 'transparent', '#ddd')
+                for track in Tracks.get_tracks():
+                    enrolled_programs_count = float(len(EnrollProgram.get_enrolled_programs(email, track.id)))
+                    programs_count = float(Program.all().ancestor(Track.get_by_key_name(track.id)).count())
+                    score = round((enrolled_programs_count/programs_count)*100,2)
+                    template_values['track_donuts'][track.id] = [Donut(100, 0.875, member.name, [DonutSegment(round(random()*score,2), '#1c758a'), DonutSegment(score, '#58c4dd')], 'transparent', '#ddd')]
         self.render_template(template_name='tracks.html', template_values=template_values)
 
 class ProgramListingPage(WebRequestHandler):

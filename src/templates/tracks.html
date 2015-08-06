@@ -27,7 +27,9 @@
         <div class="track_content row">
             <div class="col-sm-12">
                 {% for track in tracks %}
-                    {% include "components/track_programs.html" with track=track counter=forloop.counter donuts=donuts onclick="recordProgramClick" %}
+                    {% with track_donuts|dict_lookup:track.id as donuts %}
+                        {% include "components/track_programs.html" with track=track counter=forloop.counter donuts=donuts onclick="recordProgramClick" enrolled_tracks=enrolled_tracks is_member=is_member is_manager=is_manager %}
+                    {% endwith %}
                 {% endfor %}
             </div>
         </div>
