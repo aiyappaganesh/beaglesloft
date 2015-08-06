@@ -3,7 +3,14 @@
 @import "partials/_images.scss";
 @import "partials/_standards.scss";
 
-
 .hero {
 	@include hero('/assets/img/landing/community-header.jpg');
+}
+
+.partners{
+	@include font_definition($oswald_font,$font_size_30,$font_weight_300);
+	color: $red_color;
+	padding: 30px 0px;
+	text-align: center;
+	border-bottom: 1px solid lightgrey;
 }
