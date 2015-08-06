@@ -42,6 +42,7 @@ class TracksPage(WebRequestHandler):
         template_values['page_title_centered'] = get_page_title_centered_contents()
         template_values['tracks'] = [self._make_json(track) for track in Track.all().order('order')]
         template_values['is_member'] = True if 'member' in self.session else False
+        template_values['track_donuts'] = {}
         if 'member' in self.session:
             email = self.session['member']
             member = Member.get_by_email(email)
@@ -49,7 +50,6 @@ class TracksPage(WebRequestHandler):
             template_values['enrolled_tracks'] = {}
             for track in Tracks.get_tracks():
                 template_values['enrolled_tracks'][track.id] = EnrollProgram.is_enrolled_track(email, track.id)
-            template_values['track_donuts'] = {}
             if member.role == MEMBER_ROLE[MANAGER]:
                 template_values['is_manager'] = True
             else:
