@@ -4,26 +4,30 @@ $(document).ready(function(){
         $("#navbar-fluid").css({ opacity: 1 });
     }
     $('.centered-full-width-element').width($(window).width());
-    $('.tab_icons .tab').click(
-        function(){
-            var carousel_id = $(this).children('input[name="carousel_id"]').first().val();
-            $('.active_tab').removeClass('first_icon');
-            $('.active_tab h3').css('color', '');
-            var icon_url = $('.active_tab #icon_url').val()
-            $('.active_tab a #icon').attr('src', icon_url);
-            $('.active_tab').removeClass('active_tab');
-            $(carousel_id + '_tab').addClass('active_tab');
-            var highlight_icon_url = $(carousel_id +'_tab #highlight_icon_url').val();
-            $(carousel_id + '_tab a img').attr('src', highlight_icon_url)
-            $(carousel_id + '_tab h3').css('color', '#000000');
-            $('.service-carousel').fadeOut(0);
-            $(carousel_id).fadeIn(0);
-        }
-    );
+    $('.tab_icons .tab').click(function(){
+        var tab_id = $(this).children('input[name="carousel_id"]').first().val();
+        tabIconClicked(tab_id);
+    });
     $(function () {
         $('[data-toggle="popover"]').popover()
     });
 });
+
+function tabIconClicked(tab_id){
+    tab_id = '#' + tab_id;
+    console.log('In tab icon clicked: '+tab_id);
+    $('.active_tab').removeClass('first_icon');
+    $('.active_tab h3').css('color', '');
+    var icon_url = $('.active_tab #icon_url').val()
+    $('.active_tab a #icon').attr('src', icon_url);
+    $('.active_tab').removeClass('active_tab');
+    $(tab_id + '_tab').addClass('active_tab');
+    var highlight_icon_url = $(tab_id +'_tab #highlight_icon_url').val();
+    $(tab_id + '_tab a img').attr('src', highlight_icon_url)
+    $(tab_id + '_tab h3').css('color', '#000000');
+    $('.service-carousel').fadeOut(0);
+    $(tab_id).fadeIn(0);
+}
 
 $(document).ready(function() {
     $(".nav-link").click( function(event){

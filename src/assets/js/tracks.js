@@ -1,3 +1,10 @@
+$(document).ready(function(){
+    var active_track_id = $('#active-track').val();
+    if(active_track_id) {
+        tabIconClicked(active_track_id);
+    }
+});
+
 function showTrackPrograms(id){
     $('.track-program-listing').css('display', 'none');
     $(id).css('display', 'block');

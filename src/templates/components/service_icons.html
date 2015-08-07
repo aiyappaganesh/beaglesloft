@@ -10,9 +10,9 @@
             <input type="hidden" id="highlight_icon_url" name="highlight_icon" value="{{tab.highlight_icon}}"></input>
             <input type="hidden" id="icon_url" name="icon" value="{{tab.icon}}"></input>
             {% if carousel == 1 %}
-            <input type="hidden" id="carousel_id" name="carousel_id" value="#{{tab.carousel.id}}"></input>
+            <input type="hidden" id="carousel_id" name="carousel_id" value="{{tab.carousel.id}}"></input>
             {% else %}
-            <input type="hidden" id="carousel_id" name="carousel_id" value="#{{tab.id}}"></input>
+            <input type="hidden" id="carousel_id" name="carousel_id" value="{{tab.id}}"></input>
             {% endif %}
         </div>
     {% endfor %}

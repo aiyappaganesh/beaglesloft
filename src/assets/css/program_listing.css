@@ -31,6 +31,14 @@ h3.panel-title:hover {
     padding-bottom:20px;
 }
 
+.back-button-container {
+    height:80px;
+    margin:auto;
+    width: 100px;
+    padding-top:24px;
+    padding-bottom:24px;
+}
+
 .panel-group {
     margin-top: 48px;
 }
