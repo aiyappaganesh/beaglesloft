@@ -7,6 +7,7 @@ from random import randint, random, uniform
 from handlers.web.web_request_handler import register
 from model.program import Program
 from model.track import Track
+from model.program_module import ProgramModule
 
 @register.filter(name='is_enrolled')
 def is_enrolled(value, arg):
@@ -34,16 +35,17 @@ def get_managed(value, arg):
                     donut_vals.append((managed_user.user.name,[DonutSegment(engage_score, '#1c758a'), DonutSegment(score, '#58c4dd')]))
             elif args[0] == "program":
                 if EnrollProgram.is_enrolled_program(managed_user.user.email, args[1], args[2]):
-                    score = round(uniform(1,100),0)
+                    track = Track.get_by_key_name(args[2])
+                    program = Program.get_by_key_name(args[1], parent=track)
+                    modules = ProgramModule.all().ancestor(program).order('name')
+                    modules_count = modules.count()*1.0
+                    completed_modules = []
+                    for module in modules:
+                        if module.completed:
+                            completed_modules.append(module)
+                    completed_modules_count = len(completed_modules)
+                    score = (completed_modules_count/modules_count)*100.0
                     engage_score = round(score*random(),0)
                     engage_score = int(engage_score) if engage_score > 1 else 1
                     donut_vals.append((managed_user.user.name,[DonutSegment(engage_score, '#1c758a'), DonutSegment(score, '#58c4dd')]))
-    else:
-        donut_vals = [
-            ('James', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
-            ('Abdul', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
-            ('Raj', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
-            ('David', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png'),
-            ('Chang', [DonutSegment(randint(0,50), '#1c758a'), DonutSegment(randint(0,50), '#58c4dd')], '/assets/img/tracks/mobile_dev.png')
-            ]
     return DonutFactory.get_donuts(100, 0.875, donut_vals, 'transparent', '#ddd')

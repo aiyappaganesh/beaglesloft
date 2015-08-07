@@ -79,7 +79,13 @@ class ProgramListingPage(WebRequestHandler):
             if member.role == MEMBER_ROLE[MANAGER]:
                 template_values['is_manager'] = True
             else:
-                score = round(uniform(1,100),0)
+                modules_count = modules.count()*1.0
+                completed_modules = []
+                for module in modules:
+                    if module.completed:
+                        completed_modules.append(module)
+                completed_modules_count = len(completed_modules)
+                score = (completed_modules_count/modules_count)*100.0
                 engage_score = round(score*random(),0)
                 engage_score = int(engage_score) if engage_score > 1 else 1
                 template_values['donuts'] = DonutFactory.get_donuts(100, 0.875, [('Engineer1', [DonutSegment(engage_score, '#1c758a'), DonutSegment(score, '#58c4dd')], '/assets/img/tracks/mobile_dev.png')], 'transparent', '#ddd')
