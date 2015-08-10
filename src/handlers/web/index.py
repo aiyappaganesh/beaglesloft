@@ -12,6 +12,7 @@ from model.ui_models.factories.services import Services
 from model.ui_models.factories.memberships import Memberships
 from model.ui_models.centered_contents import CenteredContents, CenteredContent
 from model.manager import Manager
+from model.expert import Expert
 
 def get_why_beaglesloft_centered_contents():
     centered_contents = []
@@ -101,7 +102,7 @@ class PeoplePage(WebRequestHandler):
 class ExpertsPage(WebRequestHandler):
     def get(self):
         template_values = {}
-        template_values['paged_member_keys'] = Member.get_paged_member_keys()
+        template_values['paged_member_keys'] = Expert.get_paged_expert_keys()
         template_values['is_member'] = True if 'member' in self.session else False
         if 'member' in self.session:
             template_values['member'] = Member.get_member_json(self.session['member'])

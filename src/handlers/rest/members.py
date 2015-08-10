@@ -17,6 +17,7 @@ from model.managed_user import ManagedUser
 from model.enroll_program import EnrollProgram
 from model.program import Program
 from model.track import Track
+from model.expert import Expert
 
 class MemberCreateHandler(RequestHandler):
     def post(self):
@@ -64,19 +65,11 @@ class MemberUpdateHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHand
         self.redirect("/members/profile")
 
 
-class MemberFetchHandler(RequestHandler):
+class ExpertFetchHandler(RequestHandler):
     def post(self):
         email = self["email"]
-        member_json = Member.get_member_json(email)
-        #if not 'member' in self.session:
-        #    member_json['website'] = ''
-        #    member_json['twitter_handle'] = ''
-        self.write(
-            json.dumps(
-                member_json
-            ),200,'application/json'
-        )
-
+        expert = Expert.get_by_key_name(email)
+        self.write(expert._json, 200, 'application/json')
 
 class AllMembersFetchHandler(RequestHandler):
     def post(self):
@@ -219,7 +212,7 @@ app = RestApplication([ ("/api/members/login", LoginHandler),
                         ("/api/members/([^/]+)/update", MemberUpdateHandler),
                         ("/api/members/create", MemberCreateHandler),
                         ("/api/members/add_email", AddMemberEmailHandler),
-                        ("/api/members/get_member", MemberFetchHandler),
+                        ("/api/members/get_member", ExpertFetchHandler),
                         ("/api/members/([^/]+)/image", ImageHandler),
                         ("/api/members/get_all_members", AllMembersFetchHandler),
                         ("/api/members/validate_access_code", ValidateAccessCodeHandler),
