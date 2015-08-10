@@ -12,6 +12,8 @@ from model.ui_models.factories.services import Services
 from model.ui_models.factories.memberships import Memberships
 from model.ui_models.centered_contents import CenteredContents, CenteredContent
 from model.manager import Manager
+from model.track import Track
+from model.program import Program
 from model.expert import Expert
 
 def get_why_beaglesloft_centered_contents():
@@ -177,6 +179,35 @@ class MembershipPage(WebRequestHandler):
         template_values['page_title_centered'] = CenteredContents(None, 0, contents, False)
         template_values['table_rows'] = table_rows
         self.render_template(template_name='membership.html', template_values=template_values)
+
+class ExpertRegistrationPage(WebRequestHandler):
+    def get(self):
+        redirect_url = self['redirect_url'] if self['redirect_url'] else '/experts'
+        path = 'expert_registration.html'
+        template_values = {}
+        template_values['redirect_url'] = redirect_url
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
+        template_values['form_url'] = blobstore.create_upload_url('/api/members/experts/create')
+        self.write(self.get_rendered_html(path, template_values), 200)
+
+class CreateAssociationPage(WebRequestHandler):
+    def get(self):
+        path = 'associate.html'
+        template_values = {}
+        template_values['form_url'] = '/api/common/save_association'
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
+        track_programs = []
+        tracks = Track.all()
+        for track in tracks:
+            programs = Program.all().ancestor(track)
+            track_programs.append((track, programs))
+        template_values['track_programs'] = track_programs
+        template_values['experts'] = Expert.all().fetch(50)
+        self.write(self.get_rendered_html(path, template_values), 200)
 
 app = webapp2.WSGIApplication(
     [

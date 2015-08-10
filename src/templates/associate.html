@@ -1,0 +1,70 @@
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div id="create-event" class="registration-background">
+    <div style="height:100px"></div>
+    <div style="height:820px">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 registration-text" style="background-color:rgba(0,0,0,0.9);padding:80px;">
+            <form action={{ form_url }} method="POST" enctype="multipart/form-data">
+                <div class="row" style="padding-top:12px;padding-bottom:24px;">
+                    <div class="col-xs-3">
+                       PROGRAM:
+                    </div>
+                    <div class="col-xs-3">
+                        <select name="track" onchange="showPrograms($(this).val())">
+                                <option value="">SELECT TRACK</option>
+                            {% for track, programs in track_programs %}
+                                <option value="{{track.id}}">{{track.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% for track, programs in track_programs %}
+                    <div id="programs-{{track.id}}" style="{% if forloop.first %}display:block{% else %}display:none{% endif %}" class="track-programs col-xs-6">
+                        <select name="program">
+                                <option value="">SELECT PROGRAM</option>
+                            {% for program in programs %}
+                                <option value="{{program.id}}">{{program.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="row" style="padding-top:12px;padding-bottom:24px;">
+                    <div class="col-xs-3">
+                       EXPERT:
+                    </div>
+                    <div class="col-xs-9">
+                        <select name="expert">
+                                <option value="">SELECT EXPERT</option>
+                            {% for expert in experts %}
+                                <option value="{{expert.email}}">{{expert.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row align-center">
+                    <input type="submit" value="ASSOCIATE" style="color:#c62530">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block Scripts %}
+    <script>
+        function showPrograms(track_id) {
+            $('.track-programs').hide();
+            $('.track-programs select').removeAttr('name');
+            $('#programs-'+track_id+' select').attr('name', 'program');
+            $('#programs-'+track_id).show();
+        }
+    </script>
+{% endblock %}

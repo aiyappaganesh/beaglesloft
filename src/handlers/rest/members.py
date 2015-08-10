@@ -41,6 +41,21 @@ class MemberCreateHandler(RequestHandler):
             ManagedUser.create(member, Manager._for(managed_by))
         self.redirect(redirect_url)
 
+class ExpertCreateHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandler):
+    def post(self):
+        key = self['email']
+        redirect_url = str(self['redirect_url']) if self['redirect_url'] else '/experts'
+        if key:
+            photos = self.get_uploads("uploaded_photo")
+            photo = self['image']
+            if photos:
+                photo_blob_key = photos[0].key()
+                photo = '/api/common/download_image/'+str(photo_blob_key)
+            Expert.create(key, name=self['name'], bio=self["bio"], image=photo)
+        else:
+            redirect_url = '/create_expert'
+        self.redirect(redirect_url)
+
 class AddMemberEmailHandler(RequestHandler):
     def post(self):
         key = self['email']
@@ -211,6 +226,7 @@ class EnrollTrackHandler(RequestHandler):
 app = RestApplication([ ("/api/members/login", LoginHandler),
                         ("/api/members/([^/]+)/update", MemberUpdateHandler),
                         ("/api/members/create", MemberCreateHandler),
+                        ("/api/members/experts/create", ExpertCreateHandler),
                         ("/api/members/add_email", AddMemberEmailHandler),
                         ("/api/members/get_member", ExpertFetchHandler),
                         ("/api/members/([^/]+)/image", ImageHandler),

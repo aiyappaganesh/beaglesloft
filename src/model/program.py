@@ -7,6 +7,7 @@ class Program(db.Model):
     image = db.StringProperty(indexed=False)
     slots = db.IntegerProperty(indexed=False)
     start_date = db.DateTimeProperty(indexed=False)
+    expert = db.ReferenceProperty()
 
     @db.transactional
     def block_slot(self):

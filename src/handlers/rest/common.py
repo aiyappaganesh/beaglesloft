@@ -9,6 +9,9 @@ from google.appengine.api import mail
 from model import Newsletter
 from datetime import datetime
 from util import mailjet
+from model.program import Program
+from model.track import Track
+from model.expert import Expert
 
 class ImageDownloadHandler(blobstore_handlers.BlobstoreDownloadHandler):
     def get(self, picture_key):
@@ -44,6 +47,17 @@ class SendNewsletterConfirmationEmail(RequestHandler):
             else:
                 self.write(json.dumps({'status':'error', 'email':to_email, 'name':result['error']}),200,'application/json')
 
+class SaveAssociationHandler(RequestHandler):
+    def post(self):
+        track_id = self['track']
+        program_id = self['program']
+        expert_email = self['expert']
+        program = Program.get_by_key_name(program_id, parent=Track.get_by_key_name(track_id))
+        program.expert = Expert.get_by_key_name(expert_email)
+        program.put()
+        self.redirect("/tracks/program_listing?program_id=%s&track_id=%s"%(program_id, track_id))
+
 app = RestApplication([("/api/common/download_image/([^/]+)",ImageDownloadHandler),
                        ("/api/common/save_newsletter",CreateNewsletterHandler),
-                       ("/api/common/subscribe_to_newsletter",SendNewsletterConfirmationEmail)])
+                       ("/api/common/subscribe_to_newsletter",SendNewsletterConfirmationEmail),
+                       ("/api/common/save_association", SaveAssociationHandler)])

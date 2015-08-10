@@ -1,0 +1,71 @@
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/lib/jasny-bootstrap.css" type="text/css" rel="stylesheet">
+<style>
+    .member-image-thumbnail-holder {
+        border: 1px solid black;
+        max-height: 150px;
+        max-width: 150px;
+    }
+</style>
+{% endblock %}
+
+{% block Content %}
+<div id="member_registration" class="registration-background">
+    <div style="height:50px;"></div>
+    <div style="height:1630px;width:620px;margin:auto;background-color:rgba(0,0,0,0.9);">
+        <div style="width:620px;height:225px;border-bottom:1px solid #1f1f1f;text-align:center;padding-left:80px;padding-right:80px;padding-top:35px;">
+            <img style="margin:auto;max-height:150px;max-width:150px;" src="/assets/img/landing/bl-logo-intro.png">
+        </div>
+        <div class="registration-text" style="width:620px;height:1260px;padding:80px;">
+            <form id="signup-form" action="{{form_url}}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="redirect_url" value="{{ redirect_url }}">
+                <div>
+                    <p style="text-align:center;">
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <div class="fileinput-new thumbnail form-control" style="max-width:100%;height: 100px;padding:0px;">
+                                <img id="photo-holder" class="form-image" src="{% if image %}{{image}}{% else %}/assets/img/landing/default_member.png{% endif %}" alt="NO IMAGE UPLOADED">
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 100%; max-height: 150px;"></div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="btn-normal btn-file auto-margin">
+                                        <span class="fileinput-new btn-line-height">SELECT IMAGE</span>
+                                        <span class="fileinput-exists btn-line-height">Change</span>
+                                        <input id="photo" onchange="displayPhotoThumbnail(this)" type="file" name="uploaded_photo">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="btn-normal btn-blue btn-line-height fileinput-exists auto-margin" style="cursor: pointer" data-dismiss="fileinput">Remove</div>
+                                </div>
+                            </div>
+                        </div>
+                    </p>
+                    <p>
+                        HELLO. MY NAME IS<br><br>
+                        <input class="blanks" type="text" id="name" name="name" style="width: 97%;">*<br><br>
+                        LET ME TELL YOU ABOUT MYSELF<br>
+                    </p>
+                    <p>
+                        <textarea id="bio" name="bio" maxlength="300" style="min-width:97%;max-width:97%;"></textarea>*<br><br>
+                        YOU CAN EMAIL ME AT<br><br>
+                        <input class="blanks" type="email" id="email" name="email" style="width: 97%;">*<br><br>
+                    </p>
+                </div>
+                <div>
+                    <input type="submit" onsubmit="validateRegistrationFields" class="application-submit" value="SUBMIT APPLICATION">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="height:50px;"></div>
+</div>
+{% endblock %}
+
+{% block Scripts %}
+{% endblock %}
