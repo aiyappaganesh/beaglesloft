@@ -48,6 +48,7 @@
                             <li><a href="/tracks" class="nav-link hover-enabled" onclick="ga('send', 'event', 'website-navbar', 'click', 'Tracks Clicked')">TRACKS</a></li>
                             <li><a href="/events" class="nav-link hover-enabled" onclick="ga('send', 'event', 'website-navbar', 'click', 'Events Clicked')">EVENTS</a></li>
                             <li><a href="/community" class="nav-link hover-enabled" onclick="ga('send', 'event', 'website-navbar', 'click', 'Community Clicked')">COMMUNITY</a></li>
+                            <li><a href="/experts" class="nav-link hover-enabled" onclick="ga('send', 'event', 'website-navbar', 'click', 'Experts Clicked')">EXPERTS</a></li>
                             <li><a href="/newsletters" class="nav-link hover-enabled" onclick="ga('send', 'event', 'website-navbar', 'click', 'NewsLetters Clicked')">NEWSLETTERS</a></li>
                             <li><a href="http://beaglesblog.tumblr.com" target="_blank" class="hover-enabled" onclick="ga('send', 'event', 'website-navbar', 'click', 'Blog Clicked')">BLOG</a></li>
                             <li><a href="{% if is_member %}/members/profile{% else %}/member_access{% endif %}" class="nav-link hover-enabled" {% if is_member %}style="padding-top:0px;padding-bottom:0px;"  onclick="ga('send', 'event', 'website-navbar', 'click', 'Member Profile Clicked')" {% else %} onclick="ga('send', 'event', 'website-navbar', 'click', 'Join Clicked')" {% endif %}>{% if is_member %}<img data-toggle="popover" title="{{member.name}}" data-content="{{member.designation}} at {{member.organization}}" data-trigger="hover" data-placement="bottom" style="height:50px;width:50px;" src="{{member.image_url}}">{% else %}JOIN{% endif %}</a></li>
@@ -107,6 +108,11 @@
                 <li>
                     <a href="/community" class="nav-link">
                         <div style="text-align:center">COMMUNITY</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/experts" class="nav-link">
+                        <div style="text-align:center">EXPERTS</div>
                     </a>
                 </li>
                 <li>
