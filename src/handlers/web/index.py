@@ -104,7 +104,7 @@ class PeoplePage(WebRequestHandler):
 class ExpertsPage(WebRequestHandler):
     def get(self):
         template_values = {}
-        template_values['paged_member_keys'] = Expert.get_paged_expert_keys()
+        template_values['experts'] = Expert.all().fetch(100)
         template_values['is_member'] = True if 'member' in self.session else False
         if 'member' in self.session:
             template_values['member'] = Member.get_member_json(self.session['member'])
