@@ -63,6 +63,26 @@
             </div>
             {% endfor %}
         </div>
+        {% if program.expert %}
+            <div class="row" style="padding-top:48px;padding-bottom:24px;">
+                <div class="col-sm-12" style="text-align:center;">
+                    <h3>EXPERT</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6" style="text-align:center;">
+                            <img class="program-expert-img" src="{% if program.expert.image %}{{program.expert.image}}{% else %}/assets/img/landing/default_member.png{% endif %}">
+                            <h3>{{program.expert.name}}</h3>
+                            <p class="program-expert-desc">{{program.expert.bio}}</p>
+                        </div>
+                        <div class="col-sm-3"></div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
         <div class="row">
             <div class="col-sm-12">
                 <a href="/tracks?track_id={{track.id}}"><div class="back-button-container align-center" style="float:left"><button class="learn-more-button">&Leftarrow; BACK</button></div></a>

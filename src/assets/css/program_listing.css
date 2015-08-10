@@ -42,3 +42,16 @@ h3.panel-title:hover {
 .panel-group {
     margin-top: 48px;
 }
+
+.program-expert-img {
+    max-height: 150px;
+    max-width: 150px;
+}
+
+.program-expert-desc {
+    text-align: left;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    padding-top: 10px;
+}
