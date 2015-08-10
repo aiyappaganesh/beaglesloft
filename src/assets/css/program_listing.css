@@ -55,3 +55,16 @@ h3.panel-title:hover {
     font-size: 12px;
     padding-top: 10px;
 }
+
+#listing-accordion .panel-body li {
+    transition: all 0.1s ease;
+}
+
+#listing-accordion .panel-body li:hover {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+#listing-accordion .panel-body ul {
+    list-style: none;
+}
