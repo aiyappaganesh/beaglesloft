@@ -16,7 +16,7 @@ class Expert(db.Model):
 
     @property
     def _json(self):
-        return json.dumps({'name': self.name, 'bio': self.bio})
+        return json.dumps({'name': self.name, 'bio': self.bio, 'image_url': self.image})
 
     @staticmethod
     def get_paged_expert_keys():
