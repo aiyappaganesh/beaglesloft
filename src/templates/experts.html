@@ -19,7 +19,7 @@
                  <div class="row">
                     <div class="col-sm-12">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 track-program-listing">
                                 {% for expert in experts %}
                                     {% if forloop.first %}<div class="row">{% endif %}
                                     <div class="col-sm-4 tracks-program-container">
@@ -35,8 +35,8 @@
                                             </div>
                                             <div class="tracks-program-copy-container">
                                                 <h3 class="tracks-program-title">{{expert.name}}</h3>
-                                                <p class="tracks-program-desc">{{expert.bio}}</p>
-                                                <p class="tracks-program-desc">TRACKS: {{expert.tracks}}</p>
+                                                <div class="tracks-program-desc">{{expert.bio}}</div>
+                                                <div class="tracks-program-desc">TRACKS: {{expert.tracks}}</div>
                                             </div>
                                             <div class="tracks-program-button-container white-background align-center">
                                                 <a>
