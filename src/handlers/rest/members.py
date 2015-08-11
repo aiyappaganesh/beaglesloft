@@ -51,7 +51,10 @@ class ExpertCreateHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHand
             if photos:
                 photo_blob_key = photos[0].key()
                 photo = '/api/common/download_image/'+str(photo_blob_key)
-            Expert.create(key, name=self['name'], bio=self["bio"], image=photo)
+            city = self['city']
+            state = self['state']
+            tracks = self.get_all('tracks')
+            Expert.create(key, name=self['name'], bio=self["bio"], image=photo, city=city, state=state, tracks=tracks)
         else:
             redirect_url = '/create_expert'
         self.redirect(redirect_url)

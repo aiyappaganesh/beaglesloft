@@ -104,7 +104,8 @@ class PeoplePage(WebRequestHandler):
 class ExpertsPage(WebRequestHandler):
     def get(self):
         template_values = {}
-        template_values['experts'] = Expert.all().fetch(100)
+        experts = [expert._json for expert in Expert.all().fetch(100)]
+        template_values['experts'] = experts
         template_values['is_member'] = True if 'member' in self.session else False
         if 'member' in self.session:
             template_values['member'] = Member.get_member_json(self.session['member'])
@@ -190,6 +191,7 @@ class ExpertRegistrationPage(WebRequestHandler):
         if 'member' in self.session:
             template_values['member'] = Member.get_member_json(self.session['member'])
         template_values['form_url'] = blobstore.create_upload_url('/api/members/experts/create')
+        template_values['tracks'] = Track.all().fetch(50)
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class CreateAssociationPage(WebRequestHandler):

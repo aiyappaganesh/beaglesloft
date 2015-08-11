@@ -49,12 +49,21 @@
                     <p>
                         HELLO. MY NAME IS<br><br>
                         <input class="blanks" type="text" id="name" name="name" style="width: 97%;">*<br><br>
+                        I AM FROM<br><br>
+                        CITY <input class="blanks" type="text" id="city" name="city" style="width: 97%;">*<br><br>
+                        STATE <input class="blanks" type="text" id="state" name="state" style="width: 97%;">*<br><br>
                         LET ME TELL YOU ABOUT MYSELF<br>
                     </p>
                     <p>
                         <textarea id="bio" name="bio" maxlength="300" style="min-width:97%;max-width:97%;"></textarea>*<br><br>
                         YOU CAN EMAIL ME AT<br><br>
                         <input class="blanks" type="email" id="email" name="email" style="width: 97%;">*<br><br>
+                        I ENGAGE IN THE FOLLOWING TRACKS<br><br>
+                        <select class="blanks" id='tracks' name="tracks" multiple>
+                            {% for track in tracks %}
+                                <option value="{{track.id}}">{{track.name}}</option>
+                            {% endfor %}
+                        </select>
                     </p>
                 </div>
                 <div>

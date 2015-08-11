@@ -1,14 +1,18 @@
 import json
 from google.appengine.ext import db
+from model.track import Track
 
 class Expert(db.Model):
     name = db.StringProperty(indexed=False)
     bio = db.TextProperty(indexed=False)
     image = db.StringProperty(indexed=False)
+    city = db.StringProperty(indexed=False)
+    state = db.StringProperty(indexed=False)
+    tracks = db.StringListProperty(indexed=False)
 
     @classmethod
-    def create(cls, email, name=name, bio=bio, image=image):
-        cls(key_name=email, name=name, bio=bio, image=image).put()
+    def create(cls, email, name, bio, image, city, state, tracks):
+        cls(key_name=email, name=name, bio=bio, image=image, city=city, state=state, tracks=tracks).put()
 
     @property
     def email(self):
@@ -16,7 +20,11 @@ class Expert(db.Model):
 
     @property
     def _json(self):
-        return json.dumps({'name': self.name, 'bio': self.bio, 'image_url': self.image})
+        return {'name': self.name,
+                'bio': self.bio,
+                'image': self.image,
+                'location': self.city+', '+self.state,
+                'tracks': ','.join([Track.get_by_key_name(track).name for track in self.tracks])}
 
     @staticmethod
     def get_paged_expert_keys():
