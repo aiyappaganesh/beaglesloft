@@ -2,7 +2,7 @@
 
  {% block Styles %}
     <link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
-    <link href="/assets/css/tracks.css" type="text/css" rel="stylesheet">
+    <link href="/assets/css/experts.css" type="text/css" rel="stylesheet">
  {% endblock %}
 
  {% block Content %}
@@ -30,18 +30,11 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="tracks-program-date">
-                                                <p>{{expert.location}}</p>
-                                            </div>
                                             <div class="tracks-program-copy-container">
                                                 <h3 class="tracks-program-title">{{expert.name}}</h3>
+                                                <p>{{expert.location}}</p>
                                                 <div class="tracks-program-desc">{{expert.bio}}</div>
                                                 <div class="tracks-program-desc">TRACKS: {{expert.tracks}}</div>
-                                            </div>
-                                            <div class="tracks-program-button-container white-background align-center">
-                                                <a>
-                                                    <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
-                                                </a>
                                             </div>
                                         </div>
                                     </div>

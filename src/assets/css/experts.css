@@ -1,0 +1,173 @@
+.tracks-page-title {
+    margin:auto;
+    background-color:#c62530;
+    color:#ffffff;
+    padding:20px;
+}
+
+.tracks-title-image {
+	height: 20px;
+	width: 20px;
+}
+
+.tracks-program-img-container {
+    text-align:center;
+    padding-top: 10px;
+}
+
+.tracks-program-img {
+    height:165px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.tracks-program-date {
+    height:42px;
+    border-bottom: 1px solid lightgrey;
+    background-color:#ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size:14px;
+    color:#535353;
+    padding:14px;
+    line-height:14px;
+    text-transform:uppercase;
+}
+
+.tracks-program-copy-container {
+    height:250px;
+    border-bottom: 1px solid lightgrey;
+    background-color:#ffffff;
+    padding:20px;
+    text-align: center;
+}
+
+.tracks-program-title {
+    text-align:center;
+    font-weight: 300;
+    text-transform:uppercase;
+    color: #c62530;
+}
+
+h3.tracks-program-title {
+    padding-top: 0px;
+}
+
+.tracks-program-desc {
+    text-align:center;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 300;
+    font-size:12px;
+    padding-top: 10px;
+}
+
+.tracks-program-button-container {
+    height:80px;
+    margin:auto;
+    width:260px;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.tracks-program-container {
+    height:450px;
+    width: 320px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tracks-program-spacer {
+    width: 0px;
+    height: 450px;
+    display: inline-block;
+    float: left;
+}
+
+.track-program-listing .row {
+    margin-top: 24px;
+}
+
+.track-program-listing .row:first-of-type {
+    margin-top: 48px;
+}
+
+.service-container li {
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 180px;
+}
+
+.track_content>[class*=col-sm]>.row {
+    padding-top: 48px;
+}
+
+.track-progress-breadcrumb {
+    color: #aaa;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.track-progress h3 {
+    padding-top: 0px;
+    padding-bottom: 24px;
+}
+
+.track-progress-mastery {
+    color: #46a8bf;
+    font-weight: bold;
+}
+
+.track-skills {
+    color: #999;
+}
+
+.progress-box {
+    cursor: pointer;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.05);
+    transition-duration: .2s;
+    position: relative;
+    overflow: hidden;
+    padding: 15px;
+    transition: background-color 0.5s ease;
+}
+
+.progress-box:hover {
+    background-color: #f2f2f2;
+}
+
+.track-progress .panel-body {
+    margin: 0px 15px;
+}
+
+@media (max-width: 767px) {
+    .tracks-program-desc {
+        font-size:12px;
+    }
+
+    .service-container li {
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 80px;
+    }
+
+    .track-program-listing .row>[class*=col-sm] {
+        margin-top: 24px;
+    }
+
+    .track-program-listing .row>[class*=col-sm]:first-child {
+        margin-top: 0px;
+    }
+
+    .tracks-program-button-container {
+        max-width: 160px;
+    }
+
+    .tracks-program-container {
+        margin: auto;
+    }
+}
