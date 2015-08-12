@@ -59,6 +59,29 @@ class ExpertCreateHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHand
             redirect_url = '/create_expert'
         self.redirect(redirect_url)
 
+class ExpertUpdateHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandler):
+    def post(self):
+        key = self['email']
+        redirect_url = str(self['redirect_url']) if self['redirect_url'] else '/experts'
+        expert = Expert.get_by_key_name(key)
+        if expert:
+            photos = self.get_uploads("uploaded_photo")
+            photo = self['image']
+            if photos:
+                photo_blob_key = photos[0].key()
+                photo = '/api/common/download_image/'+str(photo_blob_key)
+            tracks = self.get_all('tracks')
+            expert.name = self['name']
+            expert.bio=self["bio"]
+            expert.image = photo
+            expert.city = self['city']
+            expert.state = self['state']
+            expert.tracks = tracks
+            expert.put()
+        else:
+            redirect_url = '/experts'
+        self.redirect(redirect_url)
+
 class AddMemberEmailHandler(RequestHandler):
     def post(self):
         key = self['email']
@@ -230,6 +253,7 @@ app = RestApplication([ ("/api/members/login", LoginHandler),
                         ("/api/members/([^/]+)/update", MemberUpdateHandler),
                         ("/api/members/create", MemberCreateHandler),
                         ("/api/members/experts/create", ExpertCreateHandler),
+                        ("/api/members/update/expert", ExpertUpdateHandler),
                         ("/api/members/add_email", AddMemberEmailHandler),
                         ("/api/members/get_member", ExpertFetchHandler),
                         ("/api/members/([^/]+)/image", ImageHandler),
