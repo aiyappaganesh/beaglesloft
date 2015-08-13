@@ -36,7 +36,7 @@
 }
 
 .tracks-program-copy-container {
-    height:250px;
+    height:180px;
     border-bottom: 1px solid lightgrey;
     background-color:#ffffff;
     padding:20px;
@@ -71,7 +71,7 @@ h3.tracks-program-title {
 }
 
 .tracks-program-container {
-    height:450px;
+    height:355px;
     width: 320px;
     padding-left: 10px;
     padding-right: 10px;
