@@ -198,7 +198,7 @@ class ExpertEditPage(WebRequestHandler):
     def get(self):
         expert_id = self['id']
         expert = Expert.get_by_key_name(expert_id)
-        redirect_url = self['redirect_url'] if self['redirect_url'] else '/experts'
+        redirect_url = self['redirect_url'] if self['redirect_url'] else '/experts/list'
         path = 'expert_edit.html'
         template_values = {}
         template_values['redirect_url'] = redirect_url
@@ -208,6 +208,18 @@ class ExpertEditPage(WebRequestHandler):
         template_values['form_url'] = blobstore.create_upload_url('/api/members/update/expert')
         template_values['tracks'] = Track.all().fetch(50)
         template_values['expert'] = expert
+        self.write(self.get_rendered_html(path, template_values), 200)
+
+class ListExpertsPage(WebRequestHandler):
+    def get(self):
+        redirect_url = self['redirect_url'] if self['redirect_url'] else '/experts/list'
+        path = 'list_experts.html'
+        template_values = {}
+        template_values['redirect_url'] = redirect_url
+        template_values['is_member'] = True if 'member' in self.session else False
+        if 'member' in self.session:
+            template_values['member'] = Member.get_member_json(self.session['member'])
+        template_values['experts'] = Expert.all().fetch(100)
         self.write(self.get_rendered_html(path, template_values), 200)
 
 class CreateAssociationPage(WebRequestHandler):

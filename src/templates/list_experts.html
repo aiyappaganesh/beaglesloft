@@ -1,0 +1,37 @@
+{% extends "community_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/member_register.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div id="list-experts" class="registration-background">
+    <div style="height:100px"></div>
+    <div style="height:820px">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 registration-text" style="background-color:rgba(0,0,0,0.9);padding:80px;">
+            <div class="row" style="padding-top:12px;padding-bottom:24px;">
+                <div class="col-xs-3">
+                   EXPERT:
+                </div>
+                <div class="col-xs-3">
+                    <select name="expert" onchange="$('#edit-expert').attr('href','/edit_expert?id='+$(this).val());">
+                            <option value="">SELECT EXPERT</option>
+                        {% for expert in experts %}
+                            <option value="{{expert.email}}">{{expert.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-xs-3">
+                   <a id="edit-expert" href="">EDIT</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block Scripts %}
+{% endblock %}

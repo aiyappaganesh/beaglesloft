@@ -1,6 +1,6 @@
 import webapp2
 from .web_request_handler import WebRequestHandler
-from .index import IndexPage, CalendarPage, MemberRegistrationPage, MemberFBRegistrationPage, MemberAccessPage, AcceptContact, PeoplePage, ExpertsPage, ContactPage, NewslettersPage, CreateNewsletterPage, SubscribeNewsletterPage, ConfirmSubscribeNewsletterPage, MembershipPage, CreateAssociationPage, ExpertRegistrationPage, ExpertEditPage
+from .index import IndexPage, CalendarPage, MemberRegistrationPage, MemberFBRegistrationPage, MemberAccessPage, AcceptContact, PeoplePage, ExpertsPage, ContactPage, NewslettersPage, CreateNewsletterPage, SubscribeNewsletterPage, ConfirmSubscribeNewsletterPage, MembershipPage, CreateAssociationPage, ExpertRegistrationPage, ExpertEditPage, ListExpertsPage
 from .events import CreateEventPage, EditEventPage, SearchEventPage, EventsPage
 from .tracks import TracksPage, ProgramListingPage
 from django import template
@@ -14,6 +14,7 @@ app = webapp2.WSGIApplication([
     ('/member_access', MemberAccessPage),
     ('/accept_contact', AcceptContact),
     ('/community', PeoplePage),
+    ('/experts/list', ListExpertsPage),
     ('/experts', ExpertsPage),
     ('/contact', ContactPage),
     ('/events/create_event', CreateEventPage),

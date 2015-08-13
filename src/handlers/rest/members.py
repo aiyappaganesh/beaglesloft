@@ -62,7 +62,7 @@ class ExpertCreateHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHand
 class ExpertUpdateHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHandler):
     def post(self):
         key = self['email']
-        redirect_url = str(self['redirect_url']) if self['redirect_url'] else '/experts'
+        redirect_url = str(self['redirect_url']) if self['redirect_url'] else '/experts/list'
         expert = Expert.get_by_key_name(key)
         if expert:
             photos = self.get_uploads("uploaded_photo")
@@ -78,8 +78,6 @@ class ExpertUpdateHandler(blobstore_handlers.BlobstoreUploadHandler, RequestHand
             expert.state = self['state']
             expert.tracks = tracks
             expert.put()
-        else:
-            redirect_url = '/experts'
         self.redirect(redirect_url)
 
 class AddMemberEmailHandler(RequestHandler):
