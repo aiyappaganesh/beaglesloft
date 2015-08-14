@@ -56,13 +56,26 @@ h3.panel-title:hover {
     padding-top: 10px;
 }
 
+#listing-accordion .panel-body {
+    padding: 0px;
+}
+
+#listing-accordion .panel-body ul{
+    padding: 0px;
+}
+
 #listing-accordion .panel-body li {
+    border: 1px solid #ddd;
     transition: all 0.1s ease;
+    padding-left: 45px;
+    min-height: 40px;
+    line-height: 40px;
 }
 
 #listing-accordion .panel-body li:hover {
     font-weight: 600;
     font-size: 16px;
+    background-color: #ddd;
 }
 
 #listing-accordion .panel-body ul {
