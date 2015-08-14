@@ -6,7 +6,7 @@ class Program(db.Model):
     description = db.StringProperty(indexed=False)
     image = db.StringProperty(indexed=False)
     slots = db.IntegerProperty(indexed=False)
-    start_date = db.DateTimeProperty(indexed=False)
+    start_date = db.DateTimeProperty(indexed=True)
     expert = db.ReferenceProperty()
 
     @db.transactional

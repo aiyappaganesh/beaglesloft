@@ -25,6 +25,11 @@ indexes:
   - name: proficiency_score
     direction: desc
 
+- kind: Program
+  ancestor: yes
+  properties:
+  - name: start_date
+
 - kind: ProgramModule
   ancestor: yes
   properties:
