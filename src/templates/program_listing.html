@@ -63,6 +63,24 @@
             </div>
             {% endfor %}
         </div>
+        {% if program.details %}
+            <div class="row" style="padding-top:48px;padding-bottom:24px;">
+                <div class="col-sm-12" style="text-align:center;">
+                    <h3>DETAILS</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6" style="text-align:center;">
+                            <p class="program-expert-desc">{{program.details}}</p>
+                        </div>
+                        <div class="col-sm-3"></div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
         {% if program.expert %}
             <div class="row" style="padding-top:48px;padding-bottom:24px;">
                 <div class="col-sm-12" style="text-align:center;">

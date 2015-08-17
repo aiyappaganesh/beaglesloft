@@ -8,6 +8,7 @@ class Program(db.Model):
     slots = db.IntegerProperty(indexed=False)
     start_date = db.DateTimeProperty(indexed=True)
     expert = db.ReferenceProperty()
+    details = db.TextProperty(indexed=False)
 
     @db.transactional
     def block_slot(self):
