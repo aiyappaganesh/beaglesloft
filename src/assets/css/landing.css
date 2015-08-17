@@ -1,7 +1,8 @@
 .tab_icons {
     text-align: center; }
 .tab_icons h3 {
-    color: #c62530; }
+    color: #c62530;
+    text-transform: uppercase; }
 .tab_icons img {
     width: 100px;
     height: 100px; }
