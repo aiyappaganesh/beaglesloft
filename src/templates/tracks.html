@@ -18,12 +18,14 @@
 <h2>We offer the following learning tracks</h2>
 <div class="separator"></div>
 {% include "components/tab_icons.html" with onclick="recordTrackClick" tabs=tracks carousel=0 %}
+<div class="separator"></div>
 {% for track in tracks %}
     {% with track_donuts|dict_lookup:track.id as donuts %}
         {% include "components/track_programs.html" with track=track counter=forloop.counter donuts=donuts onclick="recordProgramClick" enrolled_tracks=enrolled_tracks is_member=is_member is_manager=is_manager %}
     {% endwith %}
 {% endfor %}
 <input id="active-track" type="hidden" value="{{active_track}}">
+<div class="separator"></div>
 {% endblock %}
 
 {% block Scripts %}
