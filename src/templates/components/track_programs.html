@@ -1,34 +1,47 @@
 <div id='{{track.id}}' class="service-carousel row width960 width630 track-container" style="{% if counter != 1 %}display:none{% endif %}">
-{% for program in track.programs %}
-    <div class="outer-track-program-container col-xs-6 col-xs-offset-0 col-sm-4 col-sm-offset-0">
-        <div class="inner-track-program-container">
-            <div class="position-track-program-container">
-                <div class="track-program-img-container">
-                    <div class="position-track-program-img-container">
-                        <img class="img-responsive track-program-img"src="{{program.image}}">
-                    </div>                
-                </div>
-                <div class="track-program-date-container">
-                    <div class="position-track-program-date-container">
-                        <p class="pull-left">{{program.formatted_start_date}}</p>
-                        <p class="pull-right">{{program.slots}} SPOTS</p>
+    {% if is_member %}
+        {% if is_manager %}
+            {% with "track"|add:" "|add:track.id as mgr_id %}
+                {% with member.email|get_managed:mgr_id as donuts %}
+                    {% if donuts and donuts|length > 0 %}
+                        {% include "components/track_progress.html" with obj=track donuts=donuts is_manager=is_manager member=member type="track" img=track.icon %}
+                    {% endif %}
+                {% endwith %}
+            {% endwith %}
+        {% elif enrolled_tracks|is_enrolled:track.id %}
+            {% include "components/track_progress.html" with obj=track donuts=donuts is_manager=is_manager member=member type="track" img=track.icon %}
+        {% endif %}
+    {% endif %}
+    {% for program in track.programs %}
+        <div class="outer-track-program-container col-xs-6 col-xs-offset-0 col-sm-4 col-sm-offset-0">
+            <div class="inner-track-program-container">
+                <div class="position-track-program-container">
+                    <div class="track-program-img-container">
+                        <div class="position-track-program-img-container">
+                            <img class="img-responsive track-program-img"src="{{program.image}}">
+                        </div>
                     </div>
-                </div>
-                <div class="track-program-copy-container">
-                    <div class="position-track-program-copy-container">
-                        <h3 class="tracks-program-title">{{program.name}}</h3>
-                        <p class="tracks-program-desc">{{program.description}}</p>
+                    <div class="track-program-date-container">
+                        <div class="position-track-program-date-container">
+                            <p class="pull-left">{{program.formatted_start_date}}</p>
+                            <p class="pull-right">{{program.slots}} SPOTS</p>
+                        </div>
                     </div>
-                </div>
-                <div class="track-program-button-container white-background align-center">
-                    <div class="position-track-program-button-container">
-                        <a onclick="ga('send', 'event', 'Tracks Page', 'click', 'Learn More Button - Past ' + '{{ program.link }}');distinct_id = mixpanel.get_distinct_id();mixpanel.identify(distinct_id);mixpanel.people.set();mixpanel.track('track_click', {'program': '{{ program.name }}' })" {% if track.id == "full_stack_developer"%}href="{{ program.url }}"{% endif %}>
-                            <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
-                        </a>
+                    <div class="track-program-copy-container">
+                        <div class="position-track-program-copy-container">
+                            <h3 class="tracks-program-title">{{program.name}}</h3>
+                            <p class="tracks-program-desc">{{program.description}}</p>
+                        </div>
+                    </div>
+                    <div class="track-program-button-container white-background align-center">
+                        <div class="position-track-program-button-container">
+                            <a onclick="ga('send', 'event', 'Tracks Page', 'click', 'Learn More Button - Past ' + '{{ program.link }}');distinct_id = mixpanel.get_distinct_id();mixpanel.identify(distinct_id);mixpanel.people.set();mixpanel.track('track_click', {'program': '{{ program.name }}' })" {% if track.id == "full_stack_developer"%}href="{{ program.url }}"{% endif %}>
+                                <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-{% endfor %}
+    {% endfor %}
 </div>
