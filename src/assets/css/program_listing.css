@@ -81,3 +81,15 @@ h3.panel-title:hover {
 #listing-accordion .panel-body ul {
     list-style: none;
 }
+
+@media (max-width: 767px) {
+    h3.panel-title {
+        font-size: 13px !important;
+    }
+
+    #listing-accordion .panel-body li {
+        min-height: 25px;
+        line-height: 25px;
+        font-size: 11px !important;
+    }
+}
