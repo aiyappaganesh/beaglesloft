@@ -5,10 +5,12 @@ $hero_font_weight: 300;
 $oswald_font: 'Oswald', sans-serif;
 $h2_font_size: 30px;
 $h2_font_weight: 400;
+$h2_text_transform: uppercase;
 $merriweather_font: 'Merriweather', sans-serif;
 
-@mixin font_definition($font,$font_size,$font_weight)
+@mixin font_definition($font,$font_size,$font_weight,$text_transform: none)
 {
+	text-transform: $text_transform;
 	font:{
 		family: $font;
 		weight: $font_weight;
@@ -17,7 +19,6 @@ $merriweather_font: 'Merriweather', sans-serif;
 }
 
 h2{
-	@include font_definition($oswald_font,$h2_font_size,$h2_font_weight);
+	@include font_definition($oswald_font,$h2_font_size,$h2_font_weight,$h2_text_transform);
 	text-align: center;
-	text-transform: uppercase;
 }

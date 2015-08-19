@@ -12,14 +12,13 @@ $button-container-padding: 26.56%;
 $oswald_font: 'Oswald', sans-serif;
 $button_font_size: 16px;
 $button_font_weight: 300;
-$date_font-size: 14px;
+$date_font_size: 14px;
 $date_font_weight: 500;
 $title_font-size: 18px;
 $title_font_weight: 300;
 $desc_font-size: 12px;
 $desc_font_weight: 300;
 $merriweather_font: Merriweather, sans-serif;
-
 
 .outer-track-program-container{
     margin-top: 24px;
@@ -54,7 +53,7 @@ $merriweather_font: Merriweather, sans-serif;
 			
 				.position-track-program-date-container{
 					@include track_program_inner(7px, 14px, 7px, 14px);
-					@include font_definition($oswald_font,$button_font_size,$button_font_weight);
+					@include font_definition($oswald_font,$date_font_size,$date_font_weight,uppercase);
 	
 				}
 			}
@@ -78,7 +77,7 @@ $merriweather_font: Merriweather, sans-serif;
 						padding-top: 0px;
 					}
 					.tracks-program-title{
-						@include font_definition($oswald_font,$title_font_size,$title_font_weight);
+						@include font_definition($oswald_font,$title_font_size,$title_font_weight,uppercase);
 						@media (max-width: 940px) and (min-width: 768px), (max-width: 580px) and (min-width: 501px), (max-width: 350px)
 						{
 							@include font_definition($oswald_font,16px,$title_font_weight);
