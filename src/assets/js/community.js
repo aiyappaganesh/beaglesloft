@@ -4,7 +4,7 @@ $(document).ready(function(){
         $("#navbar-fluid").css({ opacity: 1 });
     }
     $('.centered-full-width-element').width($(window).width());
-    $('.tab_icons .tab').click(function(){
+    $('.tab_icon').on('touchend click', function(){
         var tab_id = $(this).children('input[name="carousel_id"]').first().val();
         tabIconClicked(tab_id);
     });
