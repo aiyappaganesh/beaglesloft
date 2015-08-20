@@ -1,0 +1,100 @@
+@import "partials/_text.scss";
+@import "partials/_constants.scss";
+@import "partials/_images.scss";
+@import "partials/_standards.scss";
+
+.hero {
+	@include hero('/assets/img/landing/tracks.png');
+}
+
+.panel-default {
+    .panel-heading {
+        background-color: #c62530;
+        padding: 0px;
+
+        a {
+            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    .panel-title {
+        font-size: 18px;
+        padding: 10px 15px;
+        -webkit-transition: all 0.25s linear;
+        transition: all 0.25s linear;
+        &:hover {
+            padding-left: 35px;
+        }
+        @media screen and (max-width: 767px) {
+            font-size: 13px !important;
+        }
+    }
+    .panel-body ul {
+        margin-bottom: 0px;
+    }
+}
+
+#listing-accordion {
+    margin-top: 48px;
+
+    .panel-body {
+        padding: 0px;
+
+        ul{
+            padding: 0px;
+            list-style: none;
+
+            li {
+                border: 1px solid #ddd;
+                transition: all 0.1s ease;
+                padding-left: 45px;
+                min-height: 40px;
+                line-height: 40px;
+
+                &:hover {
+                    font-weight: 600;
+                    font-size: 16px;
+                    background-color: #ddd;
+                }
+
+                @media screen and (max-width: 767px) {
+                    min-height: 25px;
+                    line-height: 25px;
+                    font-size: 11px !important;
+                }
+            }
+        }
+    }
+}
+
+.program-enroll-button-container {
+    height:80px;
+    margin:auto;
+    min-width:260px;
+    max-width: 45%;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.back-button-container {
+    height:80px;
+    margin:auto;
+    width: 100px;
+    padding-top:24px;
+    padding-bottom:24px;
+}
+
+.program-expert-img {
+    max-height: 150px;
+    max-width: 150px;
+}
+
+.program-expert-desc {
+    text-align: center;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    padding-top: 10px;
+}
