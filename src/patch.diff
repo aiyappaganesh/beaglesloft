@@ -1,0 +1,44 @@
+diff --git a/src/assets/css/experts.css b/src/assets/css/experts.css
+index d3fb6d0..62f60e7 100644
+--- a/src/assets/css/experts.css
++++ b/src/assets/css/experts.css
+@@ -62,10 +62,6 @@ h3.tracks-program-title {
+     padding-top: 10px;
+ }
+ 
+-.expert-tracks {
+-    font-weight: 600;
+-}
+-
+ .tracks-program-button-container {
+     height:80px;
+     margin:auto;
+diff --git a/src/assets/css/program_listing.css b/src/assets/css/program_listing.css
+index 32ef816..8e0b659 100644
+--- a/src/assets/css/program_listing.css
++++ b/src/assets/css/program_listing.css
+@@ -74,9 +74,8 @@ h3.panel-title:hover {
+ 
+ #listing-accordion .panel-body li:hover {
+     font-weight: 600;
+-    font-size: 15px;
+-    color: rgba(51,51,51,0.8);
+-    background-color: rgba(221,221,221,0.5);
++    font-size: 16px;
++    background-color: #ddd;
+ }
+ 
+ #listing-accordion .panel-body ul {
+diff --git a/src/templates/experts.html b/src/templates/experts.html
+index 9b855ad..88fca3a 100644
+--- a/src/templates/experts.html
++++ b/src/templates/experts.html
+@@ -34,7 +34,7 @@
+                                                 <h3 class="tracks-program-title">{{expert.name}}</h3>
+                                                 <p>{{expert.location}}</p>
+                                                 <div class="tracks-program-desc">{{expert.bio}}</div>
+-                                                <div class="tracks-program-desc expert-tracks">{{expert.tracks}} tracks</div>
++                                                <div class="tracks-program-desc">TRACKS: {{expert.tracks}}</div>
+                                             </div>
+                                         </div>
+                                     </div>
