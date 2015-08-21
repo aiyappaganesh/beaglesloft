@@ -62,6 +62,10 @@ h3.tracks-program-title {
     padding-top: 10px;
 }
 
+.expert-tracks {
+    font-weight: 600;
+}
+
 .tracks-program-button-container {
     height:80px;
     margin:auto;
