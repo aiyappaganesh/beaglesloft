@@ -19,7 +19,11 @@ body{
 .expert-container-outer {
 	padding-top: 20px;
 	padding-bottom: 20px;
-
+	@media (max-width: 767px) {
+        padding-left: 35px;
+        padding-right: 35px;
+	}
+	
 	.expert-container-inner {
 		background-color: $white-color;
 		padding-top: 10px;
