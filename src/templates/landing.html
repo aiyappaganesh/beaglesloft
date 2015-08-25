@@ -2,7 +2,7 @@
 
 {% block Styles %}
 <link href="/assets/css/sass_out/landing.css" type="text/css" rel="stylesheet">
-
+<link href="/assets/css/sass_out/tab_icons.css" type="text/css" rel="stylesheet">
 {% endblock %}
 
 {% block Content %}
@@ -14,23 +14,137 @@
     	</div>
     </div>
 </div>
-<div id="landing-page">
-	<div id="section1-carousel" class="carousel slide" data-interval="4000" data-pause="false">
-        <ol class="carousel-indicators">
-        	{% for i in headings %}
-        		<li data-target="#section1-carousel" data-slide-to="{{forloop.counter0}}" {% if forloop.counter0 == 0 %}class="active"{% endif %}>
-        		</li>	
-        	{% endfor %}
-        </ol>
+<div id="section1-carousel" class="carousel slide" data-interval="4000" data-pause="false">
+    <ol class="carousel-indicators">
         {% for i in headings %}
-        	<p id="landing-carousel-slide-{{forloop.counter}}-copy"></p>
+            <li data-target="#section1-carousel" data-slide-to="{{forloop.counter0}}">
+            </li>
         {% endfor %}
-        <div class="carousel-inner">
-        	{% for sub_heading in sub_headings %}
-        		<div id="landing-carousel-slide-{{forloop.counter}}" class="item {% if forloop.counter == 1 %}active {% endif %}" style="background:url('/assets/img/landing/landing_carousel/{{forloop.counter}}.png') no-repeat center center fixed;">
-                	<p>{{sub_heading}}</p>
-            	</div>
-        	{% endfor %}
+    </ol>
+    {% for i in headings %}
+        <p class="section1-heading" id="landing-carousel-slide-{{forloop.counter}}-copy" style="{% if not forloop.first %}display:none;{% endif %}">{{i}}</p>
+    {% endfor %}
+    <div class="carousel-inner">
+        {% for sub_heading in sub_headings %}
+            <div id="landing-carousel-slide-{{forloop.counter}}" class="item {% if forloop.counter == 1 %}active {% endif %}" style="background:url('/assets/img/landing/landing_carousel/{{forloop.counter}}.png') no-repeat center center fixed; background-size: cover;">
+                <p class="section1-sub-heading">{{sub_heading}}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div id="value-to-services" class="light-gray-background">
+    <div class="width960 section-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="black-font uppercase align-center">We embed your staff into our global startup community so they are trained in new technologies, design, processes and tools</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 align-center">
+                <img class="value-img" src="/assets/img/landing/value_up_arrow.png">
+                <h3>INCREASE YOUR REVENUE PER EMPLOYEE<br>FROM $50K to $75K</h3>
+            </div>
+            <div class="col-sm-6 align-center">
+                <img class="value-img" src="/assets/img/landing/value_down_arrow.png">
+                <h3>DECREASE YOUR ATTRITION RATES<br>BY UPTO 30%</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="services" class="white-background">
+    <div class="width960 section-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="black-font uppercase align-center">WHAT WE OFFER</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="service-carousel-container">
+                    {% for service in services %}
+                        {% include "components/image_carousel.html" with carousel=service.carousel loop_count=forloop.counter %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% include "components/tab_icons.html" with tabs=services carousel=1 %}
+        </div>
+    </div>
+</div>
+<div id="membership" class="light-gray-background">
+    <div class="width960 section-content black-font align-center">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>MEMBERSHIPS</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 membership-plan">
+                <h3>{{memberships.0.title}}</h3>
+                <h3 class="membership-title">{{memberships.0.sub_title}}</h3>
+                <h2><span>{{memberships.0.size}}</span><span class="dark-gray-font small-copy"> members</span></h2>
+                <p class="small-copy">{{memberships.0.description_1}}</p>
+                <p class="small-copy">{{memberships.0.description_2}}</p>
+                <p class="small-copy">{{memberships.0.description_3}}</p>
+                <a href="/membership">
+                    <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
+                </a>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-5 membership-plan">
+                <h3>{{memberships.1.title}}</h3>
+                <h3 class="membership-title">{{memberships.1.sub_title}}</h3>
+                <h2><span>{{memberships.1.size}}</span><span class="dark-gray-font small-copy"> members</span></h2>
+                <p class="small-copy">{{memberships.1.description_1}}</p>
+                <p class="small-copy">{{memberships.1.description_2}}</p>
+                <p class="small-copy">{{memberships.1.description_3}}</p>
+                <a href="/membership">
+                    <button class="learn-more-button" value="LEARN MORE">LEARN MORE</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="signup" class="beaglesloft-red-background">
+    <div class="width960 section-content align-center">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="white-font">SIGN UP TO UPGRADE YOUR WORKFORCE</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <form class="signup-form" id="signup-form" action="/api/members/add_email" method="POST">
+                    {% include "components/form_input.html" with id="signup-email" name="signup-email" type="email" placeholder="EMAIL" classes="signup-email-box" %}
+                    {% include "components/form_submit.html" with id="signup-submit" name="signup-submit" value="SIGN UP" classes="signup-submit" %}
+                </form>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div id="signup-message" class="row hide-element">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <h3 class="white-font">THANK YOU FOR SIGNING UP!</h3>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+</div>
+<div id="why-beaglesloft" class="why-beaglesloft">
+    <div class="width960 section-content">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row centered-full-width-element landing-carousel-item why-beaglesloft-title">
+                    <div class="col-sm-12">
+                        {% include "components/centered_content.html" with centered=why_beaglesloft_centered.0 %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 why-beaglesloft-copy">
+                {% include "components/centered_content.html" with centered=why_beaglesloft_centered.1 %}
+            </div>
         </div>
     </div>
 </div>

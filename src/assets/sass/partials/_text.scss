@@ -3,10 +3,13 @@ $hero_font_size: 38px;
 $hero_font_weight: 300;
 
 $oswald_font: 'Oswald', sans-serif;
+$h1_font_size: 38px;
 $h2_font_size: 30px;
 $h2_font_weight: 400;
 $h2_text_transform: uppercase;
 $merriweather_font: 'Merriweather', sans-serif;
+$button_font_size: 16px;
+$button_font_weight: 300;
 
 @mixin font_definition($font,$font_size,$font_weight,$text_transform: none)
 {

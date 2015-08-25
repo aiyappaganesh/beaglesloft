@@ -9,9 +9,6 @@ $copy-container-padding: 49.56%;
 $copy-bigger-container-padding: 56.56%;
 $button-bigger-container-padding: 19.56%;
 $button-container-padding: 26.56%;
-$oswald_font: 'Oswald', sans-serif;
-$button_font_size: 16px;
-$button_font_weight: 300;
 $date_font_size: 14px;
 $date_font_weight: 500;
 $title_font-size: 18px;
@@ -109,10 +106,9 @@ $merriweather_font: Merriweather, sans-serif;
 					@media (max-width: 940px) and (min-width: 768px), (max-width: 580px) and (min-width: 501px), (max-width: 350px)
 					{
 						@include track_program_inner(8px, 20px, 8px, 20px);
-					}	
+					}
 					.learn-more-button {
-						@include font_definition($oswald_font,$button_font_size,$button_font_weight);
-						@include learn_more_button($red_color);
+					    @include learn_more_button($red_color, $button_font_size, $button_font_weight);
 					}
 				}
 			}

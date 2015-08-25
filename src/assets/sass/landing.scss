@@ -28,3 +28,122 @@
 		}
 	}
 }
+
+#section1-carousel {
+    .carousel-inner {
+        .item {
+            height: 100vh;
+            width: 100vw;
+        }
+    }
+}
+
+.heading {
+    font: {
+        family: $header_font;
+        weight: 300;
+        size: $h1_font_size;
+    }
+    padding: 20px;
+    text-align: left;
+    width: auto;
+    margin: 0px;
+}
+
+.landing-carousel-heading {
+    @extend .heading;
+    position: absolute;
+    top: 75%;
+    z-index: 20;
+    left: 0%;
+}
+
+.section1-heading {
+    @extend .landing-carousel-heading;
+    background-color: #ffffff;
+    color: #c62530;
+    margin-top: -94px;
+}
+
+.section1-sub-heading {
+    @extend .landing-carousel-heading;
+    background-color: #c62530;
+    color: #ffffff;
+}
+
+.service-carousel-container {
+    height: 480px;
+
+    .landing-carousel-item {
+        height: 100%;
+    }
+
+    .glyphicon-chevron-left:before, .glyphicon-chevron-right:before {
+        content: none;
+    }
+}
+
+.membership-plan {
+    .membership-title {
+        padding-bottom: $small_padding;
+        border-bottom: 1px solid #ccc;
+    }
+
+    h2 .small-copy {
+        text-transform: lowercase;
+    }
+
+    .small-copy, .learn-more-button, h2 {
+        margin-top: $normal_padding;
+    }
+
+    .learn-more-button {
+        @include learn_more_button($red_color, $button_font_size, $button_font_weight);
+        max-width: 75%;
+    }
+}
+
+.signup-form {
+    height: 34px;
+    font-family: $oswald_font;
+    font-size: 12px;
+    border: none;
+}
+
+.signup-submit {
+    @extend .signup-form;
+    background-color: #ebebeb;
+    width: 100px;
+    color: $black_color;
+    font-weight: 400;
+    text-align: center;
+}
+
+.signup-email-box {
+    @extend .signup-form;
+    background-color: rgba(235, 235, 235, 0.1);
+    width: 260px;
+    font-weight: 600;
+    padding-left: 15px;
+}
+
+.why-beaglesloft {
+    background-color: #444444;
+    background: url('/assets/img/landing/basketball-court.png') center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .why-beaglesloft-title {
+        height: 300px;
+    }
+
+    .why-beaglesloft-copy {
+        font-family: $merriweather_font;
+        font-weight: 300;
+        font-size: 16px;
+        color: #e5edec;
+        text-align: left;
+        line-height: 28px;
+        font-style: italic;
+    }
+}

@@ -52,6 +52,19 @@
 	margin: auto;
 }
 
+.section-content {
+    padding-top: 128px;
+    padding-bottom: 128px;
+
+    .row {
+        padding-top: $medium_padding;
+
+        &:first-child {
+            padding-top: 0px;
+        }
+    }
+}
+
 @mixin track_program_outer($padding)
 {
 	padding-top: $padding;
@@ -67,7 +80,24 @@
 	left: $left;
 }
 
-@mixin learn_more_button($button_color)
+.red_and_white_button{
+    background-color:transparent;
+    width:100%;
+    height:100%;
+    color: $red_color;
+    -webkit-transition: color 0.25s ease-in;
+    -webkit-transition: background-color 0.25s ease-in;
+    transition: color 0.25s ease-in;
+    transition: background-color 0.25s ease-in;
+    border: 2px solid $red_color;
+
+    &:hover{
+        background-color: $red_color;
+	    color:#FFFFFF;
+    }
+}
+
+@mixin learn_more_button($button_color, $button_font_size, $button_font_weight)
 {
     background-color:transparent;
     width:100%;
@@ -78,6 +108,7 @@
     transition: color 0.25s ease-in;
     transition: background-color 0.25s ease-in;
     border: 2px solid $button_color;
+    @include font_definition($oswald_font, $button_font_size, $button_font_weight);
 
     &:hover{
         background-color:$button_color;
