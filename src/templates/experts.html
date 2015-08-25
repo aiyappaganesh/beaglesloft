@@ -1,61 +1,32 @@
- {% extends "community_base.html" %}
+{% extends "community_base.html" %}
 
- {% block Styles %}
-    <link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
-    <link href="/assets/css/experts.css" type="text/css" rel="stylesheet">
- {% endblock %}
+{% block Styles %}
+	<link href="/assets/css/sass_out/experts.css" type="text/css" rel="stylesheet">
+{% endblock %}
 
- {% block Content %}
- <div id="people">
-     <div class="full-width">
-         <input type="hidden" name="member_keys" id="member_keys"
- 									value="{% for page in paged_member_keys %}{% for v in page %}{{v.0}}{% if forloop.counter != page|length %},{% endif %}{% endfor %}{% if forloop.counter != paged_member_keys|length %},{% endif %}{% endfor %}">
-         <div class="full-width landing-carousel-item" style="height:340px;background: url('/assets/img/landing/community-header.jpg') center center no-repeat;">
-             <div style="height:135px"></div>
-             <div style="height:90px;width:620px;margin:auto;background-color:#c62530;color:#ffffff;padding:20px;"><p class="page_heading">THE PEOPLE THAT MAKE US WHO WE ARE</p></div>
-         </div>
-         <div class="light-gray-background">
-             <div class="width940 section-content">
-                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-12 track-program-listing">
-                                {% for expert in experts %}
-                                    {% if forloop.first %}<div class="row">{% endif %}
-                                    <div class="col-sm-4 tracks-program-container">
-                                        <div class="white-background" style="padding:0px;">
-                                            <div class="tracks-program-img-container">
-                                                <a>
-                                                    <div class="tracks-program-img" style="background-image:url('{{expert.image}}');">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="tracks-program-copy-container">
-                                                <h3 class="tracks-program-title">{{expert.name}}</h3>
-                                                <p>{{expert.location}}</p>
-                                                <div class="tracks-program-desc">{{expert.bio}}</div>
-                                                <div class="tracks-program-desc expert-tracks">{{expert.tracks}} tracks</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% if not forloop.last and forloop.counter|divisibleby:"3" %}
-                                        </div>
-                                        <div class="row">
-                                    {% elif forloop.last %}
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             </div>
-         </div>
-     </div>
- </div>
- {% endblock %}
-
- {% block Scripts %}
- <script src="/assets/js/people.js"></script>
- <script src="/assets/js/desktop/desktop_base.js"></script>
- {% endblock %}
+{% block Content %}
+<div class="hero row">
+    <div class="col-sm-4 col-sm-offset-4">
+        <p>THE PEOPLE THAT MAKE US WHO WE ARE</p>
+    </div>
+</div>
+<div class="separator"></div>
+<div class="width960">
+	{% for expert in experts %}
+	<div class="col-sm-4">
+		<div class="expert-container-outer">
+			<div class="expert-container-inner">
+		        <div class="expert-image" style="background-image:url('{{expert.image}}');"></div>
+		        <div class="expert-copy">
+			        <h3 class="expert-name">{{expert.name}}</h3>
+			        <p class="expert-location">{{expert.location}}</p>
+			        <div class="expert-bio">{{expert.bio}}</div>
+			        <div class="expert-tracks">{{expert.tracks}} tracks</div>
+		        </div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+<div class="separator"></div>
+{% endblock %}

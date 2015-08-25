@@ -1,0 +1,60 @@
+@import "partials/_text.scss";
+@import "partials/_constants.scss";
+@import "partials/_images.scss";
+@import "partials/_standards.scss";
+
+$merriweather_font: Merriweather, sans-serif;
+$font_size: 12px;
+$bio_font_weight: 300;
+$tracks_font_weight: 600;
+
+body{
+	background-color: $grey_color;
+}
+
+.hero {
+	@include hero('/assets/img/landing/community-header.jpg');
+}
+
+.expert-container-outer {
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	.expert-container-inner {
+		background-color: $white-color;
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		.expert-image {
+		    height: 165px;
+		    background-position: center;
+		    background-size: contain;
+		    background-repeat: no-repeat;
+		}
+		.expert-copy {
+		    height: 180px;
+		    background-color: $white_color;
+		    padding: 20px;
+		    text-align: center;
+
+			.expert-name {
+			    text-align: center;
+			    font-weight: 300;
+			    text-transform: uppercase;
+			    color: $red_color;
+			}
+
+			.expert-bio {
+			    text-align: center;
+			    padding-top: 10px;
+			    @include font_definition($merriweather_font,$font_size,$bio_font_weight);
+			}
+
+			.expert-tracks {
+			    text-align: center;
+			    padding-top: 10px;
+			    @include font_definition($merriweather_font,$font_size,$tracks_font_weight);
+			}
+		}
+	}
+}
