@@ -1,6 +1,6 @@
 body:after{
     display:none;
-    content: url('/assets/img/landing/light-gate.jpg');
+    content: url('/assets/img/landing/landing_carousel/1.png');
 }
 
 .landing-nav {
@@ -543,7 +543,6 @@ img.bg {
     padding-top: 21.5px;
     vertical-align:middle;
     line-height: 32px;
-    position: relative;
 }
 
 .beaglesloft-footer:hover {

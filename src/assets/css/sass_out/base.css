@@ -77,9 +77,12 @@ h2 {
   z-index: 100;
   height: 70px;
   text-align: center; }
+  @media (max-width: 767px) {
+    .new-navbar {
+      background-color: transparent; } }
   .new-navbar .navbar-centered {
     margin: auto;
-    width: 940px;
+    width: 960px;
     height: 70px; }
     .new-navbar .navbar-centered .logo {
       float: left !important; }
@@ -96,5 +99,31 @@ h2 {
         height: 70px;
         display: table-cell;
         vertical-align: middle; }
+        .new-navbar .navbar-centered .tabs .tabs-container a {
+          font-family: "Oswald", sans-serif;
+          text-decoration: none;
+          color: #adacac;
+          font-weight: 200;
+          font-size: 14px;
+          padding-left: 10px;
+          padding-right: 10px;
+          text-shadow: none;
+          transition: color 1s; }
+          .new-navbar .navbar-centered .tabs .tabs-container a:hover {
+            color: #ffffff; }
+  .new-navbar .hide-767 {
+    display: block; }
+    @media (max-width: 767px) {
+      .new-navbar .hide-767 {
+        display: none; } }
+  .new-navbar .show-767 {
+    display: none; }
+    @media (max-width: 767px) {
+      .new-navbar .show-767 {
+        display: block; } }
+    .new-navbar .show-767 .dropdown {
+      margin: 15px; }
+      .new-navbar .show-767 .dropdown a {
+        height: 40px; }
 
 /*# sourceMappingURL=base.css.map */

@@ -11,13 +11,18 @@
 		image: none;
 		repeat: no-repeat;
 	}
+	@media (max-width: 767px) {
+        background: {
+            color: $transparent_color;
+        }
+    }
     z-index: 100;
     height: $navbar_height;
     text-align: center;
 
     .navbar-centered {
     	margin: auto;
-    	width: 940px;
+        width: 960px;
 		height: $navbar_height;
     	
     	.logo {
@@ -43,8 +48,46 @@
 				display: table-cell;
 				vertical-align: middle;
 
+				a {
+                    font-family: $oswald_font;
+                    text-decoration: none;
+                    color: rgb(173, 172, 172);
+                    font-weight: 200;
+                    font-size: 14px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    text-shadow: none;
+                    transition: color 1s;
+
+                    &:hover {
+                        color: #ffffff;
+                    }
+				}
+
 			}
 		}
+	}
+
+	.hide-767 {
+	    display: block;
+	    @media (max-width: 767px) {
+	        display: none;
+	    }
+	}
+
+	.show-767 {
+	    display: none;
+	    @media (max-width: 767px) {
+	        display: block;
+	    }
+
+	    .dropdown {
+	        margin: 15px;
+
+	        a {
+	            height: 40px;
+	        }
+	    }
 	}
 }
 

@@ -32,29 +32,40 @@
 <body>
     <div id="wrap-div" class="wrap">
         <div id={% block Navbar_Type %}navbar-fluid{% endblock %} class="new-navbar" style={% block Navbar_DisplayType %}{% endblock %}>
-        <div class="navbar-centered">
-            <!-- <div class="navbar-content"> -->
-                <div class="logo">
-                    <div class="logo-container">
-                        <img src="/assets/img/landing/beagles-logo-nav.png">
+            <div class="navbar-centered hide-767">
+                    <div class="logo">
+                        <div class="logo-container">
+                            <a href="/#"><img src="/assets/img/landing/beagles-logo-nav.png"></a>
+                        </div>
+                    </div>
+                    <div class="tabs">
+                        <div class="tabs-container">
+                            <a href="/tracks">TRACKS</a>
+                            <a href="/events">EVENTS</a>
+                            <a href="/community">COMMUNITY</a>
+                            <a href="/newsletters">NEWSLETTERS</a>
+                            <a href="/http://beaglesblog.tumblr.com">BLOG</a>
+                        </div>
+                    </div>
+            </div>
+            <div class="show-767">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="nav">
+                            <li class="dropdown">
+                                <a style="padding:0px" href="#" data-toggle="modal" data-target="#mobile-menu-modal">
+                                    <img src="/assets/img/Haggle_Mobile_navbar_menu_icon.png" alt="Menu Icon" height="20"/>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="tabs">
-                    <div class="tabs-container">
-                        <a href="/tracks">TRACKS</a>
-                        <a href="/events">EVENTS</a>
-                        <a href="/community">COMMUNITY</a>
-                        <a href="/newsletters">NEWSLETTERS</a>
-                        <a href="/http://beaglesblog.tumblr.com">BLOG</a>
-                    </div>
-                </div>
-            <!-- </div> -->
-        </div>
+            </div>
         </div>
         <div class="content-page">
             {% block Content %}{% endblock %}
+            {% block Footer %}{% include "components/footer.html" %}{% endblock %}
         </div>
-        {% block Footer %}{% include "components/footer.html" %}{% endblock %}
         <script src="/assets/js/lib/jquery.min.js"></script>
         <script src="/assets/js/lib/jquery-ui.js"></script>
         <script src="/assets/js/lib/bootstrap.min.js"></script>
