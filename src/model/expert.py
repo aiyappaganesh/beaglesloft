@@ -24,7 +24,7 @@ class Expert(db.Model):
                 'bio': self.bio,
                 'image': self.image,
                 'location': self.city+', '+self.state,
-                'tracks': ','.join([Track.get_by_key_name(track).name for track in self.tracks])}
+                'tracks': ', '.join([Track.get_by_key_name(track).name for track in self.tracks])}
 
     @staticmethod
     def get_paged_expert_keys():
