@@ -2,92 +2,133 @@
 @import "partials/_standards.scss";
 @import "partials/_constants.scss";
 
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-x: hidden;
+    height: 100%;
 
-.new-navbar {
-	width: 100%;
-	position: fixed;
-	background: {
-		color: $navbar_color;
-		image: none;
-		repeat: no-repeat;
-	}
-	@media (max-width: 767px) {
-        background: {
-            color: $transparent_color;
+    body {
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: none;
+        height: 100%;
+
+        &:after {
+            display:none;
+            content: url('/assets/img/landing/landing_carousel/1.png');
+        }
+
+        .wrap {
+            min-height: 100%;
+            height:100%;
+
+            .new-navbar {
+                width: 100%;
+                position: fixed;
+                background: {
+                    color: $navbar_color;
+                    image: none;
+                    repeat: no-repeat;
+                }
+                z-index: 100;
+                height: $navbar_height;
+                text-align: center;
+                -webkit-transform: translateY(-100%);
+                -webkit-transition: -webkit-transform 0.5s;
+                transform: translateY(-100%);
+                transition: transform 0.5s;
+                @media (max-width: 767px) {
+                    background: {
+                        color: $transparent_color;
+                    }
+                    -webkit-transform: translateY(0%);
+                    -webkit-transition: -webkit-transform 0.5s;
+                    transform: translateY(0%);
+                    transition: none;
+                }
+
+                .navbar-centered {
+                    margin: auto;
+                    width: 960px;
+                    height: $navbar_height;
+
+                    .logo {
+                        float: left !important;
+
+                        .logo-container {
+                            height: $navbar_height;
+                            display: table-cell;
+                            vertical-align: middle;
+
+                            img {
+                                height: 50px;
+                                width: 50px;
+                            }
+                        }
+                    }
+
+                    .tabs {
+                        float: right !important;
+
+                        .tabs-container {
+                            height: $navbar_height;
+                            display: table-cell;
+                            vertical-align: middle;
+
+                            a {
+                                font-family: $oswald_font;
+                                text-decoration: none;
+                                color: rgb(173, 172, 172);
+                                font-weight: 200;
+                                font-size: 14px;
+                                padding-left: 10px;
+                                padding-right: 10px;
+                                text-shadow: none;
+                                transition: color 1s;
+
+                                &:hover {
+                                    color: #ffffff;
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                .hide-767 {
+                    display: block;
+                    @media (max-width: 767px) {
+                        display: none;
+                    }
+                }
+
+                .show-767 {
+                    display: none;
+                    @media (max-width: 767px) {
+                        display: block;
+                    }
+
+                    .dropdown {
+                        margin: 15px;
+
+                        a {
+                            height: 40px;
+                        }
+                    }
+                }
+            }
+
+            .content-page {
+                height:100%;
+                overflow-x:hidden;
+                overflow-y:scroll;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .wrap {
+                min-width: 100%;
+            }
         }
     }
-    z-index: 100;
-    height: $navbar_height;
-    text-align: center;
-
-    .navbar-centered {
-    	margin: auto;
-        width: 960px;
-		height: $navbar_height;
-    	
-    	.logo {
-			float: left !important;
-
-			.logo-container {
-				height: $navbar_height;
-				display: table-cell;
-				vertical-align: middle;
-
-				img {
-					height: 50px;
-					width: 50px;
-				}
-			}
-		}
-
-    	.tabs {
-			float: right !important;
-
-			.tabs-container {
-				height: $navbar_height;
-				display: table-cell;
-				vertical-align: middle;
-
-				a {
-                    font-family: $oswald_font;
-                    text-decoration: none;
-                    color: rgb(173, 172, 172);
-                    font-weight: 200;
-                    font-size: 14px;
-                    padding-left: 10px;
-                    padding-right: 10px;
-                    text-shadow: none;
-                    transition: color 1s;
-
-                    &:hover {
-                        color: #ffffff;
-                    }
-				}
-
-			}
-		}
-	}
-
-	.hide-767 {
-	    display: block;
-	    @media (max-width: 767px) {
-	        display: none;
-	    }
-	}
-
-	.show-767 {
-	    display: none;
-	    @media (max-width: 767px) {
-	        display: block;
-	    }
-
-	    .dropdown {
-	        margin: 15px;
-
-	        a {
-	            height: 40px;
-	        }
-	    }
-	}
 }
-
