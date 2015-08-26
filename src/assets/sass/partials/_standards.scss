@@ -115,3 +115,24 @@
 	    color:#FFFFFF;
     }
 }
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.hide-element {
+    display: none;
+}
+
+.centered-full-screen-element, .centered-full-width-element {
+    display: table-cell;
+    vertical-align: middle;
+}

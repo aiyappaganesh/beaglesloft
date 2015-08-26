@@ -38,11 +38,25 @@
     }
 }
 
+.value-to-services {
+    background: {
+        color: $grey_color;
+    }
+    h2, h3 {
+        color: $black_color;
+    }
+}
+
 .heading {
     font: {
         family: $header_font;
         weight: 300;
         size: $h1_font_size;
+    }
+    @media (max-width: 767px) {
+        font: {
+            size: $h1_font_size_mob;
+        }
     }
     padding: 20px;
     text-align: left;
@@ -63,6 +77,10 @@
     background-color: #ffffff;
     color: #c62530;
     margin-top: -94px;
+
+    @media (max-width: 767px) {
+        margin-top: -65px;
+    }
 }
 
 .section1-sub-heading {
@@ -83,48 +101,67 @@
     }
 }
 
-.membership-plan {
-    .membership-title {
-        padding-bottom: $small_padding;
-        border-bottom: 1px solid #ccc;
+.membership {
+    background: {
+        color: $grey_color;
     }
-
-    h2 .small-copy {
-        text-transform: lowercase;
-    }
-
-    .small-copy, .learn-more-button, h2 {
-        margin-top: $normal_padding;
-    }
-
-    .learn-more-button {
-        @include learn_more_button($red_color, $button_font_size, $button_font_weight);
-        max-width: 75%;
-    }
-}
-
-.signup-form {
-    height: 34px;
-    font-family: $oswald_font;
-    font-size: 12px;
-    border: none;
-}
-
-.signup-submit {
-    @extend .signup-form;
-    background-color: #ebebeb;
-    width: 100px;
     color: $black_color;
-    font-weight: 400;
-    text-align: center;
+    .membership-plan {
+        .membership-title {
+            padding-bottom: $small_padding;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .small-copy {
+            font-family: $merriweather_font;
+            font-weight: 300;
+            font-size: 13px;
+        }
+
+        h2 .small-copy {
+            text-transform: lowercase;
+            color: $dark_grey_color;
+        }
+
+        .small-copy, .learn-more-button, h2 {
+            margin-top: $normal_padding;
+        }
+
+        .learn-more-button {
+            @include learn_more_button($red_color, $button_font_size, $button_font_weight);
+            max-width: 75%;
+        }
+    }
 }
 
-.signup-email-box {
-    @extend .signup-form;
-    background-color: rgba(235, 235, 235, 0.1);
-    width: 260px;
-    font-weight: 600;
-    padding-left: 15px;
+.signup {
+    color: $white_color;
+    background: {
+        color: $red_color;
+    }
+    .signup-form {
+        height: 34px;
+        font-family: $oswald_font;
+        font-size: 12px;
+        border: none;
+    }
+
+    .signup-submit {
+        @extend .signup-form;
+        background-color: #ebebeb;
+        width: 100px;
+        color: $black_color;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    .signup-email-box {
+        @extend .signup-form;
+        background-color: rgba(235, 235, 235, 0.1);
+        width: 260px;
+        font-weight: 600;
+        padding-left: 15px;
+    }
 }
 
 .why-beaglesloft {
@@ -132,6 +169,7 @@
     background: url('/assets/img/landing/basketball-court.png') center center fixed;
     background-size: cover;
     background-repeat: no-repeat;
+    color: $white_color;
 
     .why-beaglesloft-title {
         height: 300px;

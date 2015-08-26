@@ -7,7 +7,7 @@
     <!--<link href="/assets/css/common/normalize.css" type="text/css" rel="stylesheet">-->
     <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/png">
     <link href="/assets/css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="/assets/css/common/beaglesloft_base.css" type="text/css" rel="stylesheet">
+    <!--<link href="/assets/css/common/beaglesloft_base.css" type="text/css" rel="stylesheet">-->
     <link href="/assets/css/sass_out/base.css" type="text/css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oswald:100,200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
@@ -42,7 +42,8 @@
                         <div class="tabs-container">
                             <a href="/tracks">TRACKS</a>
                             <a href="/events">EVENTS</a>
-                            <a href="/community">COMMUNITY</a>
+                            <!--<a href="/community">COMMUNITY</a>-->
+                            <a href="/experts">EXPERTS</a>
                             <a href="/newsletters">NEWSLETTERS</a>
                             <a href="/http://beaglesblog.tumblr.com">BLOG</a>
                         </div>
@@ -73,11 +74,11 @@
         {% block Scripts %}{% endblock %}
     </div>
 
-    <div id="mobile-menu-modal" class="modal fade">
-        <div class="bglft-modal-dialog-header modal-header">
+    <div id="mobile-menu-modal" class="modal fade bglft-modal">
+        <div class="modal-header">
             <a class="pull-left close" data-dismiss="modal" href="#">&times;</a>
         </div>
-        <div class="bglft-modal-dialog-body modal-body">
+        <div class="modal-body">
             <ul>
                 <li>
                     <a href="/#" class="nav-link">
@@ -110,13 +111,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://beaglesblog.tumblr.com" target="_blank" class="">
+                    <a href="http://beaglesblog.tumblr.com" target="_blank">
                         <div style="text-align:center;">BLOG</div>
                     </a>
                 </li>
             </ul>
-        </div>
-        <div class="bglft-modal-dialog-body modal-footer" style="text-align:center">
         </div>
     </div>
 

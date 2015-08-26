@@ -79,6 +79,7 @@ $merriweather_font: Merriweather, sans-serif;
 						{
 							@include font_definition($oswald_font,16px,$title_font_weight);
 						}
+						margin: 0px;
 					}
 					.tracks-program-desc{
 						@include font_definition($merriweather_font,$desc_font_size,$desc_font_weight);

@@ -22,13 +22,35 @@
   height: 100vh;
   width: 100vw; }
 
-h2 {
+h2, .header-2 {
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
   font-weight: 400;
   font-size: 30px;
+  line-height: 1.5;
   text-align: center; }
 
+h3, .header-3 {
+  text-transform: none;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5; }
+
+@media (max-width: 767px) {
+  h2, .header-2 {
+    text-transform: uppercase;
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 1.5; }
+
+  h3, .header-3 {
+    text-transform: none;
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5; } }
 .centered-fullscreen {
   display: table-cell;
   height: 100vh;
@@ -68,6 +90,22 @@ h2 {
     background-color: #c62530;
     color: #FFFFFF; }
 
+.align-center {
+  text-align: center; }
+
+.align-right {
+  text-align: right; }
+
+.align-left {
+  text-align: left; }
+
+.hide-element {
+  display: none; }
+
+.centered-full-screen-element, .centered-full-width-element {
+  display: table-cell;
+  vertical-align: middle; }
+
 @keyframes disappear {
   from {
     display: block; }
@@ -91,6 +129,11 @@ h2 {
   height: 100vh;
   width: 100vw; }
 
+.value-to-services {
+  background-color: #f2f2f2; }
+  .value-to-services h2, .value-to-services h3 {
+    color: #000000; }
+
 .heading, .landing-carousel-heading, .section1-heading, .section1-sub-heading {
   font-family: "Oswald", sans-serif;
   font-weight: 300;
@@ -99,6 +142,9 @@ h2 {
   text-align: left;
   width: auto;
   margin: 0px; }
+  @media (max-width: 767px) {
+    .heading, .landing-carousel-heading, .section1-heading, .section1-sub-heading {
+      font-size: 18px; } }
 
 .landing-carousel-heading, .section1-heading, .section1-sub-heading {
   position: absolute;
@@ -110,6 +156,9 @@ h2 {
   background-color: #ffffff;
   color: #c62530;
   margin-top: -94px; }
+  @media (max-width: 767px) {
+    .section1-heading {
+      margin-top: -65px; } }
 
 .section1-sub-heading {
   background-color: #c62530;
@@ -122,56 +171,67 @@ h2 {
   .service-carousel-container .glyphicon-chevron-left:before, .service-carousel-container .glyphicon-chevron-right:before {
     content: none; }
 
-.membership-plan .membership-title {
-  padding-bottom: 24px;
-  border-bottom: 1px solid #ccc; }
-.membership-plan h2 .small-copy {
-  text-transform: lowercase; }
-.membership-plan .small-copy, .membership-plan .learn-more-button, .membership-plan h2 {
-  margin-top: 15px; }
-.membership-plan .learn-more-button {
-  background-color: transparent;
-  width: 100%;
-  height: 100%;
-  color: #c62530;
-  -webkit-transition: color 0.25s ease-in;
-  -webkit-transition: background-color 0.25s ease-in;
-  transition: color 0.25s ease-in;
-  transition: background-color 0.25s ease-in;
-  border: 2px solid #c62530;
-  text-transform: none;
-  font-family: "Oswald", sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  max-width: 75%; }
-  .membership-plan .learn-more-button:hover {
-    background-color: #c62530;
-    color: #FFFFFF; }
+.membership {
+  background-color: #f2f2f2;
+  color: #000000; }
+  .membership .membership-plan .membership-title {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #ccc; }
+  .membership .membership-plan .small-copy {
+    font-family: "Merriweather", sans-serif;
+    font-weight: 300;
+    font-size: 13px; }
+  .membership .membership-plan h2 .small-copy {
+    text-transform: lowercase;
+    color: #777777; }
+  .membership .membership-plan .small-copy, .membership .membership-plan .learn-more-button, .membership .membership-plan h2 {
+    margin-top: 15px; }
+  .membership .membership-plan .learn-more-button {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    color: #c62530;
+    -webkit-transition: color 0.25s ease-in;
+    -webkit-transition: background-color 0.25s ease-in;
+    transition: color 0.25s ease-in;
+    transition: background-color 0.25s ease-in;
+    border: 2px solid #c62530;
+    text-transform: none;
+    font-family: "Oswald", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 75%; }
+    .membership .membership-plan .learn-more-button:hover {
+      background-color: #c62530;
+      color: #FFFFFF; }
 
-.signup-form, .signup-submit, .signup-email-box {
-  height: 34px;
-  font-family: "Oswald", sans-serif;
-  font-size: 12px;
-  border: none; }
-
-.signup-submit {
-  background-color: #ebebeb;
-  width: 100px;
-  color: #000000;
-  font-weight: 400;
-  text-align: center; }
-
-.signup-email-box {
-  background-color: rgba(235, 235, 235, 0.1);
-  width: 260px;
-  font-weight: 600;
-  padding-left: 15px; }
+.signup {
+  color: #ffffff;
+  background-color: #c62530; }
+  .signup .signup-form, .signup .signup-submit, .signup .signup-email-box {
+    height: 34px;
+    font-family: "Oswald", sans-serif;
+    font-size: 12px;
+    border: none; }
+  .signup .signup-submit {
+    background-color: #ebebeb;
+    width: 100px;
+    color: #000000;
+    font-weight: 400;
+    text-align: center; }
+  .signup .signup-email-box {
+    background-color: rgba(235, 235, 235, 0.1);
+    width: 260px;
+    font-weight: 600;
+    padding-left: 15px; }
 
 .why-beaglesloft {
   background-color: #444444;
   background: url("/assets/img/landing/basketball-court.png") center center fixed;
   background-size: cover;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  color: #ffffff; }
   .why-beaglesloft .why-beaglesloft-title {
     height: 300px; }
   .why-beaglesloft .why-beaglesloft-copy {

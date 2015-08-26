@@ -22,13 +22,35 @@
   height: 100vh;
   width: 100vw; }
 
-h2 {
+h2, .header-2 {
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
   font-weight: 400;
   font-size: 30px;
+  line-height: 1.5;
   text-align: center; }
 
+h3, .header-3 {
+  text-transform: none;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5; }
+
+@media (max-width: 767px) {
+  h2, .header-2 {
+    text-transform: uppercase;
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 1.5; }
+
+  h3, .header-3 {
+    text-transform: none;
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5; } }
 .centered-fullscreen {
   display: table-cell;
   height: 100vh;
@@ -67,6 +89,22 @@ h2 {
   .red_and_white_button:hover {
     background-color: #c62530;
     color: #FFFFFF; }
+
+.align-center {
+  text-align: center; }
+
+.align-right {
+  text-align: right; }
+
+.align-left {
+  text-align: left; }
+
+.hide-element {
+  display: none; }
+
+.centered-full-screen-element, .centered-full-width-element {
+  display: table-cell;
+  vertical-align: middle; }
 
 html {
   overflow: -moz-scrollbars-vertical;
@@ -144,16 +182,82 @@ html {
             html body .wrap .new-navbar .show-767 {
               display: block; } }
           html body .wrap .new-navbar .show-767 .dropdown {
-            margin: 15px; }
+            margin: 15px;
+            width: 46px; }
             html body .wrap .new-navbar .show-767 .dropdown a {
-              height: 40px; }
+              height: 40px;
+              background-color: #000000; }
+              html body .wrap .new-navbar .show-767 .dropdown a img {
+                margin-top: 10px; }
       html body .wrap .content-page {
         height: 100%;
         overflow-x: hidden;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch; }
+        html body .wrap .content-page .beaglesloft-footer {
+          text-align: center;
+          height: 75px;
+          background-color: #e5e5e5;
+          color: #44433f;
+          font-family: "Oswald", sans-serif;
+          font-weight: 300;
+          font-size: 18px;
+          padding-top: 21.5px;
+          vertical-align: middle;
+          line-height: 32px; }
+          html body .wrap .content-page .beaglesloft-footer:hover {
+            color: #c62430; }
+          html body .wrap .content-page .beaglesloft-footer img {
+            margin-left: 10px;
+            margin-right: 10px;
+            vertical-align: top; }
+        html body .wrap .content-page footer a {
+          color: #44433f;
+          text-decoration: none; }
+          html body .wrap .content-page footer a:hover {
+            color: #c62430;
+            text-decoration: none; }
+    html body .bglft-modal {
+      font-family: 'Open Sans', sans-serif;
+      background-color: rgba(0, 0, 0, 0.75); }
+      html body .bglft-modal .close {
+        color: #ffffff;
+        opacity: 1;
+        margin-left: 15px;
+        font-size: 50px; }
+      html body .bglft-modal .modal-header {
+        font-weight: 300;
+        line-height: 25px;
+        font-size: 20px;
+        border: 0px !important;
+        margin-bottom: 40px; }
+      html body .bglft-modal .modal-body {
+        padding-top: 60px; }
+        html body .bglft-modal .modal-body div {
+          color: #ffffff;
+          font-weight: 600;
+          line-height: 50px;
+          font-size: 22px; }
+          html body .bglft-modal .modal-body div:hover, html body .bglft-modal .modal-body div:active {
+            color: #fa7900 !important;
+            text-decoration: none !important; }
+        html body .bglft-modal .modal-body ul {
+          padding-left: 0px;
+          list-style-type: none; }
     @media (max-width: 767px) {
       html body .wrap {
-        min-width: 100%; } }
+        min-width: 100%; }
+      html body .beaglesloft-footer {
+        font-size: 12px;
+        line-height: 25px;
+        height: 69px; }
+        html body .beaglesloft-footer img {
+          width: 24px;
+          height: 24px;
+          margin-left: 5px;
+          margin-right: 5px; }
+        html body .beaglesloft-footer [class*="col-sm-"] {
+          padding-right: 5px;
+          padding-left: 5px; } }
 
 /*# sourceMappingURL=base.css.map */
