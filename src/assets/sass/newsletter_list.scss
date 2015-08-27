@@ -71,8 +71,7 @@ $merriweather_font: Merriweather, sans-serif;
 						@include track_program_inner(15px, 20px, 15px, 20px);
 					}	
 					.learn-more-button {
-						@include font_definition($oswald_font,$button_font_size,$button_font_weight);
-						@include learn_more_button($red_color);
+						@include learn_more_button($red_color, $button_font_size, $button_font_weight);
 					}
 				}
 			}
