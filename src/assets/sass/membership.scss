@@ -39,11 +39,9 @@ body{
     border-top: 1px solid #ccc;
 
 	.title {
-		text-align: center;
-		display: table-cell;
-		vertical-align: middle;
-		height: 100px;
 	    @include font_definition($oswald_font,30px,400);
+		height: 100px;
+		line-height: 100px;
 	}	
 
 	.email-box {
