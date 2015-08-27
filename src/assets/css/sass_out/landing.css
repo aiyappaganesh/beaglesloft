@@ -133,6 +133,9 @@ h3, .header-3 {
   background-color: #f2f2f2; }
   .value-to-services h2, .value-to-services h3 {
     color: #000000; }
+  @media (max-width: 767px) {
+    .value-to-services h2 {
+      padding: 0px 15px; } }
 
 .heading, .landing-carousel-heading, .section1-heading, .section1-sub-heading {
   font-family: "Oswald", sans-serif;
@@ -177,10 +180,16 @@ h3, .header-3 {
   .membership .membership-plan .membership-title {
     padding-bottom: 24px;
     border-bottom: 1px solid #ccc; }
+    @media (max-width: 767px) {
+      .membership .membership-plan .membership-title {
+        margin: 0px 15px; } }
   .membership .membership-plan .small-copy {
     font-family: "Merriweather", sans-serif;
     font-weight: 300;
     font-size: 13px; }
+    @media (max-width: 767px) {
+      .membership .membership-plan .small-copy {
+        font-size: 11px; } }
   .membership .membership-plan h2 .small-copy {
     text-transform: lowercase;
     color: #777777; }
@@ -205,6 +214,11 @@ h3, .header-3 {
     .membership .membership-plan .learn-more-button:hover {
       background-color: #c62530;
       color: #FFFFFF; }
+  @media (max-width: 767px) {
+    .membership .membership-plan {
+      padding-top: 48px; }
+      .membership .membership-plan:first-child {
+        padding-top: 0px; } }
 
 .signup {
   color: #ffffff;
@@ -234,6 +248,9 @@ h3, .header-3 {
   color: #ffffff; }
   .why-beaglesloft .why-beaglesloft-title {
     height: 300px; }
+    @media (max-width: 767px) {
+      .why-beaglesloft .why-beaglesloft-title {
+        height: 50px; } }
   .why-beaglesloft .why-beaglesloft-copy {
     font-family: "Merriweather", sans-serif;
     font-weight: 300;
@@ -242,5 +259,10 @@ h3, .header-3 {
     text-align: left;
     line-height: 28px;
     font-style: italic; }
+    @media (max-width: 767px) {
+      .why-beaglesloft .why-beaglesloft-copy {
+        font-size: 14px;
+        padding: 0px 15px 0px 15px;
+        text-align: justify; } }
 
 /*# sourceMappingURL=landing.css.map */

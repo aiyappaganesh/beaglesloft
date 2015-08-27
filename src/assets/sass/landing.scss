@@ -45,6 +45,12 @@
     h2, h3 {
         color: $black_color;
     }
+
+    @media (max-width: 767px) {
+        h2 {
+            padding: 0px 15px;
+        }
+    }
 }
 
 .heading {
@@ -110,12 +116,20 @@
         .membership-title {
             padding-bottom: $small_padding;
             border-bottom: 1px solid #ccc;
+
+            @media (max-width: 767px) {
+                margin: 0px 15px;
+            }
         }
 
         .small-copy {
             font-family: $merriweather_font;
             font-weight: 300;
             font-size: 13px;
+
+            @media (max-width: 767px) {
+                font-size: 11px;
+            }
         }
 
         h2 .small-copy {
@@ -130,6 +144,14 @@
         .learn-more-button {
             @include learn_more_button($red_color, $button_font_size, $button_font_weight);
             max-width: 75%;
+        }
+
+        @media (max-width: 767px) {
+            padding-top: $medium_padding;
+
+            &:first-child {
+                padding-top: 0px;
+            }
         }
     }
 }
@@ -173,6 +195,10 @@
 
     .why-beaglesloft-title {
         height: 300px;
+
+        @media (max-width: 767px) {
+            height: 50px;
+        }
     }
 
     .why-beaglesloft-copy {
@@ -183,5 +209,11 @@
         text-align: left;
         line-height: 28px;
         font-style: italic;
+
+        @media (max-width: 767px) {
+            font-size: 14px;
+            padding: 0px 15px 0px 15px;
+            text-align: justify;
+        }
     }
 }
