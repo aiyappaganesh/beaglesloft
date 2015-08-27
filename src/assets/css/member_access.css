@@ -160,3 +160,14 @@ textarea:focus{outline:none;}
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
 }
+
+img.bg {
+    /* Set rules to fill background */
+    min-height: 100vh;
+    min-width: 100vw;
+
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
