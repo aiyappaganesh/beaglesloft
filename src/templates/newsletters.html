@@ -25,8 +25,6 @@
 {% for key, value in newsletters.items %}
         {% include "components/newsletter_list.html" with events=value counter=forloop.counter %}
 {% endfor %}
-        
-</div>
 
 {% endblock %}
 
