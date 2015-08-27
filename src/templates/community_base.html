@@ -46,6 +46,7 @@
                             <a href="/experts">EXPERTS</a>
                             <a href="/newsletters">NEWSLETTERS</a>
                             <a href="/http://beaglesblog.tumblr.com">BLOG</a>
+                            <a href="{% if is_member %}/members/profile{% else %}/member_access{% endif %}" {% if is_member %}style="padding-top:0px;padding-bottom:0px;"{% endif %}>{% if is_member %}<img data-toggle="popover" title="{{member.name}}" data-content="{{member.designation}} at {{member.organization}}" data-trigger="hover" data-placement="bottom" style="height:50px;width:50px;" src="{{member.image_url}}">{% else %}JOIN{% endif %}</a>
                         </div>
                     </div>
             </div>
