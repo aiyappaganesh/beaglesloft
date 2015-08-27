@@ -1,0 +1,67 @@
+@import "partials/_text.scss";
+@import "partials/_constants.scss";
+@import "partials/_images.scss";
+@import "partials/_standards.scss";
+
+$merriweather_font: Merriweather, sans-serif;
+$large_cell_font_size: 18px;
+$large_cell_font_weight: 500;
+$small_cell_font_size: 16px;
+$small_cell_font_weight: 300;
+$oswald_font: Oswald;
+
+body{
+	background-color: $grey_color;
+}
+
+.hero {
+	@include hero('/assets/img/landing/tracks.png');
+}
+
+.membership-table {
+	.cell-large {
+		height: 75px;
+		text-align: center;
+		vertical-align: middle;
+		@include font_definition($oswald_font,$large_cell_font_size,$large_cell_font_weight);
+	}
+
+	.cell-small {
+		height: 75px;
+		text-align: center;
+		vertical-align: middle;
+	    @include font_definition($oswald_font,$small_cell_font_size,$small_cell_font_weight);
+	}
+}
+
+.membership-signup {
+	text-align: center;
+    border-top: 1px solid #ccc;
+
+	.title {
+		text-align: center;
+		display: table-cell;
+		vertical-align: middle;
+		height: 100px;
+	    @include font_definition($oswald_font,30px,400);
+	}	
+
+	.email-box {
+	    @include font_definition($oswald_font,12px,600);
+	    background-color: #ebebeb;
+	    width: 260px;
+	    height: 34px;
+	    border: none;
+	    padding-left: 15px;
+	}
+
+	.submit {
+	    @include font_definition($oswald_font,12px,300);
+	    background-color: #c62530;
+	    width: 100px;
+	    height: 34px;
+	    color:  #ffffff;
+	    text-align: center;
+	    border: none;
+	}
+}
