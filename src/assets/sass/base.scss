@@ -44,9 +44,7 @@ html {
                     background: {
                         color: $transparent_color;
                     }
-                    -webkit-transform: translateY(0%);
                     -webkit-transition: -webkit-transform 0.5s;
-                    transform: translateY(0%);
                     transition: none;
                 }
 

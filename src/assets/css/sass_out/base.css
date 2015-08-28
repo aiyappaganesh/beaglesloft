@@ -153,9 +153,7 @@ html {
         @media (max-width: 767px) {
           html body .wrap .new-navbar {
             background-color: transparent;
-            -webkit-transform: translateY(0%);
             -webkit-transition: -webkit-transform 0.5s;
-            transform: translateY(0%);
             transition: none; } }
         html body .wrap .new-navbar .navbar-centered {
           margin: auto;
