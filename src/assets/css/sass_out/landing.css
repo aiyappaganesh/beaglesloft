@@ -37,6 +37,13 @@ h3, .header-3 {
   font-size: 18px;
   line-height: 1.5; }
 
+.normal-copy {
+  text-transform: none;
+  font-family: "Merriweather", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5; }
+
 @media (max-width: 767px) {
   h2, .header-2 {
     text-transform: uppercase;
@@ -50,6 +57,13 @@ h3, .header-3 {
     font-family: "Oswald", sans-serif;
     font-weight: 500;
     font-size: 14px;
+    line-height: 1.5; }
+
+  .normal-copy {
+    text-transform: none;
+    font-family: "Merriweather", sans-serif;
+    font-weight: 300;
+    font-size: 12px;
     line-height: 1.5; } }
 .centered-fullscreen {
   display: table-cell;

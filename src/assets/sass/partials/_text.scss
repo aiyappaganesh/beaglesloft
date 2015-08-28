@@ -12,6 +12,9 @@ $h2_text_transform: uppercase;
 $h3_font_size: 18px;
 $h3_font_size_mob: 14px;
 $h3_font_weight: 500;
+$normal_font_size: 14px;
+$normal_font_size_mob: 12px;
+$normal_font_weight: 300;
 $merriweather_font: 'Merriweather', sans-serif;
 $button_font_size: 16px;
 $button_font_weight: 300;
@@ -36,6 +39,10 @@ h3, .header-3{
 	@include font_definition($oswald_font,$h3_font_size,$h3_font_weight);
 }
 
+.normal-copy {
+    @include font_definition($merriweather_font,$normal_font_size,$normal_font_weight);
+}
+
 @media (max-width: 767px) {
     h2, .header-2{
         @include font_definition($oswald_font,$h2_font_size_mob,$h2_font_weight,$h2_text_transform);
@@ -43,5 +50,9 @@ h3, .header-3{
 
     h3, .header-3{
         @include font_definition($oswald_font,$h3_font_size_mob,$h3_font_weight);
+    }
+
+    .normal-copy {
+        @include font_definition($merriweather_font,$normal_font_size_mob,$normal_font_weight);
     }
 }

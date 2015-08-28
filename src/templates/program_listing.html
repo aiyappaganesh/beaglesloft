@@ -15,7 +15,7 @@
     <div class="col-sm-4"></div>
 </div>
 <div class="white-background">
-    <div class="width940 section-content">
+    <div class="width960 section-content">
         {% if is_member %}
             {% with program.id|add:" "|add:track.id as arg %}
                 {% if is_manager %}
@@ -64,7 +64,7 @@
             {% endfor %}
         </div>
         {% if program.details %}
-            <div class="row" style="padding-top:48px;padding-bottom:24px;">
+            <div class="row">
                 <div class="col-sm-12" style="text-align:center;">
                     <h3>DETAILS</h3>
                 </div>
@@ -82,7 +82,7 @@
             </div>
         {% endif %}
         {% if program.expert %}
-            <div class="row" style="padding-top:48px;padding-bottom:24px;">
+            <div class="row">
                 <div class="col-sm-12" style="text-align:center;">
                     <h3>EXPERT</h3>
                 </div>
