@@ -28,6 +28,7 @@ $(document).ready(function(){
 		$('#starting-animation-bg .centered-fullscreen').fadeOut(2000, function() {
 			$('#starting-animation-bg').remove();
 			$('#section1-carousel').carousel('cycle');
+			$('.content-page').css('overflow-y','scroll');
 		});
 	});
 });
@@ -73,6 +74,7 @@ $(window).load(function(){
     if(accessed_page_section != '/') {
         $('#starting-animation-bg').remove();
 		$('#section1-carousel').carousel('cycle');
+		$('.content-page').css('overflow-y','scroll');
         return;
     }
 });

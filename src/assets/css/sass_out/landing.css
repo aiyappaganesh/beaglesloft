@@ -125,6 +125,12 @@ h3, .header-3 {
     display: block; }
   to {
     display: none !important; } }
+html body .wrap .content-page {
+  overflow-y: hidden; }
+  @media (max-width: 767px) {
+    html body .wrap .content-page {
+      overflow-y: scroll; } }
+
 .logo-container {
   display: none; }
 
@@ -138,6 +144,9 @@ h3, .header-3 {
     font-family: "Oswald", sans-serif;
     font-weight: 300;
     font-size: 30px; }
+  @media (max-width: 767px) {
+    #starting-animation-bg {
+      display: none; } }
 
 #section1-carousel .carousel-inner .item {
   height: 100vh;

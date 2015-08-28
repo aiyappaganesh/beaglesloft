@@ -7,6 +7,20 @@
     to {display: none !important;}
 }
 
+html {
+    body {
+        .wrap {
+            .content-page {
+                overflow-y:hidden;
+
+                @media (max-width: 767px) {
+                    overflow-y:scroll;
+                }
+            }
+        }
+    }
+}
+
 .logo-container {
 	display: none;
 }
@@ -26,6 +40,9 @@
 			weight: 300;
 			size: $h2_font_size;
 		}
+	}
+	@media (max-width: 767px) {
+	    display:none;
 	}
 }
 
