@@ -159,7 +159,7 @@ html {
             transition: none; } }
         html body .wrap .new-navbar .navbar-centered {
           margin: auto;
-          width: 960px;
+          max-width: 960px;
           height: 70px; }
           html body .wrap .new-navbar .navbar-centered .logo {
             float: left !important; }
