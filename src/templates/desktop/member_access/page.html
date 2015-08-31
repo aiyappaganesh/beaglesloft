@@ -1,43 +1,29 @@
 {% extends "desktop/desktop_base.html" %}
 
 {% block Styles %}
-<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
-<link href="/assets/css/member_access.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/sass_out/member_access.css" type="text/css" rel="stylesheet">
 {% endblock %}
 
 {% block Content %}
-<div style="height:120vh;text-align:center;">
-    <div id="member-access" class="member-access" style="position:relative;height:100%;">
-        <input type="hidden" id="redirect-url" value="{{redirect_url}}">
-        <img id="dark-gate" src="/assets/img/landing/dark-gate.png" class="bg">
-        <img id="light-gate" src="/assets/img/landing/landing_carousel/1.png" class="bg" style="display:none">
-        <div style="position:absolute;">
-            <div id="logo" class="centered-fullscreen" >
-                <img style="margin:auto;height:150px;width:150px;" src="/assets/img/landing/bl-logo-intro.png">
-                <div style="margin:auto;height:30px;"></div>
-                <div id="login-dialog" style="margin:auto;height:281px;width:500px;background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;background-size: cover;display:none;text-align:center;">
-                    <form id="login-form" action="/members/login?redirect_url={{ redirect_url }}" method="POST">
-                        <div>
-                            <input class="form-control authentication-input" id="email" name="email" placeholder="Email">
-                            <input class="form-control authentication-input" id="password" name="password" type="password" placeholder="Password">
-                            <div style="height:15px;"></div>
-                            <div style="height:55px;background:url('/assets/img/landing/access/submit-button.png') no-repeat;margin-left:50px;margin-right:50px;color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;padding-top:18px;line-height:17px;cursor:pointer;" onclick="submitAuthentication()">SIGN IN</div>
-                            <div style="height:18px;"></div>
-                            <p id="authentication-message" class="authentication-message"></p>
-                        </div>
-                    </form>
+<div id="member-access" class="member-access">
+    <input type="hidden" id="redirect-url" value="{{redirect_url}}">
+    <div class="centered-fullscreen" >
+        <img class="logo" src="/assets/img/landing/bl-logo-intro.png">
+        <div id="login-dialog" class="login-dialog">
+            <form id="login-form" action="/members/login?redirect_url={{ redirect_url }}" method="POST">
+                <div>
+                    <input class="form-control authentication-input" id="email" name="email" placeholder="Email">
+                    <input class="form-control authentication-input" id="password" name="password" type="password" placeholder="Password">
+                    <div class="sign-in" onclick="submitAuthentication()">SIGN IN</div>
+                    <p id="authentication-message" class="authentication-message"></p>
                 </div>
-                <div id="signup-button" style="margin:auto;height:81px;width:500px;background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;background-size: cover;text-align:center;">
-                    <div>
-                        <div style="height:15px;"></div>
-                        <a href="/member_registration"><div style="height:55px;background:url('/assets/img/landing/access/submit-button.png') no-repeat;margin-left:50px;margin-right:50px;color:#ffffff;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;padding-top:18px;line-height:17px;cursor:pointer;">SIGN UP</div></a>
-                        <div style="height:18px;"></div>
-                        <p id="authentication-message" class="authentication-message"></p>
-                    </div>
-                </div>
-                {% if not is_member %}<p id="message-login" style="margin:auto;color:#515151;font-family: 'Oswald', sans-serif;font-weight: 300;font-size:17px;width:190px;cursor:pointer;" onclick="showLoginDialog()">ALREADY MEMBER <a style="color:#c62530;text-decoration:none;">LOGIN</a></p>{% endif %}
-            </div>
+            </form>
         </div>
+        <div id="signup-button" class="sign-up-container">
+            <a href="/member_registration"><div class="sign-up">SIGN UP</div></a>
+            <p id="authentication-message" class="authentication-message"></p>
+        </div>
+        {% if not is_member %}<p id="message-login" class="message-login-container" onclick="showLoginDialog()">ALREADY MEMBER <a class="message-login">LOGIN</a></p>{% endif %}
     </div>
 </div>
 {% endblock %}

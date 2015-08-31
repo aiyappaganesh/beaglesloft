@@ -1,0 +1,104 @@
+@import "partials/_text.scss";
+@import "partials/_constants.scss";
+@import "partials/_images.scss";
+@import "partials/_standards.scss";
+
+$font_weight: 300;
+
+.member-access {
+    height:120vh;
+    text-align:center;
+    background-image:url('/assets/img/landing/dark-gate.png');
+    background-position:center center;
+    background-size: cover;
+    background-repeat:no-repeat;
+    font-family: $oswald_font;
+    font-weight: $font_weight;
+
+    @media (max-width: 767px) {
+        min-height:100vh;
+    }
+
+    .logo {
+        margin:auto;
+        height:150px;
+        width:150px;
+    }
+
+    .login-dialog {
+        margin:auto;
+        margin-top: 30px;
+        width:500px;
+        background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;
+        background-size: cover;
+        display:none;
+        text-align:center;
+
+        @media (max-width: 767px) {
+            width:90vw;
+        }
+    }
+
+    .authentication-input {
+        margin:10px auto;
+        width:400px;
+        height:60px;
+        text-align:center;
+        background-color:rgba(255,255,255,0.1);
+        border:none;
+        color:$red_color;
+        font-size:26px;
+        font-weight: $font_weight;
+        display: table-cell;
+        border-radius: 0px;
+
+        @media (max-width: 767px) {
+            width:90vw;
+        }
+
+    }
+
+    .sign-in, .sign-up {
+        height:55px;
+        background:url('/assets/img/landing/access/submit-button.png') no-repeat;
+        background-position: center center;
+        margin:15px 50px;
+        color:$white_color;
+        font-size:17px;
+        padding-top:18px;
+        line-height:17px;
+        cursor:pointer;
+    }
+
+    .authentication-message {
+        color:$red_color;
+        font-size:26px;
+    }
+
+    .sign-up-container {
+        margin:auto;
+        margin-top: 30px;
+        height:81px;
+        width:500px;
+        background:url('/assets/img/landing/access/intro-blackbox.png') no-repeat;
+        background-size: cover;
+        text-align:center;
+
+        @media (max-width: 767px) {
+            width:90vw;
+        }
+    }
+
+    .message-login-container {
+        margin:auto;
+        color:#515151;
+        font-size:17px;
+        width:190px;
+        cursor:pointer;
+    }
+
+    .message-login {
+        color:$red_color;
+        text-decoration:none;
+    }
+}
