@@ -1,0 +1,64 @@
+@import "partials/_text.scss";
+@import "partials/_constants.scss";
+@import "partials/_images.scss";
+@import "partials/_standards.scss";
+
+$oswald_font: 'Oswald', sans-serif;
+
+body{
+	background-color: $grey_color;
+}
+
+.background-image {
+	@include background-image('/assets/img/landing/dark-gate.png');
+}
+
+.logo-container {
+    text-align: center;
+	.logo-image {
+	    height: 150px;
+	    width: 150px;
+	}
+}
+
+.title {
+    @include font_definition($oswald_font,17px,300);
+    color:#515151;
+    text-align:center;
+}
+
+.subscribe-form {
+	text-align: center;
+	.form-field {
+	    margin:auto;
+	    width:400px;
+	    height:60px;
+	    text-align:center;
+	    background-color:rgba(255,255,255,0.1);
+	    border:none;
+	    color:#c62530;
+	    font-size:26px;
+	    font-family: 'Oswald', sans-serif;
+	    font-weight: 300;
+	    margin-top: 10px;
+	    margin-bottom: 10px;
+	    display: table-cell;
+	    border-radius: 0px;
+	}
+	.submit {
+	    margin-top:15px;
+	    margin-bottom:18px;
+	    height:55px;
+	    background:url('/assets/img/landing/access/submit-button.png') no-repeat;
+	    margin-left:50px;
+	    margin-right:50px;
+	    color:#ffffff;
+	    font-family: 'Oswald', sans-serif;
+	    font-weight: 300;
+	    font-size:17px;
+	    padding-top:18px;
+	    line-height:17px;
+	    cursor:pointer;
+	}
+}
+

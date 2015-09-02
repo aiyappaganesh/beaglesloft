@@ -1,0 +1,39 @@
+{% extends "desktop/desktop_base.html" %}
+
+{% block Styles %}
+<link href="/assets/css/sass_out/subscribe_newsletter.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block Content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="background-image">
+            <div class="separator"></div>
+            <div class="logo-container">
+                <img class="logo-image" src="/assets/img/landing/bl-logo-intro.png">
+            </div>
+            <div class="separator"></div>
+            <div class="title">ENTER YOUR DETAILS TO SUBSCRIBE TO THE NEWSLETTER</div>
+            <div class="separator"></div>
+            <div class="subscribe-form">
+                <form id="subscribe-form" action="/api/members/subscribe_to_newsletter" method="POST">
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <input class="form-field" id="email" name="email" placeholder="Email">
+                            <input class="form-field" id="fname" name="fname" placeholder="First Name">
+                            <input class="form-field" id="lname" name="lname" placeholder="Last Name">
+                            <div class="submit" onclick="subscribe()">SUBSCRIBE</div>
+                            <p id="subscription-message" class="subscription-message"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="separator"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block CustomScripts %}
+        <script src="/assets/js/common/subscribe_newsletter.js"></script>
+{% endblock %}

@@ -2,6 +2,15 @@
 @import "partials/_text.scss";
 @import "partials/_constants.scss";
 
+@mixin background-image($img_url)
+{
+	height: 100%;
+	width: 100%;
+	background: {
+		image: url($img_url);
+	}
+}
+
 @mixin hero($hero_img_url)
 {
 	@extend .cover-image;
