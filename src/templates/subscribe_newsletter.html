@@ -15,20 +15,19 @@
             <div class="separator"></div>
             <div class="title">ENTER YOUR DETAILS TO SUBSCRIBE TO THE NEWSLETTER</div>
             <div class="separator"></div>
-            <div class="subscribe-form">
+            <div class="subscribe-form-container">
                 <form id="subscribe-form" action="/api/members/subscribe_to_newsletter" method="POST">
-                    <div class="row">
-                        <div class="col-sm-4 col-sm-offset-4">
-                            <input class="form-field" id="email" name="email" placeholder="Email">
-                            <input class="form-field" id="fname" name="fname" placeholder="First Name">
-                            <input class="form-field" id="lname" name="lname" placeholder="Last Name">
-                            <div class="submit" onclick="subscribe()">SUBSCRIBE</div>
-                            <p id="subscription-message" class="subscription-message"></p>
-                        </div>
+                    <div class="subscribe-form-fields">
+                        <input class="form-field" id="email" name="email" placeholder="Email">
+                        <input class="form-field" id="fname" name="fname" placeholder="First Name">
+                        <input class="form-field" id="lname" name="lname" placeholder="Last Name">
+                        <div class="submit" onclick="subscribe()">SUBSCRIBE</div>
+                        <p id="subscription-message" class="subscription-message"></p>
                     </div>
                 </form>
-            </div>
             <div class="separator"></div>
+            <div class="separator"></div>
+            </div>
         </div>
     </div>
 </div>
