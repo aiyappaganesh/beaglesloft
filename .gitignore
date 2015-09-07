@@ -11,3 +11,4 @@ nohup.out
 robots.txt
 src/assets/.sass-cache/**/
 src/assets/css/sass_out/*
+src/.sass-cache/
