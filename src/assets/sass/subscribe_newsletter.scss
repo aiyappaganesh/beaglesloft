@@ -38,6 +38,9 @@ body{
 		@include background-image('/assets/img/landing/access/intro-blackbox.png');
 		width:500px;
 	    margin:auto;
+	    @media (max-width: 767px) { 
+	    	width: 300px;
+    	}
 		.form-field {
 		    @include font_definition($oswald_font,26px,300);
 		    margin:auto;
@@ -51,19 +54,25 @@ body{
 		    margin-bottom: 10px;
 		    display: table-cell;
 		    border-radius: 0px;
+		    @media (max-width: 767px) { 
+		    	width: 250px;
+	    	}
 		}
 		.submit {
 		    @include font_definition($oswald_font,17px,300);
+		    margin:auto;
 		    margin-top:15px;
 		    margin-bottom:18px;
 		    height:55px;
+		    width: 400px;
 		    background:url('/assets/img/landing/access/submit-button.png') no-repeat;
-		    margin-left:50px;
-		    margin-right:50px;
 		    color:#ffffff;
 		    padding-top:18px;
 		    line-height:17px;
 		    cursor:pointer;
+		    @media (max-width: 767px) { 
+		    	width: 250px;
+	    	}
 		}	
 	}
 }
