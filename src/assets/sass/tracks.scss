@@ -43,7 +43,6 @@ body{
 .track-progress {
     h3 {
         padding-top: 0px;
-        padding-bottom: 24px;
     }
 
     .panel-body {
@@ -71,5 +70,9 @@ body{
 
     &:hover {
         background-color: #f2f2f2;
+    }
+
+    @media screen and (max-width: 767px) {
+        text-align: center;
     }
 }

@@ -73,7 +73,7 @@ class ProgramListingPage(WebRequestHandler):
         template_values = {'program':program,
                            'track':track,
                            'modules':modules,
-                           'listing_heading':get_listing_centered_contents(program)}
+                           'listing_heading':program.name}
         template_values['is_member'] = True if 'member' in self.session else False
         if 'member' in self.session:
             email = self.session['member']

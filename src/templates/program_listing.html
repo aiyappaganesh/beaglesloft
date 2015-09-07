@@ -1,18 +1,15 @@
 {% extends "community_base.html" %}
 
 {% block Styles %}
-<link href="/assets/css/landing.css" type="text/css" rel="stylesheet">
-<link href="/assets/css/tracks.css" type="text/css" rel="stylesheet">
+<link href="/assets/css/sass_out/tracks.css" type="text/css" rel="stylesheet">
 <link href="/assets/css/sass_out/program_listing.css" type="text/css" rel="stylesheet">
 {% endblock %}
 
 {% block Content %}
-<div class="row centered-full-width-element landing-carousel-item" style="height:304px;background:url('/assets/img/landing/tracks.png') center center no-repeat;">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4">
-        {% include "components/centered_content.html" with centered=listing_heading %}
+<div class="hero row">
+    <div class="col-sm-4 col-sm-offset-4">
+        <p>{{listing_heading}}</p>
     </div>
-    <div class="col-sm-4"></div>
 </div>
 <div class="white-background">
     <div class="width960 section-content">

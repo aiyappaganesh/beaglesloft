@@ -7,6 +7,10 @@
 	@include hero('/assets/img/landing/tracks.png');
 }
 
+.learn-more-button {
+    @include learn_more_button($red_color, $button_font_size, $button_font_weight);
+}
+
 .panel-default {
     .panel-heading {
         background-color: #c62530;
