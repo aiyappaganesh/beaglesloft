@@ -33,7 +33,7 @@ html {
                     image: none;
                     repeat: no-repeat;
                 }
-                z-index: 100;
+                z-index: 9999;
                 height: $navbar_height;
                 text-align: center;
                 -webkit-transform: translateY(-100%);
