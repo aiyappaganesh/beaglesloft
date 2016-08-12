@@ -32,10 +32,6 @@ handlers:
   script: handlers.rest.common.app
   secure: never
 
-- url: /api/tracks/.*
-  script: handlers.rest.tracks.app
-  secure: never
-
 ######################### STATIC ENDPOINTS #########################
 
 - url: /assets/css
@@ -73,10 +69,6 @@ handlers:
 
 - url: /candidate/.*
   script: handlers.web.candidates.app
-
-- url: /tracks
-  script: handlers.web.tracks.app
-  secure: never
 
 - url: /.*
   script: handlers.web.app

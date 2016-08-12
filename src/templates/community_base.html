@@ -40,10 +40,8 @@
                     </div>
                     <div class="tabs">
                         <div class="tabs-container">
-                            <a href="/tracks">TRACKS</a>
                             <a href="/events">EVENTS</a>
                             <!--<a href="/community">COMMUNITY</a>-->
-                            <a href="/experts">EXPERTS</a>
                             <a href="/newsletters">NEWSLETTERS</a>
                             <a href="http://beaglesblog.tumblr.com" target="_blank">BLOG</a>
                             <a href="{% if is_member %}/members/profile{% else %}/member_access{% endif %}" {% if is_member %}style="padding-top:0px;padding-bottom:0px;"{% endif %}>{% if is_member %}<img data-toggle="popover" title="{{member.name}}" data-content="{{member.designation}} at {{member.organization}}" data-trigger="hover" data-placement="bottom" style="height:50px;width:50px;" src="{{member.image_url}}">{% else %}JOIN{% endif %}</a>
@@ -87,11 +85,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/tracks" class="nav-link">
-                        <div style="text-align:center">TRACKS</div>
-                    </a>
-                </li>
-                <li>
                     <a href="/events" class="nav-link">
                         <div style="text-align:center">EVENTS</div>
                     </a>
@@ -101,11 +94,6 @@
                         <!--<div style="text-align:center">COMMUNITY</div>-->
                     <!--</a>-->
                 <!--</li>-->
-                <li>
-                    <a href="/experts" class="nav-link">
-                        <div style="text-align:center">EXPERTS</div>
-                    </a>
-                </li>
                 <li>
                     <a href="/newsletters" class="nav-link">
                         <div style="text-align:center">NEWSLETTERS</div>
